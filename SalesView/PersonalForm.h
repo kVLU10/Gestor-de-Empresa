@@ -518,7 +518,7 @@ namespace SalesView {
 				this->Nombre1,
 					this->Nombre2, this->Apellido1, this->Apellido2, this->Telefono, this->DocumentNumber, this->Correo, this->Contraseña, this->Cumpleaños
 			});
-			this->dgvPersonal->Location = System::Drawing::Point(2, 3);
+			this->dgvPersonal->Location = System::Drawing::Point(3, 0);
 			this->dgvPersonal->Name = L"dgvPersonal";
 			this->dgvPersonal->Size = System::Drawing::Size(742, 286);
 			this->dgvPersonal->TabIndex = 0;

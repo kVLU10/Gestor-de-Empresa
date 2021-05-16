@@ -81,6 +81,9 @@ namespace SalesView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Description;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Price;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Status;
+	private: System::Windows::Forms::Panel^ panel2;
+	private: System::Windows::Forms::Panel^ panel1;
+	private: System::Windows::Forms::Panel^ panel3;
 
 
 
@@ -125,29 +128,22 @@ namespace SalesView {
 			this->lblDescription = (gcnew System::Windows::Forms::Label());
 			this->lblName = (gcnew System::Windows::Forms::Label());
 			this->tabProducts = (gcnew System::Windows::Forms::TabControl());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->panel3 = (gcnew System::Windows::Forms::Panel());
 			this->tabPage1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvProducts))->BeginInit();
 			this->tabProducts->SuspendLayout();
+			this->panel1->SuspendLayout();
+			this->panel2->SuspendLayout();
+			this->panel3->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// tabPage1
 			// 
-			this->tabPage1->Controls->Add(this->dgvProducts);
-			this->tabPage1->Controls->Add(this->btnDelete);
-			this->tabPage1->Controls->Add(this->btnUpdate);
-			this->tabPage1->Controls->Add(this->btnAdds);
-			this->tabPage1->Controls->Add(this->txtPrice);
-			this->tabPage1->Controls->Add(this->txtBonusPoints);
-			this->tabPage1->Controls->Add(this->txtBrand);
-			this->tabPage1->Controls->Add(this->txtId);
-			this->tabPage1->Controls->Add(this->txtDescription);
-			this->tabPage1->Controls->Add(this->txtName);
-			this->tabPage1->Controls->Add(this->lblBrand);
-			this->tabPage1->Controls->Add(this->lblBonusPoints);
-			this->tabPage1->Controls->Add(this->lblPrice);
-			this->tabPage1->Controls->Add(this->lblCode);
-			this->tabPage1->Controls->Add(this->lblDescription);
-			this->tabPage1->Controls->Add(this->lblName);
+			this->tabPage1->Controls->Add(this->panel2);
+			this->tabPage1->Controls->Add(this->panel1);
+			this->tabPage1->Controls->Add(this->panel3);
 			this->tabPage1->Location = System::Drawing::Point(4, 22);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
@@ -164,7 +160,7 @@ namespace SalesView {
 				this->Id, this->NameProduct,
 					this->Brand, this->BonusPoints, this->Description, this->Price, this->Status
 			});
-			this->dgvProducts->Location = System::Drawing::Point(66, 222);
+			this->dgvProducts->Location = System::Drawing::Point(32, 19);
 			this->dgvProducts->Name = L"dgvProducts";
 			this->dgvProducts->Size = System::Drawing::Size(745, 224);
 			this->dgvProducts->TabIndex = 15;
@@ -206,7 +202,7 @@ namespace SalesView {
 			// 
 			// btnDelete
 			// 
-			this->btnDelete->Location = System::Drawing::Point(539, 162);
+			this->btnDelete->Location = System::Drawing::Point(536, 13);
 			this->btnDelete->Name = L"btnDelete";
 			this->btnDelete->Size = System::Drawing::Size(115, 23);
 			this->btnDelete->TabIndex = 14;
@@ -215,7 +211,7 @@ namespace SalesView {
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(307, 162);
+			this->btnUpdate->Location = System::Drawing::Point(304, 13);
 			this->btnUpdate->Name = L"btnUpdate";
 			this->btnUpdate->Size = System::Drawing::Size(115, 23);
 			this->btnUpdate->TabIndex = 13;
@@ -224,7 +220,7 @@ namespace SalesView {
 			// 
 			// btnAdds
 			// 
-			this->btnAdds->Location = System::Drawing::Point(66, 162);
+			this->btnAdds->Location = System::Drawing::Point(63, 13);
 			this->btnAdds->Name = L"btnAdds";
 			this->btnAdds->Size = System::Drawing::Size(115, 23);
 			this->btnAdds->TabIndex = 12;
@@ -234,42 +230,42 @@ namespace SalesView {
 			// 
 			// txtPrice
 			// 
-			this->txtPrice->Location = System::Drawing::Point(526, 99);
+			this->txtPrice->Location = System::Drawing::Point(522, 95);
 			this->txtPrice->Name = L"txtPrice";
 			this->txtPrice->Size = System::Drawing::Size(100, 20);
 			this->txtPrice->TabIndex = 11;
 			// 
 			// txtBonusPoints
 			// 
-			this->txtBonusPoints->Location = System::Drawing::Point(526, 50);
+			this->txtBonusPoints->Location = System::Drawing::Point(522, 46);
 			this->txtBonusPoints->Name = L"txtBonusPoints";
 			this->txtBonusPoints->Size = System::Drawing::Size(100, 20);
 			this->txtBonusPoints->TabIndex = 10;
 			// 
 			// txtBrand
 			// 
-			this->txtBrand->Location = System::Drawing::Point(283, 99);
+			this->txtBrand->Location = System::Drawing::Point(279, 95);
 			this->txtBrand->Name = L"txtBrand";
 			this->txtBrand->Size = System::Drawing::Size(201, 20);
 			this->txtBrand->TabIndex = 9;
 			// 
 			// txtId
 			// 
-			this->txtId->Location = System::Drawing::Point(35, 50);
+			this->txtId->Location = System::Drawing::Point(31, 46);
 			this->txtId->Name = L"txtId";
 			this->txtId->Size = System::Drawing::Size(169, 20);
 			this->txtId->TabIndex = 8;
 			// 
 			// txtDescription
 			// 
-			this->txtDescription->Location = System::Drawing::Point(35, 99);
+			this->txtDescription->Location = System::Drawing::Point(31, 95);
 			this->txtDescription->Name = L"txtDescription";
 			this->txtDescription->Size = System::Drawing::Size(203, 20);
 			this->txtDescription->TabIndex = 7;
 			// 
 			// txtName
 			// 
-			this->txtName->Location = System::Drawing::Point(283, 50);
+			this->txtName->Location = System::Drawing::Point(279, 46);
 			this->txtName->Name = L"txtName";
 			this->txtName->Size = System::Drawing::Size(203, 20);
 			this->txtName->TabIndex = 6;
@@ -277,7 +273,7 @@ namespace SalesView {
 			// lblBrand
 			// 
 			this->lblBrand->AutoSize = true;
-			this->lblBrand->Location = System::Drawing::Point(280, 83);
+			this->lblBrand->Location = System::Drawing::Point(276, 79);
 			this->lblBrand->Name = L"lblBrand";
 			this->lblBrand->Size = System::Drawing::Size(37, 13);
 			this->lblBrand->TabIndex = 5;
@@ -286,7 +282,7 @@ namespace SalesView {
 			// lblBonusPoints
 			// 
 			this->lblBonusPoints->AutoSize = true;
-			this->lblBonusPoints->Location = System::Drawing::Point(523, 34);
+			this->lblBonusPoints->Location = System::Drawing::Point(519, 30);
 			this->lblBonusPoints->Name = L"lblBonusPoints";
 			this->lblBonusPoints->Size = System::Drawing::Size(73, 13);
 			this->lblBonusPoints->TabIndex = 4;
@@ -295,7 +291,7 @@ namespace SalesView {
 			// lblPrice
 			// 
 			this->lblPrice->AutoSize = true;
-			this->lblPrice->Location = System::Drawing::Point(523, 83);
+			this->lblPrice->Location = System::Drawing::Point(519, 79);
 			this->lblPrice->Name = L"lblPrice";
 			this->lblPrice->Size = System::Drawing::Size(37, 13);
 			this->lblPrice->TabIndex = 3;
@@ -304,7 +300,7 @@ namespace SalesView {
 			// lblCode
 			// 
 			this->lblCode->AutoSize = true;
-			this->lblCode->Location = System::Drawing::Point(32, 34);
+			this->lblCode->Location = System::Drawing::Point(28, 30);
 			this->lblCode->Name = L"lblCode";
 			this->lblCode->Size = System::Drawing::Size(40, 13);
 			this->lblCode->TabIndex = 2;
@@ -313,7 +309,7 @@ namespace SalesView {
 			// lblDescription
 			// 
 			this->lblDescription->AutoSize = true;
-			this->lblDescription->Location = System::Drawing::Point(32, 83);
+			this->lblDescription->Location = System::Drawing::Point(28, 79);
 			this->lblDescription->Name = L"lblDescription";
 			this->lblDescription->Size = System::Drawing::Size(63, 13);
 			this->lblDescription->TabIndex = 1;
@@ -322,7 +318,7 @@ namespace SalesView {
 			// lblName
 			// 
 			this->lblName->AutoSize = true;
-			this->lblName->Location = System::Drawing::Point(280, 34);
+			this->lblName->Location = System::Drawing::Point(276, 30);
 			this->lblName->Name = L"lblName";
 			this->lblName->Size = System::Drawing::Size(44, 13);
 			this->lblName->TabIndex = 0;
@@ -337,6 +333,43 @@ namespace SalesView {
 			this->tabProducts->Size = System::Drawing::Size(893, 502);
 			this->tabProducts->TabIndex = 0;
 			// 
+			// panel1
+			// 
+			this->panel1->Controls->Add(this->txtPrice);
+			this->panel1->Controls->Add(this->txtBonusPoints);
+			this->panel1->Controls->Add(this->txtBrand);
+			this->panel1->Controls->Add(this->txtId);
+			this->panel1->Controls->Add(this->txtDescription);
+			this->panel1->Controls->Add(this->txtName);
+			this->panel1->Controls->Add(this->lblBrand);
+			this->panel1->Controls->Add(this->lblBonusPoints);
+			this->panel1->Controls->Add(this->lblPrice);
+			this->panel1->Controls->Add(this->lblCode);
+			this->panel1->Controls->Add(this->lblDescription);
+			this->panel1->Controls->Add(this->lblName);
+			this->panel1->Location = System::Drawing::Point(4, 4);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(708, 139);
+			this->panel1->TabIndex = 16;
+			// 
+			// panel2
+			// 
+			this->panel2->Controls->Add(this->btnDelete);
+			this->panel2->Controls->Add(this->btnUpdate);
+			this->panel2->Controls->Add(this->btnAdds);
+			this->panel2->Location = System::Drawing::Point(3, 149);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(708, 52);
+			this->panel2->TabIndex = 17;
+			// 
+			// panel3
+			// 
+			this->panel3->Controls->Add(this->dgvProducts);
+			this->panel3->Location = System::Drawing::Point(3, 207);
+			this->panel3->Name = L"panel3";
+			this->panel3->Size = System::Drawing::Size(825, 259);
+			this->panel3->TabIndex = 18;
+			// 
 			// ProductForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -346,9 +379,12 @@ namespace SalesView {
 			this->Name = L"ProductForm";
 			this->Text = L"Productos";
 			this->tabPage1->ResumeLayout(false);
-			this->tabPage1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvProducts))->EndInit();
 			this->tabProducts->ResumeLayout(false);
+			this->panel1->ResumeLayout(false);
+			this->panel1->PerformLayout();
+			this->panel2->ResumeLayout(false);
+			this->panel3->ResumeLayout(false);
 			this->ResumeLayout(false);
 
 		}
