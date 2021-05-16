@@ -341,10 +341,10 @@ namespace SalesView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(917, 526);
+			this->ClientSize = System::Drawing::Size(881, 526);
 			this->Controls->Add(this->tabProducts);
 			this->Name = L"ProductForm";
-			this->Text = L"ProductForm";
+			this->Text = L"Productos";
 			this->tabPage1->ResumeLayout(false);
 			this->tabPage1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvProducts))->EndInit();
@@ -361,7 +361,7 @@ namespace SalesView {
 		String^ brand = txtBrand->Text;
 		double price = Double::Parse(txtPrice->Text);
 
-		Products^ p = gcnew Products(id, name, description, bonusPoints, price, brand, 'A');
+		Products^ p = gcnew Products(id, name, description, bonusPoints, price, brand, "Habilitado");
 		SalesManager::AddProduct(p);
 		RefreshDGVProducts();
 	}	
@@ -374,7 +374,7 @@ namespace SalesView {
 		String^ brand = txtBrand->Text;
 		double price = Double::Parse(txtPrice->Text);
 
-		Products^ p = gcnew Products(id, name, description, bonusPoints, price, brand, 'A');
+		Products^ p = gcnew Products(id, name, description, bonusPoints, price, brand, "Habilitado");
 		SalesManager::UpdateProduct(p);
 	}
 
@@ -390,7 +390,7 @@ namespace SalesView {
 									   "" +	productList[i]->BonusPoints,
 											productList[i]->Description,
 									   "" +	productList[i]->Precio,
-									   "" +	productList[i]->Status,
+											productList[i]->Status,
 										});
 		}
 private: System::Void tabPage1_Click(System::Object^ sender, System::EventArgs^ e) {

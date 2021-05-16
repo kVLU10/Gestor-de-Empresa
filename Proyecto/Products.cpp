@@ -9,7 +9,7 @@
  * Products implementation
  */
 
-Proyecto::Products::Products(int id, String^ name, String^ description, int bonusPoints, double price, String^ brand, char status)
+Proyecto::Products::Products(int id, String^ name, String^ description, int bonusPoints, double price, String^ brand, String^ status)
 {
     this->Id = id;
     this->Name = name;

@@ -21,7 +21,7 @@ void SalesController::DBController::DeleteProduct(int productId)
 {
     for (int i = 0; i < productDB->ListDB->Count; i++)
         if (productDB->ListDB[i]->Id == productId) {
-            productDB->ListDB[i]->Status = 'I';
+            productDB->ListDB[i]->Status = "Inhabilitado";
             return;
         }
 }
