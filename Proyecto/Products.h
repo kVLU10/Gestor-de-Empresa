@@ -17,7 +17,7 @@ namespace Proyecto {
         property String^ Name;
         property int Quantity;
         property int BonusPoints;
-        property char Status;
+        property String^ Status;
         property double Precio;
         property String^ Marca;
         property String^ Description;
@@ -25,6 +25,6 @@ namespace Proyecto {
         property Brand^ Brand;
         property Price^ Price;
         Products() {}
-        Products(int id, String^ name, String^ description, int bonusPoints, double price, String^ brand, char status);
+        Products(int id, String^ name, String^ description, int bonusPoints, double price, String^ brand, String^ status);
     };
 }

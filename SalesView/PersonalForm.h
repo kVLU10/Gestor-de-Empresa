@@ -470,14 +470,14 @@ namespace SalesView {
 			this->panel4->Controls->Add(this->btnDelete);
 			this->panel4->Controls->Add(this->btnUpdate);
 			this->panel4->Controls->Add(this->btnAdd);
-			this->panel4->Location = System::Drawing::Point(4, 636);
+			this->panel4->Location = System::Drawing::Point(2, 312);
 			this->panel4->Name = L"panel4";
-			this->panel4->Size = System::Drawing::Size(742, 100);
+			this->panel4->Size = System::Drawing::Size(643, 50);
 			this->panel4->TabIndex = 1;
 			// 
 			// btnDelete
 			// 
-			this->btnDelete->Location = System::Drawing::Point(468, 41);
+			this->btnDelete->Location = System::Drawing::Point(468, 13);
 			this->btnDelete->Name = L"btnDelete";
 			this->btnDelete->Size = System::Drawing::Size(126, 23);
 			this->btnDelete->TabIndex = 2;
@@ -486,7 +486,7 @@ namespace SalesView {
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(262, 40);
+			this->btnUpdate->Location = System::Drawing::Point(262, 12);
 			this->btnUpdate->Name = L"btnUpdate";
 			this->btnUpdate->Size = System::Drawing::Size(126, 24);
 			this->btnUpdate->TabIndex = 1;
@@ -495,7 +495,7 @@ namespace SalesView {
 			// 
 			// btnAdd
 			// 
-			this->btnAdd->Location = System::Drawing::Point(51, 41);
+			this->btnAdd->Location = System::Drawing::Point(51, 13);
 			this->btnAdd->Name = L"btnAdd";
 			this->btnAdd->Size = System::Drawing::Size(126, 23);
 			this->btnAdd->TabIndex = 0;
@@ -506,9 +506,9 @@ namespace SalesView {
 			// panel3
 			// 
 			this->panel3->Controls->Add(this->dgvPersonal);
-			this->panel3->Location = System::Drawing::Point(3, 313);
+			this->panel3->Location = System::Drawing::Point(0, 368);
 			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(743, 317);
+			this->panel3->Size = System::Drawing::Size(753, 292);
 			this->panel3->TabIndex = 0;
 			// 
 			// dgvPersonal
@@ -518,9 +518,9 @@ namespace SalesView {
 				this->Nombre1,
 					this->Nombre2, this->Apellido1, this->Apellido2, this->Telefono, this->DocumentNumber, this->Correo, this->Contraseña, this->Cumpleaños
 			});
-			this->dgvPersonal->Location = System::Drawing::Point(3, 23);
+			this->dgvPersonal->Location = System::Drawing::Point(2, 3);
 			this->dgvPersonal->Name = L"dgvPersonal";
-			this->dgvPersonal->Size = System::Drawing::Size(734, 291);
+			this->dgvPersonal->Size = System::Drawing::Size(742, 286);
 			this->dgvPersonal->TabIndex = 0;
 			this->dgvPersonal->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &PersonalForm::dataGridView1_CellContentClick);
 			// 
@@ -573,10 +573,10 @@ namespace SalesView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(771, 794);
+			this->ClientSize = System::Drawing::Size(771, 749);
 			this->Controls->Add(this->tabControl1);
 			this->Name = L"PersonalForm";
-			this->Text = L"PersonalForm";
+			this->Text = L"Personal";
 			this->tabControl1->ResumeLayout(false);
 			this->tabPersonal->ResumeLayout(false);
 			this->panel1->ResumeLayout(false);
