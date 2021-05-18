@@ -13,6 +13,6 @@ namespace Proyecto {
         property int BonusPoints;
         Client() {}
         Client(int id, String^ firstName, String^ secondName, String^ firstLastName, String^ secondLastName, 
-               String^ address, int bonusPoints);
+               String^ address, int bonusPoints, String^ birthday, String^ personalEmail, String^ phoneNumber);
     };
 }
