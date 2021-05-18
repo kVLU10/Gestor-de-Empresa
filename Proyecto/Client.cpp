@@ -10,7 +10,7 @@
  */
 
 Proyecto::Client::Client(int id, String^ firstName, String^ secondName, String^ firstLastName, String^ secondLastName, 
-						 String^ address, int bonusPoints)
+						 String^ address, int bonusPoints, String^ birthday, String^ personalEmail, String^ phoneNumber)
 {
 	this->Id = id;
 	this->FirstName = firstName;
@@ -19,4 +19,7 @@ Proyecto::Client::Client(int id, String^ firstName, String^ secondName, String^ 
 	this->SecondLastName = secondLastName;
 	this->Address = address;
 	this->BonusPoints = bonusPoints;
+	this->PersonalEmail = personalEmail;
+	this->PhoneNumber = phoneNumber;
+	this->Birthday = birthday;
 }

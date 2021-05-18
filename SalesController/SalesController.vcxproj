@@ -119,6 +119,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ClientDB.h" />
     <ClInclude Include="DBController.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="PersonalDB.h" />
@@ -128,6 +129,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="ClientDB.cpp" />
     <ClCompile Include="DBController.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

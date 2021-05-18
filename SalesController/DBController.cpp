@@ -74,3 +74,39 @@ Personal^ SalesController::DBController::QueryPersonalByDocumentNumber(String^ p
             return personalDB->ListDBP[i];
     return nullptr;
 }
+
+void SalesController::DBController::AddClient(Client^ client)
+{
+    clientDB->ListDBC->Add(client);
+}
+
+void SalesController::DBController::UpdateClient(Client^ client)
+{
+    for (int i = 0; i < clientDB->ListDBC->Count; i++)
+        if (clientDB->ListDBC[i]->DocumentNumber == client->DocumentNumber) {
+            clientDB->ListDBC[i] = client;
+            return;
+        }
+}
+
+void SalesController::DBController::DeleteClient(String^ DocumentNumber)
+{
+    for (int i = 0; i < clientDB->ListDBC->Count; i++)
+        if (clientDB->ListDBC[i]->DocumentNumber == DocumentNumber) {
+            clientDB->ListDBC[i]->Status = 'I';
+            return;
+        }
+}
+
+List<Client^>^ SalesController::DBController::QueryClient()
+{
+    return clientDB->ListDBC;
+}
+
+Client^ SalesController::DBController::QueryClientByDocumentNumber(String^ clientDocumentNumber)
+{
+    for (int i = 0; i < clientDB->ListDBC->Count; i++)
+        if (clientDB->ListDBC[i]->DocumentNumber == clientDocumentNumber)
+            return clientDB->ListDBC[i];
+    return nullptr;
+}

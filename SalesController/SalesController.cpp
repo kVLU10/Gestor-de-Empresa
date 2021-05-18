@@ -53,6 +53,31 @@ Personal^ SalesController::SalesManager::QueryPersonalByDocumentNumber(String^ p
 	return DBController::QueryPersonalByDocumentNumber(personalDocumentNumber);
 }
 
+void SalesController::SalesManager::AddClient(Client^ c)
+{
+	DBController::AddClient(c);
+}
+
+void SalesController::SalesManager::UpdateClient(Client^ c)
+{
+	DBController::UpdateClient(c);
+}
+
+void SalesController::SalesManager::DeleteClient(String^ DocumentNumber)
+{
+	DBController::DeleteClient(DocumentNumber);
+}
+
+List<Client^>^ SalesController::SalesManager::QueryClient()
+{
+	return DBController::QueryClient();
+}
+
+Client^ SalesController::SalesManager::QueryClientByDocumentNumber(String^ clientDocumentNumber)
+{
+	return DBController::QueryClientByDocumentNumber(clientDocumentNumber);
+}
+
 Personal^ SalesController::SalesManager::ValidateUser(String^ username, String^ password)
 {
 	Personal^ personal = nullptr;
