@@ -104,17 +104,11 @@ namespace SalesView {
 		/// </summary>
 		void InitializeComponent(void){
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
-			this->dgvProducts = (gcnew System::Windows::Forms::DataGridView());
-			this->Id = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->NameProduct = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Brand = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->BonusPoints = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Description = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Price = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Status = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->btnDelete = (gcnew System::Windows::Forms::Button());
 			this->btnUpdate = (gcnew System::Windows::Forms::Button());
 			this->btnAdds = (gcnew System::Windows::Forms::Button());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->txtPrice = (gcnew System::Windows::Forms::TextBox());
 			this->txtBonusPoints = (gcnew System::Windows::Forms::TextBox());
 			this->txtBrand = (gcnew System::Windows::Forms::TextBox());
@@ -127,16 +121,22 @@ namespace SalesView {
 			this->lblCode = (gcnew System::Windows::Forms::Label());
 			this->lblDescription = (gcnew System::Windows::Forms::Label());
 			this->lblName = (gcnew System::Windows::Forms::Label());
-			this->tabProducts = (gcnew System::Windows::Forms::TabControl());
-			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
+			this->dgvProducts = (gcnew System::Windows::Forms::DataGridView());
+			this->Id = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->NameProduct = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Brand = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->BonusPoints = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Description = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Price = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Status = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->tabProducts = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1->SuspendLayout();
+			this->panel2->SuspendLayout();
+			this->panel1->SuspendLayout();
+			this->panel3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvProducts))->BeginInit();
 			this->tabProducts->SuspendLayout();
-			this->panel1->SuspendLayout();
-			this->panel2->SuspendLayout();
-			this->panel3->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// tabPage1
@@ -151,54 +151,16 @@ namespace SalesView {
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Productos";
 			this->tabPage1->UseVisualStyleBackColor = true;
-			this->tabPage1->Click += gcnew System::EventHandler(this, &ProductForm::tabPage1_Click);
 			// 
-			// dgvProducts
+			// panel2
 			// 
-			this->dgvProducts->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvProducts->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(7) {
-				this->Id, this->NameProduct,
-					this->Brand, this->BonusPoints, this->Description, this->Price, this->Status
-			});
-			this->dgvProducts->Location = System::Drawing::Point(32, 19);
-			this->dgvProducts->Name = L"dgvProducts";
-			this->dgvProducts->Size = System::Drawing::Size(745, 224);
-			this->dgvProducts->TabIndex = 15;
-			// 
-			// Id
-			// 
-			this->Id->HeaderText = L"Código";
-			this->Id->Name = L"Id";
-			// 
-			// NameProduct
-			// 
-			this->NameProduct->HeaderText = L"Nombre";
-			this->NameProduct->Name = L"NameProduct";
-			// 
-			// Brand
-			// 
-			this->Brand->HeaderText = L"Marca";
-			this->Brand->Name = L"Brand";
-			// 
-			// BonusPoints
-			// 
-			this->BonusPoints->HeaderText = L"Puntos Bonus";
-			this->BonusPoints->Name = L"BonusPoints";
-			// 
-			// Description
-			// 
-			this->Description->HeaderText = L"Descripción";
-			this->Description->Name = L"Description";
-			// 
-			// Price
-			// 
-			this->Price->HeaderText = L"Precio";
-			this->Price->Name = L"Price";
-			// 
-			// Status
-			// 
-			this->Status->HeaderText = L"Estado";
-			this->Status->Name = L"Status";
+			this->panel2->Controls->Add(this->btnDelete);
+			this->panel2->Controls->Add(this->btnUpdate);
+			this->panel2->Controls->Add(this->btnAdds);
+			this->panel2->Location = System::Drawing::Point(3, 149);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(708, 52);
+			this->panel2->TabIndex = 17;
 			// 
 			// btnDelete
 			// 
@@ -208,6 +170,7 @@ namespace SalesView {
 			this->btnDelete->TabIndex = 14;
 			this->btnDelete->Text = L"&Eliminar";
 			this->btnDelete->UseVisualStyleBackColor = true;
+			this->btnDelete->Click += gcnew System::EventHandler(this, &ProductForm::btnDelete_Click);
 			// 
 			// btnUpdate
 			// 
@@ -227,6 +190,25 @@ namespace SalesView {
 			this->btnAdds->Text = L"&Agregar";
 			this->btnAdds->UseVisualStyleBackColor = true;
 			this->btnAdds->Click += gcnew System::EventHandler(this, &ProductForm::btnAdds_Click);
+			// 
+			// panel1
+			// 
+			this->panel1->Controls->Add(this->txtPrice);
+			this->panel1->Controls->Add(this->txtBonusPoints);
+			this->panel1->Controls->Add(this->txtBrand);
+			this->panel1->Controls->Add(this->txtId);
+			this->panel1->Controls->Add(this->txtDescription);
+			this->panel1->Controls->Add(this->txtName);
+			this->panel1->Controls->Add(this->lblBrand);
+			this->panel1->Controls->Add(this->lblBonusPoints);
+			this->panel1->Controls->Add(this->lblPrice);
+			this->panel1->Controls->Add(this->lblCode);
+			this->panel1->Controls->Add(this->lblDescription);
+			this->panel1->Controls->Add(this->lblName);
+			this->panel1->Location = System::Drawing::Point(4, 4);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(708, 139);
+			this->panel1->TabIndex = 16;
 			// 
 			// txtPrice
 			// 
@@ -324,6 +306,61 @@ namespace SalesView {
 			this->lblName->TabIndex = 0;
 			this->lblName->Text = L"Nombre";
 			// 
+			// panel3
+			// 
+			this->panel3->Controls->Add(this->dgvProducts);
+			this->panel3->Location = System::Drawing::Point(3, 207);
+			this->panel3->Name = L"panel3";
+			this->panel3->Size = System::Drawing::Size(825, 259);
+			this->panel3->TabIndex = 18;
+			// 
+			// dgvProducts
+			// 
+			this->dgvProducts->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgvProducts->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(7) {
+				this->Id, this->NameProduct,
+					this->Brand, this->BonusPoints, this->Description, this->Price, this->Status
+			});
+			this->dgvProducts->Location = System::Drawing::Point(32, 19);
+			this->dgvProducts->Name = L"dgvProducts";
+			this->dgvProducts->Size = System::Drawing::Size(745, 224);
+			this->dgvProducts->TabIndex = 15;
+			// 
+			// Id
+			// 
+			this->Id->HeaderText = L"Código";
+			this->Id->Name = L"Id";
+			// 
+			// NameProduct
+			// 
+			this->NameProduct->HeaderText = L"Nombre";
+			this->NameProduct->Name = L"NameProduct";
+			// 
+			// Brand
+			// 
+			this->Brand->HeaderText = L"Marca";
+			this->Brand->Name = L"Brand";
+			// 
+			// BonusPoints
+			// 
+			this->BonusPoints->HeaderText = L"Puntos Bonus";
+			this->BonusPoints->Name = L"BonusPoints";
+			// 
+			// Description
+			// 
+			this->Description->HeaderText = L"Descripción";
+			this->Description->Name = L"Description";
+			// 
+			// Price
+			// 
+			this->Price->HeaderText = L"Precio";
+			this->Price->Name = L"Price";
+			// 
+			// Status
+			// 
+			this->Status->HeaderText = L"Estado";
+			this->Status->Name = L"Status";
+			// 
 			// tabProducts
 			// 
 			this->tabProducts->Controls->Add(this->tabPage1);
@@ -332,43 +369,6 @@ namespace SalesView {
 			this->tabProducts->SelectedIndex = 0;
 			this->tabProducts->Size = System::Drawing::Size(893, 502);
 			this->tabProducts->TabIndex = 0;
-			// 
-			// panel1
-			// 
-			this->panel1->Controls->Add(this->txtPrice);
-			this->panel1->Controls->Add(this->txtBonusPoints);
-			this->panel1->Controls->Add(this->txtBrand);
-			this->panel1->Controls->Add(this->txtId);
-			this->panel1->Controls->Add(this->txtDescription);
-			this->panel1->Controls->Add(this->txtName);
-			this->panel1->Controls->Add(this->lblBrand);
-			this->panel1->Controls->Add(this->lblBonusPoints);
-			this->panel1->Controls->Add(this->lblPrice);
-			this->panel1->Controls->Add(this->lblCode);
-			this->panel1->Controls->Add(this->lblDescription);
-			this->panel1->Controls->Add(this->lblName);
-			this->panel1->Location = System::Drawing::Point(4, 4);
-			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(708, 139);
-			this->panel1->TabIndex = 16;
-			// 
-			// panel2
-			// 
-			this->panel2->Controls->Add(this->btnDelete);
-			this->panel2->Controls->Add(this->btnUpdate);
-			this->panel2->Controls->Add(this->btnAdds);
-			this->panel2->Location = System::Drawing::Point(3, 149);
-			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(708, 52);
-			this->panel2->TabIndex = 17;
-			// 
-			// panel3
-			// 
-			this->panel3->Controls->Add(this->dgvProducts);
-			this->panel3->Location = System::Drawing::Point(3, 207);
-			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(825, 259);
-			this->panel3->TabIndex = 18;
 			// 
 			// ProductForm
 			// 
@@ -379,29 +379,81 @@ namespace SalesView {
 			this->Name = L"ProductForm";
 			this->Text = L"Productos";
 			this->tabPage1->ResumeLayout(false);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvProducts))->EndInit();
-			this->tabProducts->ResumeLayout(false);
+			this->panel2->ResumeLayout(false);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
-			this->panel2->ResumeLayout(false);
 			this->panel3->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvProducts))->EndInit();
+			this->tabProducts->ResumeLayout(false);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 	private: System::Void btnAdds_Click(System::Object^ sender, System::EventArgs^ e) {
-		int id = Int32::Parse(txtId->Text);
-		String^ name = txtName->Text;
-		int bonusPoints = Int32::Parse(txtBonusPoints->Text);
-		String^ description = txtDescription->Text;
-		String^ brand = txtBrand->Text;
-		double price = Double::Parse(txtPrice->Text);
+		Products^ p = gcnew Products();
+		try {
+			if (txtPrice->Text->Trim() == "") {
+				MessageBox::Show("El precio no debe estar vacío.");
+				return;
+			}
+			/*
+			if (txtStock->Text->Trim() == "") {
+				MessageBox::Show("El stock no debe estar vacío.");
+				return;
+			}
+			*/
+			p->Id = Int32::Parse(txtId->Text);
+			p->Name = txtName->Text;
+			p->Description = txtDescription->Text;
+			p->BonusPoints = Int32::Parse(txtBonusPoints->Text);
+			p->Precio = Double::Parse(txtPrice->Text);
+			p->Marca = txtBrand->Text;
+			p->Status = "Habilitado";
+			/*
+			int id = Int32::Parse(txtId->Text);
+			String^ name = txtName->Text;
+			int bonusPoints = Int32::Parse(txtBonusPoints->Text);
+			String^ description = txtDescription->Text;
+			String^ brand = txtBrand->Text;
+			double price = Double::Parse(txtPrice->Text);
+			*/
 
-		Products^ p = gcnew Products(id, name, description, bonusPoints, price, brand, "Habilitado");
-		SalesManager::AddProduct(p);
-		RefreshDGVProducts();
+			//Products^ p = gcnew Products(id, name, description, bonusPoints, price, brand, "Habilitado");
+			SalesManager::AddProduct(p);
+			RefreshDGVProducts();
+			ClearControls();
+		}
+		catch (Exception^ ex) {
+			MessageBox::Show(ex->ToString(), "Error al guardar el producto por error en los datos.");
+			return;
+		}
 	}	
 
+	private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
+		int productId = -1;
+		try {
+			if (txtId->Text->Trim() == "") {
+				MessageBox::Show("No se puede eliminar porque no hay ningún producto seleccionado.");
+				return;
+			}
+			productId = Int32::Parse(txtId->Text);
+		}
+		catch (...) {
+			MessageBox::Show("No se puede eliminar el producto porque el Id no es válido.");
+			return;
+		}
+		if (MessageBox::Show(
+			"¿Está seguro de eliminar el producto?",
+			"Confirmación", MessageBoxButtons::YesNo,
+			MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
+		{
+			SalesManager::DeleteProduct(productId);
+			RefreshDGVProducts();
+			ClearControls();
+		}
+	}
+
+	/*
 	private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
 		int id = Int32::Parse(txtId->Text);
 		String^ name = txtName->Text;
@@ -413,6 +465,7 @@ namespace SalesView {
 		Products^ p = gcnew Products(id, name, description, bonusPoints, price, brand, "Habilitado");
 		SalesManager::UpdateProduct(p);
 	}
+	*/
 
 	public:
 		void RefreshDGVProducts() {
@@ -429,7 +482,13 @@ namespace SalesView {
 											productList[i]->Status,
 										});
 		}
-private: System::Void tabPage1_Click(System::Object^ sender, System::EventArgs^ e) {
-}
+		System::Void ClearControls() {
+			txtId->Clear();
+			txtName->Clear();
+			txtBrand->Clear();
+			txtBonusPoints->Clear();
+			txtDescription->Clear();
+			txtPrice->Clear();
+		}
 };
 }
