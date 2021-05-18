@@ -13,6 +13,8 @@ namespace Proyecto {
     public ref class Store {
     public:
         property String^ Name;
+        property int id;
         property String^ Adress;
+        property String^ Status;
     };
 }
