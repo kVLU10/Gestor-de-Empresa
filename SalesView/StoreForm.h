@@ -34,7 +34,9 @@ namespace SalesView {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ tboxName;
+	protected:
+
 	protected:
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::Label^ lbNamStore;
@@ -56,15 +58,22 @@ namespace SalesView {
 
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
+	private: System::Windows::Forms::Button^ btnSearch;
+
+
+
+
+
+	private: System::Windows::Forms::ComboBox^ comboBoxStatus;
+
+	private: System::Windows::Forms::Label^ lbStatus;
+	private: System::Windows::Forms::TextBox^ tboxid;
+
+	private: System::Windows::Forms::Label^ lbId;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Id;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Name;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ NameStore;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ distrit;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Status;
-	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::ComboBox^ comboBox1;
-	private: System::Windows::Forms::Label^ lbStatus;
-	private: System::Windows::Forms::TextBox^ textBox3;
-	private: System::Windows::Forms::Label^ lbId;
 
 
 	private:
@@ -80,7 +89,7 @@ namespace SalesView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->tboxName = (gcnew System::Windows::Forms::TextBox());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->lbNamStore = (gcnew System::Windows::Forms::Label());
 			this->LbDistrit = (gcnew System::Windows::Forms::Label());
@@ -90,25 +99,25 @@ namespace SalesView {
 			this->btnAddP = (gcnew System::Windows::Forms::Button());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->btnSearch = (gcnew System::Windows::Forms::Button());
+			this->comboBoxStatus = (gcnew System::Windows::Forms::ComboBox());
+			this->lbStatus = (gcnew System::Windows::Forms::Label());
+			this->tboxid = (gcnew System::Windows::Forms::TextBox());
+			this->lbId = (gcnew System::Windows::Forms::Label());
 			this->Id = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Name = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->NameStore = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->distrit = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Status = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-			this->lbStatus = (gcnew System::Windows::Forms::Label());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-			this->lbId = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// textBox1
+			// tboxName
 			// 
-			this->textBox1->Location = System::Drawing::Point(96, 113);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(387, 22);
-			this->textBox1->TabIndex = 0;
+			this->tboxName->Location = System::Drawing::Point(96, 113);
+			this->tboxName->Name = L"tboxName";
+			this->tboxName->Size = System::Drawing::Size(387, 22);
+			this->tboxName->TabIndex = 0;
 			// 
 			// textBox2
 			// 
@@ -186,7 +195,7 @@ namespace SalesView {
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
-				this->Id, this->Name,
+				this->Id, this->NameStore,
 					this->distrit, this->Status
 			});
 			this->dataGridView1->Location = System::Drawing::Point(96, 297);
@@ -197,6 +206,50 @@ namespace SalesView {
 			this->dataGridView1->TabIndex = 10;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &StoreForm::dataGridView1_CellContentClick);
 			// 
+			// btnSearch
+			// 
+			this->btnSearch->Location = System::Drawing::Point(676, 297);
+			this->btnSearch->Name = L"btnSearch";
+			this->btnSearch->Size = System::Drawing::Size(118, 33);
+			this->btnSearch->TabIndex = 11;
+			this->btnSearch->Text = L"&Buscar";
+			this->btnSearch->UseVisualStyleBackColor = true;
+			// 
+			// comboBoxStatus
+			// 
+			this->comboBoxStatus->FormattingEnabled = true;
+			this->comboBoxStatus->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Habilitado", L"Desabilitado", L"Repleto" });
+			this->comboBoxStatus->Location = System::Drawing::Point(362, 63);
+			this->comboBoxStatus->Name = L"comboBoxStatus";
+			this->comboBoxStatus->Size = System::Drawing::Size(121, 24);
+			this->comboBoxStatus->TabIndex = 12;
+			// 
+			// lbStatus
+			// 
+			this->lbStatus->AutoSize = true;
+			this->lbStatus->Location = System::Drawing::Point(295, 66);
+			this->lbStatus->Name = L"lbStatus";
+			this->lbStatus->Size = System::Drawing::Size(52, 17);
+			this->lbStatus->TabIndex = 13;
+			this->lbStatus->Text = L"Estado";
+			// 
+			// tboxid
+			// 
+			this->tboxid->Location = System::Drawing::Point(96, 63);
+			this->tboxid->Name = L"tboxid";
+			this->tboxid->Size = System::Drawing::Size(178, 22);
+			this->tboxid->TabIndex = 14;
+			this->tboxid->TextChanged += gcnew System::EventHandler(this, &StoreForm::textBox3_TextChanged);
+			// 
+			// lbId
+			// 
+			this->lbId->AutoSize = true;
+			this->lbId->Location = System::Drawing::Point(68, 63);
+			this->lbId->Name = L"lbId";
+			this->lbId->Size = System::Drawing::Size(19, 17);
+			this->lbId->TabIndex = 15;
+			this->lbId->Text = L"Id";
+			// 
 			// Id
 			// 
 			this->Id->HeaderText = L"Id";
@@ -204,12 +257,12 @@ namespace SalesView {
 			this->Id->Name = L"Id";
 			this->Id->Width = 125;
 			// 
-			// Name
+			// NameStore
 			// 
-			this->Name->HeaderText = L"Nombre";
-			this->Name->MinimumWidth = 6;
-			this->Name->Name = L"Name";
-			this->Name->Width = 125;
+			this->NameStore->HeaderText = L"Nombre";
+			this->NameStore->MinimumWidth = 6;
+			this->NameStore->Name = L"NameStore";
+			this->NameStore->Width = 125;
 			// 
 			// distrit
 			// 
@@ -225,59 +278,16 @@ namespace SalesView {
 			this->Status->Name = L"Status";
 			this->Status->Width = 125;
 			// 
-			// button1
-			// 
-			this->button1->Location = System::Drawing::Point(676, 297);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(118, 33);
-			this->button1->TabIndex = 11;
-			this->button1->Text = L"&Buscar";
-			this->button1->UseVisualStyleBackColor = true;
-			// 
-			// comboBox1
-			// 
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Habilitado", L"Desabilitado", L"Repleto" });
-			this->comboBox1->Location = System::Drawing::Point(362, 63);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(121, 24);
-			this->comboBox1->TabIndex = 12;
-			// 
-			// lbStatus
-			// 
-			this->lbStatus->AutoSize = true;
-			this->lbStatus->Location = System::Drawing::Point(295, 66);
-			this->lbStatus->Name = L"lbStatus";
-			this->lbStatus->Size = System::Drawing::Size(52, 17);
-			this->lbStatus->TabIndex = 13;
-			this->lbStatus->Text = L"Estado";
-			// 
-			// textBox3
-			// 
-			this->textBox3->Location = System::Drawing::Point(96, 63);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(178, 22);
-			this->textBox3->TabIndex = 14;
-			// 
-			// lbId
-			// 
-			this->lbId->AutoSize = true;
-			this->lbId->Location = System::Drawing::Point(68, 63);
-			this->lbId->Name = L"lbId";
-			this->lbId->Size = System::Drawing::Size(19, 17);
-			this->lbId->TabIndex = 15;
-			this->lbId->Text = L"Id";
-			// 
 			// StoreForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(815, 515);
 			this->Controls->Add(this->lbId);
-			this->Controls->Add(this->textBox3);
+			this->Controls->Add(this->tboxid);
 			this->Controls->Add(this->lbStatus);
-			this->Controls->Add(this->comboBox1);
-			this->Controls->Add(this->button1);
+			this->Controls->Add(this->comboBoxStatus);
+			this->Controls->Add(this->btnSearch);
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->btnAddP);
@@ -287,7 +297,7 @@ namespace SalesView {
 			this->Controls->Add(this->LbDistrit);
 			this->Controls->Add(this->lbNamStore);
 			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->tboxName);
 			this->Name = L"StoreForm";
 			this->Text = L"StoreForm";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
@@ -304,6 +314,8 @@ private: System::Void dataGridView1_CellContentClick(System::Object^ sender, Sys
 private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void textBox3_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
