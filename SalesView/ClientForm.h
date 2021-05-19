@@ -255,6 +255,7 @@ namespace SalesView {
 			this->btnUpdate->TabIndex = 4;
 			this->btnUpdate->Text = L"&Modificar";
 			this->btnUpdate->UseVisualStyleBackColor = true;
+			this->btnUpdate->Click += gcnew System::EventHandler(this, &ClientForm::btnUpdate_Click);
 			// 
 			// btnAdd
 			// 
@@ -448,6 +449,8 @@ namespace SalesView {
 		}
 #pragma endregion
 	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
+		Client^ c = gcnew Client();
+		/*
 		int Id = Int32::Parse(txtDocumentNumber->Text);
 		String^ FirstName = txtNombre1->Text;
 		String^ SecondName = txtNombre2->Text;
@@ -456,12 +459,53 @@ namespace SalesView {
 		String^ PhoneNumber = txtTelefono->Text;
 		String^ PersonalEmail = txtCorreo->Text;
 		String^ Birthday = txtBirthday->Text;
+		*/
 
-		Client^ c = gcnew Client(Id, FirstName, SecondName, FirstLastName, SecondLastName,
-			 "AVENIDA Peru", 123, Birthday, PersonalEmail, PhoneNumber);
+		c->Id = Int32::Parse(txtDocumentNumber->Text);
+		c->FirstName = txtNombre1->Text;
+		c->SecondName = txtNombre2->Text;
+		c->FirstLastName = txtApellido1->Text;
+		c->SecondLastName = txtApellido2->Text;
+		c->PhoneNumber = txtTelefono->Text;
+		c->PersonalEmail = txtCorreo->Text;
+		c->Birthday = txtBirthday->Text;
+
+		//Client^ c = gcnew Client(Id, FirstName, SecondName, FirstLastName, SecondLastName,
+		//	 "AVENIDA Peru", 123, Birthday, PersonalEmail, PhoneNumber);
 
 		SalesManager::AddClient(c);
 		refreshDGVClient();
+	}
+
+	private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (txtDocumentNumber->Text->Trim() == "") {
+			MessageBox::Show("El Documento de Identidad no debe estar vacío.");
+			return;
+		}
+		if (MessageBox::Show(
+			"¿Está seguro de actualizar al Cliente?",
+			"Confirmación", MessageBoxButtons::YesNo,
+			MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
+		{
+			Client^ c = gcnew Client();
+			try {
+				c->Id = Int32::Parse(txtDocumentNumber->Text);
+				c->FirstName = txtNombre1->Text;
+				c->SecondName = txtNombre2->Text;
+				c->FirstLastName = txtApellido1->Text;
+				c->SecondLastName = txtApellido2->Text;
+				c->PhoneNumber = txtTelefono->Text;
+				c->PersonalEmail = txtCorreo->Text;
+				c->Birthday = txtBirthday->Text;
+
+				SalesManager::UpdateClient(c);
+				refreshDGVClient();
+			}
+			catch (Exception^ ex) {
+				MessageBox::Show(ex->ToString(), "Error al grabar.");
+				return;
+			}
+		}
 	}
 
 	public:

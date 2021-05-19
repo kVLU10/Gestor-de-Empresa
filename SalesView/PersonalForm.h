@@ -492,6 +492,7 @@ namespace SalesView {
 			this->btnUpdate->TabIndex = 1;
 			this->btnUpdate->Text = L"&Modificar";
 			this->btnUpdate->UseVisualStyleBackColor = true;
+			this->btnUpdate->Click += gcnew System::EventHandler(this, &PersonalForm::btnUpdate_Click);
 			// 
 			// btnAdd
 			// 
@@ -592,7 +593,9 @@ namespace SalesView {
 	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	}
 	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
-		int Id = Int32::Parse(txtDocumentNumber->Text);
+		Personal^ ps = gcnew Personal();
+
+		/*int Id = Int32::Parse(txtDocumentNumber->Text);
 		String^ FirstName = txtNombre1->Text;
 		String^ SecondName = txtNombre2->Text;
 		String^ FirstLastName = txtApellido1->Text;
@@ -602,13 +605,55 @@ namespace SalesView {
 		String^ PhoneNumber = txtTelefono->Text;
 		String^ PersonalEmail = txtCorreo->Text;
 		String^ Password = txtContraseña->Text;
-		String^ Birthday = txtBirthday->Text;
+		String^ Birthday = txtBirthday->Text;*/
 
-		Personal^ ps = gcnew Personal(Id, FirstName, Password, FirstName, SecondName, FirstLastName, SecondLastName, 'A', 100, 100, PersonalEmail, PhoneNumber, Birthday);
+		ps -> Id = Int32::Parse(txtDocumentNumber->Text);
+		ps->FirstName = txtNombre1->Text;
+		ps->SecondName = txtNombre2->Text;
+		ps->FirstLastName = txtApellido1->Text;
+		ps->SecondLastName = txtApellido2->Text;
+		ps->PhoneNumber = txtTelefono->Text;
+		ps->PersonalEmail = txtCorreo->Text;
+		ps->Password = txtContraseña->Text;
+		ps->Birthday = txtBirthday->Text;
+
+		//Personal^ ps = gcnew Personal(Id, FirstName, Password, FirstName, SecondName, FirstLastName, SecondLastName, 'A', 100, 100, PersonalEmail, PhoneNumber, Birthday);
 
 		SalesManager::AddPersonal(ps);
 		refreshDGVPersonal();
 
+	}
+
+	private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (txtDocumentNumber->Text->Trim() == "") {
+			MessageBox::Show("El Documento de Identidad no debe estar vacío.");
+			return;
+		}
+		if (MessageBox::Show(
+			"¿Está seguro de actualizar al Personal?",
+			"Confirmación", MessageBoxButtons::YesNo,
+			MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
+		{
+			Personal^ ps = gcnew Personal();
+			try {
+				ps->Id = Int32::Parse(txtDocumentNumber->Text);
+				ps->FirstName = txtNombre1->Text;
+				ps->SecondName = txtNombre2->Text;
+				ps->FirstLastName = txtApellido1->Text;
+				ps->SecondLastName = txtApellido2->Text;
+				ps->PhoneNumber = txtTelefono->Text;
+				ps->PersonalEmail = txtCorreo->Text;
+				ps->Password = txtContraseña->Text;
+				ps->Birthday = txtBirthday->Text;
+
+				SalesManager::UpdatePersonal(ps);
+				refreshDGVPersonal();
+			}
+			catch (Exception^ ex) {
+				MessageBox::Show(ex->ToString(), "Error al grabar.");
+				return;
+			}
+		}
 	}
 
 	public:
@@ -629,5 +674,6 @@ namespace SalesView {
 				});
 			}
 		}
+
 };
 }
