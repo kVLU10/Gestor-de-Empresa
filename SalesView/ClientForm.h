@@ -246,6 +246,7 @@ namespace SalesView {
 			this->btnDelete->TabIndex = 5;
 			this->btnDelete->Text = L"&Eliminar";
 			this->btnDelete->UseVisualStyleBackColor = true;
+			this->btnDelete->Click += gcnew System::EventHandler(this, &ClientForm::btnDelete_Click);
 			// 
 			// btnUpdate
 			// 
@@ -508,6 +509,23 @@ namespace SalesView {
 		}
 	}
 
+	private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
+		int selectedRows = dgvClient->SelectedRows->Count;
+		if (selectedRows == 1) {
+			if (MessageBox::Show(
+				"¿Está seguro de eliminar al cliente?",
+				"Confirmación", MessageBoxButtons::YesNo,
+				MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
+			{
+				dgvClient->Rows->RemoveAt(dgvClient->SelectedRows[0]->Index);
+				ClearControls();
+			}
+		}
+		else {
+			MessageBox::Show("Para eliminar a un empleado debe seleccionar todo el registro");
+		}
+	}
+
 	public:
 		void refreshDGVClient() {
 			List<Client^>^ clientList = SalesManager::QueryClient();
@@ -524,6 +542,17 @@ namespace SalesView {
 						clientList[i]->Birthday
 				});
 			}
+		}
+
+		System::Void ClearControls() {
+			txtDocumentNumber->Clear();
+			txtNombre1->Clear();
+			txtNombre2->Clear();
+			txtApellido1->Clear();
+			txtApellido2->Clear();
+			txtTelefono->Clear();
+			txtCorreo->Clear();
+			txtBirthday->Clear();
 		}
 };
 }

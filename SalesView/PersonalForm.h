@@ -483,6 +483,7 @@ namespace SalesView {
 			this->btnDelete->TabIndex = 2;
 			this->btnDelete->Text = L"&Eliminar";
 			this->btnDelete->UseVisualStyleBackColor = true;
+			this->btnDelete->Click += gcnew System::EventHandler(this, &PersonalForm::btnDelete_Click);
 			// 
 			// btnUpdate
 			// 
@@ -656,6 +657,44 @@ namespace SalesView {
 		}
 	}
 
+	private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
+		/*int Id = -1;
+		try {
+			if (txtDocumentNumber->Text->Trim() == "") {
+				MessageBox::Show("No se puede eliminar porque no hay ningún empleado seleccionado.");
+				return;
+			}
+			Id = Int32::Parse(txtDocumentNumber->Text);
+		}
+		catch (...) {
+			MessageBox::Show("No se puede eliminar al empleado porque el Id no es válido.");
+			return;
+		}
+		if (MessageBox::Show(
+			"¿Está seguro de eliminar al empleado?",
+			"Confirmación", MessageBoxButtons::YesNo,
+			MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
+		{
+			SalesManager::DeleteProduct(Id);
+			refreshDGVPersonal();
+			ClearControls();
+		}*/
+		int selectedRows = dgvPersonal->SelectedRows->Count;
+		if (selectedRows == 1) {
+			if (MessageBox::Show(
+				"¿Está seguro de eliminar al empleado?",
+				"Confirmación", MessageBoxButtons::YesNo,
+				MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
+			{
+				dgvPersonal->Rows->RemoveAt(dgvPersonal->SelectedRows[0]->Index);
+				ClearControls();
+			}
+		}
+		else {
+			MessageBox::Show("Para eliminar a un empleado debe seleccionar todo el registro");
+		}
+	}
+
 	public:
 		void refreshDGVPersonal() {
 			List<Personal^>^ personalList = SalesManager::QueryPersonal();
@@ -675,5 +714,17 @@ namespace SalesView {
 			}
 		}
 
+		System::Void ClearControls() {
+			txtDocumentNumber->Clear();
+			txtNombre1->Clear();
+			txtNombre2->Clear();
+			txtApellido1->Clear();
+			txtApellido2->Clear();
+			txtTelefono->Clear();
+			txtCorreo->Clear();
+			txtContraseña->Clear();
+			txtBirthday->Clear();
+			txtEstado->Clear();
+		}
 };
 }
