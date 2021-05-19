@@ -1,4 +1,6 @@
 #pragma once
+#include "ProductsStoreForm.h"	
+
 using namespace Proyecto;
 using namespace SalesController;
 using namespace System::Collections::Generic;
@@ -179,16 +181,17 @@ namespace SalesView {
 			// 
 			// btnAddP
 			// 
-			this->btnAddP->Location = System::Drawing::Point(541, 221);
+			this->btnAddP->Location = System::Drawing::Point(583, 221);
 			this->btnAddP->Name = L"btnAddP";
 			this->btnAddP->Size = System::Drawing::Size(183, 33);
 			this->btnAddP->TabIndex = 8;
 			this->btnAddP->Text = L"Agregar Productos";
 			this->btnAddP->UseVisualStyleBackColor = true;
+			this->btnAddP->Click += gcnew System::EventHandler(this, &StoreForm::btnAddP_Click);
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(576, 52);
+			this->pictureBox1->Location = System::Drawing::Point(618, 52);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(118, 132);
 			this->pictureBox1->TabIndex = 9;
@@ -202,11 +205,11 @@ namespace SalesView {
 				this->Id, this->NameStore,
 					this->distrit, this->Status
 			});
-			this->dataGridView1->Location = System::Drawing::Point(96, 297);
+			this->dataGridView1->Location = System::Drawing::Point(32, 297);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->RowTemplate->Height = 24;
-			this->dataGridView1->Size = System::Drawing::Size(554, 150);
+			this->dataGridView1->Size = System::Drawing::Size(551, 206);
 			this->dataGridView1->TabIndex = 10;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &StoreForm::dataGridView1_CellContentClick);
 			// 
@@ -240,7 +243,7 @@ namespace SalesView {
 			// 
 			// btnSearch
 			// 
-			this->btnSearch->Location = System::Drawing::Point(676, 297);
+			this->btnSearch->Location = System::Drawing::Point(618, 297);
 			this->btnSearch->Name = L"btnSearch";
 			this->btnSearch->Size = System::Drawing::Size(118, 33);
 			this->btnSearch->TabIndex = 11;
@@ -328,6 +331,11 @@ private: System::Void StoreForm_Load(System::Object^ sender, System::EventArgs^ 
 private: System::Void tboxName_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void lbId_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void btnAddP_Click(System::Object^ sender, System::EventArgs^ e) {
+		ProductsStoreForm^ productsStoreForm = gcnew ProductsStoreForm();
+		productsStoreForm->ShowDialog();
+
 }
 };
 }
