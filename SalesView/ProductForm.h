@@ -180,6 +180,7 @@ namespace SalesView {
 			this->btnUpdate->TabIndex = 13;
 			this->btnUpdate->Text = L"&Modificar";
 			this->btnUpdate->UseVisualStyleBackColor = true;
+			this->btnUpdate->Click += gcnew System::EventHandler(this, &ProductForm::btnUpdate_Click);
 			// 
 			// btnAdds
 			// 
@@ -453,20 +454,39 @@ namespace SalesView {
 		}
 	}
 
-	/*
 	private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
-		int id = Int32::Parse(txtId->Text);
-		String^ name = txtName->Text;
-		int bonusPoints = Int32::Parse(txtBonusPoints->Text);
-		String^ description = txtDescription->Text;
-		String^ brand = txtBrand->Text;
-		double price = Double::Parse(txtPrice->Text);
-
-		Products^ p = gcnew Products(id, name, description, bonusPoints, price, brand, "Habilitado");
-		SalesManager::UpdateProduct(p);
+		if (txtId->Text->Trim() == "") {
+			MessageBox::Show("El Id no debe estar vacío.");
+			return;
+		}
+		if (txtPrice->Text->Trim() == "") {
+			MessageBox::Show("El precio no debe estar vacío.");
+			return;
+		}
+		if (MessageBox::Show(
+			"¿Está seguro de actualizar el producto?",
+			"Confirmación", MessageBoxButtons::YesNo,
+			MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
+		{
+			Products^ p = gcnew Products();
+			try {
+				p->Id = Int32::Parse(txtId->Text);
+				p->Name = txtName->Text;
+				p->Description = txtDescription->Text;
+				p->Precio = Double::Parse(txtPrice->Text);
+				p->BonusPoints = Int32::Parse(txtBonusPoints->Text);
+				p->Status = "Habilitado";
+				p->Marca = txtBrand->Text;
+				SalesManager::UpdateProduct(p);
+				RefreshDGVProducts();
+			}
+			catch (Exception^ ex) {
+				MessageBox::Show(ex->ToString(), "Error al grabar.");
+				return;
+			}
+		}
 	}
-	*/
-
+	
 	public:
 		void RefreshDGVProducts() {
 			List<Products^>^ productList = SalesManager::QueryProducts();
