@@ -1,5 +1,4 @@
 #pragma once
-
 using namespace Proyecto;
 using namespace SalesController;
 using namespace System::Collections::Generic;
