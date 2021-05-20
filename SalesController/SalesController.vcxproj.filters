@@ -33,7 +33,10 @@
     <ClInclude Include="PersonalDB.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+
+    <ClInclude Include="StoreDB.h">
     <ClInclude Include="ClientDB.h">
+
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

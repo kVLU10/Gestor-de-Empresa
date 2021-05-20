@@ -121,6 +121,7 @@
   <ItemGroup>
     <ClInclude Include="ClientDB.h" />
     <ClInclude Include="DBController.h" />
+    <ClInclude Include="StoreDB.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="PersonalDB.h" />
     <ClInclude Include="ProductDB.h" />
