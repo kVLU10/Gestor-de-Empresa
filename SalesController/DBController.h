@@ -54,9 +54,9 @@ namespace SalesController {
 			//Clientes
 			static void AddClient(Client^);
 			static void UpdateClient(Client^);
-			static void DeleteClient(String^ DocumentNumber);
+			static void DeleteClient(int DocumentNumber);
 			static List<Client^>^ QueryClient();
-			static Client^ QueryClientByDocumentNumber(String^ clientDocumentNumber);
+			static Client^ QueryClientByDocumentNumber(int clientDocumentNumber);
 	};
 }
 

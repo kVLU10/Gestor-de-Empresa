@@ -70,7 +70,7 @@ void SalesController::SalesManager::UpdateClient(Client^ c)
 	DBController::UpdateClient(c);
 }
 
-void SalesController::SalesManager::DeleteClient(String^ DocumentNumber)
+void SalesController::SalesManager::DeleteClient(int DocumentNumber)
 {
 	DBController::DeleteClient(DocumentNumber);
 }
@@ -80,7 +80,7 @@ List<Client^>^ SalesController::SalesManager::QueryClient()
 	return DBController::QueryClient();
 }
 
-Client^ SalesController::SalesManager::QueryClientByDocumentNumber(String^ clientDocumentNumber)
+Client^ SalesController::SalesManager::QueryClientByDocumentNumber(int clientDocumentNumber)
 {
 	return DBController::QueryClientByDocumentNumber(clientDocumentNumber);
 }

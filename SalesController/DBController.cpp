@@ -162,16 +162,16 @@ void SalesController::DBController::AddClient(Client^ client)
 void SalesController::DBController::UpdateClient(Client^ client)
 {
     for (int i = 0; i < clientDB->ListDBC->Count; i++)
-        if (clientDB->ListDBC[i]->DocumentNumber == client->DocumentNumber) {
+        if (clientDB->ListDBC[i]->Id == client->Id) {
             clientDB->ListDBC[i] = client;
         }
     SaveClient();
 }
 
-void SalesController::DBController::DeleteClient(String^ DocumentNumber)
+void SalesController::DBController::DeleteClient(int DocumentNumber)
 {
     for (int i = 0; i < clientDB->ListDBC->Count; i++) {
-        if (clientDB->ListDBC[i]->DocumentNumber == DocumentNumber)
+        if (clientDB->ListDBC[i]->Id == DocumentNumber)
             clientDB->ListDBC->RemoveAt(i);
     }
     SaveClient();
@@ -183,11 +183,11 @@ List<Client^>^ SalesController::DBController::QueryClient()
     return clientDB->ListDBC;
 }
 
-Client^ SalesController::DBController::QueryClientByDocumentNumber(String^ clientDocumentNumber)
+Client^ SalesController::DBController::QueryClientByDocumentNumber(int clientDocumentNumber)
 {
     LoadClient();
     for (int i = 0; i < clientDB->ListDBC->Count; i++)
-        if (clientDB->ListDBC[i]->DocumentNumber == clientDocumentNumber)
+        if (clientDB->ListDBC[i]->Id == clientDocumentNumber)
             return clientDB->ListDBC[i];
     return nullptr;
 }
