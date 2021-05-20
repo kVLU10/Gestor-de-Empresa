@@ -1,3 +1,4 @@
+/*
 #pragma once
 using namespace System;
 using namespace System::Collections::Generic;
@@ -10,4 +11,4 @@ namespace SalesController {
 			List<Personal^>^ ListDBP = gcnew List<Personal^>();
 	};
 }
-
+*/

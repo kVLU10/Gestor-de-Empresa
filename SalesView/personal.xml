@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PersonalDB xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ListDBP>
+    <Personal>
+      <Birthday>16/01/2001</Birthday>
+      <Status>0</Status>
+      <Password>password</Password>
+      <Username>jdavila</Username>
+      <PersonalEmail>email</PersonalEmail>
+      <PhoneNumber>921263145</PhoneNumber>
+      <SecondLastName>Fano</SecondLastName>
+      <FirstLastName>Davila</FirstLastName>
+      <SecondName>Cesar</SecondName>
+      <FirstName>Julio</FirstName>
+      <Id>71932878</Id>
+      <Incress>0</Incress>
+      <Salary>0</Salary>
+    </Personal>
+  </ListDBP>
+</PersonalDB>

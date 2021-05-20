@@ -51,10 +51,10 @@ namespace SalesView {
 
 	private: System::Windows::Forms::Label^ label23;
 	private: System::Windows::Forms::Label^ label22;
-	private: System::Windows::Forms::Label^ label21;
-	private: System::Windows::Forms::ComboBox^ comboBoxArea;
 
-	private: System::Windows::Forms::Label^ label20;
+
+
+
 	private: System::Windows::Forms::Label^ label19;
 	private: System::Windows::Forms::Label^ label18;
 	private: System::Windows::Forms::Label^ label17;
@@ -63,7 +63,7 @@ namespace SalesView {
 	private: System::Windows::Forms::Label^ label14;
 	private: System::Windows::Forms::Label^ label13;
 	private: System::Windows::Forms::Label^ label8;
-	private: System::Windows::Forms::ComboBox^ comboBoxCargo;
+
 
 
 	private: System::Windows::Forms::TextBox^ txtContraseña;
@@ -101,16 +101,34 @@ namespace SalesView {
 	private: System::Windows::Forms::Button^ btnUpdate;
 	private: System::Windows::Forms::Button^ btnAdd;
 	private: System::Windows::Forms::DataGridView^ dgvPersonal;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Nombre1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Nombre2;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Apellido1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Apellido2;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Telefono;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ DocumentNumber;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Correo;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Contraseña;
+
+
+
+
+
+
+
+
 	private: System::Windows::Forms::TextBox^ txtBirthday;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumpleaños;
+
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::TextBox^ txtUsuario;
+
+
+	private: System::Windows::Forms::Button^ button3;
+	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Button^ button1;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Nombre1;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Nombre2;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Apellido1;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Apellido2;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Telefono;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ DocumentNumber;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Correo;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Usuario;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Contraseña;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumpleaños;
+
 
 
 
@@ -161,12 +179,11 @@ namespace SalesView {
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPersonal = (gcnew System::Windows::Forms::TabPage());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->txtUsuario = (gcnew System::Windows::Forms::TextBox());
 			this->txtBirthday = (gcnew System::Windows::Forms::TextBox());
 			this->label23 = (gcnew System::Windows::Forms::Label());
 			this->label22 = (gcnew System::Windows::Forms::Label());
-			this->label21 = (gcnew System::Windows::Forms::Label());
-			this->comboBoxArea = (gcnew System::Windows::Forms::ComboBox());
-			this->label20 = (gcnew System::Windows::Forms::Label());
 			this->label19 = (gcnew System::Windows::Forms::Label());
 			this->label18 = (gcnew System::Windows::Forms::Label());
 			this->label17 = (gcnew System::Windows::Forms::Label());
@@ -175,7 +192,6 @@ namespace SalesView {
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->label8 = (gcnew System::Windows::Forms::Label());
-			this->comboBoxCargo = (gcnew System::Windows::Forms::ComboBox());
 			this->txtContraseña = (gcnew System::Windows::Forms::TextBox());
 			this->txtCorreo = (gcnew System::Windows::Forms::TextBox());
 			this->txtDocumentNumber = (gcnew System::Windows::Forms::TextBox());
@@ -185,11 +201,14 @@ namespace SalesView {
 			this->txtEstado = (gcnew System::Windows::Forms::TextBox());
 			this->txtNombre2 = (gcnew System::Windows::Forms::TextBox());
 			this->txtNombre1 = (gcnew System::Windows::Forms::TextBox());
-			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->btnDelete = (gcnew System::Windows::Forms::Button());
+			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->btnUpdate = (gcnew System::Windows::Forms::Button());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->btnAdd = (gcnew System::Windows::Forms::Button());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
 			this->dgvPersonal = (gcnew System::Windows::Forms::DataGridView());
 			this->Nombre1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -199,13 +218,14 @@ namespace SalesView {
 			this->Telefono = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->DocumentNumber = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Correo = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Usuario = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Contraseña = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Cumpleaños = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->tabControl1->SuspendLayout();
 			this->tabPersonal->SuspendLayout();
 			this->panel1->SuspendLayout();
-			this->panel2->SuspendLayout();
 			this->panel4->SuspendLayout();
+			this->panel2->SuspendLayout();
 			this->panel3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPersonal))->BeginInit();
 			this->SuspendLayout();
@@ -216,29 +236,29 @@ namespace SalesView {
 			this->tabControl1->Location = System::Drawing::Point(3, 12);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(770, 781);
+			this->tabControl1->Size = System::Drawing::Size(770, 684);
 			this->tabControl1->TabIndex = 0;
 			// 
 			// tabPersonal
 			// 
 			this->tabPersonal->Controls->Add(this->panel1);
+			this->tabPersonal->Controls->Add(this->panel4);
 			this->tabPersonal->Controls->Add(this->panel2);
 			this->tabPersonal->Location = System::Drawing::Point(4, 22);
 			this->tabPersonal->Name = L"tabPersonal";
 			this->tabPersonal->Padding = System::Windows::Forms::Padding(3);
-			this->tabPersonal->Size = System::Drawing::Size(762, 755);
+			this->tabPersonal->Size = System::Drawing::Size(762, 658);
 			this->tabPersonal->TabIndex = 0;
 			this->tabPersonal->Text = L"Personal";
 			this->tabPersonal->UseVisualStyleBackColor = true;
 			// 
 			// panel1
 			// 
+			this->panel1->Controls->Add(this->label1);
+			this->panel1->Controls->Add(this->txtUsuario);
 			this->panel1->Controls->Add(this->txtBirthday);
 			this->panel1->Controls->Add(this->label23);
 			this->panel1->Controls->Add(this->label22);
-			this->panel1->Controls->Add(this->label21);
-			this->panel1->Controls->Add(this->comboBoxArea);
-			this->panel1->Controls->Add(this->label20);
 			this->panel1->Controls->Add(this->label19);
 			this->panel1->Controls->Add(this->label18);
 			this->panel1->Controls->Add(this->label17);
@@ -247,7 +267,6 @@ namespace SalesView {
 			this->panel1->Controls->Add(this->label14);
 			this->panel1->Controls->Add(this->label13);
 			this->panel1->Controls->Add(this->label8);
-			this->panel1->Controls->Add(this->comboBoxCargo);
 			this->panel1->Controls->Add(this->txtContraseña);
 			this->panel1->Controls->Add(this->txtCorreo);
 			this->panel1->Controls->Add(this->txtDocumentNumber);
@@ -259,12 +278,30 @@ namespace SalesView {
 			this->panel1->Controls->Add(this->txtNombre1);
 			this->panel1->Location = System::Drawing::Point(6, 7);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(565, 302);
+			this->panel1->Size = System::Drawing::Size(565, 265);
 			this->panel1->TabIndex = 0;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(3, 218);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(43, 13);
+			this->label1->TabIndex = 56;
+			this->label1->Text = L"Usuario";
+			this->label1->Click += gcnew System::EventHandler(this, &PersonalForm::label1_Click);
+			// 
+			// txtUsuario
+			// 
+			this->txtUsuario->Location = System::Drawing::Point(6, 234);
+			this->txtUsuario->Name = L"txtUsuario";
+			this->txtUsuario->Size = System::Drawing::Size(124, 20);
+			this->txtUsuario->TabIndex = 55;
+			this->txtUsuario->TextChanged += gcnew System::EventHandler(this, &PersonalForm::textBox1_TextChanged);
 			// 
 			// txtBirthday
 			// 
-			this->txtBirthday->Location = System::Drawing::Point(375, 250);
+			this->txtBirthday->Location = System::Drawing::Point(375, 173);
 			this->txtBirthday->Name = L"txtBirthday";
 			this->txtBirthday->Size = System::Drawing::Size(124, 20);
 			this->txtBirthday->TabIndex = 54;
@@ -281,42 +318,16 @@ namespace SalesView {
 			// label22
 			// 
 			this->label22->AutoSize = true;
-			this->label22->Location = System::Drawing::Point(372, 233);
+			this->label22->Location = System::Drawing::Point(372, 157);
 			this->label22->Name = L"label22";
 			this->label22->Size = System::Drawing::Size(108, 13);
 			this->label22->TabIndex = 52;
 			this->label22->Text = L"Fecha de Nacimiento";
 			// 
-			// label21
-			// 
-			this->label21->AutoSize = true;
-			this->label21->Location = System::Drawing::Point(193, 233);
-			this->label21->Name = L"label21";
-			this->label21->Size = System::Drawing::Size(29, 13);
-			this->label21->TabIndex = 51;
-			this->label21->Text = L"Área";
-			// 
-			// comboBoxArea
-			// 
-			this->comboBoxArea->FormattingEnabled = true;
-			this->comboBoxArea->Location = System::Drawing::Point(196, 249);
-			this->comboBoxArea->Name = L"comboBoxArea";
-			this->comboBoxArea->Size = System::Drawing::Size(124, 21);
-			this->comboBoxArea->TabIndex = 50;
-			// 
-			// label20
-			// 
-			this->label20->AutoSize = true;
-			this->label20->Location = System::Drawing::Point(3, 233);
-			this->label20->Name = L"label20";
-			this->label20->Size = System::Drawing::Size(35, 13);
-			this->label20->TabIndex = 49;
-			this->label20->Text = L"Cargo";
-			// 
 			// label19
 			// 
 			this->label19->AutoSize = true;
-			this->label19->Location = System::Drawing::Point(372, 157);
+			this->label19->Location = System::Drawing::Point(193, 218);
 			this->label19->Name = L"label19";
 			this->label19->Size = System::Drawing::Size(61, 13);
 			this->label19->TabIndex = 48;
@@ -385,17 +396,9 @@ namespace SalesView {
 			this->label8->TabIndex = 41;
 			this->label8->Text = L"Nombre 1";
 			// 
-			// comboBoxCargo
-			// 
-			this->comboBoxCargo->FormattingEnabled = true;
-			this->comboBoxCargo->Location = System::Drawing::Point(3, 249);
-			this->comboBoxCargo->Name = L"comboBoxCargo";
-			this->comboBoxCargo->Size = System::Drawing::Size(124, 21);
-			this->comboBoxCargo->TabIndex = 40;
-			// 
 			// txtContraseña
 			// 
-			this->txtContraseña->Location = System::Drawing::Point(375, 173);
+			this->txtContraseña->Location = System::Drawing::Point(196, 234);
 			this->txtContraseña->Name = L"txtContraseña";
 			this->txtContraseña->Size = System::Drawing::Size(124, 20);
 			this->txtContraseña->TabIndex = 38;
@@ -456,28 +459,32 @@ namespace SalesView {
 			this->txtNombre1->Size = System::Drawing::Size(124, 20);
 			this->txtNombre1->TabIndex = 30;
 			// 
-			// panel2
-			// 
-			this->panel2->Controls->Add(this->panel4);
-			this->panel2->Controls->Add(this->panel3);
-			this->panel2->Location = System::Drawing::Point(3, 3);
-			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(753, 749);
-			this->panel2->TabIndex = 1;
-			// 
 			// panel4
 			// 
+			this->panel4->Controls->Add(this->button3);
 			this->panel4->Controls->Add(this->btnDelete);
+			this->panel4->Controls->Add(this->button2);
 			this->panel4->Controls->Add(this->btnUpdate);
+			this->panel4->Controls->Add(this->button1);
 			this->panel4->Controls->Add(this->btnAdd);
-			this->panel4->Location = System::Drawing::Point(2, 312);
+			this->panel4->Location = System::Drawing::Point(3, 278);
 			this->panel4->Name = L"panel4";
-			this->panel4->Size = System::Drawing::Size(643, 50);
+			this->panel4->Size = System::Drawing::Size(749, 50);
 			this->panel4->TabIndex = 1;
+			// 
+			// button3
+			// 
+			this->button3->Location = System::Drawing::Point(378, 11);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(126, 23);
+			this->button3->TabIndex = 2;
+			this->button3->Text = L"&Eliminar";
+			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &PersonalForm::btnDelete_Click);
 			// 
 			// btnDelete
 			// 
-			this->btnDelete->Location = System::Drawing::Point(468, 13);
+			this->btnDelete->Location = System::Drawing::Point(468, 50);
 			this->btnDelete->Name = L"btnDelete";
 			this->btnDelete->Size = System::Drawing::Size(126, 23);
 			this->btnDelete->TabIndex = 2;
@@ -485,9 +492,19 @@ namespace SalesView {
 			this->btnDelete->UseVisualStyleBackColor = true;
 			this->btnDelete->Click += gcnew System::EventHandler(this, &PersonalForm::btnDelete_Click);
 			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(199, 11);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(126, 24);
+			this->button2->TabIndex = 1;
+			this->button2->Text = L"&Modificar";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &PersonalForm::btnUpdate_Click);
+			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(262, 12);
+			this->btnUpdate->Location = System::Drawing::Point(262, 49);
 			this->btnUpdate->Name = L"btnUpdate";
 			this->btnUpdate->Size = System::Drawing::Size(126, 24);
 			this->btnUpdate->TabIndex = 1;
@@ -495,9 +512,19 @@ namespace SalesView {
 			this->btnUpdate->UseVisualStyleBackColor = true;
 			this->btnUpdate->Click += gcnew System::EventHandler(this, &PersonalForm::btnUpdate_Click);
 			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(9, 11);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(126, 23);
+			this->button1->TabIndex = 0;
+			this->button1->Text = L"&Agregar";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &PersonalForm::btnAdd_Click);
+			// 
 			// btnAdd
 			// 
-			this->btnAdd->Location = System::Drawing::Point(51, 13);
+			this->btnAdd->Location = System::Drawing::Point(51, 50);
 			this->btnAdd->Name = L"btnAdd";
 			this->btnAdd->Size = System::Drawing::Size(126, 23);
 			this->btnAdd->TabIndex = 0;
@@ -505,10 +532,18 @@ namespace SalesView {
 			this->btnAdd->UseVisualStyleBackColor = true;
 			this->btnAdd->Click += gcnew System::EventHandler(this, &PersonalForm::btnAdd_Click);
 			// 
+			// panel2
+			// 
+			this->panel2->Controls->Add(this->panel3);
+			this->panel2->Location = System::Drawing::Point(3, 3);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(753, 628);
+			this->panel2->TabIndex = 1;
+			// 
 			// panel3
 			// 
 			this->panel3->Controls->Add(this->dgvPersonal);
-			this->panel3->Location = System::Drawing::Point(0, 368);
+			this->panel3->Location = System::Drawing::Point(0, 331);
 			this->panel3->Name = L"panel3";
 			this->panel3->Size = System::Drawing::Size(753, 292);
 			this->panel3->TabIndex = 0;
@@ -516,11 +551,12 @@ namespace SalesView {
 			// dgvPersonal
 			// 
 			this->dgvPersonal->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvPersonal->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(9) {
+			this->dgvPersonal->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(10) {
 				this->Nombre1,
-					this->Nombre2, this->Apellido1, this->Apellido2, this->Telefono, this->DocumentNumber, this->Correo, this->Contraseña, this->Cumpleaños
+					this->Nombre2, this->Apellido1, this->Apellido2, this->Telefono, this->DocumentNumber, this->Correo, this->Usuario, this->Contraseña,
+					this->Cumpleaños
 			});
-			this->dgvPersonal->Location = System::Drawing::Point(3, 0);
+			this->dgvPersonal->Location = System::Drawing::Point(0, 6);
 			this->dgvPersonal->Name = L"dgvPersonal";
 			this->dgvPersonal->Size = System::Drawing::Size(742, 286);
 			this->dgvPersonal->TabIndex = 0;
@@ -561,6 +597,11 @@ namespace SalesView {
 			this->Correo->HeaderText = L"Correo";
 			this->Correo->Name = L"Correo";
 			// 
+			// Usuario
+			// 
+			this->Usuario->HeaderText = L"Usuario";
+			this->Usuario->Name = L"Usuario";
+			// 
 			// Contraseña
 			// 
 			this->Contraseña->HeaderText = L"Contraseña";
@@ -575,16 +616,17 @@ namespace SalesView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(771, 749);
+			this->ClientSize = System::Drawing::Size(771, 693);
 			this->Controls->Add(this->tabControl1);
 			this->Name = L"PersonalForm";
 			this->Text = L"Personal";
+			this->Load += gcnew System::EventHandler(this, &PersonalForm::PersonalForm_Load);
 			this->tabControl1->ResumeLayout(false);
 			this->tabPersonal->ResumeLayout(false);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
-			this->panel2->ResumeLayout(false);
 			this->panel4->ResumeLayout(false);
+			this->panel2->ResumeLayout(false);
 			this->panel3->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPersonal))->EndInit();
 			this->ResumeLayout(false);
@@ -615,6 +657,7 @@ namespace SalesView {
 		ps->SecondLastName = txtApellido2->Text;
 		ps->PhoneNumber = txtTelefono->Text;
 		ps->PersonalEmail = txtCorreo->Text;
+		ps->Username = txtUsuario->Text;
 		ps->Password = txtContraseña->Text;
 		ps->Birthday = txtBirthday->Text;
 
@@ -644,6 +687,7 @@ namespace SalesView {
 				ps->SecondLastName = txtApellido2->Text;
 				ps->PhoneNumber = txtTelefono->Text;
 				ps->PersonalEmail = txtCorreo->Text;
+				ps->Username = txtUsuario->Text;
 				ps->Password = txtContraseña->Text;
 				ps->Birthday = txtBirthday->Text;
 
@@ -658,7 +702,7 @@ namespace SalesView {
 	}
 
 	private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
-		/*int Id = -1;
+		int Id =-1;
 		try {
 			if (txtDocumentNumber->Text->Trim() == "") {
 				MessageBox::Show("No se puede eliminar porque no hay ningún empleado seleccionado.");
@@ -675,11 +719,14 @@ namespace SalesView {
 			"Confirmación", MessageBoxButtons::YesNo,
 			MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
 		{
-			SalesManager::DeleteProduct(Id);
+			SalesManager::DeletePersonal(Id);
+
 			refreshDGVPersonal();
 			ClearControls();
-		}*/
+		}
+		/*
 		int selectedRows = dgvPersonal->SelectedRows->Count;
+
 		if (selectedRows == 1) {
 			if (MessageBox::Show(
 				"¿Está seguro de eliminar al empleado?",
@@ -687,12 +734,14 @@ namespace SalesView {
 				MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
 			{
 				dgvPersonal->Rows->RemoveAt(dgvPersonal->SelectedRows[0]->Index);
+
+				SalesController::DBController::DeletePersonal(DocNum);
 				ClearControls();
 			}
 		}
 		else {
 			MessageBox::Show("Para eliminar a un empleado debe seleccionar todo el registro");
-		}
+		}*/
 	}
 
 	public:
@@ -708,6 +757,7 @@ namespace SalesView {
 					 personalList[i]->PhoneNumber,
 					 "" + personalList[i]->Id,
 					 personalList[i]->PersonalEmail,
+					 personalList[i]->Username,
 					 personalList[i]->Password,
 					 personalList[i]->Birthday
 				});
@@ -722,9 +772,16 @@ namespace SalesView {
 			txtApellido2->Clear();
 			txtTelefono->Clear();
 			txtCorreo->Clear();
+			txtUsuario->Clear();
 			txtContraseña->Clear();
 			txtBirthday->Clear();
 			txtEstado->Clear();
 		}
+private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void PersonalForm_Load(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
