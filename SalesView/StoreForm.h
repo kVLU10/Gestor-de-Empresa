@@ -40,10 +40,12 @@ namespace SalesView {
 			}
 		}
 	private: System::Windows::Forms::TextBox^ tboxName;
+	private: System::Windows::Forms::TextBox^ tboxDistrit;
+
 	protected:
 
 	protected:
-	private: System::Windows::Forms::TextBox^ textBox2;
+
 	private: System::Windows::Forms::Label^ lbNamStore;
 	private: System::Windows::Forms::Label^ LbDistrit;
 
@@ -95,7 +97,7 @@ namespace SalesView {
 		void InitializeComponent(void)
 		{
 			this->tboxName = (gcnew System::Windows::Forms::TextBox());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->tboxDistrit = (gcnew System::Windows::Forms::TextBox());
 			this->lbNamStore = (gcnew System::Windows::Forms::Label());
 			this->LbDistrit = (gcnew System::Windows::Forms::Label());
 			this->btnAdd = (gcnew System::Windows::Forms::Button());
@@ -125,12 +127,12 @@ namespace SalesView {
 			this->tboxName->TabIndex = 0;
 			this->tboxName->TextChanged += gcnew System::EventHandler(this, &StoreForm::tboxName_TextChanged);
 			// 
-			// textBox2
+			// tboxDistrit
 			// 
-			this->textBox2->Location = System::Drawing::Point(96, 162);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(387, 22);
-			this->textBox2->TabIndex = 1;
+			this->tboxDistrit->Location = System::Drawing::Point(96, 162);
+			this->tboxDistrit->Name = L"tboxDistrit";
+			this->tboxDistrit->Size = System::Drawing::Size(387, 22);
+			this->tboxDistrit->TabIndex = 1;
 			// 
 			// lbNamStore
 			// 
@@ -154,16 +156,17 @@ namespace SalesView {
 			// 
 			// btnAdd
 			// 
-			this->btnAdd->Location = System::Drawing::Point(96, 221);
+			this->btnAdd->Location = System::Drawing::Point(32, 221);
 			this->btnAdd->Name = L"btnAdd";
 			this->btnAdd->Size = System::Drawing::Size(118, 33);
 			this->btnAdd->TabIndex = 5;
 			this->btnAdd->Text = L"&Agregar";
 			this->btnAdd->UseVisualStyleBackColor = true;
+			this->btnAdd->Click += gcnew System::EventHandler(this, &StoreForm::btnAdd_Click);
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(229, 221);
+			this->btnUpdate->Location = System::Drawing::Point(165, 221);
 			this->btnUpdate->Name = L"btnUpdate";
 			this->btnUpdate->Size = System::Drawing::Size(118, 33);
 			this->btnUpdate->TabIndex = 6;
@@ -172,7 +175,7 @@ namespace SalesView {
 			// 
 			// btnDelete
 			// 
-			this->btnDelete->Location = System::Drawing::Point(362, 221);
+			this->btnDelete->Location = System::Drawing::Point(298, 221);
 			this->btnDelete->Name = L"btnDelete";
 			this->btnDelete->Size = System::Drawing::Size(118, 33);
 			this->btnDelete->TabIndex = 7;
@@ -181,7 +184,7 @@ namespace SalesView {
 			// 
 			// btnAddP
 			// 
-			this->btnAddP->Location = System::Drawing::Point(583, 221);
+			this->btnAddP->Location = System::Drawing::Point(640, 221);
 			this->btnAddP->Name = L"btnAddP";
 			this->btnAddP->Size = System::Drawing::Size(183, 33);
 			this->btnAddP->TabIndex = 8;
@@ -191,7 +194,7 @@ namespace SalesView {
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(618, 52);
+			this->pictureBox1->Location = System::Drawing::Point(670, 52);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(118, 132);
 			this->pictureBox1->TabIndex = 9;
@@ -205,11 +208,11 @@ namespace SalesView {
 				this->Id, this->NameStore,
 					this->distrit, this->Status
 			});
-			this->dataGridView1->Location = System::Drawing::Point(32, 297);
+			this->dataGridView1->Location = System::Drawing::Point(32, 282);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->RowTemplate->Height = 24;
-			this->dataGridView1->Size = System::Drawing::Size(551, 206);
+			this->dataGridView1->Size = System::Drawing::Size(791, 221);
 			this->dataGridView1->TabIndex = 10;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &StoreForm::dataGridView1_CellContentClick);
 			// 
@@ -243,7 +246,7 @@ namespace SalesView {
 			// 
 			// btnSearch
 			// 
-			this->btnSearch->Location = System::Drawing::Point(618, 297);
+			this->btnSearch->Location = System::Drawing::Point(433, 221);
 			this->btnSearch->Name = L"btnSearch";
 			this->btnSearch->Size = System::Drawing::Size(118, 33);
 			this->btnSearch->TabIndex = 11;
@@ -290,7 +293,7 @@ namespace SalesView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(815, 515);
+			this->ClientSize = System::Drawing::Size(853, 515);
 			this->Controls->Add(this->lbId);
 			this->Controls->Add(this->tboxid);
 			this->Controls->Add(this->lbStatus);
@@ -304,7 +307,7 @@ namespace SalesView {
 			this->Controls->Add(this->btnAdd);
 			this->Controls->Add(this->LbDistrit);
 			this->Controls->Add(this->lbNamStore);
-			this->Controls->Add(this->textBox2);
+			this->Controls->Add(this->tboxDistrit);
 			this->Controls->Add(this->tboxName);
 			this->Name = L"StoreForm";
 			this->Text = L"Almacenes";
@@ -337,5 +340,28 @@ private: System::Void btnAddP_Click(System::Object^ sender, System::EventArgs^ e
 		productsStoreForm->ShowDialog();
 
 }
+private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
+	int id = Int32::Parse(tboxid->Text);
+	String^ name = tboxName->Text;
+	String^ adress = tboxDistrit->Text;
+	String^ status = comboBoxStatus->Text;
+
+
+	Store^ s = gcnew Store(name, id, adress, status);
+	SalesManager::AddStore(s);
+	RefreshDGVStores();
+}
+
+public:	void RefreshDGVStores() {
+			List<Store^>^ storeList = SalesManager::QueryStore();
+			dataGridView1->Rows->Clear();
+			for (int i = 0; i < storeList->Count; i++)
+				dataGridView1->Rows->Add(gcnew array<String^>{
+					"" + storeList[i]->Id,
+						storeList[i]->Name,
+						storeList[i]->Adress,
+						storeList[i]->Status,
+			});
+		}
 };
 }

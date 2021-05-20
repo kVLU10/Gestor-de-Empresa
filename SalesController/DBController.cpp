@@ -74,3 +74,43 @@ Personal^ SalesController::DBController::QueryPersonalByDocumentNumber(String^ p
             return personalDB->ListDBP[i];
     return nullptr;
 }
+
+
+
+void SalesController::DBController::AddStore(Store^ store)
+{
+    storeDB->ListDB->Add(store);
+}
+
+void SalesController::DBController::UpdateStore(Store^ store)
+{
+    for (int i = 0; i < storeDB->ListDB->Count; i++)
+        if (storeDB->ListDB[i]->Id == store->Id) {
+            storeDB->ListDB[i] = store;
+            return;
+        }
+}
+
+void SalesController::DBController::DeleteStore(int storeID)
+{
+    for (int i = 0; i < storeDB->ListDB->Count; i++)
+        if (storeDB->ListDB[i]->Id == storeID) {
+            storeDB->ListDB[i]->Status = "Inhabilitado";
+            return;
+        }
+}
+
+List<Store^>^ SalesController::DBController::QueryStore()
+{
+    return storeDB->ListDB;
+}
+
+Store^ SalesController::DBController::QueryStoreById(int storeID)
+{
+    for (int i = 0; i < storeDB->ListDB->Count; i++)
+        if (storeDB->ListDB[i]->Id == storeID) {
+            return storeDB->ListDB[i];
+        }
+    return nullptr;
+}
+

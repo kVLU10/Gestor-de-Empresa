@@ -1,6 +1,7 @@
 #pragma once
 #include "ProductDB.h"
 #include "PersonalDB.h"
+#include "StoreDB.h"
 
 using namespace Proyecto;
 using namespace System::Collections::Generic;
@@ -12,6 +13,7 @@ namespace SalesController {
 		private:
 			static ProductDB^ productDB = gcnew ProductDB();
 			static PersonalDB^ personalDB = gcnew PersonalDB();
+			static StoreDB^ storeDB = gcnew StoreDB();
 
 		public:
 			//Productos
@@ -26,6 +28,15 @@ namespace SalesController {
 			static void DeletePersonal(String^ DocumentNumber);
 			static List<Personal^>^ QueryPersonal();
 			static Personal^ QueryPersonalByDocumentNumber(String^ personalDocumentNumber);
+			//Stores
+			static void AddStore(Store^);
+			static void UpdateStore(Store^);
+			static void DeleteStore(int storeID);
+			static List<Store^>^ QueryStore();
+			static Store^ QueryStoreById(int storeID);
+
+
+
 	};
 }
 

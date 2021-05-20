@@ -53,6 +53,32 @@ Personal^ SalesController::SalesManager::QueryPersonalByDocumentNumber(String^ p
 	return DBController::QueryPersonalByDocumentNumber(personalDocumentNumber);
 }
 
+void SalesController::SalesManager::AddStore(Store^store)
+{
+	DBController::AddStore(store);
+}
+
+void SalesController::SalesManager::UpdateStore(Store^store)
+{
+	DBController::UpdateStore(store);
+}
+
+void SalesController::SalesManager::DeleteStore(String^ DocumentNumber)
+{
+	throw gcnew System::NotImplementedException();
+}
+
+List<Store^>^ SalesController::SalesManager::QueryStore()
+{
+	return DBController::QueryStore();
+}
+
+Store^ SalesController::SalesManager::QueryStoreByDocumentNumber(String^ personalDocumentNumber)
+{
+	throw gcnew System::NotImplementedException();
+	// TODO: Insertar una instrucción "return" aquí
+}
+
 Personal^ SalesController::SalesManager::ValidateUser(String^ username, String^ password)
 {
 	Personal^ personal = nullptr;
