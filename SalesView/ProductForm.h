@@ -164,7 +164,7 @@ namespace SalesView {
 			// 
 			// btnDelete
 			// 
-			this->btnDelete->Location = System::Drawing::Point(536, 13);
+			this->btnDelete->Location = System::Drawing::Point(557, 13);
 			this->btnDelete->Name = L"btnDelete";
 			this->btnDelete->Size = System::Drawing::Size(115, 23);
 			this->btnDelete->TabIndex = 14;
