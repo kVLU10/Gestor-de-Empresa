@@ -510,19 +510,27 @@ namespace SalesView {
 	}
 
 	private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
-		int selectedRows = dgvClient->SelectedRows->Count;
-		if (selectedRows == 1) {
-			if (MessageBox::Show(
-				"¿Está seguro de eliminar al cliente?",
-				"Confirmación", MessageBoxButtons::YesNo,
-				MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
-			{
-				dgvClient->Rows->RemoveAt(dgvClient->SelectedRows[0]->Index);
-				ClearControls();
+		int Id = -1;
+		try {
+			if (txtDocumentNumber->Text->Trim() == "") {
+				MessageBox::Show("No se puede eliminar porque no hay ningún cliente seleccionado.");
+				return;
 			}
+			Id = Int32::Parse(txtDocumentNumber->Text);
 		}
-		else {
-			MessageBox::Show("Para eliminar a un empleado debe seleccionar todo el registro");
+		catch (...) {
+			MessageBox::Show("No se puede eliminar al cliente porque el Id no es válido.");
+			return;
+		}
+		if (MessageBox::Show(
+			"¿Está seguro de eliminar al cliente?",
+			"Confirmación", MessageBoxButtons::YesNo,
+			MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
+		{
+			SalesManager::DeleteClient(Id);
+
+			refreshDGVClient();
+			ClearControls();
 		}
 	}
 

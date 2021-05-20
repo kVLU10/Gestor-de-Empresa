@@ -2,6 +2,7 @@
 
 using namespace SalesController;
 
+
 namespace SalesView {
 
 	using namespace System;

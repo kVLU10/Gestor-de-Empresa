@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 using namespace System;
 using namespace System::Collections::Generic;
 using namespace Proyecto;
@@ -10,3 +10,4 @@ namespace SalesController {
 		List<Client^>^ ListDBC = gcnew List<Client^>();
 	};
 }
+*/
