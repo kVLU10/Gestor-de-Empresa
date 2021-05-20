@@ -3,7 +3,7 @@
 
 void SalesController::SalesManager::AddProduct(Products^ p)
 {
-	//AddProduct es un mÈtodo est·tico o de clase
+	//AddProduct es un m√©todo est√°tico o de clase
 	DBController::AddProduct(p);
 }
 
@@ -53,6 +53,33 @@ Personal^ SalesController::SalesManager::QueryPersonalByDocumentNumber(String^ p
 	return DBController::QueryPersonalByDocumentNumber(personalDocumentNumber);
 }
 
+
+void SalesController::SalesManager::AddStore(Store^store)
+{
+	DBController::AddStore(store);
+}
+
+void SalesController::SalesManager::UpdateStore(Store^store)
+{
+	DBController::UpdateStore(store);
+}
+
+void SalesController::SalesManager::DeleteStore(int ID)
+{
+	DBController::DeleteStore(ID);
+}
+
+List<Store^>^ SalesController::SalesManager::QueryStore()
+{
+	return DBController::QueryStore();
+}
+
+Store^ SalesController::SalesManager::QueryStoreByDocumentNumber(String^ personalDocumentNumber)
+{
+	throw gcnew System::NotImplementedException();
+}
+	// TODO: Insertar una instrucci√≥n "return" aqu√≠
+
 void SalesController::SalesManager::AddClient(Client^ c)
 {
 	DBController::AddClient(c);
@@ -82,7 +109,7 @@ Personal^ SalesController::SalesManager::ValidateUser(String^ username, String^ 
 {
 	Personal^ personal = nullptr;
 	if (username->CompareTo("daquino")==0 && password->CompareTo("password")==0) {
-		personal = gcnew Personal(1, "daquino", "password", "Daniel", "Enrique", "Aquino", "MontaÒo", 'A', 1200, 10, "gmail", "kingston", "12052001");
+		personal = gcnew Personal(1, "daquino", "password", "Daniel", "Enrique", "Aquino", "Monta√±o", 'A', 1200, 10, "gmail", "kingston", "12052001");
 	}
 	return personal;
 }
