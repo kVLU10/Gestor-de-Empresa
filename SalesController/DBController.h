@@ -1,6 +1,7 @@
 #pragma once
 #include "ProductDB.h"
 #include "PersonalDB.h"
+#include "StoreDB.h"
 #include "ClientDB.h"
 
 using namespace System;
@@ -25,10 +26,11 @@ namespace SalesController {
 
 	public ref class DBController
 	{
-		//Definimos miembros est·ticos
+		//Definimos miembros est√°ticos
 		private:
 			static ProductDB^ productDB = gcnew ProductDB();
 			static PersonalDB^ personalDB = gcnew PersonalDB();
+			static StoreDB^ storeDB = gcnew StoreDB();
 			static ClientDB^ clientDB = gcnew ClientDB();
 
 		public:
@@ -51,6 +53,14 @@ namespace SalesController {
 			static void DeletePersonal(int DocumentNumber);
 			static List<Personal^>^ QueryPersonal();
 			static Personal^ QueryPersonalByDocumentNumber(int personalDocumentNumber);
+
+			//Stores
+			static void AddStore(Store^);
+			static void UpdateStore(Store^);
+			static void DeleteStore(int storeID);
+			static List<Store^>^ QueryStore();
+			static Store^ QueryStoreById(int storeID);
+
 			//Clientes
 			static void AddClient(Client^);
 			static void UpdateClient(Client^);

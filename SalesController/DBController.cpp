@@ -6,7 +6,6 @@ using namespace System::Globalization;
 using namespace System::Runtime::Serialization;
 using namespace System::Runtime::Serialization::Formatters::Binary;
 
-//Con -> se accede a miembros de una clase (métodos o atributos)
 
 SalesController::PersonalDB::PersonalDB() {
 }
@@ -153,6 +152,20 @@ Personal^ SalesController::DBController::QueryPersonalByDocumentNumber(int perso
     return nullptr;
 }
 
+
+void SalesController::DBController::AddStore(Store^ store)
+{
+    storeDB->ListDB->Add(store);
+}
+
+void SalesController::DBController::UpdateStore(Store^ store)
+{
+    for (int i = 0; i < storeDB->ListDB->Count; i++)
+        if (storeDB->ListDB[i]->Id == store->Id) {
+            storeDB->ListDB[i] = store;
+        }
+}
+
 void SalesController::DBController::AddClient(Client^ client)
 {
     clientDB->ListDBC->Add(client);
@@ -168,6 +181,15 @@ void SalesController::DBController::UpdateClient(Client^ client)
     SaveClient();
 }
 
+void SalesController::DBController::DeleteStore(int storeID)
+{
+    for (int i = 0; i < storeDB->ListDB->Count; i++)
+        if (storeDB->ListDB[i]->Id == storeID) {
+            storeDB->ListDB[i]->Status = "Inhabilitado";
+
+        }
+}
+
 void SalesController::DBController::DeleteClient(int DocumentNumber)
 {
     for (int i = 0; i < clientDB->ListDBC->Count; i++) {
@@ -176,6 +198,22 @@ void SalesController::DBController::DeleteClient(int DocumentNumber)
     }
     SaveClient();
 }
+
+
+List<Store^>^ SalesController::DBController::QueryStore()
+{
+    return storeDB->ListDB;
+}
+
+Store^ SalesController::DBController::QueryStoreById(int storeID)
+{
+    for (int i = 0; i < storeDB->ListDB->Count; i++)
+        if (storeDB->ListDB[i]->Id == storeID) {
+            return storeDB->ListDB[i];
+        }
+    return nullptr;
+}
+
 
 List<Client^>^ SalesController::DBController::QueryClient()
 {
