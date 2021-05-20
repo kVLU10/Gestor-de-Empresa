@@ -151,7 +151,6 @@ namespace SalesView {
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Productos";
 			this->tabPage1->UseVisualStyleBackColor = true;
-			this->tabPage1->Click += gcnew System::EventHandler(this, &ProductForm::tabPage1_Click);
 			// 
 			// panel2
 			// 
@@ -248,7 +247,6 @@ namespace SalesView {
 			this->txtId->Name = L"txtId";
 			this->txtId->Size = System::Drawing::Size(224, 22);
 			this->txtId->TabIndex = 8;
-			this->txtId->TextChanged += gcnew System::EventHandler(this, &ProductForm::txtId_TextChanged);
 			// 
 			// txtDescription
 			// 

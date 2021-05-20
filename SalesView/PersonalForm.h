@@ -770,8 +770,9 @@ namespace SalesView {
 			}
 		}
 
-private: System::Void PersonalForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		System::Void ClearControls() {
+	private: System::Void PersonalForm_Load(System::Object^ sender, System::EventArgs^ e) {}
+		
+		   System::Void ClearControls() {
 			txtDocumentNumber->Clear();
 			txtNombre1->Clear();
 			txtNombre2->Clear();
@@ -782,8 +783,8 @@ private: System::Void PersonalForm_Load(System::Object^ sender, System::EventArg
 			txtContraseña->Clear();
 			txtBirthday->Clear();
 			txtEstado->Clear();
-		}
-}
+			}
+
 
 };
 }

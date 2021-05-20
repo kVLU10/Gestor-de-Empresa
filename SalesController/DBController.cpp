@@ -86,6 +86,8 @@ void SalesController::DBController::UpdateStore(Store^ store)
     for (int i = 0; i < storeDB->ListDB->Count; i++)
         if (storeDB->ListDB[i]->Id == store->Id) {
             storeDB->ListDB[i] = store;
+        }
+}
 
 void SalesController::DBController::AddClient(Client^ client)
 {
@@ -107,6 +109,9 @@ void SalesController::DBController::DeleteStore(int storeID)
     for (int i = 0; i < storeDB->ListDB->Count; i++)
         if (storeDB->ListDB[i]->Id == storeID) {
             storeDB->ListDB[i]->Status = "Inhabilitado";
+
+        }
+}
 
 void SalesController::DBController::DeleteClient(String^ DocumentNumber)
 {
