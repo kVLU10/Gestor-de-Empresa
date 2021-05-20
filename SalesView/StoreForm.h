@@ -23,6 +23,7 @@ namespace SalesView {
 		StoreForm(void)
 		{
 			InitializeComponent();
+			RefreshDGVStores();
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -63,7 +64,7 @@ namespace SalesView {
 
 
 
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
+
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
 	private: System::Windows::Forms::Button^ btnSearch;
 
@@ -104,7 +105,6 @@ namespace SalesView {
 			this->btnUpdate = (gcnew System::Windows::Forms::Button());
 			this->btnDelete = (gcnew System::Windows::Forms::Button());
 			this->btnAddP = (gcnew System::Windows::Forms::Button());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->Id = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->NameStore = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -115,7 +115,6 @@ namespace SalesView {
 			this->lbStatus = (gcnew System::Windows::Forms::Label());
 			this->tboxid = (gcnew System::Windows::Forms::TextBox());
 			this->lbId = (gcnew System::Windows::Forms::Label());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -172,6 +171,7 @@ namespace SalesView {
 			this->btnUpdate->TabIndex = 6;
 			this->btnUpdate->Text = L"&Modificar";
 			this->btnUpdate->UseVisualStyleBackColor = true;
+			this->btnUpdate->Click += gcnew System::EventHandler(this, &StoreForm::btnUpdate_Click);
 			// 
 			// btnDelete
 			// 
@@ -181,6 +181,7 @@ namespace SalesView {
 			this->btnDelete->TabIndex = 7;
 			this->btnDelete->Text = L"&Eliminar";
 			this->btnDelete->UseVisualStyleBackColor = true;
+			this->btnDelete->Click += gcnew System::EventHandler(this, &StoreForm::btnDelete_Click);
 			// 
 			// btnAddP
 			// 
@@ -191,15 +192,6 @@ namespace SalesView {
 			this->btnAddP->Text = L"Agregar Productos";
 			this->btnAddP->UseVisualStyleBackColor = true;
 			this->btnAddP->Click += gcnew System::EventHandler(this, &StoreForm::btnAddP_Click);
-			// 
-			// pictureBox1
-			// 
-			this->pictureBox1->Location = System::Drawing::Point(670, 52);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(118, 132);
-			this->pictureBox1->TabIndex = 9;
-			this->pictureBox1->TabStop = false;
-			this->pictureBox1->Click += gcnew System::EventHandler(this, &StoreForm::pictureBox1_Click);
 			// 
 			// dataGridView1
 			// 
@@ -252,6 +244,7 @@ namespace SalesView {
 			this->btnSearch->TabIndex = 11;
 			this->btnSearch->Text = L"&Buscar";
 			this->btnSearch->UseVisualStyleBackColor = true;
+			this->btnSearch->Click += gcnew System::EventHandler(this, &StoreForm::btnSearch_Click);
 			// 
 			// comboBoxStatus
 			// 
@@ -300,7 +293,6 @@ namespace SalesView {
 			this->Controls->Add(this->comboBoxStatus);
 			this->Controls->Add(this->btnSearch);
 			this->Controls->Add(this->dataGridView1);
-			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->btnAddP);
 			this->Controls->Add(this->btnDelete);
 			this->Controls->Add(this->btnUpdate);
@@ -312,15 +304,13 @@ namespace SalesView {
 			this->Name = L"StoreForm";
 			this->Text = L"Almacenes";
 			this->Load += gcnew System::EventHandler(this, &StoreForm::StoreForm_Load);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
+
 private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 }
 private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -363,5 +353,54 @@ public:	void RefreshDGVStores() {
 						storeList[i]->Status,
 			});
 		}
+private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
+	int id = Int32::Parse(tboxid->Text);
+	String^ name = tboxName->Text;
+	String^ adress = tboxDistrit->Text;
+	String^ status = comboBoxStatus->Text;
+
+	Store^ s = gcnew Store(name, id, adress, status);
+	SalesManager::UpdateStore(s);
+
+
+	RefreshDGVStores();
+
+
+
+}
+private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^ e) {
+	int id = Int32::Parse(tboxid->Text);
+	String^ name = tboxName->Text;
+	String^ adress = tboxDistrit->Text;
+	String^ status = comboBoxStatus->Text;
+	dataGridView1->Rows->Clear();
+	List<Store^>^ storeList = SalesManager::QueryStore();
+	for (int i = 0; i < storeList->Count; i++) {
+		if (id==storeList[i]->Id)
+			dataGridView1->Rows->Add(gcnew array<String^>{
+			"" + storeList[i]->Id,
+				storeList[i]->Name,
+				storeList[i]->Adress,
+				storeList[i]->Status,
+		});
+	}
+}
+private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
+	int id = Int32::Parse(tboxid->Text);
+
+	SalesManager::DeleteStore(id);
+	dataGridView1->Rows->Clear();
+	List<Store^>^ storeList = SalesManager::QueryStore();
+	for (int i = 0; i < storeList->Count; i++) {
+			dataGridView1->Rows->Add(gcnew array<String^>{
+			"" + storeList[i]->Id,
+				storeList[i]->Name,
+				storeList[i]->Adress,
+				storeList[i]->Status,
+		});
+	}
+
+
+}
 };
 }

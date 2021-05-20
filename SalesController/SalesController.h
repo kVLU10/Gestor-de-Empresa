@@ -27,7 +27,7 @@ namespace SalesController {
 
 			static void AddStore(Store^);
 			static void UpdateStore(Store^);
-			static void DeleteStore(String^ DocumentNumber);
+			static void DeleteStore(int ID);
 			static List<Store^>^ QueryStore();
 			static Store^ QueryStoreByDocumentNumber(String^ personalDocumentNumber);
 

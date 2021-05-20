@@ -144,9 +144,9 @@ namespace SalesView {
 			this->tabPage1->Controls->Add(this->panel1);
 			this->tabPage1->Controls->Add(this->panel3);
 			this->tabPage1->Location = System::Drawing::Point(4, 25);
-			this->tabPage1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->tabPage1->Margin = System::Windows::Forms::Padding(4);
 			this->tabPage1->Name = L"tabPage1";
-			this->tabPage1->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->tabPage1->Padding = System::Windows::Forms::Padding(4);
 			this->tabPage1->Size = System::Drawing::Size(1183, 589);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Productos";
@@ -159,7 +159,7 @@ namespace SalesView {
 			this->panel2->Controls->Add(this->btnUpdate);
 			this->panel2->Controls->Add(this->btnAdds);
 			this->panel2->Location = System::Drawing::Point(4, 183);
-			this->panel2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->panel2->Margin = System::Windows::Forms::Padding(4);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(944, 64);
 			this->panel2->TabIndex = 17;
@@ -167,7 +167,7 @@ namespace SalesView {
 			// btnDelete
 			// 
 			this->btnDelete->Location = System::Drawing::Point(715, 16);
-			this->btnDelete->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->btnDelete->Margin = System::Windows::Forms::Padding(4);
 			this->btnDelete->Name = L"btnDelete";
 			this->btnDelete->Size = System::Drawing::Size(153, 28);
 			this->btnDelete->TabIndex = 14;
@@ -177,7 +177,7 @@ namespace SalesView {
 			// btnUpdate
 			// 
 			this->btnUpdate->Location = System::Drawing::Point(405, 16);
-			this->btnUpdate->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->btnUpdate->Margin = System::Windows::Forms::Padding(4);
 			this->btnUpdate->Name = L"btnUpdate";
 			this->btnUpdate->Size = System::Drawing::Size(153, 28);
 			this->btnUpdate->TabIndex = 13;
@@ -187,7 +187,7 @@ namespace SalesView {
 			// btnAdds
 			// 
 			this->btnAdds->Location = System::Drawing::Point(84, 16);
-			this->btnAdds->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->btnAdds->Margin = System::Windows::Forms::Padding(4);
 			this->btnAdds->Name = L"btnAdds";
 			this->btnAdds->Size = System::Drawing::Size(153, 28);
 			this->btnAdds->TabIndex = 12;
@@ -210,7 +210,7 @@ namespace SalesView {
 			this->panel1->Controls->Add(this->lblDescription);
 			this->panel1->Controls->Add(this->lblName);
 			this->panel1->Location = System::Drawing::Point(5, 5);
-			this->panel1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->panel1->Margin = System::Windows::Forms::Padding(4);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(944, 171);
 			this->panel1->TabIndex = 16;
@@ -218,7 +218,7 @@ namespace SalesView {
 			// txtPrice
 			// 
 			this->txtPrice->Location = System::Drawing::Point(696, 117);
-			this->txtPrice->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtPrice->Margin = System::Windows::Forms::Padding(4);
 			this->txtPrice->Name = L"txtPrice";
 			this->txtPrice->Size = System::Drawing::Size(132, 22);
 			this->txtPrice->TabIndex = 11;
@@ -226,7 +226,7 @@ namespace SalesView {
 			// txtBonusPoints
 			// 
 			this->txtBonusPoints->Location = System::Drawing::Point(696, 57);
-			this->txtBonusPoints->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtBonusPoints->Margin = System::Windows::Forms::Padding(4);
 			this->txtBonusPoints->Name = L"txtBonusPoints";
 			this->txtBonusPoints->Size = System::Drawing::Size(132, 22);
 			this->txtBonusPoints->TabIndex = 10;
@@ -234,7 +234,7 @@ namespace SalesView {
 			// txtBrand
 			// 
 			this->txtBrand->Location = System::Drawing::Point(372, 117);
-			this->txtBrand->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtBrand->Margin = System::Windows::Forms::Padding(4);
 			this->txtBrand->Name = L"txtBrand";
 			this->txtBrand->Size = System::Drawing::Size(267, 22);
 			this->txtBrand->TabIndex = 9;
@@ -242,7 +242,7 @@ namespace SalesView {
 			// txtId
 			// 
 			this->txtId->Location = System::Drawing::Point(41, 57);
-			this->txtId->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtId->Margin = System::Windows::Forms::Padding(4);
 			this->txtId->Name = L"txtId";
 			this->txtId->Size = System::Drawing::Size(224, 22);
 			this->txtId->TabIndex = 8;
@@ -251,7 +251,7 @@ namespace SalesView {
 			// txtDescription
 			// 
 			this->txtDescription->Location = System::Drawing::Point(41, 117);
-			this->txtDescription->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtDescription->Margin = System::Windows::Forms::Padding(4);
 			this->txtDescription->Name = L"txtDescription";
 			this->txtDescription->Size = System::Drawing::Size(269, 22);
 			this->txtDescription->TabIndex = 7;
@@ -259,7 +259,7 @@ namespace SalesView {
 			// txtName
 			// 
 			this->txtName->Location = System::Drawing::Point(372, 57);
-			this->txtName->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtName->Margin = System::Windows::Forms::Padding(4);
 			this->txtName->Name = L"txtName";
 			this->txtName->Size = System::Drawing::Size(269, 22);
 			this->txtName->TabIndex = 6;
@@ -328,7 +328,7 @@ namespace SalesView {
 			// 
 			this->panel3->Controls->Add(this->dgvProducts);
 			this->panel3->Location = System::Drawing::Point(4, 255);
-			this->panel3->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->panel3->Margin = System::Windows::Forms::Padding(4);
 			this->panel3->Name = L"panel3";
 			this->panel3->Size = System::Drawing::Size(1100, 319);
 			this->panel3->TabIndex = 18;
@@ -341,7 +341,7 @@ namespace SalesView {
 					this->Brand, this->BonusPoints, this->Description, this->Price, this->Status
 			});
 			this->dgvProducts->Location = System::Drawing::Point(43, 23);
-			this->dgvProducts->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->dgvProducts->Margin = System::Windows::Forms::Padding(4);
 			this->dgvProducts->Name = L"dgvProducts";
 			this->dgvProducts->RowHeadersWidth = 51;
 			this->dgvProducts->Size = System::Drawing::Size(993, 276);
@@ -400,7 +400,7 @@ namespace SalesView {
 			// 
 			this->tabProducts->Controls->Add(this->tabPage1);
 			this->tabProducts->Location = System::Drawing::Point(16, 15);
-			this->tabProducts->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->tabProducts->Margin = System::Windows::Forms::Padding(4);
 			this->tabProducts->Name = L"tabProducts";
 			this->tabProducts->SelectedIndex = 0;
 			this->tabProducts->Size = System::Drawing::Size(1191, 618);
@@ -412,7 +412,7 @@ namespace SalesView {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1175, 647);
 			this->Controls->Add(this->tabProducts);
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"ProductForm";
 			this->Text = L"Productos";
 			this->tabPage1->ResumeLayout(false);

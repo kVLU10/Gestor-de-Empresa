@@ -63,9 +63,9 @@ void SalesController::SalesManager::UpdateStore(Store^store)
 	DBController::UpdateStore(store);
 }
 
-void SalesController::SalesManager::DeleteStore(String^ DocumentNumber)
+void SalesController::SalesManager::DeleteStore(int ID)
 {
-	throw gcnew System::NotImplementedException();
+	DBController::DeleteStore(ID);
 }
 
 List<Store^>^ SalesController::SalesManager::QueryStore()
