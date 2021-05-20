@@ -2,6 +2,7 @@
 #include "ProductDB.h"
 #include "PersonalDB.h"
 #include "StoreDB.h"
+#include "ClientDB.h"
 
 using namespace Proyecto;
 using namespace System::Collections::Generic;
@@ -9,11 +10,12 @@ using namespace System::Collections::Generic;
 namespace SalesController {
 	public ref class DBController
 	{
-		//Definimos miembros est·ticos
+		//Definimos miembros est√°ticos
 		private:
 			static ProductDB^ productDB = gcnew ProductDB();
 			static PersonalDB^ personalDB = gcnew PersonalDB();
 			static StoreDB^ storeDB = gcnew StoreDB();
+			static ClientDB^ clientDB = gcnew ClientDB();
 
 		public:
 			//Productos
@@ -28,6 +30,7 @@ namespace SalesController {
 			static void DeletePersonal(String^ DocumentNumber);
 			static List<Personal^>^ QueryPersonal();
 			static Personal^ QueryPersonalByDocumentNumber(String^ personalDocumentNumber);
+    
 			//Stores
 			static void AddStore(Store^);
 			static void UpdateStore(Store^);
@@ -36,7 +39,12 @@ namespace SalesController {
 			static Store^ QueryStoreById(int storeID);
 
 
-
+			//Clientes
+			static void AddClient(Client^);
+			static void UpdateClient(Client^);
+			static void DeleteClient(String^ DocumentNumber);
+			static List<Client^>^ QueryClient();
+			static Client^ QueryClientByDocumentNumber(String^ clientDocumentNumber);
 	};
 }
 

@@ -31,6 +31,7 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="ProductsStoreForm.cpp">
+    <ClCompile Include="ClientForm.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -51,6 +52,7 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="ProductsStoreForm.h">
+    <ClInclude Include="ClientForm.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

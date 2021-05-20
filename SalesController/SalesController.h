@@ -23,13 +23,21 @@ namespace SalesController {
 			static List<Personal^>^ QueryPersonal();
 			static Personal^ QueryPersonalByDocumentNumber(String^ personalDocumentNumber);
 
-			//Méstodos CRUD para Store
 
+			//Méstodos CRUD para Store
 			static void AddStore(Store^);
 			static void UpdateStore(Store^);
 			static void DeleteStore(int ID);
 			static List<Store^>^ QueryStore();
 			static Store^ QueryStoreByDocumentNumber(String^ personalDocumentNumber);
+
+			//Métodos CRUD para Clientes
+			static void AddClient(Client^);
+			static void UpdateClient(Client^);
+			static void DeleteClient(String^ DocumentNumber);
+			static List<Client^>^ QueryClient();
+			static Client^ QueryClientByDocumentNumber(String^ clientDocumentNumber);
+
 
 			//Métodos para la autenticación
 			static Personal^ ValidateUser(String^ username, String^ password);

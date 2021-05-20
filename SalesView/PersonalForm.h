@@ -22,13 +22,13 @@ namespace SalesView {
 		{
 			InitializeComponent();
 			//
-			//TODO: agregar código de constructor aquí
+			//TODO: agregar cÃ³digo de constructor aquÃ­
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se estén usando.
+		/// Limpiar los recursos que se estÃ©n usando.
 		/// </summary>
 		~PersonalForm()
 		{
@@ -66,7 +66,7 @@ namespace SalesView {
 	private: System::Windows::Forms::ComboBox^ comboBoxCargo;
 
 
-	private: System::Windows::Forms::TextBox^ txtContraseña;
+	private: System::Windows::Forms::TextBox^ txtContraseÃ±a;
 
 
 
@@ -108,9 +108,9 @@ namespace SalesView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Telefono;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ DocumentNumber;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Correo;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Contraseña;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ContraseÃ±a;
 	private: System::Windows::Forms::TextBox^ txtBirthday;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumpleaños;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ CumpleaÃ±os;
 
 
 
@@ -147,14 +147,14 @@ namespace SalesView {
 
 	private:
 		/// <summary>
-		/// Variable del diseñador necesaria.
+		/// Variable del diseÃ±ador necesaria.
 		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
+		/// MÃ©todo necesario para admitir el DiseÃ±ador. No se puede modificar
+		/// el contenido de este mÃ©todo con el editor de cÃ³digo.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -176,7 +176,7 @@ namespace SalesView {
 			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->comboBoxCargo = (gcnew System::Windows::Forms::ComboBox());
-			this->txtContraseña = (gcnew System::Windows::Forms::TextBox());
+			this->txtContraseÃ±a = (gcnew System::Windows::Forms::TextBox());
 			this->txtCorreo = (gcnew System::Windows::Forms::TextBox());
 			this->txtDocumentNumber = (gcnew System::Windows::Forms::TextBox());
 			this->txtTelefono = (gcnew System::Windows::Forms::TextBox());
@@ -199,8 +199,8 @@ namespace SalesView {
 			this->Telefono = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->DocumentNumber = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Correo = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Contraseña = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Cumpleaños = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->ContraseÃ±a = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->CumpleaÃ±os = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->tabControl1->SuspendLayout();
 			this->tabPersonal->SuspendLayout();
 			this->panel1->SuspendLayout();
@@ -250,7 +250,7 @@ namespace SalesView {
 			this->panel1->Controls->Add(this->label13);
 			this->panel1->Controls->Add(this->label8);
 			this->panel1->Controls->Add(this->comboBoxCargo);
-			this->panel1->Controls->Add(this->txtContraseña);
+			this->panel1->Controls->Add(this->txtContraseÃ±a);
 			this->panel1->Controls->Add(this->txtCorreo);
 			this->panel1->Controls->Add(this->txtDocumentNumber);
 			this->panel1->Controls->Add(this->txtTelefono);
@@ -302,7 +302,7 @@ namespace SalesView {
 			this->label21->Name = L"label21";
 			this->label21->Size = System::Drawing::Size(38, 17);
 			this->label21->TabIndex = 51;
-			this->label21->Text = L"Área";
+			this->label21->Text = L"Ãrea";
 			// 
 			// comboBoxArea
 			// 
@@ -331,7 +331,7 @@ namespace SalesView {
 			this->label19->Name = L"label19";
 			this->label19->Size = System::Drawing::Size(81, 17);
 			this->label19->TabIndex = 48;
-			this->label19->Text = L"Contraseña";
+			this->label19->Text = L"ContraseÃ±a";
 			// 
 			// label18
 			// 
@@ -351,7 +351,7 @@ namespace SalesView {
 			this->label17->Name = L"label17";
 			this->label17->Size = System::Drawing::Size(64, 17);
 			this->label17->TabIndex = 46;
-			this->label17->Text = L"Teléfono";
+			this->label17->Text = L"TelÃ©fono";
 			// 
 			// label16
 			// 
@@ -412,13 +412,13 @@ namespace SalesView {
 			this->comboBoxCargo->Size = System::Drawing::Size(164, 24);
 			this->comboBoxCargo->TabIndex = 40;
 			// 
-			// txtContraseña
+			// txtContraseÃ±a
 			// 
-			this->txtContraseña->Location = System::Drawing::Point(500, 213);
-			this->txtContraseña->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->txtContraseña->Name = L"txtContraseña";
-			this->txtContraseña->Size = System::Drawing::Size(164, 22);
-			this->txtContraseña->TabIndex = 38;
+			this->txtContraseÃ±a->Location = System::Drawing::Point(500, 213);
+			this->txtContraseÃ±a->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtContraseÃ±a->Name = L"txtContraseÃ±a";
+			this->txtContraseÃ±a->Size = System::Drawing::Size(164, 22);
+			this->txtContraseÃ±a->TabIndex = 38;
 			// 
 			// txtCorreo
 			// 
@@ -514,6 +514,7 @@ namespace SalesView {
 			this->btnDelete->TabIndex = 2;
 			this->btnDelete->Text = L"&Eliminar";
 			this->btnDelete->UseVisualStyleBackColor = true;
+			this->btnDelete->Click += gcnew System::EventHandler(this, &PersonalForm::btnDelete_Click);
 			// 
 			// btnUpdate
 			// 
@@ -524,6 +525,7 @@ namespace SalesView {
 			this->btnUpdate->TabIndex = 1;
 			this->btnUpdate->Text = L"&Modificar";
 			this->btnUpdate->UseVisualStyleBackColor = true;
+			this->btnUpdate->Click += gcnew System::EventHandler(this, &PersonalForm::btnUpdate_Click);
 			// 
 			// btnAdd
 			// 
@@ -550,7 +552,7 @@ namespace SalesView {
 			this->dgvPersonal->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dgvPersonal->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(9) {
 				this->Nombre1,
-					this->Nombre2, this->Apellido1, this->Apellido2, this->Telefono, this->DocumentNumber, this->Correo, this->Contraseña, this->Cumpleaños
+					this->Nombre2, this->Apellido1, this->Apellido2, this->Telefono, this->DocumentNumber, this->Correo, this->ContraseÃ±a, this->CumpleaÃ±os
 			});
 			this->dgvPersonal->Location = System::Drawing::Point(4, 0);
 			this->dgvPersonal->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
@@ -590,7 +592,7 @@ namespace SalesView {
 			// 
 			// Telefono
 			// 
-			this->Telefono->HeaderText = L"Teléfono";
+			this->Telefono->HeaderText = L"TelÃ©fono";
 			this->Telefono->MinimumWidth = 6;
 			this->Telefono->Name = L"Telefono";
 			this->Telefono->Width = 125;
@@ -609,19 +611,19 @@ namespace SalesView {
 			this->Correo->Name = L"Correo";
 			this->Correo->Width = 125;
 			// 
-			// Contraseña
+			// ContraseÃ±a
 			// 
-			this->Contraseña->HeaderText = L"Contraseña";
-			this->Contraseña->MinimumWidth = 6;
-			this->Contraseña->Name = L"Contraseña";
-			this->Contraseña->Width = 125;
+			this->ContraseÃ±a->HeaderText = L"ContraseÃ±a";
+			this->ContraseÃ±a->MinimumWidth = 6;
+			this->ContraseÃ±a->Name = L"ContraseÃ±a";
+			this->ContraseÃ±a->Width = 125;
 			// 
-			// Cumpleaños
+			// CumpleaÃ±os
 			// 
-			this->Cumpleaños->HeaderText = L"Cumpleaños";
-			this->Cumpleaños->MinimumWidth = 6;
-			this->Cumpleaños->Name = L"Cumpleaños";
-			this->Cumpleaños->Width = 125;
+			this->CumpleaÃ±os->HeaderText = L"CumpleaÃ±os";
+			this->CumpleaÃ±os->MinimumWidth = 6;
+			this->CumpleaÃ±os->Name = L"CumpleaÃ±os";
+			this->CumpleaÃ±os->Width = 125;
 			// 
 			// PersonalForm
 			// 
@@ -648,7 +650,9 @@ namespace SalesView {
 	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	}
 	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
-		int Id = Int32::Parse(txtDocumentNumber->Text);
+		Personal^ ps = gcnew Personal();
+
+		/*int Id = Int32::Parse(txtDocumentNumber->Text);
 		String^ FirstName = txtNombre1->Text;
 		String^ SecondName = txtNombre2->Text;
 		String^ FirstLastName = txtApellido1->Text;
@@ -657,14 +661,94 @@ namespace SalesView {
 		String^ Estado = txtEstado->Text;
 		String^ PhoneNumber = txtTelefono->Text;
 		String^ PersonalEmail = txtCorreo->Text;
-		String^ Password = txtContraseña->Text;
-		String^ Birthday = txtBirthday->Text;
+		String^ Password = txtContraseÃ±a->Text;
+		String^ Birthday = txtBirthday->Text;*/
 
-		Personal^ ps = gcnew Personal(Id, FirstName, Password, FirstName, SecondName, FirstLastName, SecondLastName, 'A', 100, 100, PersonalEmail, PhoneNumber, Birthday);
+		ps -> Id = Int32::Parse(txtDocumentNumber->Text);
+		ps->FirstName = txtNombre1->Text;
+		ps->SecondName = txtNombre2->Text;
+		ps->FirstLastName = txtApellido1->Text;
+		ps->SecondLastName = txtApellido2->Text;
+		ps->PhoneNumber = txtTelefono->Text;
+		ps->PersonalEmail = txtCorreo->Text;
+		ps->Password = txtContraseÃ±a->Text;
+		ps->Birthday = txtBirthday->Text;
+
+		//Personal^ ps = gcnew Personal(Id, FirstName, Password, FirstName, SecondName, FirstLastName, SecondLastName, 'A', 100, 100, PersonalEmail, PhoneNumber, Birthday);
 
 		SalesManager::AddPersonal(ps);
 		refreshDGVPersonal();
 
+	}
+
+	private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (txtDocumentNumber->Text->Trim() == "") {
+			MessageBox::Show("El Documento de Identidad no debe estar vacÃ­o.");
+			return;
+		}
+		if (MessageBox::Show(
+			"Â¿EstÃ¡ seguro de actualizar al Personal?",
+			"ConfirmaciÃ³n", MessageBoxButtons::YesNo,
+			MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
+		{
+			Personal^ ps = gcnew Personal();
+			try {
+				ps->Id = Int32::Parse(txtDocumentNumber->Text);
+				ps->FirstName = txtNombre1->Text;
+				ps->SecondName = txtNombre2->Text;
+				ps->FirstLastName = txtApellido1->Text;
+				ps->SecondLastName = txtApellido2->Text;
+				ps->PhoneNumber = txtTelefono->Text;
+				ps->PersonalEmail = txtCorreo->Text;
+				ps->Password = txtContraseÃ±a->Text;
+				ps->Birthday = txtBirthday->Text;
+
+				SalesManager::UpdatePersonal(ps);
+				refreshDGVPersonal();
+			}
+			catch (Exception^ ex) {
+				MessageBox::Show(ex->ToString(), "Error al grabar.");
+				return;
+			}
+		}
+	}
+
+	private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
+		/*int Id = -1;
+		try {
+			if (txtDocumentNumber->Text->Trim() == "") {
+				MessageBox::Show("No se puede eliminar porque no hay ningÃºn empleado seleccionado.");
+				return;
+			}
+			Id = Int32::Parse(txtDocumentNumber->Text);
+		}
+		catch (...) {
+			MessageBox::Show("No se puede eliminar al empleado porque el Id no es vÃ¡lido.");
+			return;
+		}
+		if (MessageBox::Show(
+			"Â¿EstÃ¡ seguro de eliminar al empleado?",
+			"ConfirmaciÃ³n", MessageBoxButtons::YesNo,
+			MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
+		{
+			SalesManager::DeleteProduct(Id);
+			refreshDGVPersonal();
+			ClearControls();
+		}*/
+		int selectedRows = dgvPersonal->SelectedRows->Count;
+		if (selectedRows == 1) {
+			if (MessageBox::Show(
+				"Â¿EstÃ¡ seguro de eliminar al empleado?",
+				"ConfirmaciÃ³n", MessageBoxButtons::YesNo,
+				MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
+			{
+				dgvPersonal->Rows->RemoveAt(dgvPersonal->SelectedRows[0]->Index);
+				ClearControls();
+			}
+		}
+		else {
+			MessageBox::Show("Para eliminar a un empleado debe seleccionar todo el registro");
+		}
 	}
 
 	public:
@@ -685,7 +769,21 @@ namespace SalesView {
 				});
 			}
 		}
+
 private: System::Void PersonalForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		System::Void ClearControls() {
+			txtDocumentNumber->Clear();
+			txtNombre1->Clear();
+			txtNombre2->Clear();
+			txtApellido1->Clear();
+			txtApellido2->Clear();
+			txtTelefono->Clear();
+			txtCorreo->Clear();
+			txtContraseÃ±a->Clear();
+			txtBirthday->Clear();
+			txtEstado->Clear();
+		}
 }
+
 };
 }

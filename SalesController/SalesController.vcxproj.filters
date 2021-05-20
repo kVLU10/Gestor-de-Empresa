@@ -33,7 +33,10 @@
     <ClInclude Include="PersonalDB.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+
     <ClInclude Include="StoreDB.h">
+    <ClInclude Include="ClientDB.h">
+
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
@@ -54,6 +57,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="PersonalDB.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientDB.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

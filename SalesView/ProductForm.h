@@ -22,13 +22,13 @@ namespace SalesView {
 		{
 			InitializeComponent();
 			//
-			//TODO: agregar c�digo de constructor aqu�
+			//TODO: agregar código de constructor aquí
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se est�n usando.
+		/// Limpiar los recursos que se estén usando.
 		/// </summary>
 		~ProductForm()
 		{
@@ -92,14 +92,14 @@ namespace SalesView {
 
 	private:
 		/// <summary>
-		/// Variable del dise�ador necesaria.
+		/// Variable del diseñador necesaria.
 		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// M�todo necesario para admitir el Dise�ador. No se puede modificar
-		/// el contenido de este m�todo con el editor de c�digo.
+		/// Método necesario para admitir el Diseñador. No se puede modificar
+		/// el contenido de este método con el editor de código.
 		/// </summary>
 		void InitializeComponent(void){
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
@@ -158,10 +158,11 @@ namespace SalesView {
 			this->panel2->Controls->Add(this->btnDelete);
 			this->panel2->Controls->Add(this->btnUpdate);
 			this->panel2->Controls->Add(this->btnAdds);
-			this->panel2->Location = System::Drawing::Point(4, 183);
-			this->panel2->Margin = System::Windows::Forms::Padding(4);
+
+			this->panel2->Location = System::Drawing::Point(3, 149);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(944, 64);
+			this->panel2->Size = System::Drawing::Size(708, 52);
+
 			this->panel2->TabIndex = 17;
 			// 
 			// btnDelete
@@ -173,6 +174,7 @@ namespace SalesView {
 			this->btnDelete->TabIndex = 14;
 			this->btnDelete->Text = L"&Eliminar";
 			this->btnDelete->UseVisualStyleBackColor = true;
+			this->btnDelete->Click += gcnew System::EventHandler(this, &ProductForm::btnDelete_Click);
 			// 
 			// btnUpdate
 			// 
@@ -183,6 +185,7 @@ namespace SalesView {
 			this->btnUpdate->TabIndex = 13;
 			this->btnUpdate->Text = L"&Modificar";
 			this->btnUpdate->UseVisualStyleBackColor = true;
+			this->btnUpdate->Click += gcnew System::EventHandler(this, &ProductForm::btnUpdate_Click);
 			// 
 			// btnAdds
 			// 
@@ -209,10 +212,9 @@ namespace SalesView {
 			this->panel1->Controls->Add(this->lblCode);
 			this->panel1->Controls->Add(this->lblDescription);
 			this->panel1->Controls->Add(this->lblName);
-			this->panel1->Location = System::Drawing::Point(5, 5);
-			this->panel1->Margin = System::Windows::Forms::Padding(4);
+			this->panel1->Location = System::Drawing::Point(4, 4);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(944, 171);
+			this->panel1->Size = System::Drawing::Size(708, 139);
 			this->panel1->TabIndex = 16;
 			// 
 			// txtPrice
@@ -302,7 +304,7 @@ namespace SalesView {
 			this->lblCode->Name = L"lblCode";
 			this->lblCode->Size = System::Drawing::Size(52, 17);
 			this->lblCode->TabIndex = 2;
-			this->lblCode->Text = L"C�digo";
+			this->lblCode->Text = L"Código";
 			// 
 			// lblDescription
 			// 
@@ -312,7 +314,7 @@ namespace SalesView {
 			this->lblDescription->Name = L"lblDescription";
 			this->lblDescription->Size = System::Drawing::Size(82, 17);
 			this->lblDescription->TabIndex = 1;
-			this->lblDescription->Text = L"Descripci�n";
+			this->lblDescription->Text = L"Descripción";
 			// 
 			// lblName
 			// 
@@ -325,12 +327,12 @@ namespace SalesView {
 			this->lblName->Text = L"Nombre";
 			// 
 			// panel3
+
 			// 
 			this->panel3->Controls->Add(this->dgvProducts);
-			this->panel3->Location = System::Drawing::Point(4, 255);
-			this->panel3->Margin = System::Windows::Forms::Padding(4);
+			this->panel3->Location = System::Drawing::Point(3, 207);
 			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(1100, 319);
+			this->panel3->Size = System::Drawing::Size(825, 259);
 			this->panel3->TabIndex = 18;
 			// 
 			// dgvProducts
@@ -340,71 +342,54 @@ namespace SalesView {
 				this->Id, this->NameProduct,
 					this->Brand, this->BonusPoints, this->Description, this->Price, this->Status
 			});
-			this->dgvProducts->Location = System::Drawing::Point(43, 23);
-			this->dgvProducts->Margin = System::Windows::Forms::Padding(4);
+			this->dgvProducts->Location = System::Drawing::Point(32, 19);
 			this->dgvProducts->Name = L"dgvProducts";
-			this->dgvProducts->RowHeadersWidth = 51;
-			this->dgvProducts->Size = System::Drawing::Size(993, 276);
+			this->dgvProducts->Size = System::Drawing::Size(745, 224);
 			this->dgvProducts->TabIndex = 15;
 			// 
 			// Id
 			// 
-			this->Id->HeaderText = L"C�digo";
-			this->Id->MinimumWidth = 6;
+			this->Id->HeaderText = L"Código";
 			this->Id->Name = L"Id";
-			this->Id->Width = 125;
 			// 
 			// NameProduct
 			// 
 			this->NameProduct->HeaderText = L"Nombre";
-			this->NameProduct->MinimumWidth = 6;
 			this->NameProduct->Name = L"NameProduct";
-			this->NameProduct->Width = 125;
 			// 
 			// Brand
 			// 
 			this->Brand->HeaderText = L"Marca";
-			this->Brand->MinimumWidth = 6;
 			this->Brand->Name = L"Brand";
-			this->Brand->Width = 125;
 			// 
 			// BonusPoints
 			// 
 			this->BonusPoints->HeaderText = L"Puntos Bonus";
-			this->BonusPoints->MinimumWidth = 6;
 			this->BonusPoints->Name = L"BonusPoints";
-			this->BonusPoints->Width = 125;
 			// 
 			// Description
 			// 
-			this->Description->HeaderText = L"Descripci�n";
-			this->Description->MinimumWidth = 6;
+			this->Description->HeaderText = L"Descripción";
 			this->Description->Name = L"Description";
-			this->Description->Width = 125;
 			// 
 			// Price
 			// 
 			this->Price->HeaderText = L"Precio";
-			this->Price->MinimumWidth = 6;
 			this->Price->Name = L"Price";
-			this->Price->Width = 125;
 			// 
 			// Status
 			// 
 			this->Status->HeaderText = L"Estado";
-			this->Status->MinimumWidth = 6;
 			this->Status->Name = L"Status";
-			this->Status->Width = 125;
 			// 
 			// tabProducts
 			// 
-			this->tabProducts->Controls->Add(this->tabPage1);
-			this->tabProducts->Location = System::Drawing::Point(16, 15);
-			this->tabProducts->Margin = System::Windows::Forms::Padding(4);
-			this->tabProducts->Name = L"tabProducts";
-			this->tabProducts->SelectedIndex = 0;
-			this->tabProducts->Size = System::Drawing::Size(1191, 618);
-			this->tabProducts->TabIndex = 0;
+			this->panel3->Controls->Add(this->dgvProducts);
+			this->panel3->Location = System::Drawing::Point(4, 255);
+			this->panel3->Margin = System::Windows::Forms::Padding(4);
+			this->panel3->Name = L"panel3";
+			this->panel3->Size = System::Drawing::Size(1100, 319);
+			this->panel3->TabIndex = 18;
 			// 
 			// ProductForm
 			// 
@@ -427,30 +412,102 @@ namespace SalesView {
 		}
 #pragma endregion
 	private: System::Void btnAdds_Click(System::Object^ sender, System::EventArgs^ e) {
-		int id = Int32::Parse(txtId->Text);
-		String^ name = txtName->Text;
-		int bonusPoints = Int32::Parse(txtBonusPoints->Text);
-		String^ description = txtDescription->Text;
-		String^ brand = txtBrand->Text;
-		double price = Double::Parse(txtPrice->Text);
+		Products^ p = gcnew Products();
+		try {
+			if (txtPrice->Text->Trim() == "") {
+				MessageBox::Show("El precio no debe estar vacío.");
+				return;
+			}
+			/*
+			if (txtStock->Text->Trim() == "") {
+				MessageBox::Show("El stock no debe estar vacío.");
+				return;
+			}
+			*/
+			p->Id = Int32::Parse(txtId->Text);
+			p->Name = txtName->Text;
+			p->Description = txtDescription->Text;
+			p->BonusPoints = Int32::Parse(txtBonusPoints->Text);
+			p->Precio = Double::Parse(txtPrice->Text);
+			p->Marca = txtBrand->Text;
+			p->Status = "Habilitado";
+			/*
+			int id = Int32::Parse(txtId->Text);
+			String^ name = txtName->Text;
+			int bonusPoints = Int32::Parse(txtBonusPoints->Text);
+			String^ description = txtDescription->Text;
+			String^ brand = txtBrand->Text;
+			double price = Double::Parse(txtPrice->Text);
+			*/
 
-		Products^ p = gcnew Products(id, name, description, bonusPoints, price, brand, "Habilitado");
-		SalesManager::AddProduct(p);
-		RefreshDGVProducts();
+			//Products^ p = gcnew Products(id, name, description, bonusPoints, price, brand, "Habilitado");
+			SalesManager::AddProduct(p);
+			RefreshDGVProducts();
+			ClearControls();
+		}
+		catch (Exception^ ex) {
+			MessageBox::Show(ex->ToString(), "Error al guardar el producto por error en los datos.");
+			return;
+		}
 	}	
 
-	private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
-		int id = Int32::Parse(txtId->Text);
-		String^ name = txtName->Text;
-		int bonusPoints = Int32::Parse(txtBonusPoints->Text);
-		String^ description = txtDescription->Text;
-		String^ brand = txtBrand->Text;
-		double price = Double::Parse(txtPrice->Text);
-
-		Products^ p = gcnew Products(id, name, description, bonusPoints, price, brand, "Habilitado");
-		SalesManager::UpdateProduct(p);
+	private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
+		int productId = -1;
+		try {
+			if (txtId->Text->Trim() == "") {
+				MessageBox::Show("No se puede eliminar porque no hay ningún producto seleccionado.");
+				return;
+			}
+			productId = Int32::Parse(txtId->Text);
+		}
+		catch (...) {
+			MessageBox::Show("No se puede eliminar el producto porque el Id no es válido.");
+			return;
+		}
+		if (MessageBox::Show(
+			"¿Está seguro de eliminar el producto?",
+			"Confirmación", MessageBoxButtons::YesNo,
+			MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
+		{
+			SalesManager::DeleteProduct(productId);
+			RefreshDGVProducts();
+			ClearControls();
+		}
 	}
 
+	private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (txtId->Text->Trim() == "") {
+			MessageBox::Show("El Id no debe estar vacío.");
+			return;
+		}
+		if (txtPrice->Text->Trim() == "") {
+			MessageBox::Show("El precio no debe estar vacío.");
+			return;
+		}
+		if (MessageBox::Show(
+			"¿Está seguro de actualizar el producto?",
+			"Confirmación", MessageBoxButtons::YesNo,
+			MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
+		{
+			Products^ p = gcnew Products();
+			try {
+				p->Id = Int32::Parse(txtId->Text);
+				p->Name = txtName->Text;
+				p->Description = txtDescription->Text;
+				p->Precio = Double::Parse(txtPrice->Text);
+				p->BonusPoints = Int32::Parse(txtBonusPoints->Text);
+				p->Status = "Habilitado";
+				p->Marca = txtBrand->Text;
+				SalesManager::UpdateProduct(p);
+				RefreshDGVProducts();
+			}
+			catch (Exception^ ex) {
+				MessageBox::Show(ex->ToString(), "Error al grabar.");
+				return;
+			}
+		}
+	}
+	
 	public:
 		void RefreshDGVProducts() {
 			List<Products^>^ productList = SalesManager::QueryProducts();
@@ -466,9 +523,14 @@ namespace SalesView {
 											productList[i]->Status,
 										});
 		}
-private: System::Void tabPage1_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void txtId_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
+
+		System::Void ClearControls() {
+			txtId->Clear();
+			txtName->Clear();
+			txtBrand->Clear();
+			txtBonusPoints->Clear();
+			txtDescription->Clear();
+			txtPrice->Clear();
+		}
 };
 }

@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "DBController.h"
 
-//Con -> se accede a miembros de una clase (métodos o atributos)
+//Con -> se accede a miembros de una clase (mÃ©todos o atributos)
 
 void SalesController::DBController::AddProduct(Products^ product)
 {
@@ -76,7 +76,6 @@ Personal^ SalesController::DBController::QueryPersonalByDocumentNumber(String^ p
 }
 
 
-
 void SalesController::DBController::AddStore(Store^ store)
 {
     storeDB->ListDB->Add(store);
@@ -87,18 +86,37 @@ void SalesController::DBController::UpdateStore(Store^ store)
     for (int i = 0; i < storeDB->ListDB->Count; i++)
         if (storeDB->ListDB[i]->Id == store->Id) {
             storeDB->ListDB[i] = store;
+
+void SalesController::DBController::AddClient(Client^ client)
+{
+    clientDB->ListDBC->Add(client);
+}
+
+void SalesController::DBController::UpdateClient(Client^ client)
+{
+    for (int i = 0; i < clientDB->ListDBC->Count; i++)
+        if (clientDB->ListDBC[i]->DocumentNumber == client->DocumentNumber) {
+            clientDB->ListDBC[i] = client;
             return;
         }
 }
+
 
 void SalesController::DBController::DeleteStore(int storeID)
 {
     for (int i = 0; i < storeDB->ListDB->Count; i++)
         if (storeDB->ListDB[i]->Id == storeID) {
             storeDB->ListDB[i]->Status = "Inhabilitado";
+
+void SalesController::DBController::DeleteClient(String^ DocumentNumber)
+{
+    for (int i = 0; i < clientDB->ListDBC->Count; i++)
+        if (clientDB->ListDBC[i]->DocumentNumber == DocumentNumber) {
+            clientDB->ListDBC[i]->Status = 'I';
             return;
         }
 }
+
 
 List<Store^>^ SalesController::DBController::QueryStore()
 {
@@ -114,3 +132,16 @@ Store^ SalesController::DBController::QueryStoreById(int storeID)
     return nullptr;
 }
 
+
+List<Client^>^ SalesController::DBController::QueryClient()
+{
+    return clientDB->ListDBC;
+}
+
+Client^ SalesController::DBController::QueryClientByDocumentNumber(String^ clientDocumentNumber)
+{
+    for (int i = 0; i < clientDB->ListDBC->Count; i++)
+        if (clientDB->ListDBC[i]->DocumentNumber == clientDocumentNumber)
+            return clientDB->ListDBC[i];
+    return nullptr;
+}
