@@ -24,6 +24,20 @@ namespace SalesController {
 		ClientDB();
 	};
 
+	[Serializable]
+	public ref class ProductDB {
+	public:
+		List <Products^>^ ListDB = gcnew List<Products^>();
+		ProductDB();
+	};
+
+	[Serializable]
+	public ref class StoreDB {
+	public:
+		List <Store^>^ ListDB = gcnew List<Store^>();
+		StoreDB();
+	};
+
 	public ref class DBController
 	{
 		//Definimos miembros estáticos
@@ -41,6 +55,12 @@ namespace SalesController {
 			//Permanencia de datos clientes
 			static void SaveClient();
 			static void LoadClient();
+			//Permanencia de productos
+			static void SaveProducts();
+			static void LoadProducts();
+			//Permanencia de productos
+			static void SaveStore();
+			static void LoadStore();
 			//Productos
 			static void AddProduct(Products^);
 			static void UpdateProduct(Products^);

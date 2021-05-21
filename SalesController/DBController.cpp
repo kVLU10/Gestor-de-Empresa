@@ -13,6 +13,12 @@ SalesController::PersonalDB::PersonalDB() {
 SalesController::ClientDB::ClientDB() {
 }
 
+SalesController::ProductDB::ProductDB() {
+}
+
+SalesController::StoreDB::StoreDB() {
+}
+
 void SalesController::DBController::SavePersonal()
 {
     System::Xml::Serialization::XmlSerializer^ writer =
@@ -77,9 +83,64 @@ void SalesController::DBController::LoadClient()
     }
 }
 
+void SalesController::DBController::SaveProducts()
+{
+    System::Xml::Serialization::XmlSerializer^ writer =
+        gcnew System::Xml::Serialization::XmlSerializer(ProductDB::typeid);
+
+    System::IO::StreamWriter^ file = gcnew System::IO::StreamWriter("product.xml");
+    writer->Serialize(file, productDB);
+    file->Close();
+}
+
+void SalesController::DBController::LoadProducts()
+{
+    System::Xml::Serialization::XmlSerializer^ reader =
+        gcnew System::Xml::Serialization::XmlSerializer(ProductDB::typeid);
+    System::IO::StreamReader^ file = nullptr;
+    try {
+        file = gcnew System::IO::StreamReader("product.xml");
+        productDB = (ProductDB^)reader->Deserialize(file);
+    }
+    catch (Exception^ ex) {
+        return;
+    }
+    finally {
+        if (file != nullptr) file->Close();
+    }
+}
+
+void SalesController::DBController::SaveStore()
+{
+    System::Xml::Serialization::XmlSerializer^ writer =
+        gcnew System::Xml::Serialization::XmlSerializer(StoreDB::typeid);
+
+    System::IO::StreamWriter^ file = gcnew System::IO::StreamWriter("store.xml");
+    writer->Serialize(file, storeDB);
+    file->Close();
+}
+
+void SalesController::DBController::LoadStore()
+{
+    System::Xml::Serialization::XmlSerializer^ reader =
+        gcnew System::Xml::Serialization::XmlSerializer(StoreDB::typeid);
+    System::IO::StreamReader^ file = nullptr;
+    try {
+        file = gcnew System::IO::StreamReader("store.xml");
+        storeDB = (StoreDB^)reader->Deserialize(file);
+    }
+    catch (Exception^ ex) {
+        return;
+    }
+    finally {
+        if (file != nullptr) file->Close();
+    }
+}
+
 void SalesController::DBController::AddProduct(Products^ product)
 {
     productDB->ListDB->Add(product);
+    SaveProducts();
 }
 
 void SalesController::DBController::UpdateProduct(Products^ product)
@@ -89,24 +150,27 @@ void SalesController::DBController::UpdateProduct(Products^ product)
             productDB->ListDB[i] = product;
             return;
         }
+    SaveProducts();
 }
 
 void SalesController::DBController::DeleteProduct(int productId)
 {
-    for (int i = 0; i < productDB->ListDB->Count; i++)
-        if (productDB->ListDB[i]->Id == productId) {
-            productDB->ListDB[i]->Status = "Inhabilitado";
-            return;
-        }
+    for (int i = 0; i < productDB->ListDB->Count; i++) {
+        if (productDB->ListDB[i]->Id == productId)
+            productDB->ListDB->RemoveAt(i);
+    }
+    SaveProducts();
 }
 
 List<Products^>^ SalesController::DBController::QueryProducts()
 {
+    LoadProducts();
     return productDB->ListDB;
 }
 
 Products^ SalesController::DBController::QueryProductById(int productId)
 {
+    LoadProducts();
     for (int i = 0; i < productDB->ListDB->Count; i++)
         if (productDB->ListDB[i]->Id == productId)
             return productDB->ListDB[i];
@@ -156,6 +220,7 @@ Personal^ SalesController::DBController::QueryPersonalByDocumentNumber(int perso
 void SalesController::DBController::AddStore(Store^ store)
 {
     storeDB->ListDB->Add(store);
+    SaveStore();
 }
 
 void SalesController::DBController::UpdateStore(Store^ store)
@@ -164,6 +229,7 @@ void SalesController::DBController::UpdateStore(Store^ store)
         if (storeDB->ListDB[i]->Id == store->Id) {
             storeDB->ListDB[i] = store;
         }
+    SaveStore();
 }
 
 void SalesController::DBController::AddClient(Client^ client)
@@ -188,6 +254,7 @@ void SalesController::DBController::DeleteStore(int storeID)
             storeDB->ListDB[i]->Status = "Inhabilitado";
 
         }
+    SaveStore();
 }
 
 void SalesController::DBController::DeleteClient(int DocumentNumber)
@@ -202,11 +269,13 @@ void SalesController::DBController::DeleteClient(int DocumentNumber)
 
 List<Store^>^ SalesController::DBController::QueryStore()
 {
+    LoadStore();
     return storeDB->ListDB;
 }
 
 Store^ SalesController::DBController::QueryStoreById(int storeID)
 {
+    LoadStore();
     for (int i = 0; i < storeDB->ListDB->Count; i++)
         if (storeDB->ListDB[i]->Id == storeID) {
             return storeDB->ListDB[i];

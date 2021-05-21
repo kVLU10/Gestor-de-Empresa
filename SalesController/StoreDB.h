@@ -1,3 +1,4 @@
+/*
 #pragma once
 
 using namespace System;
@@ -11,4 +12,4 @@ namespace SalesController {
 		//gcnew sirve para instanciar una clase
 		List<Store^>^ ListDB = gcnew List<Store^>();
 	};
-}
+*/
