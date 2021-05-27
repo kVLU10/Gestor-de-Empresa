@@ -21,14 +21,15 @@ namespace SalesView {
 		PersonalForm(void)
 		{
 			InitializeComponent();
+			refreshDGVPersonal();
 			//
-			//TODO: agregar c√≥digo de constructor aqu√≠
+			//TODO: agregar cÛdigo de constructor aquÌ
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se est√©n usando.
+		/// Limpiar los recursos que se estÈn usando.
 		/// </summary>
 		~PersonalForm()
 		{
@@ -66,7 +67,7 @@ namespace SalesView {
 
 
 
-	private: System::Windows::Forms::TextBox^ txtContrase√±a;
+	private: System::Windows::Forms::TextBox^ txtContraseÒa;
 
 
 
@@ -111,16 +112,16 @@ namespace SalesView {
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button1;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ Nombre1;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ Nombre2;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ Apellido1;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ Apellido2;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ Telefono;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ DocumentNumber;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ Correo;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ Usuario;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ Contrase√±a;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumplea√±os;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Nombre1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Nombre2;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Apellido1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Apellido2;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Telefono;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ DocumentNumber;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Correo;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Usuario;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ContraseÒa;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ CumpleaÒos;
 
 
 
@@ -158,14 +159,14 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumplea√±os;
 
 	private:
 		/// <summary>
-		/// Variable del dise√±ador necesaria.
+		/// Variable del diseÒador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// M√©todo necesario para admitir el Dise√±ador. No se puede modificar
-		/// el contenido de este m√©todo con el editor de c√≥digo.
+		/// MÈtodo necesario para admitir el DiseÒador. No se puede modificar
+		/// el contenido de este mÈtodo con el editor de cÛdigo.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -185,7 +186,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumplea√±os;
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->label8 = (gcnew System::Windows::Forms::Label());
-			this->txtContrase√±a = (gcnew System::Windows::Forms::TextBox());
+			this->txtContraseÒa = (gcnew System::Windows::Forms::TextBox());
 			this->txtCorreo = (gcnew System::Windows::Forms::TextBox());
 			this->txtDocumentNumber = (gcnew System::Windows::Forms::TextBox());
 			this->txtTelefono = (gcnew System::Windows::Forms::TextBox());
@@ -194,13 +195,6 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumplea√±os;
 			this->txtEstado = (gcnew System::Windows::Forms::TextBox());
 			this->txtNombre2 = (gcnew System::Windows::Forms::TextBox());
 			this->txtNombre1 = (gcnew System::Windows::Forms::TextBox());
-			this->panel4 = (gcnew System::Windows::Forms::Panel());
-			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->btnDelete = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->btnUpdate = (gcnew System::Windows::Forms::Button());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->btnAdd = (gcnew System::Windows::Forms::Button());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
 			this->dgvPersonal = (gcnew System::Windows::Forms::DataGridView());
@@ -212,15 +206,22 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumplea√±os;
 			this->DocumentNumber = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Correo = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Usuario = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Contrase√±a = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Cumplea√±os = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->ContraseÒa = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->CumpleaÒos = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->panel4 = (gcnew System::Windows::Forms::Panel());
+			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->btnDelete = (gcnew System::Windows::Forms::Button());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->btnUpdate = (gcnew System::Windows::Forms::Button());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->btnAdd = (gcnew System::Windows::Forms::Button());
 			this->tabControl1->SuspendLayout();
 			this->tabPersonal->SuspendLayout();
 			this->panel1->SuspendLayout();
-			this->panel4->SuspendLayout();
 			this->panel2->SuspendLayout();
 			this->panel3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPersonal))->BeginInit();
+			this->panel4->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// tabControl1
@@ -229,7 +230,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumplea√±os;
 			this->tabControl1->Location = System::Drawing::Point(3, 12);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(578, 556);
+			this->tabControl1->Size = System::Drawing::Size(629, 556);
 			this->tabControl1->TabIndex = 0;
 			// 
 			// tabPersonal
@@ -238,8 +239,8 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumplea√±os;
 			this->tabPersonal->Controls->Add(this->panel2);
 			this->tabPersonal->Location = System::Drawing::Point(4, 22);
 			this->tabPersonal->Name = L"tabPersonal";
-			this->tabPersonal->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->tabPersonal->Size = System::Drawing::Size(570, 530);
+			this->tabPersonal->Padding = System::Windows::Forms::Padding(2);
+			this->tabPersonal->Size = System::Drawing::Size(621, 530);
 			this->tabPersonal->TabIndex = 0;
 			this->tabPersonal->Text = L"Personal";
 			this->tabPersonal->UseVisualStyleBackColor = true;
@@ -259,7 +260,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumplea√±os;
 			this->panel1->Controls->Add(this->label14);
 			this->panel1->Controls->Add(this->label13);
 			this->panel1->Controls->Add(this->label8);
-			this->panel1->Controls->Add(this->txtContrase√±a);
+			this->panel1->Controls->Add(this->txtContraseÒa);
 			this->panel1->Controls->Add(this->txtCorreo);
 			this->panel1->Controls->Add(this->txtDocumentNumber);
 			this->panel1->Controls->Add(this->txtTelefono);
@@ -286,7 +287,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumplea√±os;
 			// txtUsuario
 			// 
 			this->txtUsuario->Location = System::Drawing::Point(3, 221);
-			this->txtUsuario->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtUsuario->Margin = System::Windows::Forms::Padding(2);
 			this->txtUsuario->Name = L"txtUsuario";
 			this->txtUsuario->Size = System::Drawing::Size(94, 20);
 			this->txtUsuario->TabIndex = 55;
@@ -294,7 +295,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumplea√±os;
 			// txtBirthday
 			// 
 			this->txtBirthday->Location = System::Drawing::Point(375, 173);
-			this->txtBirthday->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtBirthday->Margin = System::Windows::Forms::Padding(2);
 			this->txtBirthday->Name = L"txtBirthday";
 			this->txtBirthday->Size = System::Drawing::Size(124, 20);
 			this->txtBirthday->TabIndex = 54;
@@ -325,7 +326,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumplea√±os;
 			this->label19->Name = L"label19";
 			this->label19->Size = System::Drawing::Size(61, 13);
 			this->label19->TabIndex = 48;
-			this->label19->Text = L"Contrase√±a";
+			this->label19->Text = L"ContraseÒa";
 			// 
 			// label18
 			// 
@@ -343,7 +344,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumplea√±os;
 			this->label17->Name = L"label17";
 			this->label17->Size = System::Drawing::Size(49, 13);
 			this->label17->TabIndex = 46;
-			this->label17->Text = L"Tel√©fono";
+			this->label17->Text = L"TelÈfono";
 			// 
 			// label16
 			// 
@@ -390,12 +391,12 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumplea√±os;
 			this->label8->TabIndex = 41;
 			this->label8->Text = L"Nombre 1";
 			// 
-			// txtContrase√±a
+			// txtContraseÒa
 			// 
-			this->txtContrase√±a->Location = System::Drawing::Point(196, 221);
-			this->txtContrase√±a->Name = L"txtContrase√±a";
-			this->txtContrase√±a->Size = System::Drawing::Size(94, 20);
-			this->txtContrase√±a->TabIndex = 38;
+			this->txtContraseÒa->Location = System::Drawing::Point(196, 221);
+			this->txtContraseÒa->Name = L"txtContraseÒa";
+			this->txtContraseÒa->Size = System::Drawing::Size(94, 20);
+			this->txtContraseÒa->TabIndex = 38;
 			// 
 			// txtCorreo
 			// 
@@ -453,90 +454,14 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumplea√±os;
 			this->txtNombre1->Size = System::Drawing::Size(124, 20);
 			this->txtNombre1->TabIndex = 30;
 			// 
-			// panel4
-			// 
-			this->panel4->Controls->Add(this->button3);
-			this->panel4->Controls->Add(this->btnDelete);
-			this->panel4->Controls->Add(this->button2);
-			this->panel4->Controls->Add(this->btnUpdate);
-			this->panel4->Controls->Add(this->button1);
-			this->panel4->Controls->Add(this->btnAdd);
-			this->panel4->Location = System::Drawing::Point(1, 254);
-			this->panel4->Name = L"panel4";
-			this->panel4->Size = System::Drawing::Size(562, 41);
-			this->panel4->TabIndex = 1;
-			// 
-			// button3
-			// 
-			this->button3->Location = System::Drawing::Point(284, 9);
-			this->button3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(94, 19);
-			this->button3->TabIndex = 2;
-			this->button3->Text = L"&Eliminar";
-			this->button3->UseVisualStyleBackColor = true;
-			this->button3->Click += gcnew System::EventHandler(this, &PersonalForm::btnDelete_Click);
-			// 
-			// btnDelete
-			// 
-			this->btnDelete->Location = System::Drawing::Point(351, 41);
-			this->btnDelete->Name = L"btnDelete";
-			this->btnDelete->Size = System::Drawing::Size(126, 23);
-			this->btnDelete->TabIndex = 2;
-			this->btnDelete->Text = L"&Eliminar";
-			this->btnDelete->UseVisualStyleBackColor = true;
-			this->btnDelete->Click += gcnew System::EventHandler(this, &PersonalForm::btnDelete_Click);
-			// 
-			// button2
-			// 
-			this->button2->Location = System::Drawing::Point(149, 9);
-			this->button2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(94, 20);
-			this->button2->TabIndex = 1;
-			this->button2->Text = L"&Modificar";
-			this->button2->UseVisualStyleBackColor = true;
-			this->button2->Click += gcnew System::EventHandler(this, &PersonalForm::btnUpdate_Click);
-			// 
-			// btnUpdate
-			// 
-			this->btnUpdate->Location = System::Drawing::Point(196, 40);
-			this->btnUpdate->Name = L"btnUpdate";
-			this->btnUpdate->Size = System::Drawing::Size(126, 24);
-			this->btnUpdate->TabIndex = 1;
-			this->btnUpdate->Text = L"&Modificar";
-			this->btnUpdate->UseVisualStyleBackColor = true;
-			this->btnUpdate->Click += gcnew System::EventHandler(this, &PersonalForm::btnUpdate_Click);
-			// 
-			// button1
-			// 
-			this->button1->Location = System::Drawing::Point(7, 9);
-			this->button1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(94, 19);
-			this->button1->TabIndex = 0;
-			this->button1->Text = L"&Agregar";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &PersonalForm::btnAdd_Click);
-			// 
-			// btnAdd
-			// 
-			this->btnAdd->Location = System::Drawing::Point(38, 41);
-			this->btnAdd->Name = L"btnAdd";
-			this->btnAdd->Size = System::Drawing::Size(126, 23);
-			this->btnAdd->TabIndex = 0;
-			this->btnAdd->Text = L"&Agregar";
-			this->btnAdd->UseVisualStyleBackColor = true;
-			this->btnAdd->Click += gcnew System::EventHandler(this, &PersonalForm::btnAdd_Click);
-			// 
 			// panel2
 			// 
 			this->panel2->Controls->Add(this->panel3);
 			this->panel2->Controls->Add(this->panel4);
 			this->panel2->Location = System::Drawing::Point(2, 2);
-			this->panel2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->panel2->Margin = System::Windows::Forms::Padding(2);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(565, 510);
+			this->panel2->Size = System::Drawing::Size(613, 524);
 			this->panel2->TabIndex = 1;
 			// 
 			// panel3
@@ -544,7 +469,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumplea√±os;
 			this->panel3->Controls->Add(this->dgvPersonal);
 			this->panel3->Location = System::Drawing::Point(1, 298);
 			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(565, 209);
+			this->panel3->Size = System::Drawing::Size(609, 223);
 			this->panel3->TabIndex = 0;
 			// 
 			// dgvPersonal
@@ -552,15 +477,15 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumplea√±os;
 			this->dgvPersonal->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dgvPersonal->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(10) {
 				this->Nombre1,
-					this->Nombre2, this->Apellido1, this->Apellido2, this->Telefono, this->DocumentNumber, this->Correo, this->Usuario, this->Contrase√±a,
-					this->Cumplea√±os
+					this->Nombre2, this->Apellido1, this->Apellido2, this->Telefono, this->DocumentNumber, this->Correo, this->Usuario, this->ContraseÒa,
+					this->CumpleaÒos
 			});
 			this->dgvPersonal->Location = System::Drawing::Point(3, 3);
 			this->dgvPersonal->Name = L"dgvPersonal";
 			this->dgvPersonal->RowHeadersWidth = 51;
-			this->dgvPersonal->Size = System::Drawing::Size(558, 195);
+			this->dgvPersonal->Size = System::Drawing::Size(603, 217);
 			this->dgvPersonal->TabIndex = 0;
-			this->dgvPersonal->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &PersonalForm::dataGridView1_CellContentClick);
+			this->dgvPersonal->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &PersonalForm::dgvPersonal_CellClick);
 			// 
 			// Nombre1
 			// 
@@ -592,7 +517,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumplea√±os;
 			// 
 			// Telefono
 			// 
-			this->Telefono->HeaderText = L"Tel√©fono";
+			this->Telefono->HeaderText = L"TelÈfono";
 			this->Telefono->MinimumWidth = 6;
 			this->Telefono->Name = L"Telefono";
 			this->Telefono->Width = 125;
@@ -616,25 +541,101 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumplea√±os;
 			this->Usuario->HeaderText = L"Usuario";
 			this->Usuario->Name = L"Usuario";
 			// 
-			// Contrase√±a
+			// ContraseÒa
 			// 
-			this->Contrase√±a->HeaderText = L"Contrase√±a";
-			this->Contrase√±a->MinimumWidth = 6;
-			this->Contrase√±a->Name = L"Contrase√±a";
-			this->Contrase√±a->Width = 125;
+			this->ContraseÒa->HeaderText = L"ContraseÒa";
+			this->ContraseÒa->MinimumWidth = 6;
+			this->ContraseÒa->Name = L"ContraseÒa";
+			this->ContraseÒa->Width = 125;
 			// 
-			// Cumplea√±os
+			// CumpleaÒos
 			// 
-			this->Cumplea√±os->HeaderText = L"Cumplea√±os";
-			this->Cumplea√±os->MinimumWidth = 6;
-			this->Cumplea√±os->Name = L"Cumplea√±os";
-			this->Cumplea√±os->Width = 125;
+			this->CumpleaÒos->HeaderText = L"CumpleaÒos";
+			this->CumpleaÒos->MinimumWidth = 6;
+			this->CumpleaÒos->Name = L"CumpleaÒos";
+			this->CumpleaÒos->Width = 125;
+			// 
+			// panel4
+			// 
+			this->panel4->Controls->Add(this->button3);
+			this->panel4->Controls->Add(this->btnDelete);
+			this->panel4->Controls->Add(this->button2);
+			this->panel4->Controls->Add(this->btnUpdate);
+			this->panel4->Controls->Add(this->button1);
+			this->panel4->Controls->Add(this->btnAdd);
+			this->panel4->Location = System::Drawing::Point(1, 254);
+			this->panel4->Name = L"panel4";
+			this->panel4->Size = System::Drawing::Size(562, 41);
+			this->panel4->TabIndex = 1;
+			// 
+			// button3
+			// 
+			this->button3->Location = System::Drawing::Point(390, 9);
+			this->button3->Margin = System::Windows::Forms::Padding(2);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(94, 30);
+			this->button3->TabIndex = 2;
+			this->button3->Text = L"&Eliminar";
+			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &PersonalForm::btnDelete_Click);
+			// 
+			// btnDelete
+			// 
+			this->btnDelete->Location = System::Drawing::Point(351, 41);
+			this->btnDelete->Name = L"btnDelete";
+			this->btnDelete->Size = System::Drawing::Size(126, 23);
+			this->btnDelete->TabIndex = 2;
+			this->btnDelete->Text = L"&Eliminar";
+			this->btnDelete->UseVisualStyleBackColor = true;
+			this->btnDelete->Click += gcnew System::EventHandler(this, &PersonalForm::btnDelete_Click);
+			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(255, 9);
+			this->button2->Margin = System::Windows::Forms::Padding(2);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(94, 27);
+			this->button2->TabIndex = 1;
+			this->button2->Text = L"&Modificar";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &PersonalForm::btnUpdate_Click);
+			// 
+			// btnUpdate
+			// 
+			this->btnUpdate->Location = System::Drawing::Point(196, 40);
+			this->btnUpdate->Name = L"btnUpdate";
+			this->btnUpdate->Size = System::Drawing::Size(126, 24);
+			this->btnUpdate->TabIndex = 1;
+			this->btnUpdate->Text = L"&Modificar";
+			this->btnUpdate->UseVisualStyleBackColor = true;
+			this->btnUpdate->Click += gcnew System::EventHandler(this, &PersonalForm::btnUpdate_Click);
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(113, 9);
+			this->button1->Margin = System::Windows::Forms::Padding(2);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(94, 27);
+			this->button1->TabIndex = 0;
+			this->button1->Text = L"&Agregar";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &PersonalForm::btnAdd_Click);
+			// 
+			// btnAdd
+			// 
+			this->btnAdd->Location = System::Drawing::Point(38, 41);
+			this->btnAdd->Name = L"btnAdd";
+			this->btnAdd->Size = System::Drawing::Size(126, 23);
+			this->btnAdd->TabIndex = 0;
+			this->btnAdd->Text = L"&Agregar";
+			this->btnAdd->UseVisualStyleBackColor = true;
+			this->btnAdd->Click += gcnew System::EventHandler(this, &PersonalForm::btnAdd_Click);
 			// 
 			// PersonalForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(603, 576);
+			this->ClientSize = System::Drawing::Size(633, 583);
 			this->Controls->Add(this->tabControl1);
 			this->Name = L"PersonalForm";
 			this->Text = L"Personal";
@@ -643,16 +644,15 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumplea√±os;
 			this->tabPersonal->ResumeLayout(false);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
-			this->panel4->ResumeLayout(false);
 			this->panel2->ResumeLayout(false);
 			this->panel3->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPersonal))->EndInit();
+			this->panel4->ResumeLayout(false);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
-	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	}
+	
 	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
 		Personal^ ps = gcnew Personal();
 
@@ -661,14 +661,14 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumplea√±os;
 		String^ SecondName = txtNombre2->Text;
 		String^ FirstLastName = txtApellido1->Text;
 		String^ SecondLastName = txtApellido2->Text;
-		
+
 		String^ Estado = txtEstado->Text;
 		String^ PhoneNumber = txtTelefono->Text;
 		String^ PersonalEmail = txtCorreo->Text;
-		String^ Password = txtContrase√±a->Text;
+		String^ Password = txtContraseÒa->Text;
 		String^ Birthday = txtBirthday->Text;*/
 
-		ps -> Id = Int32::Parse(txtDocumentNumber->Text);
+		ps->Id = Int32::Parse(txtDocumentNumber->Text);
 		ps->FirstName = txtNombre1->Text;
 		ps->SecondName = txtNombre2->Text;
 		ps->FirstLastName = txtApellido1->Text;
@@ -676,7 +676,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumplea√±os;
 		ps->PhoneNumber = txtTelefono->Text;
 		ps->PersonalEmail = txtCorreo->Text;
 		ps->Username = txtUsuario->Text;
-		ps->Password = txtContrase√±a->Text;
+		ps->Password = txtContraseÒa->Text;
 		ps->Birthday = txtBirthday->Text;
 
 		//Personal^ ps = gcnew Personal(Id, FirstName, Password, FirstName, SecondName, FirstLastName, SecondLastName, 'A', 100, 100, PersonalEmail, PhoneNumber, Birthday);
@@ -688,12 +688,12 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumplea√±os;
 
 	private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (txtDocumentNumber->Text->Trim() == "") {
-			MessageBox::Show("El Documento de Identidad no debe estar vac√≠o.");
+			MessageBox::Show("El Documento de Identidad no debe estar vacÌo.");
 			return;
 		}
 		if (MessageBox::Show(
-			"¬øEst√° seguro de actualizar al Personal?",
-			"Confirmaci√≥n", MessageBoxButtons::YesNo,
+			"øEst· seguro de actualizar al Personal?",
+			"ConfirmaciÛn", MessageBoxButtons::YesNo,
 			MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
 		{
 			Personal^ ps = gcnew Personal();
@@ -706,7 +706,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumplea√±os;
 				ps->PhoneNumber = txtTelefono->Text;
 				ps->PersonalEmail = txtCorreo->Text;
 				ps->Username = txtUsuario->Text;
-				ps->Password = txtContrase√±a->Text;
+				ps->Password = txtContraseÒa->Text;
 				ps->Birthday = txtBirthday->Text;
 
 				SalesManager::UpdatePersonal(ps);
@@ -720,21 +720,21 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumplea√±os;
 	}
 
 	private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
-		int Id =-1;
+		int Id = -1;
 		try {
 			if (txtDocumentNumber->Text->Trim() == "") {
-				MessageBox::Show("No se puede eliminar porque no hay ning√∫n empleado seleccionado.");
+				MessageBox::Show("No se puede eliminar porque no hay ning˙n empleado seleccionado.");
 				return;
 			}
 			Id = Int32::Parse(txtDocumentNumber->Text);
 		}
 		catch (...) {
-			MessageBox::Show("No se puede eliminar al empleado porque el Id no es v√°lido.");
+			MessageBox::Show("No se puede eliminar al empleado porque el Id no es v·lido.");
 			return;
 		}
 		if (MessageBox::Show(
-			"¬øEst√° seguro de eliminar al empleado?",
-			"Confirmaci√≥n", MessageBoxButtons::YesNo,
+			"øEst· seguro de eliminar al empleado?",
+			"ConfirmaciÛn", MessageBoxButtons::YesNo,
 			MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
 		{
 			SalesManager::DeletePersonal(Id);
@@ -747,8 +747,8 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumplea√±os;
 
 		if (selectedRows == 1) {
 			if (MessageBox::Show(
-				"¬øEst√° seguro de eliminar al empleado?",
-				"Confirmaci√≥n", MessageBoxButtons::YesNo,
+				"øEst· seguro de eliminar al empleado?",
+				"ConfirmaciÛn", MessageBoxButtons::YesNo,
 				MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
 			{
 				dgvPersonal->Rows->RemoveAt(dgvPersonal->SelectedRows[0]->Index);
@@ -768,34 +768,60 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumplea√±os;
 			dgvPersonal->Rows->Clear();
 			for (int i = 0; i < personalList->Count; i++) {
 				dgvPersonal->Rows->Add(gcnew array <String^>{
-					 personalList[i]->FirstName,
-					 personalList[i]->SecondName,
-					 personalList[i]->FirstLastName,
-					 personalList[i]->SecondLastName,
-					 personalList[i]->PhoneNumber,
-					 "" + personalList[i]->Id,
-					 personalList[i]->PersonalEmail,
-					 personalList[i]->Username,
-					 personalList[i]->Password,
-					 personalList[i]->Birthday
+					personalList[i]->FirstName,
+						personalList[i]->SecondName,
+						personalList[i]->FirstLastName,
+						personalList[i]->SecondLastName,
+						personalList[i]->PhoneNumber,
+						"" + personalList[i]->Id,
+						personalList[i]->PersonalEmail,
+						personalList[i]->Username,
+						personalList[i]->Password,
+						personalList[i]->Birthday
 				});
 			}
 		}
 
 	private: System::Void PersonalForm_Load(System::Object^ sender, System::EventArgs^ e) {}
-		
+
 		   System::Void ClearControls() {
-			txtDocumentNumber->Clear();
-			txtNombre1->Clear();
-			txtNombre2->Clear();
-			txtApellido1->Clear();
-			txtApellido2->Clear();
-			txtTelefono->Clear();
-			txtCorreo->Clear();
-			txtUsuario->Clear();
-			txtContrase√±a->Clear();
-			txtBirthday->Clear();
-			txtEstado->Clear();
+			   txtDocumentNumber->Clear();
+			   txtNombre1->Clear();
+			   txtNombre2->Clear();
+			   txtApellido1->Clear();
+			   txtApellido2->Clear();
+			   txtTelefono->Clear();
+			   txtCorreo->Clear();
+			   txtUsuario->Clear();
+			   txtContraseÒa->Clear();
+			   txtBirthday->Clear();
+			   txtEstado->Clear();
+		   }
+private: System::Void dgvPersonal_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	if (dgvPersonal->CurrentCell != nullptr &&
+		dgvPersonal->CurrentCell->Value != nullptr &&
+		dgvPersonal->CurrentCell->Value->ToString() != "") {
+		int selectedrowindex = dgvPersonal->SelectedCells[0]->RowIndex;
+		DataGridViewRow^ selectedRow = dgvPersonal->Rows[selectedrowindex];
+		String^ a = selectedRow->Cells[5]->Value->ToString();
+
+		int personalID = Int32::Parse(a);
+		Personal^ personal = SalesManager::QueryPersonalByDocumentNumber(personalID);
+		//MessageBox::Show(customer->ToString());
+		if (personal != nullptr) {
+			txtDocumentNumber->Text = "" + personal->Id;
+			txtNombre1->Text = personal->FirstName;
+			txtNombre2->Text = personal->SecondName;
+			txtApellido1->Text = personal->FirstLastName;
+			txtApellido2->Text = personal->SecondLastName;
+			txtTelefono->Text = personal->PhoneNumber;
+			txtCorreo->Text = personal->PersonalEmail;
+			txtUsuario->Text = personal->Username;
+			txtContraseÒa->Text = personal->Password;
+			txtBirthday->Text = personal->Birthday;
+			txtEstado->Text = "Habilitado";
 		}
+	}
+}
 };
 }

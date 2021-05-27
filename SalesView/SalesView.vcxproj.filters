@@ -12,10 +12,10 @@
   <ItemGroup>
     <ClInclude Include="ClientForm.h" />
     <ClInclude Include="LoginForm.h" />
-    <ClInclude Include="PersonalForm.h" />
     <ClInclude Include="ProductsStoreForm.h" />
     <ClInclude Include="SalesMainForm.h" />
     <ClInclude Include="StoreForm.h" />
     <ClInclude Include="ProductForm.h" />
+    <ClInclude Include="PersonalForm.h" />
   </ItemGroup>
 </Project>
