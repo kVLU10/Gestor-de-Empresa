@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StoreDB xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ListDB>
+    <Store>
+      <Status>Desabilitado</Status>
+      <Adress>Salamanca</Adress>
+      <Name>Almacen3</Name>
+      <Id>123456</Id>
+    </Store>
+    <Store>
+      <Status>Inhabilitado</Status>
+      <Adress>Chorrillos</Adress>
+      <Name>Almacen2</Name>
+      <Id>654321</Id>
+    </Store>
+  </ListDB>
+</StoreDB>

@@ -5,7 +5,7 @@ using namespace System::IO;
 using namespace System::Globalization;
 using namespace System::Runtime::Serialization;
 using namespace System::Runtime::Serialization::Formatters::Binary;
-
+using namespace System::Xml::Serialization;
 
 SalesController::PersonalDB::PersonalDB() {
 }
@@ -148,7 +148,6 @@ void SalesController::DBController::UpdateProduct(Products^ product)
     for (int i = 0; i < productDB->ListDB->Count; i++)
         if (productDB->ListDB[i]->Id == product->Id) {
             productDB->ListDB[i] = product;
-            return;
         }
     SaveProducts();
 }

@@ -4,13 +4,14 @@
 
 #pragma once
 
-#include "Categories.h"
-#include "Brand.h"
-#include "Price.h"
+//#include "Categories.h"
+//#include "Brand.h"
+//#include "Price.h"
 
 using namespace System;
 
 namespace Proyecto {
+    [Serializable]
     public ref class Products {
     public:
         property int Id;
@@ -21,10 +22,10 @@ namespace Proyecto {
         property double Precio;
         property String^ Marca;
         property String^ Description;
-        property Categories^ Categories;
-        property Brand^ Brand;
-        property Price^ Price;
-        Products() {}
+        //property Categories^ Categories;
+        //property Brand^ Brand;
+        //property Price^ Price;
+        Products() {};
         Products(int id, String^ name, String^ description, int bonusPoints, double price, String^ brand, String^ status);
     };
 }

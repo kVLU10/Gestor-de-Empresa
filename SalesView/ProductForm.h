@@ -1,3 +1,6 @@
+
+//Premises.h
+using namespace System;
 #pragma once
 
 using namespace Proyecto;
@@ -22,14 +25,15 @@ namespace SalesView {
 		ProductForm(void)
 		{
 			InitializeComponent();
+			RefreshDGVProducts();
 			//
-			//TODO: agregar cÃ³digo de constructor aquÃ­
+			//TODO: agregar código de constructor aquí
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se estÃ©n usando.
+		/// Limpiar los recursos que se estén usando.
 		/// </summary>
 		~ProductForm()
 		{
@@ -60,7 +64,7 @@ namespace SalesView {
 
 
 
-	private: System::Windows::Forms::Label^ lblCode;
+
 	private: System::Windows::Forms::Label^ lblDescription;
 
 
@@ -84,6 +88,7 @@ namespace SalesView {
 	private: System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Panel^ panel3;
+	private: System::Windows::Forms::Label^ label1;
 
 
 
@@ -93,14 +98,14 @@ namespace SalesView {
 
 	private:
 		/// <summary>
-		/// Variable del diseÃ±ador necesaria.
+		/// Variable del diseñador necesaria.
 		/// </summary>
 		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// MÃ©todo necesario para admitir el DiseÃ±ador. No se puede modificar
-		/// el contenido de este mÃ©todo con el editor de cÃ³digo.
+		/// Método necesario para admitir el Diseñador. No se puede modificar
+		/// el contenido de este método con el editor de código.
 		/// </summary>
 		void InitializeComponent(void) {
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
@@ -109,6 +114,7 @@ namespace SalesView {
 			this->btnUpdate = (gcnew System::Windows::Forms::Button());
 			this->btnAdds = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->txtPrice = (gcnew System::Windows::Forms::TextBox());
 			this->txtBonusPoints = (gcnew System::Windows::Forms::TextBox());
 			this->txtBrand = (gcnew System::Windows::Forms::TextBox());
@@ -118,7 +124,6 @@ namespace SalesView {
 			this->lblBrand = (gcnew System::Windows::Forms::Label());
 			this->lblBonusPoints = (gcnew System::Windows::Forms::Label());
 			this->lblPrice = (gcnew System::Windows::Forms::Label());
-			this->lblCode = (gcnew System::Windows::Forms::Label());
 			this->lblDescription = (gcnew System::Windows::Forms::Label());
 			this->lblName = (gcnew System::Windows::Forms::Label());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
@@ -144,11 +149,10 @@ namespace SalesView {
 			this->tabPage1->Controls->Add(this->panel2);
 			this->tabPage1->Controls->Add(this->panel1);
 			this->tabPage1->Controls->Add(this->panel3);
-			this->tabPage1->Location = System::Drawing::Point(4, 25);
-			this->tabPage1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->tabPage1->Location = System::Drawing::Point(4, 22);
 			this->tabPage1->Name = L"tabPage1";
-			this->tabPage1->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->tabPage1->Size = System::Drawing::Size(1183, 589);
+			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage1->Size = System::Drawing::Size(885, 476);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Productos";
 			this->tabPage1->UseVisualStyleBackColor = true;
@@ -158,18 +162,16 @@ namespace SalesView {
 			this->panel2->Controls->Add(this->btnDelete);
 			this->panel2->Controls->Add(this->btnUpdate);
 			this->panel2->Controls->Add(this->btnAdds);
-			this->panel2->Location = System::Drawing::Point(4, 183);
-			this->panel2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->panel2->Location = System::Drawing::Point(3, 149);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(944, 64);
+			this->panel2->Size = System::Drawing::Size(708, 52);
 			this->panel2->TabIndex = 17;
 			// 
 			// btnDelete
 			// 
-			this->btnDelete->Location = System::Drawing::Point(715, 16);
-			this->btnDelete->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->btnDelete->Location = System::Drawing::Point(536, 13);
 			this->btnDelete->Name = L"btnDelete";
-			this->btnDelete->Size = System::Drawing::Size(153, 28);
+			this->btnDelete->Size = System::Drawing::Size(115, 23);
 			this->btnDelete->TabIndex = 14;
 			this->btnDelete->Text = L"&Eliminar";
 			this->btnDelete->UseVisualStyleBackColor = true;
@@ -177,10 +179,9 @@ namespace SalesView {
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(405, 16);
-			this->btnUpdate->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->btnUpdate->Location = System::Drawing::Point(304, 13);
 			this->btnUpdate->Name = L"btnUpdate";
-			this->btnUpdate->Size = System::Drawing::Size(153, 28);
+			this->btnUpdate->Size = System::Drawing::Size(115, 23);
 			this->btnUpdate->TabIndex = 13;
 			this->btnUpdate->Text = L"&Modificar";
 			this->btnUpdate->UseVisualStyleBackColor = true;
@@ -188,10 +189,9 @@ namespace SalesView {
 			// 
 			// btnAdds
 			// 
-			this->btnAdds->Location = System::Drawing::Point(84, 16);
-			this->btnAdds->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->btnAdds->Location = System::Drawing::Point(63, 13);
 			this->btnAdds->Name = L"btnAdds";
-			this->btnAdds->Size = System::Drawing::Size(153, 28);
+			this->btnAdds->Size = System::Drawing::Size(115, 23);
 			this->btnAdds->TabIndex = 12;
 			this->btnAdds->Text = L"&Agregar";
 			this->btnAdds->UseVisualStyleBackColor = true;
@@ -199,6 +199,7 @@ namespace SalesView {
 			// 
 			// panel1
 			// 
+			this->panel1->Controls->Add(this->label1);
 			this->panel1->Controls->Add(this->txtPrice);
 			this->panel1->Controls->Add(this->txtBonusPoints);
 			this->panel1->Controls->Add(this->txtBrand);
@@ -208,131 +209,115 @@ namespace SalesView {
 			this->panel1->Controls->Add(this->lblBrand);
 			this->panel1->Controls->Add(this->lblBonusPoints);
 			this->panel1->Controls->Add(this->lblPrice);
-			this->panel1->Controls->Add(this->lblCode);
 			this->panel1->Controls->Add(this->lblDescription);
 			this->panel1->Controls->Add(this->lblName);
-			this->panel1->Location = System::Drawing::Point(5, 5);
-			this->panel1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->panel1->Location = System::Drawing::Point(4, 4);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(944, 171);
+			this->panel1->Size = System::Drawing::Size(708, 139);
 			this->panel1->TabIndex = 16;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(28, 30);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(40, 13);
+			this->label1->TabIndex = 12;
+			this->label1->Text = L"Código";
 			// 
 			// txtPrice
 			// 
-			this->txtPrice->Location = System::Drawing::Point(696, 117);
-			this->txtPrice->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtPrice->Location = System::Drawing::Point(522, 95);
 			this->txtPrice->Name = L"txtPrice";
-			this->txtPrice->Size = System::Drawing::Size(132, 22);
+			this->txtPrice->Size = System::Drawing::Size(100, 20);
 			this->txtPrice->TabIndex = 11;
 			// 
 			// txtBonusPoints
 			// 
-			this->txtBonusPoints->Location = System::Drawing::Point(696, 57);
-			this->txtBonusPoints->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtBonusPoints->Location = System::Drawing::Point(522, 46);
 			this->txtBonusPoints->Name = L"txtBonusPoints";
-			this->txtBonusPoints->Size = System::Drawing::Size(132, 22);
+			this->txtBonusPoints->Size = System::Drawing::Size(100, 20);
 			this->txtBonusPoints->TabIndex = 10;
 			// 
 			// txtBrand
 			// 
-			this->txtBrand->Location = System::Drawing::Point(372, 117);
-			this->txtBrand->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtBrand->Location = System::Drawing::Point(279, 95);
 			this->txtBrand->Name = L"txtBrand";
-			this->txtBrand->Size = System::Drawing::Size(267, 22);
+			this->txtBrand->Size = System::Drawing::Size(201, 20);
 			this->txtBrand->TabIndex = 9;
 			// 
 			// txtId
 			// 
-			this->txtId->Location = System::Drawing::Point(41, 57);
-			this->txtId->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtId->Location = System::Drawing::Point(31, 46);
 			this->txtId->Name = L"txtId";
-			this->txtId->Size = System::Drawing::Size(224, 22);
+			this->txtId->Size = System::Drawing::Size(169, 20);
 			this->txtId->TabIndex = 8;
 			// 
 			// txtDescription
 			// 
-			this->txtDescription->Location = System::Drawing::Point(41, 117);
-			this->txtDescription->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtDescription->Location = System::Drawing::Point(31, 95);
 			this->txtDescription->Name = L"txtDescription";
-			this->txtDescription->Size = System::Drawing::Size(269, 22);
+			this->txtDescription->Size = System::Drawing::Size(203, 20);
 			this->txtDescription->TabIndex = 7;
 			// 
 			// txtName
 			// 
-			this->txtName->Location = System::Drawing::Point(372, 57);
-			this->txtName->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtName->Location = System::Drawing::Point(279, 46);
 			this->txtName->Name = L"txtName";
-			this->txtName->Size = System::Drawing::Size(269, 22);
+			this->txtName->Size = System::Drawing::Size(203, 20);
 			this->txtName->TabIndex = 6;
 			// 
 			// lblBrand
 			// 
 			this->lblBrand->AutoSize = true;
-			this->lblBrand->Location = System::Drawing::Point(368, 97);
-			this->lblBrand->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->lblBrand->Location = System::Drawing::Point(276, 79);
 			this->lblBrand->Name = L"lblBrand";
-			this->lblBrand->Size = System::Drawing::Size(47, 17);
+			this->lblBrand->Size = System::Drawing::Size(37, 13);
 			this->lblBrand->TabIndex = 5;
 			this->lblBrand->Text = L"Marca";
 			// 
 			// lblBonusPoints
 			// 
 			this->lblBonusPoints->AutoSize = true;
-			this->lblBonusPoints->Location = System::Drawing::Point(692, 37);
-			this->lblBonusPoints->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->lblBonusPoints->Location = System::Drawing::Point(519, 30);
 			this->lblBonusPoints->Name = L"lblBonusPoints";
-			this->lblBonusPoints->Size = System::Drawing::Size(96, 17);
+			this->lblBonusPoints->Size = System::Drawing::Size(73, 13);
 			this->lblBonusPoints->TabIndex = 4;
 			this->lblBonusPoints->Text = L"Puntos Bonus";
 			// 
 			// lblPrice
 			// 
 			this->lblPrice->AutoSize = true;
-			this->lblPrice->Location = System::Drawing::Point(692, 97);
-			this->lblPrice->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->lblPrice->Location = System::Drawing::Point(519, 79);
 			this->lblPrice->Name = L"lblPrice";
-			this->lblPrice->Size = System::Drawing::Size(48, 17);
+			this->lblPrice->Size = System::Drawing::Size(37, 13);
 			this->lblPrice->TabIndex = 3;
 			this->lblPrice->Text = L"Precio";
-			// 
-			// lblCode
-			// 
-			this->lblCode->AutoSize = true;
-			this->lblCode->Location = System::Drawing::Point(37, 37);
-			this->lblCode->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->lblCode->Name = L"lblCode";
-			this->lblCode->Size = System::Drawing::Size(52, 17);
-			this->lblCode->TabIndex = 2;
-			this->lblCode->Text = L"CÃ³digo";
-			this->lblCode->Click += gcnew System::EventHandler(this, &ProductForm::lblCode_Click);
 			// 
 			// lblDescription
 			// 
 			this->lblDescription->AutoSize = true;
-			this->lblDescription->Location = System::Drawing::Point(37, 97);
-			this->lblDescription->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->lblDescription->Location = System::Drawing::Point(28, 79);
 			this->lblDescription->Name = L"lblDescription";
-			this->lblDescription->Size = System::Drawing::Size(82, 17);
+			this->lblDescription->Size = System::Drawing::Size(63, 13);
 			this->lblDescription->TabIndex = 1;
-			this->lblDescription->Text = L"DescripciÃ³n";
+			this->lblDescription->Text = L"Descripción";
 			// 
 			// lblName
 			// 
 			this->lblName->AutoSize = true;
-			this->lblName->Location = System::Drawing::Point(368, 37);
-			this->lblName->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->lblName->Location = System::Drawing::Point(276, 30);
 			this->lblName->Name = L"lblName";
-			this->lblName->Size = System::Drawing::Size(58, 17);
+			this->lblName->Size = System::Drawing::Size(44, 13);
 			this->lblName->TabIndex = 0;
 			this->lblName->Text = L"Nombre";
 			// 
 			// panel3
 			// 
 			this->panel3->Controls->Add(this->dgvProducts);
-			this->panel3->Location = System::Drawing::Point(4, 255);
-			this->panel3->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->panel3->Location = System::Drawing::Point(3, 207);
 			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(1100, 319);
+			this->panel3->Size = System::Drawing::Size(825, 259);
 			this->panel3->TabIndex = 18;
 			// 
 			// dgvProducts
@@ -342,16 +327,16 @@ namespace SalesView {
 				this->Id, this->NameProduct,
 					this->Brand, this->BonusPoints, this->Description, this->Price, this->Status
 			});
-			this->dgvProducts->Location = System::Drawing::Point(43, 23);
-			this->dgvProducts->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->dgvProducts->Location = System::Drawing::Point(32, 19);
 			this->dgvProducts->Name = L"dgvProducts";
 			this->dgvProducts->RowHeadersWidth = 51;
-			this->dgvProducts->Size = System::Drawing::Size(993, 276);
+			this->dgvProducts->Size = System::Drawing::Size(745, 224);
 			this->dgvProducts->TabIndex = 15;
+			this->dgvProducts->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &ProductForm::dgvProducts_CellClick);
 			// 
 			// Id
 			// 
-			this->Id->HeaderText = L"CÃ³digo";
+			this->Id->HeaderText = L"Código";
 			this->Id->MinimumWidth = 6;
 			this->Id->Name = L"Id";
 			this->Id->Width = 125;
@@ -379,7 +364,7 @@ namespace SalesView {
 			// 
 			// Description
 			// 
-			this->Description->HeaderText = L"DescripciÃ³n";
+			this->Description->HeaderText = L"Descripción";
 			this->Description->MinimumWidth = 6;
 			this->Description->Name = L"Description";
 			this->Description->Width = 125;
@@ -401,20 +386,18 @@ namespace SalesView {
 			// tabProducts
 			// 
 			this->tabProducts->Controls->Add(this->tabPage1);
-			this->tabProducts->Location = System::Drawing::Point(16, 15);
-			this->tabProducts->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->tabProducts->Location = System::Drawing::Point(12, 12);
 			this->tabProducts->Name = L"tabProducts";
 			this->tabProducts->SelectedIndex = 0;
-			this->tabProducts->Size = System::Drawing::Size(1191, 618);
+			this->tabProducts->Size = System::Drawing::Size(893, 502);
 			this->tabProducts->TabIndex = 0;
 			// 
 			// ProductForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1175, 647);
+			this->ClientSize = System::Drawing::Size(881, 526);
 			this->Controls->Add(this->tabProducts);
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"ProductForm";
 			this->Text = L"Productos";
 			this->tabPage1->ResumeLayout(false);
@@ -432,15 +415,14 @@ namespace SalesView {
 		Products^ p = gcnew Products();
 		try {
 			if (txtPrice->Text->Trim() == "") {
-				MessageBox::Show("El precio no debe estar vacÃ­o.");
+				MessageBox::Show("El precio no debe estar vacío.");
 				return;
 			}
-			/*
-			if (txtStock->Text->Trim() == "") {
-				MessageBox::Show("El stock no debe estar vacÃ­o.");
+			if (txtName->Text->Trim() == "") {
+				MessageBox::Show("El nombre no debe estar vacío.");
 				return;
 			}
-			*/
+			
 			p->Id = Int32::Parse(txtId->Text);
 			p->Name = txtName->Text;
 			p->Description = txtDescription->Text;
@@ -448,16 +430,7 @@ namespace SalesView {
 			p->Precio = Double::Parse(txtPrice->Text);
 			p->Marca = txtBrand->Text;
 			p->Status = "Habilitado";
-			/*
-			int id = Int32::Parse(txtId->Text);
-			String^ name = txtName->Text;
-			int bonusPoints = Int32::Parse(txtBonusPoints->Text);
-			String^ description = txtDescription->Text;
-			String^ brand = txtBrand->Text;
-			double price = Double::Parse(txtPrice->Text);
-			*/
 
-			//Products^ p = gcnew Products(id, name, description, bonusPoints, price, brand, "Habilitado");
 			SalesManager::AddProduct(p);
 			RefreshDGVProducts();
 			ClearControls();
@@ -472,18 +445,18 @@ namespace SalesView {
 		int productId = -1;
 		try {
 			if (txtId->Text->Trim() == "") {
-				MessageBox::Show("No se puede eliminar porque no hay ningÃºn producto seleccionado.");
+				MessageBox::Show("No se puede eliminar porque no hay ningún producto seleccionado.");
 				return;
 			}
 			productId = Int32::Parse(txtId->Text);
 		}
 		catch (...) {
-			MessageBox::Show("No se puede eliminar el producto porque el Id no es vÃ¡lido.");
+			MessageBox::Show("No se puede eliminar el producto porque el Id no es válido.");
 			return;
 		}
 		if (MessageBox::Show(
-			"Â¿EstÃ¡ seguro de eliminar el producto?",
-			"ConfirmaciÃ³n", MessageBoxButtons::YesNo,
+			"¿Está seguro de eliminar el producto?",
+			"Confirmación", MessageBoxButtons::YesNo,
 			MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
 		{
 			SalesManager::DeleteProduct(productId);
@@ -494,16 +467,16 @@ namespace SalesView {
 
 	private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (txtId->Text->Trim() == "") {
-			MessageBox::Show("El Id no debe estar vacÃ­o.");
+			MessageBox::Show("El Id no debe estar vacío.");
 			return;
 		}
 		if (txtPrice->Text->Trim() == "") {
-			MessageBox::Show("El precio no debe estar vacÃ­o.");
+			MessageBox::Show("El precio no debe estar vacío.");
 			return;
 		}
 		if (MessageBox::Show(
-			"Â¿EstÃ¡ seguro de actualizar el producto?",
-			"ConfirmaciÃ³n", MessageBoxButtons::YesNo,
+			"¿Está seguro de actualizar el producto?",
+			"Confirmación", MessageBoxButtons::YesNo,
 			MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
 		{
 			Products^ p = gcnew Products();
@@ -511,16 +484,42 @@ namespace SalesView {
 				p->Id = Int32::Parse(txtId->Text);
 				p->Name = txtName->Text;
 				p->Description = txtDescription->Text;
-				p->Precio = Double::Parse(txtPrice->Text);
 				p->BonusPoints = Int32::Parse(txtBonusPoints->Text);
-				p->Status = "Habilitado";
+				p->Precio = Double::Parse(txtPrice->Text);
 				p->Marca = txtBrand->Text;
+				p->Status = "Habilitado";
 				SalesManager::UpdateProduct(p);
 				RefreshDGVProducts();
+				ClearControls();
 			}
 			catch (Exception^ ex) {
 				MessageBox::Show(ex->ToString(), "Error al grabar.");
 				return;
+			}
+		}
+		else 
+		{
+		}
+	}
+
+	private: System::Void dgvProducts_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		if (dgvProducts->CurrentCell != nullptr &&
+			dgvProducts->CurrentCell->Value != nullptr &&
+			dgvProducts->CurrentCell->Value->ToString() != "") {
+			int selectedrowindex = dgvProducts->SelectedCells[0]->RowIndex;
+			DataGridViewRow^ selectedRow = dgvProducts->Rows[selectedrowindex];
+			String^ a = selectedRow->Cells[0]->Value->ToString();
+
+			int productID = Int32::Parse(a);
+			Products^ product = SalesManager::QueryProductById(productID);
+			//MessageBox::Show(customer->ToString());
+			if (product != nullptr) {
+				txtId->Text = "" + product->Id;
+				txtName->Text = product->Name;
+				txtDescription->Text = product->Description;
+				txtBonusPoints->Text = "" + product->BonusPoints;
+				txtPrice->Text = "" + product->Precio;
+				txtBrand->Text = product->Marca;
 			}
 		}
 	}
@@ -531,7 +530,7 @@ namespace SalesView {
 			dgvProducts->Rows->Clear();
 			for (int i = 0; i < productList->Count; i++)
 				dgvProducts->Rows->Add(gcnew array<String^>{
-				"" + productList[i]->Id,
+					"" + productList[i]->Id,
 					productList[i]->Name,
 					productList[i]->Marca,
 					"" + productList[i]->BonusPoints,
@@ -548,7 +547,5 @@ namespace SalesView {
 			txtDescription->Clear();
 			txtPrice->Clear();
 		}
-	private: System::Void lblCode_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
 };
 }

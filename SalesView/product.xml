@@ -1,4 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ProductDB xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ListDB />
+<ProductDB xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ListDB>
+    <Products>
+      <Description>Electrodoméstico para cocina</Description>
+      <Marca>Omen</Marca>
+      <Precio>30.5</Precio>
+      <Status>Habilitado</Status>
+      <BonusPoints>20</BonusPoints>
+      <Quantity>0</Quantity>
+      <Name>Licuadora</Name>
+      <Id>20171797</Id>
+    </Products>
+    <Products>
+      <Description>Producto para calentar comida</Description>
+      <Marca>Ondita</Marca>
+      <Precio>100.6</Precio>
+      <Status>Habilitado</Status>
+      <BonusPoints>30</BonusPoints>
+      <Quantity>0</Quantity>
+      <Name>Microondas</Name>
+      <Id>123456</Id>
+    </Products>
+    <Products>
+      <Description>Electrodoméstico para batir insumos </Description>
+      <Marca>Batis</Marca>
+      <Precio>10</Precio>
+      <Status>Habilitado</Status>
+      <BonusPoints>10</BonusPoints>
+      <Quantity>0</Quantity>
+      <Name>Batidora</Name>
+      <Id>1234</Id>
+    </Products>
+  </ListDB>
 </ProductDB>

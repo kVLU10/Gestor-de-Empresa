@@ -1,59 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Archivos de origen">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Archivos de encabezado">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Archivos de recursos">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="ClientForm.cpp" />
+    <ClCompile Include="LoginForm.cpp" />
+    <ClCompile Include="PersonalForm.cpp" />
+    <ClCompile Include="ProductForm.cpp" />
+    <ClCompile Include="ProductsStoreForm.cpp" />
+    <ClCompile Include="SalesMainForm.cpp" />
+    <ClCompile Include="StoreForm.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SalesMainForm.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="ProductForm.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="LoginForm.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="PersonalForm.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="StoreForm.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="ProductsStoreForm.cpp">
-    <ClCompile Include="ClientForm.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="SalesMainForm.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="ProductForm.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="LoginForm.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="PersonalForm.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="StoreForm.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="ProductsStoreForm.h">
-    <ClInclude Include="ClientForm.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
+    <ClInclude Include="ClientForm.h" />
+    <ClInclude Include="LoginForm.h" />
+    <ClInclude Include="PersonalForm.h" />
+    <ClInclude Include="ProductsStoreForm.h" />
+    <ClInclude Include="SalesMainForm.h" />
+    <ClInclude Include="StoreForm.h" />
+    <ClInclude Include="ProductForm.h" />
   </ItemGroup>
 </Project>
