@@ -152,7 +152,7 @@ namespace SalesView {
 			this->tabPage1->Location = System::Drawing::Point(4, 22);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage1->Size = System::Drawing::Size(885, 476);
+			this->tabPage1->Size = System::Drawing::Size(721, 602);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Productos";
 			this->tabPage1->UseVisualStyleBackColor = true;
@@ -162,7 +162,7 @@ namespace SalesView {
 			this->panel2->Controls->Add(this->btnDelete);
 			this->panel2->Controls->Add(this->btnUpdate);
 			this->panel2->Controls->Add(this->btnAdds);
-			this->panel2->Location = System::Drawing::Point(3, 149);
+			this->panel2->Location = System::Drawing::Point(4, 286);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(708, 52);
 			this->panel2->TabIndex = 17;
@@ -213,64 +213,65 @@ namespace SalesView {
 			this->panel1->Controls->Add(this->lblName);
 			this->panel1->Location = System::Drawing::Point(4, 4);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(708, 139);
+			this->panel1->Size = System::Drawing::Size(708, 276);
 			this->panel1->TabIndex = 16;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(28, 30);
+			this->label1->Location = System::Drawing::Point(62, 30);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(40, 13);
 			this->label1->TabIndex = 12;
 			this->label1->Text = L"Código";
 			// 
+			// txtId
+			// 
+			this->txtId->Location = System::Drawing::Point(108, 27);
+			this->txtId->Name = L"txtId";
+			this->txtId->Size = System::Drawing::Size(169, 20);
+			this->txtId->TabIndex = 8;
+			// 
+			// txtName
+			// 
+			this->txtName->Location = System::Drawing::Point(430, 27);
+			this->txtName->Name = L"txtName";
+			this->txtName->Size = System::Drawing::Size(203, 20);
+			this->txtName->TabIndex = 6;
+			// 
+			// txtBrand
+			// 
+			this->txtBrand->Location = System::Drawing::Point(108, 73);
+			this->txtBrand->Name = L"txtBrand";
+			this->txtBrand->Size = System::Drawing::Size(201, 20);
+			this->txtBrand->TabIndex = 9;
+			// 
 			// txtPrice
 			// 
-			this->txtPrice->Location = System::Drawing::Point(522, 95);
+			this->txtPrice->Location = System::Drawing::Point(430, 73);
 			this->txtPrice->Name = L"txtPrice";
 			this->txtPrice->Size = System::Drawing::Size(100, 20);
 			this->txtPrice->TabIndex = 11;
 			// 
 			// txtBonusPoints
 			// 
-			this->txtBonusPoints->Location = System::Drawing::Point(522, 46);
+			this->txtBonusPoints->Location = System::Drawing::Point(108, 118);
 			this->txtBonusPoints->Name = L"txtBonusPoints";
 			this->txtBonusPoints->Size = System::Drawing::Size(100, 20);
 			this->txtBonusPoints->TabIndex = 10;
 			// 
-			// txtBrand
-			// 
-			this->txtBrand->Location = System::Drawing::Point(279, 95);
-			this->txtBrand->Name = L"txtBrand";
-			this->txtBrand->Size = System::Drawing::Size(201, 20);
-			this->txtBrand->TabIndex = 9;
-			// 
-			// txtId
-			// 
-			this->txtId->Location = System::Drawing::Point(31, 46);
-			this->txtId->Name = L"txtId";
-			this->txtId->Size = System::Drawing::Size(169, 20);
-			this->txtId->TabIndex = 8;
-			// 
 			// txtDescription
 			// 
-			this->txtDescription->Location = System::Drawing::Point(31, 95);
+			this->txtDescription->Location = System::Drawing::Point(108, 165);
+			this->txtDescription->Multiline = true;
 			this->txtDescription->Name = L"txtDescription";
-			this->txtDescription->Size = System::Drawing::Size(203, 20);
+			this->txtDescription->Size = System::Drawing::Size(433, 100);
 			this->txtDescription->TabIndex = 7;
-			// 
-			// txtName
-			// 
-			this->txtName->Location = System::Drawing::Point(279, 46);
-			this->txtName->Name = L"txtName";
-			this->txtName->Size = System::Drawing::Size(203, 20);
-			this->txtName->TabIndex = 6;
 			// 
 			// lblBrand
 			// 
 			this->lblBrand->AutoSize = true;
-			this->lblBrand->Location = System::Drawing::Point(276, 79);
+			this->lblBrand->Location = System::Drawing::Point(65, 76);
 			this->lblBrand->Name = L"lblBrand";
 			this->lblBrand->Size = System::Drawing::Size(37, 13);
 			this->lblBrand->TabIndex = 5;
@@ -279,7 +280,7 @@ namespace SalesView {
 			// lblBonusPoints
 			// 
 			this->lblBonusPoints->AutoSize = true;
-			this->lblBonusPoints->Location = System::Drawing::Point(519, 30);
+			this->lblBonusPoints->Location = System::Drawing::Point(29, 121);
 			this->lblBonusPoints->Name = L"lblBonusPoints";
 			this->lblBonusPoints->Size = System::Drawing::Size(73, 13);
 			this->lblBonusPoints->TabIndex = 4;
@@ -288,7 +289,7 @@ namespace SalesView {
 			// lblPrice
 			// 
 			this->lblPrice->AutoSize = true;
-			this->lblPrice->Location = System::Drawing::Point(519, 79);
+			this->lblPrice->Location = System::Drawing::Point(387, 76);
 			this->lblPrice->Name = L"lblPrice";
 			this->lblPrice->Size = System::Drawing::Size(37, 13);
 			this->lblPrice->TabIndex = 3;
@@ -297,7 +298,7 @@ namespace SalesView {
 			// lblDescription
 			// 
 			this->lblDescription->AutoSize = true;
-			this->lblDescription->Location = System::Drawing::Point(28, 79);
+			this->lblDescription->Location = System::Drawing::Point(39, 168);
 			this->lblDescription->Name = L"lblDescription";
 			this->lblDescription->Size = System::Drawing::Size(63, 13);
 			this->lblDescription->TabIndex = 1;
@@ -306,7 +307,7 @@ namespace SalesView {
 			// lblName
 			// 
 			this->lblName->AutoSize = true;
-			this->lblName->Location = System::Drawing::Point(276, 30);
+			this->lblName->Location = System::Drawing::Point(380, 30);
 			this->lblName->Name = L"lblName";
 			this->lblName->Size = System::Drawing::Size(44, 13);
 			this->lblName->TabIndex = 0;
@@ -315,9 +316,9 @@ namespace SalesView {
 			// panel3
 			// 
 			this->panel3->Controls->Add(this->dgvProducts);
-			this->panel3->Location = System::Drawing::Point(3, 207);
+			this->panel3->Location = System::Drawing::Point(4, 344);
 			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(825, 259);
+			this->panel3->Size = System::Drawing::Size(708, 250);
 			this->panel3->TabIndex = 18;
 			// 
 			// dgvProducts
@@ -327,10 +328,10 @@ namespace SalesView {
 				this->Id, this->NameProduct,
 					this->Brand, this->BonusPoints, this->Description, this->Price, this->Status
 			});
-			this->dgvProducts->Location = System::Drawing::Point(32, 19);
+			this->dgvProducts->Location = System::Drawing::Point(15, 15);
 			this->dgvProducts->Name = L"dgvProducts";
 			this->dgvProducts->RowHeadersWidth = 51;
-			this->dgvProducts->Size = System::Drawing::Size(745, 224);
+			this->dgvProducts->Size = System::Drawing::Size(678, 224);
 			this->dgvProducts->TabIndex = 15;
 			this->dgvProducts->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &ProductForm::dgvProducts_CellClick);
 			// 
@@ -389,14 +390,14 @@ namespace SalesView {
 			this->tabProducts->Location = System::Drawing::Point(12, 12);
 			this->tabProducts->Name = L"tabProducts";
 			this->tabProducts->SelectedIndex = 0;
-			this->tabProducts->Size = System::Drawing::Size(893, 502);
+			this->tabProducts->Size = System::Drawing::Size(729, 628);
 			this->tabProducts->TabIndex = 0;
 			// 
 			// ProductForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(881, 526);
+			this->ClientSize = System::Drawing::Size(747, 644);
 			this->Controls->Add(this->tabProducts);
 			this->Name = L"ProductForm";
 			this->Text = L"Productos";
@@ -414,12 +415,10 @@ namespace SalesView {
 	private: System::Void btnAdds_Click(System::Object^ sender, System::EventArgs^ e) {
 		Products^ p = gcnew Products();
 		try {
-			if (txtPrice->Text->Trim() == "") {
-				MessageBox::Show("El precio no debe estar vacío.");
-				return;
-			}
-			if (txtName->Text->Trim() == "") {
-				MessageBox::Show("El nombre no debe estar vacío.");
+			if (txtPrice->Text->Trim() == "" || txtDescription->Text->Trim() == "" ||
+				txtBonusPoints->Text->Trim() == "" || txtPrice->Text->Trim() == "" ||
+				txtBrand->Text->Trim() == "" || txtName->Text->Trim() == "") {
+				MessageBox::Show("Hay 1 o más campos vacíos.");
 				return;
 			}
 			

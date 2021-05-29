@@ -1,8 +1,4 @@
 #pragma once
-#include "ProductDB.h"
-#include "PersonalDB.h"
-#include "StoreDB.h"
-#include "ClientDB.h"
 
 using namespace System;
 using namespace Proyecto;

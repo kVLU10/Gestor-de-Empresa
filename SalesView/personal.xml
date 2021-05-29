@@ -31,5 +31,20 @@
       <Incress>0</Incress>
       <Salary>0</Salary>
     </Personal>
+    <Personal>
+      <Birthday>30/08/1999</Birthday>
+      <Status>0</Status>
+      <Password>password</Password>
+      <Username>eazabache</Username>
+      <PersonalEmail>eduardo@gmail.com</PersonalEmail>
+      <PhoneNumber>123456789</PhoneNumber>
+      <SecondLastName>Orellana</SecondLastName>
+      <FirstLastName>Azabache</FirstLastName>
+      <SecondName>Daniel</SecondName>
+      <FirstName>Eduardo</FirstName>
+      <Id>12345678</Id>
+      <Incress>0</Incress>
+      <Salary>0</Salary>
+    </Personal>
   </ListDBP>
 </PersonalDB>
