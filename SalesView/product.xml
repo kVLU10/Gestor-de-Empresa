@@ -4,9 +4,9 @@
     <Products>
       <Description>Electrodoméstico para cocina</Description>
       <Marca>Omen</Marca>
-      <Precio>30.5</Precio>
+      <Precio>40</Precio>
       <Status>Habilitado</Status>
-      <BonusPoints>20</BonusPoints>
+      <BonusPoints>15</BonusPoints>
       <Quantity>0</Quantity>
       <Name>Licuadora</Name>
       <Id>20171797</Id>

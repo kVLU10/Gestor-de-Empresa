@@ -89,6 +89,8 @@ namespace SalesView {
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Panel^ panel3;
 	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Button^ btnSearch;
+
 
 
 
@@ -110,6 +112,7 @@ namespace SalesView {
 		void InitializeComponent(void) {
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->btnSearch = (gcnew System::Windows::Forms::Button());
 			this->btnDelete = (gcnew System::Windows::Forms::Button());
 			this->btnUpdate = (gcnew System::Windows::Forms::Button());
 			this->btnAdds = (gcnew System::Windows::Forms::Button());
@@ -159,6 +162,7 @@ namespace SalesView {
 			// 
 			// panel2
 			// 
+			this->panel2->Controls->Add(this->btnSearch);
 			this->panel2->Controls->Add(this->btnDelete);
 			this->panel2->Controls->Add(this->btnUpdate);
 			this->panel2->Controls->Add(this->btnAdds);
@@ -167,11 +171,21 @@ namespace SalesView {
 			this->panel2->Size = System::Drawing::Size(708, 52);
 			this->panel2->TabIndex = 17;
 			// 
+			// btnSearch
+			// 
+			this->btnSearch->Location = System::Drawing::Point(567, 13);
+			this->btnSearch->Name = L"btnSearch";
+			this->btnSearch->Size = System::Drawing::Size(126, 23);
+			this->btnSearch->TabIndex = 15;
+			this->btnSearch->Text = L"Buscar";
+			this->btnSearch->UseVisualStyleBackColor = true;
+			this->btnSearch->Click += gcnew System::EventHandler(this, &ProductForm::btnSearch_Click);
+			// 
 			// btnDelete
 			// 
-			this->btnDelete->Location = System::Drawing::Point(536, 13);
+			this->btnDelete->Location = System::Drawing::Point(383, 13);
 			this->btnDelete->Name = L"btnDelete";
-			this->btnDelete->Size = System::Drawing::Size(115, 23);
+			this->btnDelete->Size = System::Drawing::Size(126, 23);
 			this->btnDelete->TabIndex = 14;
 			this->btnDelete->Text = L"&Eliminar";
 			this->btnDelete->UseVisualStyleBackColor = true;
@@ -179,9 +193,9 @@ namespace SalesView {
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(304, 13);
+			this->btnUpdate->Location = System::Drawing::Point(200, 13);
 			this->btnUpdate->Name = L"btnUpdate";
-			this->btnUpdate->Size = System::Drawing::Size(115, 23);
+			this->btnUpdate->Size = System::Drawing::Size(126, 23);
 			this->btnUpdate->TabIndex = 13;
 			this->btnUpdate->Text = L"&Modificar";
 			this->btnUpdate->UseVisualStyleBackColor = true;
@@ -189,9 +203,9 @@ namespace SalesView {
 			// 
 			// btnAdds
 			// 
-			this->btnAdds->Location = System::Drawing::Point(63, 13);
+			this->btnAdds->Location = System::Drawing::Point(15, 13);
 			this->btnAdds->Name = L"btnAdds";
-			this->btnAdds->Size = System::Drawing::Size(115, 23);
+			this->btnAdds->Size = System::Drawing::Size(126, 23);
 			this->btnAdds->TabIndex = 12;
 			this->btnAdds->Text = L"&Agregar";
 			this->btnAdds->UseVisualStyleBackColor = true;
@@ -225,27 +239,6 @@ namespace SalesView {
 			this->label1->TabIndex = 12;
 			this->label1->Text = L"Código";
 			// 
-			// txtId
-			// 
-			this->txtId->Location = System::Drawing::Point(108, 27);
-			this->txtId->Name = L"txtId";
-			this->txtId->Size = System::Drawing::Size(169, 20);
-			this->txtId->TabIndex = 8;
-			// 
-			// txtName
-			// 
-			this->txtName->Location = System::Drawing::Point(430, 27);
-			this->txtName->Name = L"txtName";
-			this->txtName->Size = System::Drawing::Size(203, 20);
-			this->txtName->TabIndex = 6;
-			// 
-			// txtBrand
-			// 
-			this->txtBrand->Location = System::Drawing::Point(108, 73);
-			this->txtBrand->Name = L"txtBrand";
-			this->txtBrand->Size = System::Drawing::Size(201, 20);
-			this->txtBrand->TabIndex = 9;
-			// 
 			// txtPrice
 			// 
 			this->txtPrice->Location = System::Drawing::Point(430, 73);
@@ -260,6 +253,20 @@ namespace SalesView {
 			this->txtBonusPoints->Size = System::Drawing::Size(100, 20);
 			this->txtBonusPoints->TabIndex = 10;
 			// 
+			// txtBrand
+			// 
+			this->txtBrand->Location = System::Drawing::Point(108, 73);
+			this->txtBrand->Name = L"txtBrand";
+			this->txtBrand->Size = System::Drawing::Size(201, 20);
+			this->txtBrand->TabIndex = 9;
+			// 
+			// txtId
+			// 
+			this->txtId->Location = System::Drawing::Point(108, 27);
+			this->txtId->Name = L"txtId";
+			this->txtId->Size = System::Drawing::Size(169, 20);
+			this->txtId->TabIndex = 8;
+			// 
 			// txtDescription
 			// 
 			this->txtDescription->Location = System::Drawing::Point(108, 165);
@@ -267,6 +274,13 @@ namespace SalesView {
 			this->txtDescription->Name = L"txtDescription";
 			this->txtDescription->Size = System::Drawing::Size(433, 100);
 			this->txtDescription->TabIndex = 7;
+			// 
+			// txtName
+			// 
+			this->txtName->Location = System::Drawing::Point(430, 27);
+			this->txtName->Name = L"txtName";
+			this->txtName->Size = System::Drawing::Size(203, 20);
+			this->txtName->TabIndex = 6;
 			// 
 			// lblBrand
 			// 
@@ -546,5 +560,42 @@ namespace SalesView {
 			txtDescription->Clear();
 			txtPrice->Clear();
 		}
+	private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^ e) {
+		Products^ p = gcnew Products();
+		try {
+			if (txtId->Text->Trim() == "") {
+				RefreshDGVProducts();
+				ClearControls();
+				return;
+			}
+			p->Id = Int32::Parse(txtId->Text);
+			/*
+			p->Name = txtName->Text;
+			p->Description = txtDescription->Text;
+			p->BonusPoints = Int32::Parse(txtBonusPoints->Text);
+			p->Precio = Double::Parse(txtPrice->Text);
+			p->Marca = txtBrand->Text;
+			p->Status = "Habilitado";
+			*/
+			dgvProducts->Rows->Clear();
+			List<Products^>^ productList = SalesManager::QueryProducts();
+			for (int i = 0; i < productList->Count; i++) {
+				if (p->Id == productList[i]->Id)
+					dgvProducts->Rows->Add(gcnew array<String^>{
+						"" + productList[i]->Id,
+						productList[i]->Name,
+						productList[i]->Marca,
+						"" + productList[i]->BonusPoints,
+						productList[i]->Description,
+						"" + productList[i]->Precio,
+						productList[i]->Status
+				});
+			}
+		}
+		catch (Exception^ ex) {
+			MessageBox::Show(ex->ToString(), "Error al guardar el producto por error en los datos.");
+			return;
+		}
+	}
 };
 }

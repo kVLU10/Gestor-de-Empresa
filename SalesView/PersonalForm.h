@@ -126,6 +126,7 @@ namespace SalesView {
 	private: System::Windows::Forms::Button^ btnUpdate;
 
 	private: System::Windows::Forms::Button^ btnAdd;
+private: System::Windows::Forms::Button^ btnSearch;
 
 
 
@@ -191,6 +192,18 @@ namespace SalesView {
 		{
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPersonal = (gcnew System::Windows::Forms::TabPage());
+			this->panel3 = (gcnew System::Windows::Forms::Panel());
+			this->dgvPersonal = (gcnew System::Windows::Forms::DataGridView());
+			this->Nombre1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Nombre2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Apellido1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Apellido2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Telefono = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->DocumentNumber = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Correo = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Usuario = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Contraseña = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Cumpleaños = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->txtUsuario = (gcnew System::Windows::Forms::TextBox());
@@ -215,27 +228,16 @@ namespace SalesView {
 			this->txtNombre2 = (gcnew System::Windows::Forms::TextBox());
 			this->txtNombre1 = (gcnew System::Windows::Forms::TextBox());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
-			this->btnAdd = (gcnew System::Windows::Forms::Button());
-			this->btnUpdate = (gcnew System::Windows::Forms::Button());
 			this->btnDelete = (gcnew System::Windows::Forms::Button());
-			this->panel3 = (gcnew System::Windows::Forms::Panel());
-			this->dgvPersonal = (gcnew System::Windows::Forms::DataGridView());
-			this->Cumpleaños = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Contraseña = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Usuario = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Correo = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->DocumentNumber = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Telefono = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Apellido2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Apellido1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Nombre2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Nombre1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->btnUpdate = (gcnew System::Windows::Forms::Button());
+			this->btnAdd = (gcnew System::Windows::Forms::Button());
+			this->btnSearch = (gcnew System::Windows::Forms::Button());
 			this->tabControl1->SuspendLayout();
 			this->tabPersonal->SuspendLayout();
-			this->panel1->SuspendLayout();
-			this->panel4->SuspendLayout();
 			this->panel3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPersonal))->BeginInit();
+			this->panel1->SuspendLayout();
+			this->panel4->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// tabControl1
@@ -259,6 +261,97 @@ namespace SalesView {
 			this->tabPersonal->TabIndex = 0;
 			this->tabPersonal->Text = L"Personal";
 			this->tabPersonal->UseVisualStyleBackColor = true;
+			// 
+			// panel3
+			// 
+			this->panel3->Controls->Add(this->dgvPersonal);
+			this->panel3->Location = System::Drawing::Point(5, 345);
+			this->panel3->Name = L"panel3";
+			this->panel3->Size = System::Drawing::Size(708, 250);
+			this->panel3->TabIndex = 0;
+			// 
+			// dgvPersonal
+			// 
+			this->dgvPersonal->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgvPersonal->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(10) {
+				this->Nombre1,
+					this->Nombre2, this->Apellido1, this->Apellido2, this->Telefono, this->DocumentNumber, this->Correo, this->Usuario, this->Contraseña,
+					this->Cumpleaños
+			});
+			this->dgvPersonal->Location = System::Drawing::Point(15, 16);
+			this->dgvPersonal->Name = L"dgvPersonal";
+			this->dgvPersonal->RowHeadersWidth = 51;
+			this->dgvPersonal->Size = System::Drawing::Size(679, 217);
+			this->dgvPersonal->TabIndex = 0;
+			this->dgvPersonal->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &PersonalForm::dgvPersonal_CellClick);
+			// 
+			// Nombre1
+			// 
+			this->Nombre1->HeaderText = L"Nombre1";
+			this->Nombre1->MinimumWidth = 6;
+			this->Nombre1->Name = L"Nombre1";
+			this->Nombre1->Width = 125;
+			// 
+			// Nombre2
+			// 
+			this->Nombre2->HeaderText = L"Nombre2";
+			this->Nombre2->MinimumWidth = 6;
+			this->Nombre2->Name = L"Nombre2";
+			this->Nombre2->Width = 125;
+			// 
+			// Apellido1
+			// 
+			this->Apellido1->HeaderText = L"Apellido1";
+			this->Apellido1->MinimumWidth = 6;
+			this->Apellido1->Name = L"Apellido1";
+			this->Apellido1->Width = 125;
+			// 
+			// Apellido2
+			// 
+			this->Apellido2->HeaderText = L"Apellido2";
+			this->Apellido2->MinimumWidth = 6;
+			this->Apellido2->Name = L"Apellido2";
+			this->Apellido2->Width = 125;
+			// 
+			// Telefono
+			// 
+			this->Telefono->HeaderText = L"Teléfono";
+			this->Telefono->MinimumWidth = 6;
+			this->Telefono->Name = L"Telefono";
+			this->Telefono->Width = 125;
+			// 
+			// DocumentNumber
+			// 
+			this->DocumentNumber->HeaderText = L"DNI o Pasaporte";
+			this->DocumentNumber->MinimumWidth = 6;
+			this->DocumentNumber->Name = L"DocumentNumber";
+			this->DocumentNumber->Width = 125;
+			// 
+			// Correo
+			// 
+			this->Correo->HeaderText = L"Correo";
+			this->Correo->MinimumWidth = 6;
+			this->Correo->Name = L"Correo";
+			this->Correo->Width = 125;
+			// 
+			// Usuario
+			// 
+			this->Usuario->HeaderText = L"Usuario";
+			this->Usuario->Name = L"Usuario";
+			// 
+			// Contraseña
+			// 
+			this->Contraseña->HeaderText = L"Contraseña";
+			this->Contraseña->MinimumWidth = 6;
+			this->Contraseña->Name = L"Contraseña";
+			this->Contraseña->Width = 125;
+			// 
+			// Cumpleaños
+			// 
+			this->Cumpleaños->HeaderText = L"Cumpleaños";
+			this->Cumpleaños->MinimumWidth = 6;
+			this->Cumpleaños->Name = L"Cumpleaños";
+			this->Cumpleaños->Width = 125;
 			// 
 			// panel1
 			// 
@@ -471,6 +564,7 @@ namespace SalesView {
 			// 
 			// panel4
 			// 
+			this->panel4->Controls->Add(this->btnSearch);
 			this->panel4->Controls->Add(this->btnDelete);
 			this->panel4->Controls->Add(this->btnUpdate);
 			this->panel4->Controls->Add(this->btnAdd);
@@ -479,29 +573,9 @@ namespace SalesView {
 			this->panel4->Size = System::Drawing::Size(708, 52);
 			this->panel4->TabIndex = 1;
 			// 
-			// btnAdd
-			// 
-			this->btnAdd->Location = System::Drawing::Point(70, 15);
-			this->btnAdd->Name = L"btnAdd";
-			this->btnAdd->Size = System::Drawing::Size(126, 23);
-			this->btnAdd->TabIndex = 0;
-			this->btnAdd->Text = L"&Agregar";
-			this->btnAdd->UseVisualStyleBackColor = true;
-			this->btnAdd->Click += gcnew System::EventHandler(this, &PersonalForm::btnAdd_Click);
-			// 
-			// btnUpdate
-			// 
-			this->btnUpdate->Location = System::Drawing::Point(291, 14);
-			this->btnUpdate->Name = L"btnUpdate";
-			this->btnUpdate->Size = System::Drawing::Size(126, 24);
-			this->btnUpdate->TabIndex = 1;
-			this->btnUpdate->Text = L"&Modificar";
-			this->btnUpdate->UseVisualStyleBackColor = true;
-			this->btnUpdate->Click += gcnew System::EventHandler(this, &PersonalForm::btnUpdate_Click);
-			// 
 			// btnDelete
 			// 
-			this->btnDelete->Location = System::Drawing::Point(505, 15);
+			this->btnDelete->Location = System::Drawing::Point(385, 14);
 			this->btnDelete->Name = L"btnDelete";
 			this->btnDelete->Size = System::Drawing::Size(126, 23);
 			this->btnDelete->TabIndex = 2;
@@ -509,96 +583,35 @@ namespace SalesView {
 			this->btnDelete->UseVisualStyleBackColor = true;
 			this->btnDelete->Click += gcnew System::EventHandler(this, &PersonalForm::btnDelete_Click);
 			// 
-			// panel3
+			// btnUpdate
 			// 
-			this->panel3->Controls->Add(this->dgvPersonal);
-			this->panel3->Location = System::Drawing::Point(5, 345);
-			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(708, 250);
-			this->panel3->TabIndex = 0;
+			this->btnUpdate->Location = System::Drawing::Point(203, 13);
+			this->btnUpdate->Name = L"btnUpdate";
+			this->btnUpdate->Size = System::Drawing::Size(126, 24);
+			this->btnUpdate->TabIndex = 1;
+			this->btnUpdate->Text = L"&Modificar";
+			this->btnUpdate->UseVisualStyleBackColor = true;
+			this->btnUpdate->Click += gcnew System::EventHandler(this, &PersonalForm::btnUpdate_Click);
 			// 
-			// dgvPersonal
+			// btnAdd
 			// 
-			this->dgvPersonal->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvPersonal->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(10) {
-				this->Nombre1,
-					this->Nombre2, this->Apellido1, this->Apellido2, this->Telefono, this->DocumentNumber, this->Correo, this->Usuario, this->Contraseña,
-					this->Cumpleaños
-			});
-			this->dgvPersonal->Location = System::Drawing::Point(15, 16);
-			this->dgvPersonal->Name = L"dgvPersonal";
-			this->dgvPersonal->RowHeadersWidth = 51;
-			this->dgvPersonal->Size = System::Drawing::Size(679, 217);
-			this->dgvPersonal->TabIndex = 0;
-			this->dgvPersonal->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &PersonalForm::dgvPersonal_CellClick);
+			this->btnAdd->Location = System::Drawing::Point(15, 14);
+			this->btnAdd->Name = L"btnAdd";
+			this->btnAdd->Size = System::Drawing::Size(126, 23);
+			this->btnAdd->TabIndex = 0;
+			this->btnAdd->Text = L"&Agregar";
+			this->btnAdd->UseVisualStyleBackColor = true;
+			this->btnAdd->Click += gcnew System::EventHandler(this, &PersonalForm::btnAdd_Click);
 			// 
-			// Cumpleaños
+			// btnSearch
 			// 
-			this->Cumpleaños->HeaderText = L"Cumpleaños";
-			this->Cumpleaños->MinimumWidth = 6;
-			this->Cumpleaños->Name = L"Cumpleaños";
-			this->Cumpleaños->Width = 125;
-			// 
-			// Contraseña
-			// 
-			this->Contraseña->HeaderText = L"Contraseña";
-			this->Contraseña->MinimumWidth = 6;
-			this->Contraseña->Name = L"Contraseña";
-			this->Contraseña->Width = 125;
-			// 
-			// Usuario
-			// 
-			this->Usuario->HeaderText = L"Usuario";
-			this->Usuario->Name = L"Usuario";
-			// 
-			// Correo
-			// 
-			this->Correo->HeaderText = L"Correo";
-			this->Correo->MinimumWidth = 6;
-			this->Correo->Name = L"Correo";
-			this->Correo->Width = 125;
-			// 
-			// DocumentNumber
-			// 
-			this->DocumentNumber->HeaderText = L"DNI o Pasaporte";
-			this->DocumentNumber->MinimumWidth = 6;
-			this->DocumentNumber->Name = L"DocumentNumber";
-			this->DocumentNumber->Width = 125;
-			// 
-			// Telefono
-			// 
-			this->Telefono->HeaderText = L"Teléfono";
-			this->Telefono->MinimumWidth = 6;
-			this->Telefono->Name = L"Telefono";
-			this->Telefono->Width = 125;
-			// 
-			// Apellido2
-			// 
-			this->Apellido2->HeaderText = L"Apellido2";
-			this->Apellido2->MinimumWidth = 6;
-			this->Apellido2->Name = L"Apellido2";
-			this->Apellido2->Width = 125;
-			// 
-			// Apellido1
-			// 
-			this->Apellido1->HeaderText = L"Apellido1";
-			this->Apellido1->MinimumWidth = 6;
-			this->Apellido1->Name = L"Apellido1";
-			this->Apellido1->Width = 125;
-			// 
-			// Nombre2
-			// 
-			this->Nombre2->HeaderText = L"Nombre2";
-			this->Nombre2->MinimumWidth = 6;
-			this->Nombre2->Name = L"Nombre2";
-			this->Nombre2->Width = 125;
-			// 
-			// Nombre1
-			// 
-			this->Nombre1->HeaderText = L"Nombre1";
-			this->Nombre1->MinimumWidth = 6;
-			this->Nombre1->Name = L"Nombre1";
-			this->Nombre1->Width = 125;
+			this->btnSearch->Location = System::Drawing::Point(568, 13);
+			this->btnSearch->Name = L"btnSearch";
+			this->btnSearch->Size = System::Drawing::Size(126, 24);
+			this->btnSearch->TabIndex = 3;
+			this->btnSearch->Text = L"Buscar";
+			this->btnSearch->UseVisualStyleBackColor = true;
+			this->btnSearch->Click += gcnew System::EventHandler(this, &PersonalForm::btnSearch_Click);
 			// 
 			// PersonalForm
 			// 
@@ -611,11 +624,11 @@ namespace SalesView {
 			this->Load += gcnew System::EventHandler(this, &PersonalForm::PersonalForm_Load);
 			this->tabControl1->ResumeLayout(false);
 			this->tabPersonal->ResumeLayout(false);
+			this->panel3->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPersonal))->EndInit();
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
 			this->panel4->ResumeLayout(false);
-			this->panel3->ResumeLayout(false);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPersonal))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -789,6 +802,47 @@ private: System::Void dgvPersonal_CellClick(System::Object^ sender, System::Wind
 			txtBirthday->Text = personal->Birthday;
 			txtEstado->Text = "Habilitado";
 		}
+	}
+}
+private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^ e) {
+	Personal^ ps = gcnew Personal();
+	try {
+		if (txtDocumentNumber->Text->Trim() == "") {
+			refreshDGVPersonal();
+			ClearControls();
+			return;
+		}
+		ps->Id = Int32::Parse(txtDocumentNumber->Text);
+		ps->FirstName = txtNombre1->Text;
+		ps->SecondName = txtNombre2->Text;
+		ps->FirstLastName = txtApellido1->Text;
+		ps->SecondLastName = txtApellido2->Text;
+		ps->PhoneNumber = txtTelefono->Text;
+		ps->PersonalEmail = txtCorreo->Text;
+		ps->Username = txtUsuario->Text;
+		ps->Password = txtContraseña->Text;
+		ps->Birthday = txtBirthday->Text;
+		dgvPersonal->Rows->Clear();
+		List<Personal^>^ personalList = SalesManager::QueryPersonal();
+		for (int i = 0; i < personalList->Count; i++) {
+			if (ps->Id == personalList[i]->Id)
+				dgvPersonal->Rows->Add(gcnew array<String^>{
+					personalList[i]->FirstName,
+					personalList[i]->SecondName,
+					personalList[i]->FirstLastName,
+					personalList[i]->SecondLastName,
+					personalList[i]->PhoneNumber,
+					"" + personalList[i]->Id,
+					personalList[i]->PersonalEmail,
+					personalList[i]->Username,
+					personalList[i]->Password,
+					personalList[i]->Birthday
+			});
+		}
+	}
+	catch (Exception^ ex) {
+		MessageBox::Show(ex->ToString(), "Error al guardar el personal por error en los datos.");
+		return;
 	}
 }
 };
