@@ -8,6 +8,8 @@
     <ClCompile Include="ProductsStoreForm.cpp" />
     <ClCompile Include="SalesMainForm.cpp" />
     <ClCompile Include="StoreForm.cpp" />
+    <ClCompile Include="DistritForm.cpp" />
+    <ClCompile Include="ComboBoxItem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClientForm.h" />
@@ -17,5 +19,7 @@
     <ClInclude Include="StoreForm.h" />
     <ClInclude Include="ProductForm.h" />
     <ClInclude Include="PersonalForm.h" />
+    <ClInclude Include="DistritForm.h" />
+    <ClInclude Include="ComboBoxItem.h" />
   </ItemGroup>
 </Project>

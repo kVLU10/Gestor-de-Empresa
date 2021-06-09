@@ -8,3 +8,8 @@
 /**
  * Distrit implementation
  */
+
+Proyecto::Distrit::Distrit(String^ name)
+{
+    this->Name = name;
+}

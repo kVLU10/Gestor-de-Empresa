@@ -38,6 +38,9 @@ namespace SalesController {
 			static List<Client^>^ QueryClient();
 			static Client^ QueryClientByDocumentNumber(int clientDocumentNumber);
 
+			//Distritos
+			static void AddDistrit(Distrit^);
+			static List<Distrit^>^ QueryDistrit();
 
 			//Métodos para la autenticación
 			static Personal^ ValidateUser(String^ username, String^ password);

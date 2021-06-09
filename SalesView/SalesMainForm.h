@@ -4,6 +4,7 @@
 #include "PersonalForm.h"
 #include "LoginForm.h"
 #include "ClientForm.h"
+#include "DistritForm.h"
 
 
 
@@ -61,7 +62,7 @@ namespace SalesView {
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -106,7 +107,7 @@ namespace SalesView {
 			this->preferenciasToolStripMenuItem->Name = L"preferenciasToolStripMenuItem";
 			this->preferenciasToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->preferenciasToolStripMenuItem->Text = L"&Preferencias";
-			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";     
+			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
 			this->salirToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->salirToolStripMenuItem->Text = L"&Salir";
 			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &SalesMainForm::salirToolStripMenuItem_Click);
@@ -115,7 +116,7 @@ namespace SalesView {
 			// 
 			this->mantenimientosToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 				this->productosToolStripMenuItem,
-					this->personalToolStripMenuItem, this->clientesToolStripMenuItem,this->almacenesToolStripMenuItem
+					this->personalToolStripMenuItem, this->clientesToolStripMenuItem, this->almacenesToolStripMenuItem
 
 
 			});
@@ -190,8 +191,12 @@ namespace SalesView {
 	}
 	private: System::Void personalToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		PersonalForm^ personalForm = gcnew PersonalForm();
+		//DistritForm^ distritForm = gcnew DistritForm();//
 		personalForm->MdiParent = this;
 		personalForm->Show();
+		//distritForm->MdiParent = this;//
+		//distritForm->Show();//
+
 	}
 	private: System::Void almacenesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		StoreForm^ storeForm = gcnew StoreForm();
@@ -200,12 +205,14 @@ namespace SalesView {
 
 	}
 
-private: System::Void mantenimientosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-}
+	private: System::Void mantenimientosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
 	private: System::Void clientesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		ClientForm^ clientForm = gcnew ClientForm();
 		clientForm->MdiParent = this;
 		clientForm->Show();
 	}
-};
-}
+	}
+	; };
+
+

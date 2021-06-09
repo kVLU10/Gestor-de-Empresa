@@ -8,6 +8,17 @@ using namespace System::Runtime::Serialization::Formatters::Binary;
 using namespace Proyecto;
 using namespace System::Data::SqlClient;
 
+void SalesController::SalesManager::AddDistrit(Distrit^ d)
+{
+	//AddProduct es un método estático o de clase
+	DBController::AddDistrit(d);
+}
+
+List<Distrit^>^ SalesController::SalesManager::QueryDistrit()
+{
+	return DBController::QueryDistrit();
+}
+
 void SalesController::SalesManager::AddProduct(Products^ p)
 {
 	//AddProduct es un método estático o de clase

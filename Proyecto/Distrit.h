@@ -12,5 +12,8 @@ namespace Proyecto {
     public:
         property String^ Name;
         property Provincie^ Provincie;
+
+        Distrit() {}
+        Distrit(String^ name);
     };
 }

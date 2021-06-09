@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ClientDB xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <ListDBC />
+<ClientDB xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ListDBC>
+    <Client>
+      <Birthday>01/01/01</Birthday>
+      <Status>0</Status>
+      <PersonalEmail>mail@me.com</PersonalEmail>
+      <PhoneNumber>987654321</PhoneNumber>
+      <SecondLastName>Fuji</SecondLastName>
+      <FirstLastName>Castillo</FirstLastName>
+      <SecondName>Enrique</SecondName>
+      <FirstName>Rodrigo</FirstName>
+      <Id>123456789</Id>
+      <BonusPoints>0</BonusPoints>
+    </Client>
+  </ListDBC>
 </ClientDB>

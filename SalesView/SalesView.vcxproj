@@ -123,6 +123,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ClientForm.cpp" />
+    <ClCompile Include="ComboBoxItem.cpp" />
+    <ClCompile Include="DistritForm.cpp" />
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="PersonalForm.cpp" />
     <ClCompile Include="ProductForm.cpp" />
@@ -132,6 +134,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClientForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ComboBoxItem.h" />
+    <ClInclude Include="DistritForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="LoginForm.h">
@@ -156,6 +162,9 @@
   <ItemGroup>
     <EmbeddedResource Include="ClientForm.resx">
       <DependentUpon>ClientForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DistritForm.resx">
+      <DependentUpon>DistritForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.h</DependentUpon>

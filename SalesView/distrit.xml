@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DistritDB xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ListDB>
+    <Distrit>
+      <Name>Ancon</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Ate</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Barranco</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Breña</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Carabayllo</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Chaclacayo</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Chorrillos</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Cieneguilla</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Comas</Name>
+    </Distrit>
+    <Distrit>
+      <Name>El Agustino</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Independencia</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Jesús María</Name>
+    </Distrit>
+    <Distrit>
+      <Name>La Molina</Name>
+    </Distrit>
+    <Distrit>
+      <Name>La Victoria</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Lima</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Lince</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Los Olivos</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Lurigancho</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Lurín</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Magdalena del Mar</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Miraflores</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Pachacamac</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Pucusana</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Pueblo Libre</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Puente Piedra</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Punta Hermosa</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Punta Negra</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Rimac</Name>
+    </Distrit>
+    <Distrit>
+      <Name>San Bartolo</Name>
+    </Distrit>
+    <Distrit>
+      <Name>San Borja</Name>
+    </Distrit>
+    <Distrit>
+      <Name>San Isidro</Name>
+    </Distrit>
+    <Distrit>
+      <Name>San Juan de Lurigancho</Name>
+    </Distrit>
+    <Distrit>
+      <Name>San Juan de Miraflores</Name>
+    </Distrit>
+    <Distrit>
+      <Name>San Luis</Name>
+    </Distrit>
+    <Distrit>
+      <Name>San Martín de Porres</Name>
+    </Distrit>
+    <Distrit>
+      <Name>San Miguel</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Santa Anita</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Santa María del Mar</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Santa Rosa</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Santiago de Surco</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Surquillo</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Villa El Salvador</Name>
+    </Distrit>
+    <Distrit>
+      <Name>Villa María del Triunfo</Name>
+    </Distrit>
+  </ListDB>
+</DistritDB>

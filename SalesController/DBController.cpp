@@ -83,6 +83,33 @@ void SalesController::DBController::LoadClient()
     }
 }
 
+void SalesController::DBController::SaveDistrit()
+{
+    System::Xml::Serialization::XmlSerializer^ writer =
+        gcnew System::Xml::Serialization::XmlSerializer(DistritDB::typeid);
+
+    System::IO::StreamWriter^ file = gcnew System::IO::StreamWriter("distrit.xml");
+    writer->Serialize(file, distritDB);
+    file->Close();
+}
+
+void SalesController::DBController::LoadDistrit()
+{
+    System::Xml::Serialization::XmlSerializer^ reader =
+        gcnew System::Xml::Serialization::XmlSerializer(DistritDB::typeid);
+    System::IO::StreamReader^ file = nullptr;
+    try {
+        file = gcnew System::IO::StreamReader("distrit.xml");
+        distritDB = (DistritDB^)reader->Deserialize(file);
+    }
+    catch (Exception^ ex) {
+        return;
+    }
+    finally {
+        if (file != nullptr) file->Close();
+    }
+}
+
 void SalesController::DBController::SaveProducts()
 {
     System::Xml::Serialization::XmlSerializer^ writer =
@@ -135,6 +162,18 @@ void SalesController::DBController::LoadStore()
     finally {
         if (file != nullptr) file->Close();
     }
+}
+
+void SalesController::DBController::AddDistrit(Distrit^ distrit)
+{
+    distritDB->ListDB->Add(distrit);
+    SaveDistrit();
+}
+
+List<Distrit^>^ SalesController::DBController::QueryDistrit()
+{
+    LoadDistrit();
+    return distritDB->ListDB;
 }
 
 void SalesController::DBController::AddProduct(Products^ product)
@@ -296,4 +335,8 @@ Client^ SalesController::DBController::QueryClientByDocumentNumber(int clientDoc
         if (clientDB->ListDBC[i]->Id == clientDocumentNumber)
             return clientDB->ListDBC[i];
     return nullptr;
+}
+
+SalesController::DistritDB::DistritDB()
+{
 }
