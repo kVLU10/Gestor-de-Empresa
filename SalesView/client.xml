@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ClientDB xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ClientDB xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ListDBC>
     <Client>
       <Birthday>01/01/01</Birthday>
@@ -11,6 +11,18 @@
       <SecondName>Enrique</SecondName>
       <FirstName>Rodrigo</FirstName>
       <Id>123456789</Id>
+      <BonusPoints>0</BonusPoints>
+    </Client>
+    <Client>
+      <Birthday>29/02/2004</Birthday>
+      <Status>0</Status>
+      <PersonalEmail>pCastle@gmail.com</PersonalEmail>
+      <PhoneNumber>987654321</PhoneNumber>
+      <SecondLastName>Mamani</SecondLastName>
+      <FirstLastName>Castle</FirstLastName>
+      <SecondName>Vladimir</SecondName>
+      <FirstName>Peter</FirstName>
+      <Id>9876543</Id>
       <BonusPoints>0</BonusPoints>
     </Client>
   </ListDBC>

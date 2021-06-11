@@ -383,6 +383,10 @@ private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^
 				storeList[i]->Adress,
 				storeList[i]->Status,
 		});
+		else
+		{
+			RefreshDGVStores();
+		}
 	}
 }
 private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {

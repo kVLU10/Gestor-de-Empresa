@@ -698,7 +698,7 @@ namespace SalesView {
 	private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^ e) {
 		Client^ c = gcnew Client();
 		try {
-			if (txtNombre1->Text->Trim() == "") {
+			if (txtDocumentNumber->Text->Trim() == "") {
 				refreshDGVClient();
 				ClearControls();
 				return;
