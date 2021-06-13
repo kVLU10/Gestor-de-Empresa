@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CategoriesDB xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ListDB>
+    <Categories>
+      <Name>sasdasdasd</Name>
+      <Id>1</Id>
+    </Categories>
+    <Categories>
+      <Name>sad112121</Name>
+      <Id>22</Id>
+    </Categories>
+    <Categories>
+      <Name>as21</Name>
+      <Id>2</Id>
+    </Categories>
+  </ListDB>
+</CategoriesDB>

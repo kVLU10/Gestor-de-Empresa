@@ -10,6 +10,13 @@ namespace SalesController {
 	{
 	public:
 
+		//Métodos CRUD para Categories
+		static void AddCategories(Categories^);
+		static void UpdateCategories(Categories^);
+		static void DeleteCategories(int categoriesId);
+		static List<Categories^>^ QueryCategories();
+		static Categories^ QueryCategoriesById(int categoriesId);
+
 		//Métodos CRUD para Productos
 		static void AddProduct(Products^);
 		static void UpdateProduct(Products^);
@@ -29,7 +36,7 @@ namespace SalesController {
 			static void UpdateStore(Store^);
 			static void DeleteStore(int ID);
 			static List<Store^>^ QueryStore();
-			static Store^ QueryStoreByDocumentNumber(String^ personalDocumentNumber);
+			static Store^ QueryStoreByDocumentNumber(int storeID);
 
 			//Métodos CRUD para Clientes
 			static void AddClient(Client^);

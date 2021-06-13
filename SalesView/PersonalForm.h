@@ -127,6 +127,8 @@ namespace SalesView {
 
 	private: System::Windows::Forms::Button^ btnAdd;
 private: System::Windows::Forms::Button^ btnSearch;
+private: System::Windows::Forms::Button^ btnAllView;
+private: System::Windows::Forms::Button^ btnClear;
 
 
 
@@ -205,6 +207,8 @@ private: System::Windows::Forms::Button^ btnSearch;
 			this->Contraseña = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Cumpleaños = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->btnAllView = (gcnew System::Windows::Forms::Button());
+			this->btnClear = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->txtUsuario = (gcnew System::Windows::Forms::TextBox());
 			this->txtBirthday = (gcnew System::Windows::Forms::TextBox());
@@ -228,10 +232,10 @@ private: System::Windows::Forms::Button^ btnSearch;
 			this->txtNombre2 = (gcnew System::Windows::Forms::TextBox());
 			this->txtNombre1 = (gcnew System::Windows::Forms::TextBox());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
+			this->btnSearch = (gcnew System::Windows::Forms::Button());
 			this->btnDelete = (gcnew System::Windows::Forms::Button());
 			this->btnUpdate = (gcnew System::Windows::Forms::Button());
 			this->btnAdd = (gcnew System::Windows::Forms::Button());
-			this->btnSearch = (gcnew System::Windows::Forms::Button());
 			this->tabControl1->SuspendLayout();
 			this->tabPersonal->SuspendLayout();
 			this->panel3->SuspendLayout();
@@ -355,6 +359,8 @@ private: System::Windows::Forms::Button^ btnSearch;
 			// 
 			// panel1
 			// 
+			this->panel1->Controls->Add(this->btnAllView);
+			this->panel1->Controls->Add(this->btnClear);
 			this->panel1->Controls->Add(this->label1);
 			this->panel1->Controls->Add(this->txtUsuario);
 			this->panel1->Controls->Add(this->txtBirthday);
@@ -381,6 +387,26 @@ private: System::Windows::Forms::Button^ btnSearch;
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(708, 276);
 			this->panel1->TabIndex = 0;
+			// 
+			// btnAllView
+			// 
+			this->btnAllView->Location = System::Drawing::Point(499, 221);
+			this->btnAllView->Name = L"btnAllView";
+			this->btnAllView->Size = System::Drawing::Size(75, 23);
+			this->btnAllView->TabIndex = 58;
+			this->btnAllView->Text = L"Mostrar todo";
+			this->btnAllView->UseVisualStyleBackColor = true;
+			this->btnAllView->Click += gcnew System::EventHandler(this, &PersonalForm::btnAllView_Click);
+			// 
+			// btnClear
+			// 
+			this->btnClear->Location = System::Drawing::Point(619, 223);
+			this->btnClear->Name = L"btnClear";
+			this->btnClear->Size = System::Drawing::Size(75, 23);
+			this->btnClear->TabIndex = 57;
+			this->btnClear->Text = L"Limpiar";
+			this->btnClear->UseVisualStyleBackColor = true;
+			this->btnClear->Click += gcnew System::EventHandler(this, &PersonalForm::btnClear_Click);
 			// 
 			// label1
 			// 
@@ -573,6 +599,16 @@ private: System::Windows::Forms::Button^ btnSearch;
 			this->panel4->Size = System::Drawing::Size(708, 52);
 			this->panel4->TabIndex = 1;
 			// 
+			// btnSearch
+			// 
+			this->btnSearch->Location = System::Drawing::Point(568, 13);
+			this->btnSearch->Name = L"btnSearch";
+			this->btnSearch->Size = System::Drawing::Size(126, 24);
+			this->btnSearch->TabIndex = 3;
+			this->btnSearch->Text = L"Buscar";
+			this->btnSearch->UseVisualStyleBackColor = true;
+			this->btnSearch->Click += gcnew System::EventHandler(this, &PersonalForm::btnSearch_Click);
+			// 
 			// btnDelete
 			// 
 			this->btnDelete->Location = System::Drawing::Point(385, 14);
@@ -602,16 +638,6 @@ private: System::Windows::Forms::Button^ btnSearch;
 			this->btnAdd->Text = L"&Agregar";
 			this->btnAdd->UseVisualStyleBackColor = true;
 			this->btnAdd->Click += gcnew System::EventHandler(this, &PersonalForm::btnAdd_Click);
-			// 
-			// btnSearch
-			// 
-			this->btnSearch->Location = System::Drawing::Point(568, 13);
-			this->btnSearch->Name = L"btnSearch";
-			this->btnSearch->Size = System::Drawing::Size(126, 24);
-			this->btnSearch->TabIndex = 3;
-			this->btnSearch->Text = L"Buscar";
-			this->btnSearch->UseVisualStyleBackColor = true;
-			this->btnSearch->Click += gcnew System::EventHandler(this, &PersonalForm::btnSearch_Click);
 			// 
 			// PersonalForm
 			// 
@@ -844,6 +870,12 @@ private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^
 		MessageBox::Show(ex->ToString(), "Error al guardar el personal por error en los datos.");
 		return;
 	}
+}
+private: System::Void btnClear_Click(System::Object^ sender, System::EventArgs^ e) {
+	ClearControls();
+}
+private: System::Void btnAllView_Click(System::Object^ sender, System::EventArgs^ e) {
+	refreshDGVPersonal();
 }
 };
 }

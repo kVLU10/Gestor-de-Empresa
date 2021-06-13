@@ -1,5 +1,6 @@
 
 //Premises.h
+#include "ComboBoxItem.h"
 using namespace System;
 #pragma once
 
@@ -90,6 +91,11 @@ namespace SalesView {
 	private: System::Windows::Forms::Panel^ panel3;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ btnSearch;
+	private: System::Windows::Forms::Button^ btnClear;
+	private: System::Windows::Forms::Button^ btnAllView;
+	private: System::Windows::Forms::ComboBox^ cmbCategories;
+
+
 
 
 
@@ -117,6 +123,9 @@ namespace SalesView {
 			this->btnUpdate = (gcnew System::Windows::Forms::Button());
 			this->btnAdds = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->cmbCategories = (gcnew System::Windows::Forms::ComboBox());
+			this->btnClear = (gcnew System::Windows::Forms::Button());
+			this->btnAllView = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->txtPrice = (gcnew System::Windows::Forms::TextBox());
 			this->txtBonusPoints = (gcnew System::Windows::Forms::TextBox());
@@ -213,6 +222,9 @@ namespace SalesView {
 			// 
 			// panel1
 			// 
+			this->panel1->Controls->Add(this->cmbCategories);
+			this->panel1->Controls->Add(this->btnClear);
+			this->panel1->Controls->Add(this->btnAllView);
 			this->panel1->Controls->Add(this->label1);
 			this->panel1->Controls->Add(this->txtPrice);
 			this->panel1->Controls->Add(this->txtBonusPoints);
@@ -229,6 +241,36 @@ namespace SalesView {
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(708, 276);
 			this->panel1->TabIndex = 16;
+			// 
+			// cmbCategories
+			// 
+			this->cmbCategories->FormattingEnabled = true;
+			this->cmbCategories->Location = System::Drawing::Point(108, 72);
+			this->cmbCategories->Name = L"cmbCategories";
+			this->cmbCategories->Size = System::Drawing::Size(154, 21);
+			this->cmbCategories->TabIndex = 15;
+			this->cmbCategories->Text = L"Seleccione una categoria";
+			this->cmbCategories->SelectedIndexChanged += gcnew System::EventHandler(this, &ProductForm::comboBox1_SelectedIndexChanged);
+			// 
+			// btnClear
+			// 
+			this->btnClear->Location = System::Drawing::Point(630, 228);
+			this->btnClear->Name = L"btnClear";
+			this->btnClear->Size = System::Drawing::Size(75, 23);
+			this->btnClear->TabIndex = 14;
+			this->btnClear->Text = L"Limpiar";
+			this->btnClear->UseVisualStyleBackColor = true;
+			this->btnClear->Click += gcnew System::EventHandler(this, &ProductForm::btnClear_Click);
+			// 
+			// btnAllView
+			// 
+			this->btnAllView->Location = System::Drawing::Point(547, 189);
+			this->btnAllView->Name = L"btnAllView";
+			this->btnAllView->Size = System::Drawing::Size(75, 23);
+			this->btnAllView->TabIndex = 13;
+			this->btnAllView->Text = L"Mostrar todo";
+			this->btnAllView->UseVisualStyleBackColor = true;
+			this->btnAllView->Click += gcnew System::EventHandler(this, &ProductForm::btnAllView_Click);
 			// 
 			// label1
 			// 
@@ -255,9 +297,9 @@ namespace SalesView {
 			// 
 			// txtBrand
 			// 
-			this->txtBrand->Location = System::Drawing::Point(108, 73);
+			this->txtBrand->Location = System::Drawing::Point(439, 139);
 			this->txtBrand->Name = L"txtBrand";
-			this->txtBrand->Size = System::Drawing::Size(201, 20);
+			this->txtBrand->Size = System::Drawing::Size(33, 20);
 			this->txtBrand->TabIndex = 9;
 			// 
 			// txtId
@@ -285,11 +327,11 @@ namespace SalesView {
 			// lblBrand
 			// 
 			this->lblBrand->AutoSize = true;
-			this->lblBrand->Location = System::Drawing::Point(65, 76);
+			this->lblBrand->Location = System::Drawing::Point(50, 76);
 			this->lblBrand->Name = L"lblBrand";
-			this->lblBrand->Size = System::Drawing::Size(37, 13);
+			this->lblBrand->Size = System::Drawing::Size(52, 13);
 			this->lblBrand->TabIndex = 5;
-			this->lblBrand->Text = L"Marca";
+			this->lblBrand->Text = L"Categoria";
 			// 
 			// lblBonusPoints
 			// 
@@ -415,6 +457,7 @@ namespace SalesView {
 			this->Controls->Add(this->tabProducts);
 			this->Name = L"ProductForm";
 			this->Text = L"Productos";
+			this->Load += gcnew System::EventHandler(this, &ProductForm::ProductForm_Load);
 			this->tabPage1->ResumeLayout(false);
 			this->panel2->ResumeLayout(false);
 			this->panel1->ResumeLayout(false);
@@ -441,7 +484,7 @@ namespace SalesView {
 			p->Description = txtDescription->Text;
 			p->BonusPoints = Int32::Parse(txtBonusPoints->Text);
 			p->Precio = Double::Parse(txtPrice->Text);
-			p->Marca = txtBrand->Text;
+			p->Marca = cmbCategories->Text;
 			p->Status = "Habilitado";
 
 			SalesManager::AddProduct(p);
@@ -499,7 +542,7 @@ namespace SalesView {
 				p->Description = txtDescription->Text;
 				p->BonusPoints = Int32::Parse(txtBonusPoints->Text);
 				p->Precio = Double::Parse(txtPrice->Text);
-				p->Marca = txtBrand->Text;
+				p->Marca = cmbCategories->Text;
 				p->Status = "Habilitado";
 				SalesManager::UpdateProduct(p);
 				RefreshDGVProducts();
@@ -522,7 +565,7 @@ namespace SalesView {
 			int selectedrowindex = dgvProducts->SelectedCells[0]->RowIndex;
 			DataGridViewRow^ selectedRow = dgvProducts->Rows[selectedrowindex];
 			String^ a = selectedRow->Cells[0]->Value->ToString();
-
+			LoadCmbDistrit();
 			int productID = Int32::Parse(a);
 			Products^ product = SalesManager::QueryProductById(productID);
 			//MessageBox::Show(customer->ToString());
@@ -532,7 +575,7 @@ namespace SalesView {
 				txtDescription->Text = product->Description;
 				txtBonusPoints->Text = "" + product->BonusPoints;
 				txtPrice->Text = "" + product->Precio;
-				txtBrand->Text = product->Marca;
+				cmbCategories->Text = product->Marca;
 			}
 		}
 	}
@@ -559,6 +602,8 @@ namespace SalesView {
 			txtBonusPoints->Clear();
 			txtDescription->Clear();
 			txtPrice->Clear();
+			LoadCmbDistrit();
+			//cmbCategories->Clear();
 		}
 	private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^ e) {
 		Products^ p = gcnew Products();
@@ -597,5 +642,28 @@ namespace SalesView {
 			return;
 		}
 	}
+private: System::Void btnClear_Click(System::Object^ sender, System::EventArgs^ e) {
+	ClearControls();
+}
+private: System::Void btnAllView_Click(System::Object^ sender, System::EventArgs^ e) {
+	RefreshDGVProducts();
+}
+private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+
+
+
+}
+	public: void LoadCmbDistrit() {
+		  cmbCategories->Items->Clear();
+		  cmbCategories->Text = ("Seleccione una categoria");
+		  // cmbCategories->Items->Add("Seleccione una categoria");
+		   List<Categories^>^ managerList = SalesManager::QueryCategories();
+		   for (int i = 0; i < managerList->Count; i++) {
+			   cmbCategories->Items->Add(gcnew ComboBoxItem(managerList[i]->Name));
+		   }
+	   }
+private: System::Void ProductForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	LoadCmbDistrit();
+}
 };
 }

@@ -31,5 +31,20 @@
       <Incress>0</Incress>
       <Salary>0</Salary>
     </Personal>
+    <Personal>
+      <Birthday>18/07/2000</Birthday>
+      <Status>0</Status>
+      <Password>z</Password>
+      <Username>z</Username>
+      <PersonalEmail>daniel.aquino@gmail.com</PersonalEmail>
+      <PhoneNumber>943947779</PhoneNumber>
+      <SecondLastName>fsag</SecondLastName>
+      <FirstLastName>asf</FirstLastName>
+      <SecondName>Joaquin</SecondName>
+      <FirstName>Diego</FirstName>
+      <Id>73172227</Id>
+      <Incress>0</Incress>
+      <Salary>0</Salary>
+    </Personal>
   </ListDBP>
 </PersonalDB>

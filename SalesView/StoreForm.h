@@ -82,6 +82,9 @@ namespace SalesView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ NameStore;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ distrit;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Status;
+	private: System::Windows::Forms::Button^ btnAllView;
+
+	private: System::Windows::Forms::Button^ btnClear;
 
 
 	private:
@@ -115,30 +118,35 @@ namespace SalesView {
 			this->lbStatus = (gcnew System::Windows::Forms::Label());
 			this->tboxid = (gcnew System::Windows::Forms::TextBox());
 			this->lbId = (gcnew System::Windows::Forms::Label());
+			this->btnAllView = (gcnew System::Windows::Forms::Button());
+			this->btnClear = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// tboxName
 			// 
-			this->tboxName->Location = System::Drawing::Point(96, 113);
+			this->tboxName->Location = System::Drawing::Point(72, 92);
+			this->tboxName->Margin = System::Windows::Forms::Padding(2);
 			this->tboxName->Name = L"tboxName";
-			this->tboxName->Size = System::Drawing::Size(387, 22);
+			this->tboxName->Size = System::Drawing::Size(291, 20);
 			this->tboxName->TabIndex = 0;
 			this->tboxName->TextChanged += gcnew System::EventHandler(this, &StoreForm::tboxName_TextChanged);
 			// 
 			// tboxDistrit
 			// 
-			this->tboxDistrit->Location = System::Drawing::Point(96, 162);
+			this->tboxDistrit->Location = System::Drawing::Point(72, 132);
+			this->tboxDistrit->Margin = System::Windows::Forms::Padding(2);
 			this->tboxDistrit->Name = L"tboxDistrit";
-			this->tboxDistrit->Size = System::Drawing::Size(387, 22);
+			this->tboxDistrit->Size = System::Drawing::Size(291, 20);
 			this->tboxDistrit->TabIndex = 1;
 			// 
 			// lbNamStore
 			// 
 			this->lbNamStore->AutoSize = true;
-			this->lbNamStore->Location = System::Drawing::Point(29, 116);
+			this->lbNamStore->Location = System::Drawing::Point(22, 94);
+			this->lbNamStore->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->lbNamStore->Name = L"lbNamStore";
-			this->lbNamStore->Size = System::Drawing::Size(58, 17);
+			this->lbNamStore->Size = System::Drawing::Size(44, 13);
 			this->lbNamStore->TabIndex = 3;
 			this->lbNamStore->Text = L"Nombre";
 			this->lbNamStore->Click += gcnew System::EventHandler(this, &StoreForm::label1_Click);
@@ -146,18 +154,20 @@ namespace SalesView {
 			// LbDistrit
 			// 
 			this->LbDistrit->AutoSize = true;
-			this->LbDistrit->Location = System::Drawing::Point(29, 162);
+			this->LbDistrit->Location = System::Drawing::Point(22, 132);
+			this->LbDistrit->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->LbDistrit->Name = L"LbDistrit";
-			this->LbDistrit->Size = System::Drawing::Size(52, 17);
+			this->LbDistrit->Size = System::Drawing::Size(39, 13);
 			this->LbDistrit->TabIndex = 4;
 			this->LbDistrit->Text = L"Distrito";
 			this->LbDistrit->Click += gcnew System::EventHandler(this, &StoreForm::label2_Click);
 			// 
 			// btnAdd
 			// 
-			this->btnAdd->Location = System::Drawing::Point(32, 221);
+			this->btnAdd->Location = System::Drawing::Point(24, 180);
+			this->btnAdd->Margin = System::Windows::Forms::Padding(2);
 			this->btnAdd->Name = L"btnAdd";
-			this->btnAdd->Size = System::Drawing::Size(118, 33);
+			this->btnAdd->Size = System::Drawing::Size(88, 27);
 			this->btnAdd->TabIndex = 5;
 			this->btnAdd->Text = L"&Agregar";
 			this->btnAdd->UseVisualStyleBackColor = true;
@@ -165,9 +175,10 @@ namespace SalesView {
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(165, 221);
+			this->btnUpdate->Location = System::Drawing::Point(124, 180);
+			this->btnUpdate->Margin = System::Windows::Forms::Padding(2);
 			this->btnUpdate->Name = L"btnUpdate";
-			this->btnUpdate->Size = System::Drawing::Size(118, 33);
+			this->btnUpdate->Size = System::Drawing::Size(88, 27);
 			this->btnUpdate->TabIndex = 6;
 			this->btnUpdate->Text = L"&Modificar";
 			this->btnUpdate->UseVisualStyleBackColor = true;
@@ -175,9 +186,10 @@ namespace SalesView {
 			// 
 			// btnDelete
 			// 
-			this->btnDelete->Location = System::Drawing::Point(298, 221);
+			this->btnDelete->Location = System::Drawing::Point(224, 180);
+			this->btnDelete->Margin = System::Windows::Forms::Padding(2);
 			this->btnDelete->Name = L"btnDelete";
-			this->btnDelete->Size = System::Drawing::Size(118, 33);
+			this->btnDelete->Size = System::Drawing::Size(88, 27);
 			this->btnDelete->TabIndex = 7;
 			this->btnDelete->Text = L"&Eliminar";
 			this->btnDelete->UseVisualStyleBackColor = true;
@@ -185,9 +197,10 @@ namespace SalesView {
 			// 
 			// btnAddP
 			// 
-			this->btnAddP->Location = System::Drawing::Point(640, 221);
+			this->btnAddP->Location = System::Drawing::Point(480, 180);
+			this->btnAddP->Margin = System::Windows::Forms::Padding(2);
 			this->btnAddP->Name = L"btnAddP";
-			this->btnAddP->Size = System::Drawing::Size(183, 33);
+			this->btnAddP->Size = System::Drawing::Size(137, 27);
 			this->btnAddP->TabIndex = 8;
 			this->btnAddP->Text = L"Agregar Productos";
 			this->btnAddP->UseVisualStyleBackColor = true;
@@ -200,12 +213,14 @@ namespace SalesView {
 				this->Id, this->NameStore,
 					this->distrit, this->Status
 			});
-			this->dataGridView1->Location = System::Drawing::Point(32, 282);
+			this->dataGridView1->Location = System::Drawing::Point(24, 229);
+			this->dataGridView1->Margin = System::Windows::Forms::Padding(2);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->RowTemplate->Height = 24;
-			this->dataGridView1->Size = System::Drawing::Size(791, 221);
+			this->dataGridView1->Size = System::Drawing::Size(593, 180);
 			this->dataGridView1->TabIndex = 10;
+			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &StoreForm::dataGridView1_CellClick);
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &StoreForm::dataGridView1_CellContentClick);
 			// 
 			// Id
@@ -238,9 +253,10 @@ namespace SalesView {
 			// 
 			// btnSearch
 			// 
-			this->btnSearch->Location = System::Drawing::Point(433, 221);
+			this->btnSearch->Location = System::Drawing::Point(325, 180);
+			this->btnSearch->Margin = System::Windows::Forms::Padding(2);
 			this->btnSearch->Name = L"btnSearch";
-			this->btnSearch->Size = System::Drawing::Size(118, 33);
+			this->btnSearch->Size = System::Drawing::Size(88, 27);
 			this->btnSearch->TabIndex = 11;
 			this->btnSearch->Text = L"&Buscar";
 			this->btnSearch->UseVisualStyleBackColor = true;
@@ -250,43 +266,69 @@ namespace SalesView {
 			// 
 			this->comboBoxStatus->FormattingEnabled = true;
 			this->comboBoxStatus->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Habilitado", L"Desabilitado", L"Repleto" });
-			this->comboBoxStatus->Location = System::Drawing::Point(362, 63);
+			this->comboBoxStatus->Location = System::Drawing::Point(272, 51);
+			this->comboBoxStatus->Margin = System::Windows::Forms::Padding(2);
 			this->comboBoxStatus->Name = L"comboBoxStatus";
-			this->comboBoxStatus->Size = System::Drawing::Size(121, 24);
+			this->comboBoxStatus->Size = System::Drawing::Size(92, 21);
 			this->comboBoxStatus->TabIndex = 12;
 			// 
 			// lbStatus
 			// 
 			this->lbStatus->AutoSize = true;
-			this->lbStatus->Location = System::Drawing::Point(295, 66);
+			this->lbStatus->Location = System::Drawing::Point(221, 54);
+			this->lbStatus->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->lbStatus->Name = L"lbStatus";
-			this->lbStatus->Size = System::Drawing::Size(52, 17);
+			this->lbStatus->Size = System::Drawing::Size(40, 13);
 			this->lbStatus->TabIndex = 13;
 			this->lbStatus->Text = L"Estado";
 			// 
 			// tboxid
 			// 
-			this->tboxid->Location = System::Drawing::Point(96, 63);
+			this->tboxid->Location = System::Drawing::Point(72, 51);
+			this->tboxid->Margin = System::Windows::Forms::Padding(2);
 			this->tboxid->Name = L"tboxid";
-			this->tboxid->Size = System::Drawing::Size(178, 22);
+			this->tboxid->Size = System::Drawing::Size(134, 20);
 			this->tboxid->TabIndex = 14;
 			this->tboxid->TextChanged += gcnew System::EventHandler(this, &StoreForm::textBox3_TextChanged);
 			// 
 			// lbId
 			// 
 			this->lbId->AutoSize = true;
-			this->lbId->Location = System::Drawing::Point(29, 62);
+			this->lbId->Location = System::Drawing::Point(22, 50);
+			this->lbId->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->lbId->Name = L"lbId";
-			this->lbId->Size = System::Drawing::Size(52, 17);
+			this->lbId->Size = System::Drawing::Size(40, 13);
 			this->lbId->TabIndex = 15;
 			this->lbId->Text = L"Código";
 			this->lbId->Click += gcnew System::EventHandler(this, &StoreForm::lbId_Click);
 			// 
+			// btnAllView
+			// 
+			this->btnAllView->Location = System::Drawing::Point(433, 106);
+			this->btnAllView->Name = L"btnAllView";
+			this->btnAllView->Size = System::Drawing::Size(75, 23);
+			this->btnAllView->TabIndex = 16;
+			this->btnAllView->Text = L"Mostrar todo";
+			this->btnAllView->UseVisualStyleBackColor = true;
+			this->btnAllView->Click += gcnew System::EventHandler(this, &StoreForm::btnAllView_Click);
+			// 
+			// btnClear
+			// 
+			this->btnClear->Location = System::Drawing::Point(424, 75);
+			this->btnClear->Name = L"btnClear";
+			this->btnClear->Size = System::Drawing::Size(75, 23);
+			this->btnClear->TabIndex = 17;
+			this->btnClear->Text = L"Limpiar";
+			this->btnClear->UseVisualStyleBackColor = true;
+			this->btnClear->Click += gcnew System::EventHandler(this, &StoreForm::btnClear_Click);
+			// 
 			// StoreForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(853, 515);
+			this->ClientSize = System::Drawing::Size(640, 418);
+			this->Controls->Add(this->btnClear);
+			this->Controls->Add(this->btnAllView);
 			this->Controls->Add(this->lbId);
 			this->Controls->Add(this->tboxid);
 			this->Controls->Add(this->lbStatus);
@@ -301,6 +343,7 @@ namespace SalesView {
 			this->Controls->Add(this->lbNamStore);
 			this->Controls->Add(this->tboxDistrit);
 			this->Controls->Add(this->tboxName);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"StoreForm";
 			this->Text = L"Almacenes";
 			this->Load += gcnew System::EventHandler(this, &StoreForm::StoreForm_Load);
@@ -362,49 +405,99 @@ private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^
 	Store^ s = gcnew Store(name, id, adress, status);
 	SalesManager::UpdateStore(s);
 
-
 	RefreshDGVStores();
+	//RefreshDGVStores();
 
 
 
 }
 private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^ e) {
-	int id = Int32::Parse(tboxid->Text);
-	String^ name = tboxName->Text;
-	String^ adress = tboxDistrit->Text;
-	String^ status = comboBoxStatus->Text;
-	dataGridView1->Rows->Clear();
-	List<Store^>^ storeList = SalesManager::QueryStore();
-	for (int i = 0; i < storeList->Count; i++) {
-		if (id==storeList[i]->Id)
-			dataGridView1->Rows->Add(gcnew array<String^>{
-			"" + storeList[i]->Id,
-				storeList[i]->Name,
-				storeList[i]->Adress,
-				storeList[i]->Status,
-		});
-		else
-		{
+	Store^ c = gcnew Store();
+	try {
+		if (tboxid->Text->Trim() == "") {
 			RefreshDGVStores();
+			ClearControls();
+			return;
 		}
+		//c->Id = Int32::Parse(tboxid->Text);
+		c->Id = Int32::Parse(tboxid->Text);
+		c->Name = tboxName->Text;
+		c->Adress = tboxDistrit->Text;
+		
+
+		dataGridView1->Rows->Clear();
+		List<Store^>^ storeList = SalesManager::QueryStore();
+		for (int i = 0; i < storeList->Count; i++) {
+			if (c->Id == storeList[i]->Id)
+				dataGridView1->Rows->Add(gcnew array<String^>{
+				"" + storeList[i]->Id,
+					storeList[i]->Name,
+					storeList[i]->Adress,
+					storeList[i]->Status,
+			});
+		}
+	}
+	catch (Exception^ ex) {
+		MessageBox::Show(ex->ToString(), "Error al guardar al Cliente por error en los datos.");
+		return;
 	}
 }
 private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
-	int id = Int32::Parse(tboxid->Text);
-
-	SalesManager::DeleteStore(id);
-	dataGridView1->Rows->Clear();
-	List<Store^>^ storeList = SalesManager::QueryStore();
-	for (int i = 0; i < storeList->Count; i++) {
-			dataGridView1->Rows->Add(gcnew array<String^>{
-			"" + storeList[i]->Id,
-				storeList[i]->Name,
-				storeList[i]->Adress,
-				storeList[i]->Status,
-		});
+	int Id = -1;
+	try {
+		if (tboxid->Text->Trim() == "") {
+			MessageBox::Show("No se puede eliminar porque no hay ningún cliente seleccionado.");
+			return;
+		}
+		Id = Int32::Parse(tboxid->Text);
 	}
+	catch (...) {
+		MessageBox::Show("No se puede eliminar al cliente porque el Id no es válido.");
+		return;
+	}
+	if (MessageBox::Show(
+		"¿Está seguro de eliminar al cliente?",
+		"Confirmación", MessageBoxButtons::YesNo,
+		MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
+	{
+		SalesManager::DeleteStore(Id);
+		RefreshDGVStores();
+		ClearControls();
+	}
+}
+private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	if (dataGridView1->CurrentCell != nullptr &&
+		dataGridView1->CurrentCell->Value != nullptr &&
+		dataGridView1->CurrentCell->Value->ToString() != "") {
+		int selectedrowindex = dataGridView1->SelectedCells[0]->RowIndex;
+		DataGridViewRow^ selectedRow = dataGridView1->Rows[selectedrowindex];
+		String^ a = selectedRow->Cells[0]->Value->ToString();
 
+		int storeID = Int32::Parse(a);
+		Store^ store = SalesManager::QueryStoreByDocumentNumber(storeID);
+		//MessageBox::Show(customer->ToString());
+		if (store != nullptr) {
+			tboxid->Text = "" + store->Id;
+			tboxName->Text = store->Name;
+			tboxDistrit->Text = store->Adress;
+			
+		}
+	}
+}
 
+	   public:
+
+		   System::Void ClearControls() {
+			   tboxid->Clear();
+			   tboxName->Clear();
+			   tboxDistrit->Clear();
+		   }
+private: System::Void btnClear_Click(System::Object^ sender, System::EventArgs^ e) 
+{
+	ClearControls();
+}
+private: System::Void btnAllView_Click(System::Object^ sender, System::EventArgs^ e) {
+	RefreshDGVStores();
 }
 };
 }

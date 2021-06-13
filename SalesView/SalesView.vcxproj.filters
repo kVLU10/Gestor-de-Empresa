@@ -10,6 +10,7 @@
     <ClCompile Include="StoreForm.cpp" />
     <ClCompile Include="DistritForm.cpp" />
     <ClCompile Include="ComboBoxItem.cpp" />
+    <ClCompile Include="CategoriesForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClientForm.h" />
@@ -21,5 +22,6 @@
     <ClInclude Include="PersonalForm.h" />
     <ClInclude Include="DistritForm.h" />
     <ClInclude Include="ComboBoxItem.h" />
+    <ClInclude Include="CategoriesForm.h" />
   </ItemGroup>
 </Project>

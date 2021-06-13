@@ -2,15 +2,15 @@
 <StoreDB xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ListDB>
     <Store>
-      <Status>Desabilitado</Status>
-      <Adress>Salamanca</Adress>
-      <Name>Almacen3</Name>
+      <Status>Habilitado</Status>
+      <Adress>Sala</Adress>
+      <Name>Almacen2</Name>
       <Id>123456</Id>
     </Store>
     <Store>
-      <Status>Inhabilitado</Status>
-      <Adress>Chorrillos</Adress>
-      <Name>Almacen2</Name>
+      <Status>Habilitado</Status>
+      <Adress>Sala</Adress>
+      <Name>Almacen3</Name>
       <Id>654321</Id>
     </Store>
     <Store>
@@ -18,6 +18,12 @@
       <Adress>Pueblo Paleta</Adress>
       <Name>Almacen4</Name>
       <Id>10293847</Id>
+    </Store>
+    <Store>
+      <Status>Inhabilitado</Status>
+      <Adress>Pueblo azul</Adress>
+      <Name>Almacen5sassas677</Name>
+      <Id>10293842</Id>
     </Store>
   </ListDB>
 </StoreDB>

@@ -19,6 +19,32 @@ List<Distrit^>^ SalesController::SalesManager::QueryDistrit()
 	return DBController::QueryDistrit();
 }
 
+void SalesController::SalesManager::AddCategories(Categories^ c)
+{
+	//AddProduct es un método estático o de clase
+	DBController::AddCategories(c);
+}
+
+void SalesController::SalesManager::UpdateCategories(Categories^ c)
+{
+	DBController::UpdateCategories(c);
+}
+
+void SalesController::SalesManager::DeleteCategories(int categoriesId)
+{
+	DBController::DeleteCategories(categoriesId);
+}
+
+List<Categories^>^ SalesController::SalesManager::QueryCategories()
+{
+	return DBController::QueryCategories();
+}
+
+Categories^ SalesController::SalesManager::QueryCategoriesById(int categoriesId)
+{
+	return DBController::QueryCategoriesById(categoriesId);
+}
+
 void SalesController::SalesManager::AddProduct(Products^ p)
 {
 	//AddProduct es un método estático o de clase
@@ -92,11 +118,11 @@ List<Store^>^ SalesController::SalesManager::QueryStore()
 	return DBController::QueryStore();
 }
 
-Store^ SalesController::SalesManager::QueryStoreByDocumentNumber(String^ personalDocumentNumber)
+Store^ SalesController::SalesManager::QueryStoreByDocumentNumber(int storeID)
 {
-	throw gcnew System::NotImplementedException();
-}
+	return DBController::QueryStoreByDocumentNumber(storeID);
 	// TODO: Insertar una instrucción "return" aquí
+}
 
 void SalesController::SalesManager::AddClient(Client^ c)
 {

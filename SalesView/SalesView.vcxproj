@@ -122,6 +122,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CategoriesForm.cpp" />
     <ClCompile Include="ClientForm.cpp" />
     <ClCompile Include="ComboBoxItem.cpp" />
     <ClCompile Include="DistritForm.cpp" />
@@ -133,6 +134,9 @@
     <ClCompile Include="StoreForm.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CategoriesForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="ClientForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -160,6 +164,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CategoriesForm.resx">
+      <DependentUpon>CategoriesForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientForm.resx">
       <DependentUpon>ClientForm.h</DependentUpon>
     </EmbeddedResource>

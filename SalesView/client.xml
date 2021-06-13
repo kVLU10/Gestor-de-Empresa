@@ -14,15 +14,15 @@
       <BonusPoints>0</BonusPoints>
     </Client>
     <Client>
-      <Birthday>29/02/2004</Birthday>
+      <Birthday>01/01/01</Birthday>
       <Status>0</Status>
-      <PersonalEmail>pCastle@gmail.com</PersonalEmail>
+      <PersonalEmail>mail@me.com</PersonalEmail>
       <PhoneNumber>987654321</PhoneNumber>
-      <SecondLastName>Mamani</SecondLastName>
-      <FirstLastName>Castle</FirstLastName>
-      <SecondName>Vladimir</SecondName>
-      <FirstName>Peter</FirstName>
-      <Id>9876543</Id>
+      <SecondLastName>Fujimo</SecondLastName>
+      <FirstLastName>Caste</FirstLastName>
+      <SecondName>luis</SecondName>
+      <FirstName>Diegossfg</FirstName>
+      <Id>223456789</Id>
       <BonusPoints>0</BonusPoints>
     </Client>
   </ListDBC>

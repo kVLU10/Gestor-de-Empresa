@@ -13,6 +13,10 @@ SalesController::PersonalDB::PersonalDB() {
 SalesController::ClientDB::ClientDB() {
 }
 
+
+SalesController::CategoriesDB::CategoriesDB() {
+}
+
 SalesController::ProductDB::ProductDB() {
 }
 
@@ -54,6 +58,33 @@ Personal^ SalesController::DBController::ValidateUser(String^ username, String^ 
             return personalDB->ListDBP[i];
     }
     return personal;
+}
+
+void SalesController::DBController::SaveCategories()
+{
+    System::Xml::Serialization::XmlSerializer^ writer =
+        gcnew System::Xml::Serialization::XmlSerializer(CategoriesDB::typeid);
+
+    System::IO::StreamWriter^ file = gcnew System::IO::StreamWriter("categories.xml");
+    writer->Serialize(file, categoriesDB);
+    file->Close();
+}
+
+void SalesController::DBController::LoadCategories()
+{
+    System::Xml::Serialization::XmlSerializer^ reader =
+        gcnew System::Xml::Serialization::XmlSerializer(CategoriesDB::typeid);
+    System::IO::StreamReader^ file = nullptr;
+    try {
+        file = gcnew System::IO::StreamReader("categories.xml");
+        categoriesDB = (CategoriesDB^)reader->Deserialize(file);
+    }
+    catch (Exception^ ex) {
+        return;
+    }
+    finally {
+        if (file != nullptr) file->Close();
+    }
 }
 
 void SalesController::DBController::SaveClient()
@@ -174,6 +205,49 @@ List<Distrit^>^ SalesController::DBController::QueryDistrit()
 {
     LoadDistrit();
     return distritDB->ListDB;
+}
+
+void SalesController::DBController::AddCategories(Categories^ categories)
+{
+    categoriesDB->ListDB->Add(categories);
+    SaveCategories();
+}
+
+void SalesController::DBController::UpdateCategories(Categories^ categories)
+{
+    for (int i = 0; i < categoriesDB->ListDB->Count; i++)
+        if (categoriesDB->ListDB[i]->Id == categories->Id) {
+            categoriesDB->ListDB[i] = categories;
+        }
+    SaveCategories();
+}
+
+void SalesController::DBController::DeleteCategories(int productId)
+{
+    for (int i = 0; i < categoriesDB->ListDB->Count; i++) {
+        if (categoriesDB->ListDB[i]->Id == productId)
+            categoriesDB->ListDB->RemoveAt(i);
+    }
+    SaveCategories();
+}
+
+List<Categories^>^ SalesController::DBController::QueryCategories()
+{
+    //throw gcnew System::NotImplementedException();
+    // TODO: Insertar una instrucción "return" aquí
+    LoadCategories();
+    return categoriesDB->ListDB;
+}
+
+Categories^ SalesController::DBController::QueryCategoriesById(int productId)
+{
+    //throw gcnew System::NotImplementedException();
+    // TODO: Insertar una instrucción "return" aquí
+    LoadCategories();
+    for (int i = 0; i < categoriesDB->ListDB->Count; i++)
+        if (categoriesDB->ListDB[i]->Id == productId)
+            return categoriesDB->ListDB[i];
+    return nullptr;
 }
 
 void SalesController::DBController::AddProduct(Products^ product)
@@ -311,7 +385,7 @@ List<Store^>^ SalesController::DBController::QueryStore()
     return storeDB->ListDB;
 }
 
-Store^ SalesController::DBController::QueryStoreById(int storeID)
+Store^ SalesController::DBController::QueryStoreByDocumentNumber(int storeID)
 {
     LoadStore();
     for (int i = 0; i < storeDB->ListDB->Count; i++)
@@ -320,6 +394,7 @@ Store^ SalesController::DBController::QueryStoreById(int storeID)
         }
     return nullptr;
 }
+
 
 
 List<Client^>^ SalesController::DBController::QueryClient()

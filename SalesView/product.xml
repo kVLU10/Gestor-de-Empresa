@@ -3,7 +3,7 @@
   <ListDB>
     <Products>
       <Description>Electrodoméstico para cocina</Description>
-      <Marca>Omen</Marca>
+      <Marca>sad112121</Marca>
       <Precio>40</Precio>
       <Status>Habilitado</Status>
       <BonusPoints>15</BonusPoints>
@@ -13,7 +13,7 @@
     </Products>
     <Products>
       <Description>Producto para calentar comida</Description>
-      <Marca>Ondita</Marca>
+      <Marca>as21</Marca>
       <Precio>100.6</Precio>
       <Status>Habilitado</Status>
       <BonusPoints>30</BonusPoints>
@@ -23,13 +23,33 @@
     </Products>
     <Products>
       <Description>Electrodoméstico para calentar y hornear comida</Description>
-      <Marca>Hornito</Marca>
+      <Marca>sad112121</Marca>
       <Precio>110.5</Precio>
       <Status>Habilitado</Status>
       <BonusPoints>10</BonusPoints>
       <Quantity>0</Quantity>
       <Name>Horno Eléctrico</Name>
       <Id>123457</Id>
+    </Products>
+    <Products>
+      <Description>Electrodoméstico para calentar y hornear comida</Description>
+      <Marca>sasdasdasd</Marca>
+      <Precio>110.5</Precio>
+      <Status>Habilitado</Status>
+      <BonusPoints>10</BonusPoints>
+      <Quantity>0</Quantity>
+      <Name>lomaso</Name>
+      <Id>123452</Id>
+    </Products>
+    <Products>
+      <Description>2eqada</Description>
+      <Marca>sasdasdasd</Marca>
+      <Precio>12</Precio>
+      <Status>Habilitado</Status>
+      <BonusPoints>2</BonusPoints>
+      <Quantity>0</Quantity>
+      <Name>ad</Name>
+      <Id>213</Id>
     </Products>
   </ListDB>
 </ProductDB>

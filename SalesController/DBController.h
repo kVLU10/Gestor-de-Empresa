@@ -21,6 +21,13 @@ namespace SalesController {
 	};
 
 	[Serializable]
+	public ref class CategoriesDB {
+	public:
+		List <Categories^>^ ListDB = gcnew List<Categories^>();
+		CategoriesDB();
+	};
+
+	[Serializable]
 	public ref class ProductDB {
 	public:
 		List <Products^>^ ListDB = gcnew List<Products^>();
@@ -45,6 +52,7 @@ namespace SalesController {
 	{
 		//Definimos miembros estáticos
 		private:
+			static CategoriesDB^ categoriesDB = gcnew CategoriesDB();
 			static ProductDB^ productDB = gcnew ProductDB();
 			static PersonalDB^ personalDB = gcnew PersonalDB();
 			static StoreDB^ storeDB = gcnew StoreDB();
@@ -56,18 +64,27 @@ namespace SalesController {
 			static void SavePersonal();
 			static void LoadPersonal();
 			static Personal^ ValidateUser(String^ username, String^ password);
+			//Permanencia de datos categorias
+			static void SaveCategories();
+			static void LoadCategories();
 			//Permanencia de datos clientes
 			static void SaveClient();
 			static void LoadClient();
 			//Permanencia de productos
 			static void SaveProducts();
 			static void LoadProducts();
-			//Permanencia de productos
+			//Permanencia de store
 			static void SaveStore();
 			static void LoadStore();
 			//Permanencia departamentos
 			static void SaveDistrit();
 			static void LoadDistrit();
+			//categorias
+			static void AddCategories(Categories^);
+			static void UpdateCategories(Categories^);
+			static void DeleteCategories(int productId);
+			static List<Categories^>^ QueryCategories();
+			static Categories^ QueryCategoriesById(int productId);
 			//Productos
 			static void AddProduct(Products^);
 			static void UpdateProduct(Products^);
@@ -86,7 +103,7 @@ namespace SalesController {
 			static void UpdateStore(Store^);
 			static void DeleteStore(int storeID);
 			static List<Store^>^ QueryStore();
-			static Store^ QueryStoreById(int storeID);
+			static Store^ QueryStoreByDocumentNumber(int storeID);
 
 			//Clientes
 			static void AddClient(Client^);
