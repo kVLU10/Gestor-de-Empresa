@@ -10,7 +10,7 @@
  */
 
 Proyecto::Personal::Personal(int id, String^ username, String^ password, String^ firstName, String^ secondName, String^ firstLastName, String^ secondLastName, char status, double salary, double incress, 
-							 String^ personalEmail, String^ phoneNumber, String^ birthday)
+							 String^ personalEmail, String^ phoneNumber, String^ birthday, array<Byte>^ huella)
 {
 	this->Id = id;
 	this->Username = username;
@@ -25,4 +25,5 @@ Proyecto::Personal::Personal(int id, String^ username, String^ password, String^
 	this->PersonalEmail = personalEmail;
 	this->PhoneNumber = phoneNumber;
 	this->Birthday = birthday;
+	this->Huella = huella;
 }

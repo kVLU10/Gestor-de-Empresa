@@ -1,7 +1,4 @@
 #pragma once
-using namespace Proyecto;
-using namespace SalesController;
-using namespace System::Collections::Generic;
 
 namespace SalesView {
 
@@ -11,6 +8,9 @@ namespace SalesView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace Proyecto;
+	using namespace SalesController;
+	using namespace System::Collections::Generic;
 
 	/// <summary>
 	/// Resumen de PersonalForm
@@ -129,6 +129,8 @@ namespace SalesView {
 private: System::Windows::Forms::Button^ btnSearch;
 private: System::Windows::Forms::Button^ btnAllView;
 private: System::Windows::Forms::Button^ btnClear;
+private: System::Windows::Forms::Button^ button1;
+private: System::Windows::Forms::PictureBox^ pbHuella;
 
 
 
@@ -207,8 +209,8 @@ private: System::Windows::Forms::Button^ btnClear;
 			this->Contraseña = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Cumpleaños = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->btnAllView = (gcnew System::Windows::Forms::Button());
-			this->btnClear = (gcnew System::Windows::Forms::Button());
+			this->pbHuella = (gcnew System::Windows::Forms::PictureBox());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->txtUsuario = (gcnew System::Windows::Forms::TextBox());
 			this->txtBirthday = (gcnew System::Windows::Forms::TextBox());
@@ -232,6 +234,8 @@ private: System::Windows::Forms::Button^ btnClear;
 			this->txtNombre2 = (gcnew System::Windows::Forms::TextBox());
 			this->txtNombre1 = (gcnew System::Windows::Forms::TextBox());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
+			this->btnClear = (gcnew System::Windows::Forms::Button());
+			this->btnAllView = (gcnew System::Windows::Forms::Button());
 			this->btnSearch = (gcnew System::Windows::Forms::Button());
 			this->btnDelete = (gcnew System::Windows::Forms::Button());
 			this->btnUpdate = (gcnew System::Windows::Forms::Button());
@@ -241,6 +245,7 @@ private: System::Windows::Forms::Button^ btnClear;
 			this->panel3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPersonal))->BeginInit();
 			this->panel1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbHuella))->BeginInit();
 			this->panel4->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -359,8 +364,8 @@ private: System::Windows::Forms::Button^ btnClear;
 			// 
 			// panel1
 			// 
-			this->panel1->Controls->Add(this->btnAllView);
-			this->panel1->Controls->Add(this->btnClear);
+			this->panel1->Controls->Add(this->pbHuella);
+			this->panel1->Controls->Add(this->button1);
 			this->panel1->Controls->Add(this->label1);
 			this->panel1->Controls->Add(this->txtUsuario);
 			this->panel1->Controls->Add(this->txtBirthday);
@@ -388,25 +393,25 @@ private: System::Windows::Forms::Button^ btnClear;
 			this->panel1->Size = System::Drawing::Size(708, 276);
 			this->panel1->TabIndex = 0;
 			// 
-			// btnAllView
+			// pbHuella
 			// 
-			this->btnAllView->Location = System::Drawing::Point(499, 221);
-			this->btnAllView->Name = L"btnAllView";
-			this->btnAllView->Size = System::Drawing::Size(75, 23);
-			this->btnAllView->TabIndex = 58;
-			this->btnAllView->Text = L"Mostrar todo";
-			this->btnAllView->UseVisualStyleBackColor = true;
-			this->btnAllView->Click += gcnew System::EventHandler(this, &PersonalForm::btnAllView_Click);
+			this->pbHuella->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->pbHuella->Location = System::Drawing::Point(602, 198);
+			this->pbHuella->Name = L"pbHuella";
+			this->pbHuella->Size = System::Drawing::Size(73, 66);
+			this->pbHuella->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pbHuella->TabIndex = 58;
+			this->pbHuella->TabStop = false;
 			// 
-			// btnClear
+			// button1
 			// 
-			this->btnClear->Location = System::Drawing::Point(619, 223);
-			this->btnClear->Name = L"btnClear";
-			this->btnClear->Size = System::Drawing::Size(75, 23);
-			this->btnClear->TabIndex = 57;
-			this->btnClear->Text = L"Limpiar";
-			this->btnClear->UseVisualStyleBackColor = true;
-			this->btnClear->Click += gcnew System::EventHandler(this, &PersonalForm::btnClear_Click);
+			this->button1->Location = System::Drawing::Point(505, 221);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(86, 23);
+			this->button1->TabIndex = 57;
+			this->button1->Text = L"&Agregar Huella";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &PersonalForm::button1_Click);
 			// 
 			// label1
 			// 
@@ -590,6 +595,8 @@ private: System::Windows::Forms::Button^ btnClear;
 			// 
 			// panel4
 			// 
+			this->panel4->Controls->Add(this->btnClear);
+			this->panel4->Controls->Add(this->btnAllView);
 			this->panel4->Controls->Add(this->btnSearch);
 			this->panel4->Controls->Add(this->btnDelete);
 			this->panel4->Controls->Add(this->btnUpdate);
@@ -599,21 +606,41 @@ private: System::Windows::Forms::Button^ btnClear;
 			this->panel4->Size = System::Drawing::Size(708, 52);
 			this->panel4->TabIndex = 1;
 			// 
+			// btnClear
+			// 
+			this->btnClear->Location = System::Drawing::Point(612, 14);
+			this->btnClear->Name = L"btnClear";
+			this->btnClear->Size = System::Drawing::Size(82, 23);
+			this->btnClear->TabIndex = 57;
+			this->btnClear->Text = L"Limpiar";
+			this->btnClear->UseVisualStyleBackColor = true;
+			this->btnClear->Click += gcnew System::EventHandler(this, &PersonalForm::btnClear_Click);
+			// 
+			// btnAllView
+			// 
+			this->btnAllView->Location = System::Drawing::Point(490, 14);
+			this->btnAllView->Name = L"btnAllView";
+			this->btnAllView->Size = System::Drawing::Size(82, 23);
+			this->btnAllView->TabIndex = 58;
+			this->btnAllView->Text = L"Mostrar todo";
+			this->btnAllView->UseVisualStyleBackColor = true;
+			this->btnAllView->Click += gcnew System::EventHandler(this, &PersonalForm::btnAllView_Click);
+			// 
 			// btnSearch
 			// 
-			this->btnSearch->Location = System::Drawing::Point(568, 13);
+			this->btnSearch->Location = System::Drawing::Point(369, 14);
 			this->btnSearch->Name = L"btnSearch";
-			this->btnSearch->Size = System::Drawing::Size(126, 24);
+			this->btnSearch->Size = System::Drawing::Size(82, 23);
 			this->btnSearch->TabIndex = 3;
-			this->btnSearch->Text = L"Buscar";
+			this->btnSearch->Text = L"&Buscar";
 			this->btnSearch->UseVisualStyleBackColor = true;
 			this->btnSearch->Click += gcnew System::EventHandler(this, &PersonalForm::btnSearch_Click);
 			// 
 			// btnDelete
 			// 
-			this->btnDelete->Location = System::Drawing::Point(385, 14);
+			this->btnDelete->Location = System::Drawing::Point(249, 14);
 			this->btnDelete->Name = L"btnDelete";
-			this->btnDelete->Size = System::Drawing::Size(126, 23);
+			this->btnDelete->Size = System::Drawing::Size(82, 23);
 			this->btnDelete->TabIndex = 2;
 			this->btnDelete->Text = L"&Eliminar";
 			this->btnDelete->UseVisualStyleBackColor = true;
@@ -621,9 +648,9 @@ private: System::Windows::Forms::Button^ btnClear;
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(203, 13);
+			this->btnUpdate->Location = System::Drawing::Point(131, 14);
 			this->btnUpdate->Name = L"btnUpdate";
-			this->btnUpdate->Size = System::Drawing::Size(126, 24);
+			this->btnUpdate->Size = System::Drawing::Size(82, 23);
 			this->btnUpdate->TabIndex = 1;
 			this->btnUpdate->Text = L"&Modificar";
 			this->btnUpdate->UseVisualStyleBackColor = true;
@@ -633,7 +660,7 @@ private: System::Windows::Forms::Button^ btnClear;
 			// 
 			this->btnAdd->Location = System::Drawing::Point(15, 14);
 			this->btnAdd->Name = L"btnAdd";
-			this->btnAdd->Size = System::Drawing::Size(126, 23);
+			this->btnAdd->Size = System::Drawing::Size(82, 23);
 			this->btnAdd->TabIndex = 0;
 			this->btnAdd->Text = L"&Agregar";
 			this->btnAdd->UseVisualStyleBackColor = true;
@@ -654,6 +681,7 @@ private: System::Windows::Forms::Button^ btnClear;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPersonal))->EndInit();
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbHuella))->EndInit();
 			this->panel4->ResumeLayout(false);
 			this->ResumeLayout(false);
 
@@ -683,7 +711,11 @@ private: System::Windows::Forms::Button^ btnClear;
 			ps->Username = txtUsuario->Text;
 			ps->Password = txtContraseña->Text;
 			ps->Birthday = txtBirthday->Text;
-
+			if (pbHuella->Image != nullptr) {
+				System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
+				pbHuella->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
+				ps->Huella = ms->ToArray();
+			}
 			SalesManager::AddPersonal(ps);
 			refreshDGVPersonal();
 		}
@@ -715,6 +747,12 @@ private: System::Windows::Forms::Button^ btnClear;
 				ps->Username = txtUsuario->Text;
 				ps->Password = txtContraseña->Text;
 				ps->Birthday = txtBirthday->Text;
+
+				if (pbHuella->Image != nullptr) {
+					System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
+					pbHuella->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
+					ps->Huella = ms->ToArray();
+				}
 
 				SalesManager::UpdatePersonal(ps);
 				refreshDGVPersonal();
@@ -827,6 +865,15 @@ private: System::Void dgvPersonal_CellClick(System::Object^ sender, System::Wind
 			txtContraseña->Text = personal->Password;
 			txtBirthday->Text = personal->Birthday;
 			txtEstado->Text = "Habilitado";
+
+			if (personal->Huella != nullptr) {
+				System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(personal->Huella);
+				pbHuella->Image = Image::FromStream(ms);
+			}
+			else {
+				pbHuella->Image = nullptr;
+				pbHuella->Invalidate();
+			}
 		}
 	}
 }
@@ -852,18 +899,28 @@ private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^
 		List<Personal^>^ personalList = SalesManager::QueryPersonal();
 		for (int i = 0; i < personalList->Count; i++) {
 			if (ps->Id == personalList[i]->Id)
+			{
 				dgvPersonal->Rows->Add(gcnew array<String^>{
 					personalList[i]->FirstName,
-					personalList[i]->SecondName,
-					personalList[i]->FirstLastName,
-					personalList[i]->SecondLastName,
-					personalList[i]->PhoneNumber,
-					"" + personalList[i]->Id,
-					personalList[i]->PersonalEmail,
-					personalList[i]->Username,
-					personalList[i]->Password,
-					personalList[i]->Birthday
-			});
+						personalList[i]->SecondName,
+						personalList[i]->FirstLastName,
+						personalList[i]->SecondLastName,
+						personalList[i]->PhoneNumber,
+						"" + personalList[i]->Id,
+						personalList[i]->PersonalEmail,
+						personalList[i]->Username,
+						personalList[i]->Password,
+						personalList[i]->Birthday,
+				});
+				if (personalList[i]->Huella != nullptr) {
+					System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(personalList[i]->Huella);
+					pbHuella->Image = Image::FromStream(ms);
+				}
+				else {
+					pbHuella->Image = nullptr;
+					pbHuella->Invalidate();
+				}
+			}
 		}
 	}
 	catch (Exception^ ex) {
@@ -876,6 +933,14 @@ private: System::Void btnClear_Click(System::Object^ sender, System::EventArgs^ 
 }
 private: System::Void btnAllView_Click(System::Object^ sender, System::EventArgs^ e) {
 	refreshDGVPersonal();
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	OpenFileDialog ^ opnfd = gcnew OpenFileDialog();
+	opnfd->Filter = "Image Files (*.jpg;*.jpeg;)|*.jpg;*.jpeg;";
+	if (opnfd->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+	{
+		pbHuella->Image = gcnew Bitmap(opnfd->FileName);
+	}
 }
 };
 }
