@@ -930,6 +930,7 @@ private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^
 }
 private: System::Void btnClear_Click(System::Object^ sender, System::EventArgs^ e) {
 	ClearControls();
+	pbHuella->Image = nullptr;
 }
 private: System::Void btnAllView_Click(System::Object^ sender, System::EventArgs^ e) {
 	refreshDGVPersonal();

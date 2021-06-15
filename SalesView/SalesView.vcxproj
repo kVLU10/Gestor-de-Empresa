@@ -125,6 +125,7 @@
     <ClCompile Include="AssistForm.cpp" />
     <ClCompile Include="CategoriesForm.cpp" />
     <ClCompile Include="ClientForm.cpp" />
+    <ClCompile Include="ComboBoxIdItem.cpp" />
     <ClCompile Include="ComboBoxItem.cpp" />
     <ClCompile Include="DistritForm.cpp" />
     <ClCompile Include="LoginForm.cpp" />
@@ -144,6 +145,7 @@
     <ClInclude Include="ClientForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ComboBoxIdItem.h" />
     <ClInclude Include="ComboBoxItem.h" />
     <ClInclude Include="DistritForm.h">
       <FileType>CppForm</FileType>
