@@ -168,7 +168,7 @@ namespace SalesView {
 				if (Huellita->Length == personalList[i]->Huella->Length)
 				{
 					Asistencia^ sp = gcnew Asistencia();
-					if ((hora_i>=8 && hora_i <= 10) || (horacio >= 8 && horacio <= 10))
+					if (/*(hora_i>=8 && hora_i <= 10) ||*/ (horacio >= 8 && horacio <= 10))
 					{
 						sp->Fecha = dia + "/" + mes + "/" + anio;
 						sp->Hora = hora + ":" + minuto + ":" + segundo;
@@ -177,13 +177,13 @@ namespace SalesView {
 						sp->IO = "Entrada";
 						personalList[i]->AsistenciaList->Add(sp);
 						SalesManager::UpdatePersonal(personalList[i]);
-						MessageBox::Show("Fecha y hora de asistencia: " __TIMESTAMP__ +
+						MessageBox::Show("Fecha y hora de asistencia: "+ dia + "/" + mes + "/" + anio + " " + hora + ":" + minuto + ":" + segundo +
 							"\nBienvenido: " + personalList[i]->FirstName + " " + personalList[i]->FirstLastName +
 							"\nLlegaste temprano.");
 						encontrado = true;
 						return;
 					}
-					else if ((hora_i>10 && hora_i<=13) || (horacio > 10 && horacio <= 13))
+					else if (/*(hora_i>10 && hora_i<=13) ||*/ (horacio > 10 && horacio <= 13))
 					{
 						sp->Fecha = dia + "/" + mes + "/" + anio;
 						sp->Hora = hora + ":" + minuto + ":" + segundo;
@@ -192,13 +192,13 @@ namespace SalesView {
 						sp->IO = "Entrada";
 						personalList[i]->AsistenciaList->Add(sp);
 						SalesManager::UpdatePersonal(personalList[i]);
-						MessageBox::Show("Fecha y hora de asistencia: " __TIMESTAMP__ +
+						MessageBox::Show("Fecha y hora de asistencia: " + dia + "/" + mes + "/" + anio + " " + hora + ":" + minuto + ":" + segundo +
 							"\nBienvenido: " + personalList[i]->FirstName + " " + personalList[i]->FirstLastName +
 							"\nLlegaste tarde.");
 						encontrado = true;
 						return;
 					}
-					else if ((hora_i>=20 && hora_i<=23) || (horacio >= 20 && horacio <= 23))
+					else if (/*(hora_i>=20 && hora_i<=23) ||*/ (horacio >= 20 && horacio <= 23))
 					{
 						sp->Fecha = dia + "/" + mes + "/" + anio;
 						sp->Hora = hora + ":" + minuto + ":" + segundo;
@@ -207,7 +207,7 @@ namespace SalesView {
 						sp->IO = "Salida";
 						personalList[i]->AsistenciaList->Add(sp);
 						SalesManager::UpdatePersonal(personalList[i]);
-						MessageBox::Show("Fecha y hora de salida: " __TIMESTAMP__ +
+						MessageBox::Show("Fecha y hora de salida: " + dia + "/" + mes + "/" + anio + " " + hora + ":" + minuto + ":" + segundo +
 							"\nHasta luego: " + personalList[i]->FirstName + " " + personalList[i]->FirstLastName);
 						encontrado = true;
 						return;

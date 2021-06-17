@@ -24,6 +24,54 @@
         <Asistencia />
         <Asistencia />
         <Asistencia>
+          <IO>Entrada</IO>
+          <Check>Asistió</Check>
+          <Hora>12:43:19</Hora>
+          <Fecha>17/6/2021</Fecha>
+        </Asistencia>
+        <Asistencia>
+          <IO>Entrada</IO>
+          <Check>Asistió</Check>
+          <Hora>12:43:36</Hora>
+          <Fecha>17/6/2021</Fecha>
+        </Asistencia>
+        <Asistencia>
+          <IO>Entrada</IO>
+          <Check>Tardanza</Check>
+          <Hora>12:46:22</Hora>
+          <Fecha>17/6/2021</Fecha>
+        </Asistencia>
+        <Asistencia>
+          <IO>Entrada</IO>
+          <Check>Asistió</Check>
+          <Hora>12:46:30</Hora>
+          <Fecha>17/6/2021</Fecha>
+        </Asistencia>
+        <Asistencia>
+          <IO>Entrada</IO>
+          <Check>Tardanza</Check>
+          <Hora>12:46:40</Hora>
+          <Fecha>17/6/2021</Fecha>
+        </Asistencia>
+        <Asistencia>
+          <IO>Entrada</IO>
+          <Check>Tardanza</Check>
+          <Hora>12:51:7</Hora>
+          <Fecha>17/6/2021</Fecha>
+        </Asistencia>
+        <Asistencia>
+          <IO>Salida</IO>
+          <Check>Asistió</Check>
+          <Hora>12:52:46</Hora>
+          <Fecha>17/6/2021</Fecha>
+        </Asistencia>
+        <Asistencia>
+          <Check>No Asistió</Check>
+          <Fecha>17/6/2021</Fecha>
+        </Asistencia>
+        <Asistencia />
+        <Asistencia />
+        <Asistencia>
           <Check>No Asistió</Check>
           <Fecha>17/6/2021</Fecha>
         </Asistencia>
