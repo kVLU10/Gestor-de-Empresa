@@ -128,12 +128,15 @@
     <ClCompile Include="ClientForm.cpp" />
     <ClCompile Include="ComboBoxIdItem.cpp" />
     <ClCompile Include="ComboBoxItem.cpp" />
+    <ClCompile Include="ComboBoxItem1.cpp" />
     <ClCompile Include="DistritForm.cpp" />
     <ClCompile Include="GraphicsForm.cpp" />
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="PersonalForm.cpp" />
     <ClCompile Include="ProductForm.cpp" />
+    <ClCompile Include="ProductSearchForm.cpp" />
     <ClCompile Include="ProductsStoreForm.cpp" />
+    <ClCompile Include="SalesForm.cpp" />
     <ClCompile Include="SalesMainForm.cpp" />
     <ClCompile Include="StoreForm.cpp" />
   </ItemGroup>
@@ -149,6 +152,7 @@
     </ClInclude>
     <ClInclude Include="ComboBoxIdItem.h" />
     <ClInclude Include="ComboBoxItem.h" />
+    <ClInclude Include="ComboBoxItem1.h" />
     <ClInclude Include="DistritForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -164,7 +168,13 @@
     <ClInclude Include="ProductForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ProductSearchForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="ProductsStoreForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="SalesForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="SalesMainForm.h">
@@ -199,8 +209,14 @@
     <EmbeddedResource Include="ProductForm.resx">
       <DependentUpon>ProductForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductSearchForm.resx">
+      <DependentUpon>ProductSearchForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductsStoreForm.resx">
       <DependentUpon>ProductsStoreForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesForm.resx">
+      <DependentUpon>SalesForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SalesMainForm.resx">
       <DependentUpon>SalesMainForm.h</DependentUpon>

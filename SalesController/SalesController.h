@@ -55,5 +55,8 @@ namespace SalesController {
 
 			//Métodos para la autenticación
 			static Personal^ ValidateUser(String^ username, String^ password);
+
+			/*Sale*/
+			static void RegisterSale(Sale^);
 	};
 }

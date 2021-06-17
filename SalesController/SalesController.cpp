@@ -160,6 +160,12 @@ Client^ SalesController::SalesManager::QueryClientByDocumentNumber(int clientDoc
 	return DBController::QueryClientByDocumentNumber(clientDocumentNumber);
 }
 
+void SalesController::SalesManager::RegisterSale(Sale^ sale)
+{
+	DBController::RegisterSale(sale);
+}
+
+
 Personal^ SalesController::SalesManager::ValidateUser(String^ username, String^ password)
 {
 	/*

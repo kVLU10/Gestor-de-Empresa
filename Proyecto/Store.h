@@ -8,6 +8,7 @@ using namespace System;
 using namespace System::Collections::Generic;
 
 namespace Proyecto {
+    [Serializable]
     public ref class Store {
     public:
         property int Id;

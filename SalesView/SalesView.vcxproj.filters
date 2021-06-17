@@ -11,6 +11,9 @@
     <ClCompile Include="DistritForm.cpp" />
     <ClCompile Include="ComboBoxItem.cpp" />
     <ClCompile Include="CategoriesForm.cpp" />
+    <ClCompile Include="SalesForm.cpp" />
+    <ClCompile Include="ProductSearchForm.cpp" />
+    <ClCompile Include="ComboBoxItem1.cpp" />
     <ClCompile Include="AssistForm.cpp" />
     <ClCompile Include="ComboBoxIdItem.cpp" />
     <ClCompile Include="GraphicsForm.cpp" />
@@ -26,6 +29,9 @@
     <ClInclude Include="DistritForm.h" />
     <ClInclude Include="ComboBoxItem.h" />
     <ClInclude Include="CategoriesForm.h" />
+    <ClInclude Include="SalesForm.h" />
+    <ClInclude Include="ProductSearchForm.h" />
+    <ClInclude Include="ComboBoxItem1.h" />
     <ClInclude Include="AssistForm.h" />
     <ClInclude Include="ComboBoxIdItem.h" />
   </ItemGroup>
