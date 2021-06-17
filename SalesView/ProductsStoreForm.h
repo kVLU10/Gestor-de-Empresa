@@ -378,9 +378,9 @@ private: System::Void btnAllView_Click(System::Object^ sender, System::EventArgs
 
 }
 private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
-	int id = Int32::Parse(tboxid->Text);
-	String^ name = tboxName->Text;
-	String^ Trucazo = cmbStore->Text;
+	//int id = Int32::Parse(tboxid->Text);
+	//String^ name = tboxName->Text;
+	//String^ Trucazo = cmbStore->Text;
 
 
 
@@ -409,12 +409,7 @@ private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e)
 			   if (client != nullptr) {
 				   txtId->Text = "" + client->Id;
 				   txtPrice->Text = client->FirstName;
-				   txtNombre2->Text = client->SecondName;
-				   txtApellido1->Text = client->FirstLastName;
-				   txtApellido2->Text = client->SecondLastName;
-				   txtTelefono->Text = client->PhoneNumber;
-				   txtCorreo->Text = client->PersonalEmail;
-				   txtBirthday->Text = client->Birthday;
+				  
 			   }
 		   }
 	   }
