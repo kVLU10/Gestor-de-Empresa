@@ -119,6 +119,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +129,7 @@
     <ClCompile Include="ComboBoxIdItem.cpp" />
     <ClCompile Include="ComboBoxItem.cpp" />
     <ClCompile Include="DistritForm.cpp" />
+    <ClCompile Include="GraphicsForm.cpp" />
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="PersonalForm.cpp" />
     <ClCompile Include="ProductForm.cpp" />
@@ -148,6 +150,9 @@
     <ClInclude Include="ComboBoxIdItem.h" />
     <ClInclude Include="ComboBoxItem.h" />
     <ClInclude Include="DistritForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="GraphicsForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="LoginForm.h">
@@ -181,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DistritForm.resx">
       <DependentUpon>DistritForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GraphicsForm.resx">
+      <DependentUpon>GraphicsForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.h</DependentUpon>

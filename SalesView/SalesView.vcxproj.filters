@@ -13,6 +13,7 @@
     <ClCompile Include="CategoriesForm.cpp" />
     <ClCompile Include="AssistForm.cpp" />
     <ClCompile Include="ComboBoxIdItem.cpp" />
+    <ClCompile Include="GraphicsForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClientForm.h" />
