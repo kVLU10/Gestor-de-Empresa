@@ -5,8 +5,10 @@
 #pragma once
 
 using namespace System;
+using namespace System::Collections::Generic;
 
 namespace Proyecto {
+    [Serializable]
     public ref class Person {
     public:
         property int Id;

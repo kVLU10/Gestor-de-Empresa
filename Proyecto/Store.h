@@ -7,6 +7,7 @@
 using namespace System;
 
 namespace Proyecto {
+    [Serializable]
     public ref class Store {
     public:
         property int Id;

@@ -8,6 +8,7 @@
 using namespace System;
 
 namespace Proyecto {
+    [Serializable]
     public ref class Personal : public Person {
     public:
         property double Salary;

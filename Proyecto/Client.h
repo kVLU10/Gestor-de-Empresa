@@ -8,6 +8,7 @@
 using namespace System;
 
 namespace Proyecto {
+    [Serializable]
     public ref class Client : public Person {
     public:
         property int BonusPoints;

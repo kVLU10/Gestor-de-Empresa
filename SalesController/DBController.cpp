@@ -412,6 +412,24 @@ Client^ SalesController::DBController::QueryClientByDocumentNumber(int clientDoc
     return nullptr;
 }
 
+void SalesController::SaleDB::Persist()
+{
+    Stream^ stream = File::Open("sales.bin", FileMode::Create);
+    BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
+    bFormatter->Serialize(stream, ListDBSale);
+    stream->Close();
+}
+
+SalesController::SaleDB::SaleDB()
+{
+}
+
+void SalesController::DBController::RegisterSale(Sale^ sale)
+{
+    saleDB->ListDBSale->Add(sale);
+    saleDB->Persist();
+}
+
 SalesController::DistritDB::DistritDB()
 {
 }

@@ -48,6 +48,14 @@ namespace SalesController {
 		DistritDB();
 	};
 
+	[Serializable]
+	public ref class SaleDB {
+	public:
+		List<Sale^>^ ListDBSale = gcnew List<Sale^>();
+		void Persist();
+		SaleDB();
+	};
+
 	public ref class DBController
 	{
 		//Definimos miembros estáticos
@@ -58,6 +66,7 @@ namespace SalesController {
 			static StoreDB^ storeDB = gcnew StoreDB();
 			static ClientDB^ clientDB = gcnew ClientDB();
 			static DistritDB^ distritDB = gcnew DistritDB();
+			static SaleDB^ saleDB = gcnew SaleDB();
 
 		public:
 			//Permanencia de datos personal
@@ -115,6 +124,9 @@ namespace SalesController {
 			//Departamentos
 			static void AddDistrit(Distrit^);
 			static List<Distrit^>^ QueryDistrit();
+
+			/* Sale */
+			static void RegisterSale(Sale^);
 	};
 }
 
