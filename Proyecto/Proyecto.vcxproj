@@ -121,6 +121,7 @@
   <ItemGroup>
     <ClInclude Include="Address.h" />
     <ClInclude Include="Area.h" />
+    <ClInclude Include="Asistencia.h" />
     <ClInclude Include="Brand.h" />
     <ClInclude Include="Categories.h" />
     <ClInclude Include="Client.h" />
@@ -145,6 +146,7 @@
   <ItemGroup>
     <ClCompile Include="Address.cpp" />
     <ClCompile Include="Area.cpp" />
+    <ClCompile Include="Asistencia.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Brand.cpp" />
     <ClCompile Include="Categories.cpp" />
