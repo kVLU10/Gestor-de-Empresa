@@ -86,6 +86,7 @@ namespace SalesView {
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->txtId = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->txtName = (gcnew System::Windows::Forms::TextBox());
@@ -107,7 +108,6 @@ namespace SalesView {
 			this->Correo = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Cumpleaños = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
-			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->panel1->SuspendLayout();
@@ -161,9 +161,19 @@ namespace SalesView {
 			this->panel2->Size = System::Drawing::Size(708, 261);
 			this->panel2->TabIndex = 5;
 			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(529, 216);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->TabIndex = 5;
+			this->button1->Text = L"Mostar todo";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &CategoriesForm::button1_Click);
+			// 
 			// txtId
 			// 
-			this->txtId->Location = System::Drawing::Point(132, 26);
+			this->txtId->Location = System::Drawing::Point(80, 27);
 			this->txtId->Name = L"txtId";
 			this->txtId->Size = System::Drawing::Size(100, 20);
 			this->txtId->TabIndex = 4;
@@ -173,9 +183,9 @@ namespace SalesView {
 			this->label2->AutoSize = true;
 			this->label2->Location = System::Drawing::Point(33, 34);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(35, 13);
+			this->label2->Size = System::Drawing::Size(16, 13);
 			this->label2->TabIndex = 3;
-			this->label2->Text = L"label2";
+			this->label2->Text = L"Id";
 			// 
 			// txtName
 			// 
@@ -341,16 +351,6 @@ namespace SalesView {
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"tabPage2";
 			this->tabPage2->UseVisualStyleBackColor = true;
-			// 
-			// button1
-			// 
-			this->button1->Location = System::Drawing::Point(452, 207);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
-			this->button1->TabIndex = 5;
-			this->button1->Text = L"button1";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &CategoriesForm::button1_Click);
 			// 
 			// CategoriesForm
 			// 
