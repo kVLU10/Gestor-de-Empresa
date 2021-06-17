@@ -470,31 +470,27 @@ namespace SalesView {
 		}
 #pragma endregion
 	private: System::Void btnAdds_Click(System::Object^ sender, System::EventArgs^ e) {
-		Products^ p = gcnew Products();
-		try {
-			if (txtPrice->Text->Trim() == "" || txtDescription->Text->Trim() == "" ||
-				txtBonusPoints->Text->Trim() == "" || txtPrice->Text->Trim() == "" ||
-				txtBrand->Text->Trim() == "" || txtName->Text->Trim() == "") {
-				MessageBox::Show("Hay 1 o más campos vacíos.");
-				return;
+		List<Categories^>^ categoriesList = SalesManager::QueryCategories();
+		String^ Cate = "";
+		Cate = cmbCategories->Text;
+		for (int i = 0; i < categoriesList->Count; i++)
+		{
+			if (Cate == categoriesList[i]->Name) {
+				Products^ p = gcnew Products();
+				p->Id = Int32::Parse(txtId->Text);
+				p->Name = txtName->Text;
+				p->Description = txtDescription->Text;
+				p->BonusPoints = Int32::Parse(txtBonusPoints->Text);
+				p->Precio = Double::Parse(txtPrice->Text);
+				p->Marca = cmbCategories->Text;
+				p->Status = "Habilitado";
+				categoriesList[i]->ProductsList->Add(p);
+				SalesManager::UpdateCategories(categoriesList[i]);
 			}
-			
-			p->Id = Int32::Parse(txtId->Text);
-			p->Name = txtName->Text;
-			p->Description = txtDescription->Text;
-			p->BonusPoints = Int32::Parse(txtBonusPoints->Text);
-			p->Precio = Double::Parse(txtPrice->Text);
-			p->Marca = cmbCategories->Text;
-			p->Status = "Habilitado";
-
-			SalesManager::AddProduct(p);
+		}
 			RefreshDGVProducts();
 			ClearControls();
-		}
-		catch (Exception^ ex) {
-			MessageBox::Show(ex->ToString(), "Error al guardar el producto por error en los datos.");
-			return;
-		}
+		
 	}
 
 	private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {

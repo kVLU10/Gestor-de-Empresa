@@ -1,14 +1,18 @@
 #pragma once
 
-namespace SalesView {
 
+
+namespace SalesView {
+	
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	using namespace System::Collections::Generic;
+	using namespace Proyecto;
+	using namespace SalesController;
 	/// <summary>
 	/// Resumen de GraphicsForm
 	/// </summary>
@@ -34,9 +38,11 @@ namespace SalesView {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart1;
+	private: System::Windows::Forms::DataVisualization::Charting::Chart^ piechartPersonal;
 	protected:
-	private: System::Windows::Forms::ComboBox^ comboBox1;
+
+	protected:
+
 	private: System::Windows::Forms::ComboBox^ comboBox2;
 	private: System::Windows::Forms::ComboBox^ comboBox3;
 	private: System::Windows::Forms::DateTimePicker^ dateTimePicker1;
@@ -57,6 +63,8 @@ namespace SalesView {
 	private: System::Windows::Forms::Button^ BtnRefresh;
 	private: System::Windows::Forms::Button^ btnSearchDNI;
 	private: System::ComponentModel::BackgroundWorker^ backgroundWorker1;
+	private: System::ComponentModel::BackgroundWorker^ backgroundWorker2;
+	private: System::Windows::Forms::TextBox^ txtDNI;
 
 	private:
 		/// <summary>
@@ -74,8 +82,7 @@ namespace SalesView {
 			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
 			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->piechartPersonal = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
 			this->comboBox3 = (gcnew System::Windows::Forms::ComboBox());
 			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
@@ -92,32 +99,29 @@ namespace SalesView {
 			this->BtnRefresh = (gcnew System::Windows::Forms::Button());
 			this->btnSearchDNI = (gcnew System::Windows::Forms::Button());
 			this->backgroundWorker1 = (gcnew System::ComponentModel::BackgroundWorker());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
+			this->backgroundWorker2 = (gcnew System::ComponentModel::BackgroundWorker());
+			this->txtDNI = (gcnew System::Windows::Forms::TextBox());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->piechartPersonal))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// chart1
+			// piechartPersonal
 			// 
 			chartArea1->Name = L"ChartArea1";
-			this->chart1->ChartAreas->Add(chartArea1);
+			this->piechartPersonal->ChartAreas->Add(chartArea1);
 			legend1->Name = L"Legend1";
-			this->chart1->Legends->Add(legend1);
-			this->chart1->Location = System::Drawing::Point(525, 215);
-			this->chart1->Name = L"chart1";
+			this->piechartPersonal->Legends->Add(legend1);
+			this->piechartPersonal->Location = System::Drawing::Point(525, 215);
+			this->piechartPersonal->Name = L"piechartPersonal";
 			series1->ChartArea = L"ChartArea1";
+			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
 			series1->Legend = L"Legend1";
-			series1->Name = L"Series1";
-			this->chart1->Series->Add(series1);
-			this->chart1->Size = System::Drawing::Size(534, 376);
-			this->chart1->TabIndex = 0;
-			this->chart1->Text = L"chart1";
-			// 
-			// comboBox1
-			// 
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Location = System::Drawing::Point(163, 301);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(176, 24);
-			this->comboBox1->TabIndex = 1;
+			series1->Name = L"Asistencia";
+			this->piechartPersonal->Series->Add(series1);
+			this->piechartPersonal->Size = System::Drawing::Size(534, 376);
+			this->piechartPersonal->TabIndex = 0;
+			this->piechartPersonal->Text = L"chart1";
+			this->piechartPersonal->TextAntiAliasingQuality = System::Windows::Forms::DataVisualization::Charting::TextAntiAliasingQuality::SystemDefault;
+			this->piechartPersonal->Click += gcnew System::EventHandler(this, &GraphicsForm::chart1_Click);
 			// 
 			// comboBox2
 			// 
@@ -246,12 +250,22 @@ namespace SalesView {
 			this->btnSearchDNI->TabIndex = 8;
 			this->btnSearchDNI->Text = L"Buscar";
 			this->btnSearchDNI->UseVisualStyleBackColor = true;
+			this->btnSearchDNI->Click += gcnew System::EventHandler(this, &GraphicsForm::btnSearchDNI_Click);
+			// 
+			// txtDNI
+			// 
+			this->txtDNI->Location = System::Drawing::Point(163, 299);
+			this->txtDNI->Name = L"txtDNI";
+			this->txtDNI->Size = System::Drawing::Size(173, 22);
+			this->txtDNI->TabIndex = 17;
+			this->txtDNI->Enter += gcnew System::EventHandler(this, &GraphicsForm::txtDNI_Enter);
 			// 
 			// GraphicsForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1115, 631);
+			this->Controls->Add(this->txtDNI);
 			this->Controls->Add(this->BtnRefresh);
 			this->Controls->Add(this->btnFromStart);
 			this->Controls->Add(this->label7);
@@ -267,11 +281,10 @@ namespace SalesView {
 			this->Controls->Add(this->dateTimePicker1);
 			this->Controls->Add(this->comboBox3);
 			this->Controls->Add(this->comboBox2);
-			this->Controls->Add(this->comboBox1);
-			this->Controls->Add(this->chart1);
+			this->Controls->Add(this->piechartPersonal);
 			this->Name = L"GraphicsForm";
 			this->Text = L"GraphicsForm";
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->piechartPersonal))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -279,6 +292,77 @@ namespace SalesView {
 #pragma endregion
 
 
+
+private: System::Void btnSearchDNI_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+	piechartPersonal->Series["Asistencia"]->Points->Clear();
+	List<Personal^>^ personalList = SalesManager::QueryPersonal();
+	
+	double dni = Int32::Parse(txtDNI->Text);
+	
+
+
+	int NoAsist = 0;
+	int Asist = 0;
+	int Encontrado = 0;
+	if (personalList != nullptr) {
+
+		for (int i = 0; i < personalList->Count; i++) {
+
+			if ( personalList[i]->Id == dni) {
+
+				for (int j = 0; j<personalList[i]->AsistenciaList->Count; j++) {
+
+					if (personalList[i]->AsistenciaList[j]->Check == "No Asistió")
+					{
+						NoAsist++;
+					}
+					else
+					{
+						Asist++;
+					}
+				
+				}
+
+
+				//piechartSalesman->Series["Salario"]->Points->AddXY(
+				//	salesmanList[i]->FirstName, "" + salesmanList[i]->Salary);
+				piechartPersonal->Series["Asistencia"]->Points->Add(NoAsist);
+				piechartPersonal->Series["Asistencia"]->Points->Add(Asist);
+
+				//piechartSalesman->Series["Salario"]->Points[i]->Color = Color::Blue;
+				piechartPersonal->Series["Asistencia"]->Points[0]->AxisLabel = "No asistió";
+				piechartPersonal->Series["Asistencia"]->Points[1]->AxisLabel = "Asistió";
+				
+				piechartPersonal->Series["Asistencia"]->Points[0]->LegendText = "No asistió";
+				piechartPersonal->Series["Asistencia"]->Points[1]->LegendText = "Asistió";
+
+				piechartPersonal->Series["Asistencia"]->Points[0]->Label = "" + NoAsist;
+				piechartPersonal->Series["Asistencia"]->Points[1]->Label = "" + Asist;
+
+				Encontrado = 1;
+				MessageBox::Show("Encontrado");
+				break;
+				
+			}
+		}
+
+	
+		if (Encontrado == 0) {
+			MessageBox::Show("Personal no encontrado");
+
+		}
+
+	}
+
+
+
+}
+private: System::Void chart1_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void txtDNI_Enter(System::Object^ sender, System::EventArgs^ e) {
+	
+}
 
 };
 }

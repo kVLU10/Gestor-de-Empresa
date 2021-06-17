@@ -2,14 +2,28 @@
 <CategoriesDB xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ListDB>
     <Categories>
+      <ProductsList />
       <Name>sasdasdasd</Name>
       <Id>1</Id>
     </Categories>
     <Categories>
+      <ProductsList />
       <Name>sad112121</Name>
       <Id>22</Id>
     </Categories>
     <Categories>
+      <ProductsList>
+        <Products>
+          <Description>Electrodoméstico para calentar y hornear comida</Description>
+          <Marca>as21</Marca>
+          <Precio>110.5</Precio>
+          <Status>Habilitado</Status>
+          <BonusPoints>104</BonusPoints>
+          <Quantity>0</Quantity>
+          <Name>asdga</Name>
+          <Id>23</Id>
+        </Products>
+      </ProductsList>
       <Name>as21</Name>
       <Id>2</Id>
     </Categories>
