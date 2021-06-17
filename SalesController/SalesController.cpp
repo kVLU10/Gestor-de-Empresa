@@ -3,6 +3,7 @@
 #include "DBController.h"
 
 using namespace System::IO;
+using namespace System::Collections::Generic;
 using namespace System::Runtime::Serialization;
 using namespace System::Runtime::Serialization::Formatters::Binary;
 using namespace Proyecto;
@@ -38,6 +39,16 @@ void SalesController::SalesManager::DeleteCategories(int categoriesId)
 List<Categories^>^ SalesController::SalesManager::QueryCategories()
 {
 	return DBController::QueryCategories();
+}
+
+List<Asistencia^>^ SalesController::SalesManager::QueryAsistencia()
+{
+	return DBController::QueryAsistencia();
+}
+
+void SalesController::SalesManager::AddAsistencia(Asistencia^ a)
+{
+	DBController::AddAsistencia(a);
 }
 
 Categories^ SalesController::SalesManager::QueryCategoriesById(int categoriesId)
@@ -160,8 +171,15 @@ Personal^ SalesController::SalesManager::ValidateUser(String^ username, String^ 
 	/*
 	Personal^ personal = nullptr;
 	if (username->CompareTo("daquino")==0 && password->CompareTo("password")==0) {
-		personal = gcnew Personal(1, "daquino", "password", "Daniel", "Enrique", "Aquino", "Montaño", 'A', 1200, 10, "gmail", "kingston", "12052001");
+		List<String^>^ myList = gcnew List<String^>();
+		myList->Add("asd");
+		myList->Add("asd");
+		char jelou [100];
+		
+		//List<String^> myList(1, "asd");
+		personal = gcnew Personal(1, "password", "daquino"); , "Daniel", "Enrique", "Aquino", "Montaño", 'A', 1200, 10, "gmail", "kingston", "12052001", jelou, myList);
 	}
-	return personal;*/
+	return personal;
+	*/
 	return DBController::ValidateUser(username, password);
 }

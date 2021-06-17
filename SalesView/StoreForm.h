@@ -13,7 +13,7 @@ namespace SalesView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	using namespace System::Collections::Generic;
 	/// <summary>
 	/// Resumen de StoreForm
 	/// </summary>
@@ -378,9 +378,9 @@ private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e)
 	String^ name = tboxName->Text;
 	String^ adress = tboxDistrit->Text;
 	String^ status = comboBoxStatus->Text;
+	List<Products^>^ productsList = gcnew List<Products^>();
 
-
-	Store^ s = gcnew Store(name, id, adress, status);
+	Store^ s = gcnew Store(name, id, adress, status,productsList);
 	SalesManager::AddStore(s);
 	RefreshDGVStores();
 }
@@ -401,8 +401,9 @@ private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^
 	String^ name = tboxName->Text;
 	String^ adress = tboxDistrit->Text;
 	String^ status = comboBoxStatus->Text;
+	List<Products^>^ productsList = gcnew List<Products^>();
 
-	Store^ s = gcnew Store(name, id, adress, status);
+	Store^ s = gcnew Store(name, id, adress, status, productsList);
 	SalesManager::UpdateStore(s);
 
 	RefreshDGVStores();

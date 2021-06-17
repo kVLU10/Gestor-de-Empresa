@@ -10,6 +10,10 @@ namespace SalesController {
 	{
 	public:
 
+		//Métodos CRUD para Asistencia
+		static List<Asistencia^>^ QueryAsistencia();
+		static void AddAsistencia(Asistencia^);
+
 		//Métodos CRUD para Categories
 		static void AddCategories(Categories^);
 		static void UpdateCategories(Categories^);

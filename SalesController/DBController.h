@@ -7,6 +7,13 @@ using namespace System::Data::SqlClient;
 
 namespace SalesController {
 	[Serializable]
+	public ref class AsistenciaDB {
+	public:
+		List <Asistencia^>^ ListDB = gcnew List<Asistencia^>();
+		AsistenciaDB();
+	};
+
+	[Serializable]
 	public ref class PersonalDB {
 	public:
 		List <Personal^>^ ListDBP = gcnew List<Personal^>();
@@ -60,6 +67,7 @@ namespace SalesController {
 	{
 		//Definimos miembros estáticos
 		private:
+			static AsistenciaDB^ asistenciaDB = gcnew AsistenciaDB();
 			static CategoriesDB^ categoriesDB = gcnew CategoriesDB();
 			static ProductDB^ productDB = gcnew ProductDB();
 			static PersonalDB^ personalDB = gcnew PersonalDB();
@@ -69,6 +77,9 @@ namespace SalesController {
 			static SaleDB^ saleDB = gcnew SaleDB();
 
 		public:
+			//Permanencia de datos Asistencia
+			static void SaveAsistencia();
+			static void LoadAsistencia();
 			//Permanencia de datos personal
 			static void SavePersonal();
 			static void LoadPersonal();
@@ -88,6 +99,9 @@ namespace SalesController {
 			//Permanencia departamentos
 			static void SaveDistrit();
 			static void LoadDistrit();
+			//Asistencia
+			static List<Asistencia^>^ QueryAsistencia();
+			static void AddAsistencia(Asistencia^);
 			//categorias
 			static void AddCategories(Categories^);
 			static void UpdateCategories(Categories^);

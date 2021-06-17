@@ -7,6 +7,9 @@ using namespace System::Runtime::Serialization;
 using namespace System::Runtime::Serialization::Formatters::Binary;
 using namespace System::Xml::Serialization;
 
+SalesController::AsistenciaDB::AsistenciaDB() {
+}
+
 SalesController::PersonalDB::PersonalDB() {
 }
 
@@ -21,6 +24,33 @@ SalesController::ProductDB::ProductDB() {
 }
 
 SalesController::StoreDB::StoreDB() {
+}
+
+void SalesController::DBController::SaveAsistencia()
+{
+    System::Xml::Serialization::XmlSerializer^ writer =
+        gcnew System::Xml::Serialization::XmlSerializer(AsistenciaDB::typeid);
+
+    System::IO::StreamWriter^ file = gcnew System::IO::StreamWriter("asistencia.xml");
+    writer->Serialize(file, asistenciaDB);
+    file->Close();
+}
+
+void SalesController::DBController::LoadAsistencia()
+{
+    System::Xml::Serialization::XmlSerializer^ reader =
+        gcnew System::Xml::Serialization::XmlSerializer(AsistenciaDB::typeid);
+    System::IO::StreamReader^ file = nullptr;
+    try {
+        file = gcnew System::IO::StreamReader("asistencia.xml");
+        asistenciaDB = (AsistenciaDB^)reader->Deserialize(file);
+    }
+    catch (Exception^ ex) {
+        return;
+    }
+    finally {
+        if (file != nullptr) file->Close();
+    }
 }
 
 void SalesController::DBController::SavePersonal()
@@ -207,6 +237,12 @@ List<Distrit^>^ SalesController::DBController::QueryDistrit()
     return distritDB->ListDB;
 }
 
+void SalesController::DBController::AddAsistencia(Asistencia^ asistencia)
+{
+    asistenciaDB->ListDB->Add(asistencia);
+    SaveAsistencia();
+}
+
 void SalesController::DBController::AddCategories(Categories^ categories)
 {
     categoriesDB->ListDB->Add(categories);
@@ -229,6 +265,14 @@ void SalesController::DBController::DeleteCategories(int productId)
             categoriesDB->ListDB->RemoveAt(i);
     }
     SaveCategories();
+}
+
+List<Asistencia^>^ SalesController::DBController::QueryAsistencia()
+{
+    //throw gcnew System::NotImplementedException();
+    // TODO: Insertar una instrucción "return" aquí
+    LoadAsistencia();
+    return asistenciaDB->ListDB;
 }
 
 List<Categories^>^ SalesController::DBController::QueryCategories()

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AsistenciaDB xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ListDB>
+    <Asistencia>
+      <Hora>23:46:8</Hora>
+      <Fecha>16/6/2021</Fecha>
+    </Asistencia>
+    <Asistencia>
+      <Hora>23:47:14</Hora>
+      <Fecha>16/6/2021</Fecha>
+    </Asistencia>
+  </ListDB>
+</AsistenciaDB>
