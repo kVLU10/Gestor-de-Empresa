@@ -304,6 +304,7 @@ private: System::Void btnSearchDNI_Click(System::Object^ sender, System::EventAr
 
 	int NoAsist = 0;
 	int Asist = 0;
+	int Tardanza = 0;
 	int Encontrado = 0;
 	if (personalList != nullptr) {
 
@@ -317,11 +318,18 @@ private: System::Void btnSearchDNI_Click(System::Object^ sender, System::EventAr
 					{
 						NoAsist++;
 					}
-					else
+					else if (personalList[i]->AsistenciaList[j]->Check == "Asistió")
+
 					{
 						Asist++;
 					}
 				
+					else if (personalList[i]->AsistenciaList[j]->Check == "Tardanza")
+
+					{
+						Tardanza++;
+					}
+
 				}
 
 
@@ -329,16 +337,21 @@ private: System::Void btnSearchDNI_Click(System::Object^ sender, System::EventAr
 				//	salesmanList[i]->FirstName, "" + salesmanList[i]->Salary);
 				piechartPersonal->Series["Asistencia"]->Points->Add(NoAsist);
 				piechartPersonal->Series["Asistencia"]->Points->Add(Asist);
+				piechartPersonal->Series["Asistencia"]->Points->Add(Tardanza);
 
 				//piechartSalesman->Series["Salario"]->Points[i]->Color = Color::Blue;
 				piechartPersonal->Series["Asistencia"]->Points[0]->AxisLabel = "No asistió";
 				piechartPersonal->Series["Asistencia"]->Points[1]->AxisLabel = "Asistió";
-				
+				piechartPersonal->Series["Asistencia"]->Points[2]->AxisLabel = "Tardanza";
+
 				piechartPersonal->Series["Asistencia"]->Points[0]->LegendText = "No asistió";
 				piechartPersonal->Series["Asistencia"]->Points[1]->LegendText = "Asistió";
-
+				piechartPersonal->Series["Asistencia"]->Points[2]->LegendText = "Tardanza";
+				
 				piechartPersonal->Series["Asistencia"]->Points[0]->Label = "" + NoAsist;
 				piechartPersonal->Series["Asistencia"]->Points[1]->Label = "" + Asist;
+				piechartPersonal->Series["Asistencia"]->Points[2]->Label = "" + Tardanza;
+
 
 				Encontrado = 1;
 				MessageBox::Show("Encontrado");
