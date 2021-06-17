@@ -3,6 +3,8 @@
 #include "ComboBoxItem.h"
 using namespace System;
 #pragma once
+#include <string> 
+
 
 using namespace Proyecto;
 using namespace SalesController;
@@ -94,6 +96,10 @@ namespace SalesView {
 	private: System::Windows::Forms::Button^ btnClear;
 	private: System::Windows::Forms::Button^ btnAllView;
 	private: System::Windows::Forms::ComboBox^ cmbCategories;
+	private: System::Windows::Forms::TextBox^ txtTotal;
+
+	private: System::Windows::Forms::TextBox^ txtIgv;
+
 
 
 
@@ -123,6 +129,8 @@ namespace SalesView {
 			this->btnUpdate = (gcnew System::Windows::Forms::Button());
 			this->btnAdds = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->txtTotal = (gcnew System::Windows::Forms::TextBox());
+			this->txtIgv = (gcnew System::Windows::Forms::TextBox());
 			this->cmbCategories = (gcnew System::Windows::Forms::ComboBox());
 			this->btnClear = (gcnew System::Windows::Forms::Button());
 			this->btnAllView = (gcnew System::Windows::Forms::Button());
@@ -222,6 +230,8 @@ namespace SalesView {
 			// 
 			// panel1
 			// 
+			this->panel1->Controls->Add(this->txtTotal);
+			this->panel1->Controls->Add(this->txtIgv);
 			this->panel1->Controls->Add(this->cmbCategories);
 			this->panel1->Controls->Add(this->btnClear);
 			this->panel1->Controls->Add(this->btnAllView);
@@ -241,6 +251,22 @@ namespace SalesView {
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(708, 276);
 			this->panel1->TabIndex = 16;
+			// 
+			// txtTotal
+			// 
+			this->txtTotal->Location = System::Drawing::Point(430, 125);
+			this->txtTotal->Name = L"txtTotal";
+			this->txtTotal->Size = System::Drawing::Size(100, 20);
+			this->txtTotal->TabIndex = 17;
+			this->txtTotal->Text = L"0";
+			// 
+			// txtIgv
+			// 
+			this->txtIgv->Location = System::Drawing::Point(430, 99);
+			this->txtIgv->Name = L"txtIgv";
+			this->txtIgv->Size = System::Drawing::Size(100, 20);
+			this->txtIgv->TabIndex = 16;
+			this->txtIgv->Text = L"0";
 			// 
 			// cmbCategories
 			// 
@@ -287,6 +313,13 @@ namespace SalesView {
 			this->txtPrice->Name = L"txtPrice";
 			this->txtPrice->Size = System::Drawing::Size(100, 20);
 			this->txtPrice->TabIndex = 11;
+			this->txtPrice->Text = L"0";
+			this->txtPrice->TextChanged += gcnew System::EventHandler(this, &ProductForm::txtPrice_TextChanged);
+			this->txtPrice->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &ProductForm::txtPrice_MouseDown);
+			this->txtPrice->MouseLeave += gcnew System::EventHandler(this, &ProductForm::txtPrice_MouseLeave);
+			this->txtPrice->MouseHover += gcnew System::EventHandler(this, &ProductForm::txtPrice_MouseHover);
+			this->txtPrice->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &ProductForm::txtPrice_MouseMove);
+			this->txtPrice->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &ProductForm::txtPrice_MouseUp);
 			// 
 			// txtBonusPoints
 			// 
@@ -297,7 +330,7 @@ namespace SalesView {
 			// 
 			// txtBrand
 			// 
-			this->txtBrand->Location = System::Drawing::Point(439, 139);
+			this->txtBrand->Location = System::Drawing::Point(307, 139);
 			this->txtBrand->Name = L"txtBrand";
 			this->txtBrand->Size = System::Drawing::Size(33, 20);
 			this->txtBrand->TabIndex = 9;
@@ -664,6 +697,53 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, Sys
 	   }
 private: System::Void ProductForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	LoadCmbDistrit();
+}
+private: System::Void txtPrice_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	String^ precioText = "";
+	precioText = txtPrice->Text;
+	if (precioText=="0") {
+		txtPrice->Text = "";
+	}
+}
+
+private: System::Void txtPrice_MouseHover(System::Object^ sender, System::EventArgs^ e) {
+	//txtPrice->Text = "3";
+}
+private: System::Void txtPrice_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	//txtPrice->Text = "3";
+}
+private: System::Void txtPrice_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
+	//txtPrice->Text = "3";
+}
+private: System::Void txtPrice_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	//txtPrice->Text = "3";
+}
+private: System::Void txtPrice_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	String^ precioText = "";
+	float precioNum = 0;
+	String^ igvText = "";
+	float igvNum = 0;
+	String^ totalText = "";
+	float totalNum = 0;
+	
+	precioText = txtPrice->Text;
+
+	if (precioText=="") {
+		txtIgv->Text = "0";
+		txtTotal->Text = "0";
+	
+	}
+	else {
+		precioNum = float::Parse(precioText);
+		igvNum = precioNum * 0.18;
+		igvText = igvNum.ToString();
+		txtIgv->Text = igvText;
+		totalNum = precioNum + igvNum;
+		totalText = totalNum.ToString();
+		txtTotal->Text = totalText;
+	}
+
+	
 }
 };
 }

@@ -126,9 +126,10 @@ namespace SalesView {
 	private: System::Windows::Forms::Button^ btnUpdate;
 
 	private: System::Windows::Forms::Button^ btnAdd;
-private: System::Windows::Forms::Button^ btnSearch;
-private: System::Windows::Forms::Button^ btnAllView;
-private: System::Windows::Forms::Button^ btnClear;
+	private: System::Windows::Forms::Button^ btnSearch;
+	private: System::Windows::Forms::Button^ btnAllView;
+	private: System::Windows::Forms::Button^ btnClear;
+	private: System::Windows::Forms::ComboBox^ comboBoxStatus;
 
 
 
@@ -236,6 +237,7 @@ private: System::Windows::Forms::Button^ btnClear;
 			this->btnDelete = (gcnew System::Windows::Forms::Button());
 			this->btnUpdate = (gcnew System::Windows::Forms::Button());
 			this->btnAdd = (gcnew System::Windows::Forms::Button());
+			this->comboBoxStatus = (gcnew System::Windows::Forms::ComboBox());
 			this->tabControl1->SuspendLayout();
 			this->tabPersonal->SuspendLayout();
 			this->panel3->SuspendLayout();
@@ -359,6 +361,7 @@ private: System::Windows::Forms::Button^ btnClear;
 			// 
 			// panel1
 			// 
+			this->panel1->Controls->Add(this->comboBoxStatus);
 			this->panel1->Controls->Add(this->btnAllView);
 			this->panel1->Controls->Add(this->btnClear);
 			this->panel1->Controls->Add(this->label1);
@@ -639,6 +642,17 @@ private: System::Windows::Forms::Button^ btnClear;
 			this->btnAdd->UseVisualStyleBackColor = true;
 			this->btnAdd->Click += gcnew System::EventHandler(this, &PersonalForm::btnAdd_Click);
 			// 
+			// comboBoxStatus
+			// 
+			this->comboBoxStatus->FormattingEnabled = true;
+			this->comboBoxStatus->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Activo", L"Inactivo" });
+			this->comboBoxStatus->Location = System::Drawing::Point(553, 56);
+			this->comboBoxStatus->Margin = System::Windows::Forms::Padding(2);
+			this->comboBoxStatus->Name = L"comboBoxStatus";
+			this->comboBoxStatus->Size = System::Drawing::Size(122, 21);
+			this->comboBoxStatus->TabIndex = 59;
+			this->comboBoxStatus->Text = L"Escoja un estado";
+			// 
 			// PersonalForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -659,7 +673,7 @@ private: System::Windows::Forms::Button^ btnClear;
 
 		}
 #pragma endregion
-	
+
 	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
 		Personal^ ps = gcnew Personal();
 		try {
@@ -683,6 +697,8 @@ private: System::Windows::Forms::Button^ btnClear;
 			ps->Username = txtUsuario->Text;
 			ps->Password = txtContraseña->Text;
 			ps->Birthday = txtBirthday->Text;
+		//	ps->CAntidad = "";
+
 
 			SalesManager::AddPersonal(ps);
 			refreshDGVPersonal();
@@ -790,6 +806,13 @@ private: System::Windows::Forms::Button^ btnClear;
 		}
 
 	private: System::Void PersonalForm_Load(System::Object^ sender, System::EventArgs^ e) {}
+		   public: void LoadCmbDistrit() {
+			   comboBoxStatus->Items->Clear();
+			   comboBoxStatus->Text = ("Escoja un estado");
+			   comboBoxStatus->Items->Add("Activo");
+			   comboBoxStatus->Items->Add("Inactivo");
+
+		   }
 
 		   System::Void ClearControls() {
 			   txtDocumentNumber->Clear();
@@ -803,7 +826,10 @@ private: System::Windows::Forms::Button^ btnClear;
 			   txtContraseña->Clear();
 			   txtBirthday->Clear();
 			   txtEstado->Clear();
+			   LoadCmbDistrit();
+
 		   }
+	
 private: System::Void dgvPersonal_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	if (dgvPersonal->CurrentCell != nullptr &&
 		dgvPersonal->CurrentCell->Value != nullptr &&
@@ -877,5 +903,7 @@ private: System::Void btnClear_Click(System::Object^ sender, System::EventArgs^ 
 private: System::Void btnAllView_Click(System::Object^ sender, System::EventArgs^ e) {
 	refreshDGVPersonal();
 }
+
+	   
 };
 }

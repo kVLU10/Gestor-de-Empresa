@@ -271,6 +271,7 @@ namespace SalesView {
 			this->comboBoxStatus->Name = L"comboBoxStatus";
 			this->comboBoxStatus->Size = System::Drawing::Size(92, 21);
 			this->comboBoxStatus->TabIndex = 12;
+			this->comboBoxStatus->SelectedIndexChanged += gcnew System::EventHandler(this, &StoreForm::comboBoxStatus_SelectedIndexChanged);
 			// 
 			// lbStatus
 			// 
@@ -384,6 +385,11 @@ private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e)
 	SalesManager::AddStore(s);
 	RefreshDGVStores();
 }
+	public:	void Actualiza_canti() {
+		Products^ c = gcnew Products();
+
+
+	}
 
 public:	void RefreshDGVStores() {
 			List<Store^>^ storeList = SalesManager::QueryStore();
@@ -498,6 +504,9 @@ private: System::Void btnClear_Click(System::Object^ sender, System::EventArgs^ 
 }
 private: System::Void btnAllView_Click(System::Object^ sender, System::EventArgs^ e) {
 	RefreshDGVStores();
+}
+private: System::Void comboBoxStatus_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+
 }
 };
 }

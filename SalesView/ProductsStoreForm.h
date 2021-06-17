@@ -1,5 +1,8 @@
+#include "ComboBoxItem.h"
 #pragma once
-
+using namespace Proyecto;
+using namespace SalesController;
+using namespace System::Collections::Generic;
 namespace SalesView {
 
 	using namespace System;
@@ -18,6 +21,9 @@ namespace SalesView {
 		ProductsStoreForm(void)
 		{
 			InitializeComponent();
+			LoadCmbProduct();
+			LoadCmbStore();
+
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -34,7 +40,7 @@ namespace SalesView {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::TextBox^ tboxid;
+
 	protected:
 	private: System::Windows::Forms::Label^ lbStatus;
 	private: System::Windows::Forms::ComboBox^ comboBoxStatus;
@@ -48,14 +54,18 @@ namespace SalesView {
 
 	private: System::Windows::Forms::Button^ btnAdd;
 	private: System::Windows::Forms::Label^ lbNamStore;
-	private: System::Windows::Forms::TextBox^ textBox2;
+	private: System::Windows::Forms::TextBox^ txtPrice;
+
 	private: System::Windows::Forms::TextBox^ tboxName;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::ComboBox^ comboBox1;
+	private: System::Windows::Forms::ComboBox^ cmbStore;
+
 	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ txtId;
+
+
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Id;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ NameStore;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Category;
@@ -63,6 +73,8 @@ namespace SalesView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ instock;
 	private: System::Windows::Forms::Button^ btnAllView;
 	private: System::Windows::Forms::Button^ btnClear;
+	private: System::Windows::Forms::ComboBox^ txtCategoria;
+	private: System::Windows::Forms::TextBox^ textBox1;
 
 	private:
 		/// <summary>
@@ -77,7 +89,6 @@ namespace SalesView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->tboxid = (gcnew System::Windows::Forms::TextBox());
 			this->lbStatus = (gcnew System::Windows::Forms::Label());
 			this->comboBoxStatus = (gcnew System::Windows::Forms::ComboBox());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
@@ -89,26 +100,20 @@ namespace SalesView {
 			this->btnDelete = (gcnew System::Windows::Forms::Button());
 			this->btnAdd = (gcnew System::Windows::Forms::Button());
 			this->lbNamStore = (gcnew System::Windows::Forms::Label());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->txtPrice = (gcnew System::Windows::Forms::TextBox());
 			this->tboxName = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->cmbStore = (gcnew System::Windows::Forms::ComboBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->txtId = (gcnew System::Windows::Forms::TextBox());
 			this->btnAllView = (gcnew System::Windows::Forms::Button());
 			this->btnClear = (gcnew System::Windows::Forms::Button());
+			this->txtCategoria = (gcnew System::Windows::Forms::ComboBox());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
-			// 
-			// tboxid
-			// 
-			this->tboxid->Location = System::Drawing::Point(376, 95);
-			this->tboxid->Margin = System::Windows::Forms::Padding(2);
-			this->tboxid->Name = L"tboxid";
-			this->tboxid->Size = System::Drawing::Size(150, 20);
-			this->tboxid->TabIndex = 27;
 			// 
 			// lbStatus
 			// 
@@ -200,6 +205,7 @@ namespace SalesView {
 			this->btnAdd->TabIndex = 18;
 			this->btnAdd->Text = L"&Agregar Productos";
 			this->btnAdd->UseVisualStyleBackColor = true;
+			this->btnAdd->Click += gcnew System::EventHandler(this, &ProductsStoreForm::btnAdd_Click);
 			// 
 			// lbNamStore
 			// 
@@ -212,13 +218,13 @@ namespace SalesView {
 			this->lbNamStore->Text = L"Stock";
 			this->lbNamStore->Click += gcnew System::EventHandler(this, &ProductsStoreForm::lbNamStore_Click);
 			// 
-			// textBox2
+			// txtPrice
 			// 
-			this->textBox2->Location = System::Drawing::Point(376, 136);
-			this->textBox2->Margin = System::Windows::Forms::Padding(2);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(150, 20);
-			this->textBox2->TabIndex = 16;
+			this->txtPrice->Location = System::Drawing::Point(376, 136);
+			this->txtPrice->Margin = System::Windows::Forms::Padding(2);
+			this->txtPrice->Name = L"txtPrice";
+			this->txtPrice->Size = System::Drawing::Size(150, 20);
+			this->txtPrice->TabIndex = 16;
 			// 
 			// tboxName
 			// 
@@ -258,15 +264,16 @@ namespace SalesView {
 			this->label3->TabIndex = 30;
 			this->label3->Text = L"Almacén";
 			// 
-			// comboBox1
+			// cmbStore
 			// 
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Habilitado", L"Desabilitado", L"Repleto" });
-			this->comboBox1->Location = System::Drawing::Point(167, 32);
-			this->comboBox1->Margin = System::Windows::Forms::Padding(2);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(307, 21);
-			this->comboBox1->TabIndex = 31;
+			this->cmbStore->FormattingEnabled = true;
+			this->cmbStore->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Habilitado", L"Desabilitado", L"Repleto" });
+			this->cmbStore->Location = System::Drawing::Point(167, 32);
+			this->cmbStore->Margin = System::Windows::Forms::Padding(2);
+			this->cmbStore->Name = L"cmbStore";
+			this->cmbStore->Size = System::Drawing::Size(307, 21);
+			this->cmbStore->TabIndex = 31;
+			this->cmbStore->Text = L"Seleccione un almacen";
 			// 
 			// label4
 			// 
@@ -279,17 +286,17 @@ namespace SalesView {
 			this->label4->Text = L"Código";
 			this->label4->Click += gcnew System::EventHandler(this, &ProductsStoreForm::label4_Click);
 			// 
-			// textBox1
+			// txtId
 			// 
-			this->textBox1->Location = System::Drawing::Point(84, 93);
-			this->textBox1->Margin = System::Windows::Forms::Padding(2);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(150, 20);
-			this->textBox1->TabIndex = 32;
+			this->txtId->Location = System::Drawing::Point(84, 93);
+			this->txtId->Margin = System::Windows::Forms::Padding(2);
+			this->txtId->Name = L"txtId";
+			this->txtId->Size = System::Drawing::Size(150, 20);
+			this->txtId->TabIndex = 32;
 			// 
 			// btnAllView
 			// 
-			this->btnAllView->Location = System::Drawing::Point(469, 173);
+			this->btnAllView->Location = System::Drawing::Point(528, 175);
 			this->btnAllView->Name = L"btnAllView";
 			this->btnAllView->Size = System::Drawing::Size(75, 23);
 			this->btnAllView->TabIndex = 34;
@@ -307,27 +314,44 @@ namespace SalesView {
 			this->btnClear->UseVisualStyleBackColor = true;
 			this->btnClear->Click += gcnew System::EventHandler(this, &ProductsStoreForm::btnClear_Click);
 			// 
+			// txtCategoria
+			// 
+			this->txtCategoria->FormattingEnabled = true;
+			this->txtCategoria->Location = System::Drawing::Point(376, 95);
+			this->txtCategoria->Name = L"txtCategoria";
+			this->txtCategoria->Size = System::Drawing::Size(121, 21);
+			this->txtCategoria->TabIndex = 36;
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(347, 178);
+			this->textBox1->Margin = System::Windows::Forms::Padding(2);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(150, 20);
+			this->textBox1->TabIndex = 37;
+			// 
 			// ProductsStoreForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(615, 523);
+			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->txtCategoria);
 			this->Controls->Add(this->btnClear);
 			this->Controls->Add(this->btnAllView);
 			this->Controls->Add(this->label4);
-			this->Controls->Add(this->textBox1);
-			this->Controls->Add(this->comboBox1);
+			this->Controls->Add(this->txtId);
+			this->Controls->Add(this->cmbStore);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->tboxid);
 			this->Controls->Add(this->lbStatus);
 			this->Controls->Add(this->comboBoxStatus);
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->btnDelete);
 			this->Controls->Add(this->btnAdd);
 			this->Controls->Add(this->lbNamStore);
-			this->Controls->Add(this->textBox2);
+			this->Controls->Add(this->txtPrice);
 			this->Controls->Add(this->tboxName);
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"ProductsStoreForm";
@@ -353,5 +377,71 @@ private: System::Void btnClear_Click(System::Object^ sender, System::EventArgs^ 
 private: System::Void btnAllView_Click(System::Object^ sender, System::EventArgs^ e) {
 
 }
+private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
+	int id = Int32::Parse(tboxid->Text);
+	String^ name = tboxName->Text;
+	String^ Trucazo = cmbStore->Text;
+
+
+
+
+	String^ status = comboBoxStatus->Text;
+
+	//
+	// 
+	// Products^ s = gcnew Products(name, id, Trucazo, status);
+	//SalesManager::UpdateProduct(s);
+
+	//RefreshDGVStores();
+	//RefreshDGVStores();
+}
+	   private: System::Void dgvClient_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		   if (dataGridView1->CurrentCell != nullptr &&
+			   dataGridView1->CurrentCell->Value != nullptr &&
+			   dataGridView1->CurrentCell->Value->ToString() != "") {
+			   int selectedrowindex = dataGridView1->SelectedCells[0]->RowIndex;
+			   DataGridViewRow^ selectedRow = dataGridView1->Rows[selectedrowindex];
+			   String^ a = selectedRow->Cells[5]->Value->ToString();
+
+			   int clientID = Int32::Parse(a);
+			   Client^ client = SalesManager::QueryClientByDocumentNumber(clientID);
+			   //MessageBox::Show(customer->ToString());
+			   if (client != nullptr) {
+				   txtId->Text = "" + client->Id;
+				   txtPrice->Text = client->FirstName;
+				   txtNombre2->Text = client->SecondName;
+				   txtApellido1->Text = client->FirstLastName;
+				   txtApellido2->Text = client->SecondLastName;
+				   txtTelefono->Text = client->PhoneNumber;
+				   txtCorreo->Text = client->PersonalEmail;
+				   txtBirthday->Text = client->Birthday;
+			   }
+		   }
+	   }
+	   
+
+
+	   public: void LoadCmbProduct() {
+		   comboBoxStatus->Items->Clear();
+		   comboBoxStatus->Text = ("Seleccione un Producto");
+		   // cmbCategories->Items->Add("Seleccione una categoria");
+		   List<Products^>^ managerList = SalesManager::QueryProducts();
+		   for (int i = 0; i < managerList->Count; i++) {
+			   comboBoxStatus->Items->Add(gcnew ComboBoxItem(managerList[i]->Name+"/"+ gcnew ComboBoxItem(managerList[i]->Id.ToString())));
+		   }
+	   }
+
+
+   public: void LoadCmbStore() {
+	   cmbStore->Items->Clear();
+	   cmbStore->Text = ("Seleccione un almacen");
+	   // cmbCategories->Items->Add("Seleccione una categoria");
+	   List<Store^>^ managerList = SalesManager::QueryStore();
+	   for (int i = 0; i < managerList->Count; i++) {
+		   cmbStore->Items->Add(gcnew ComboBoxItem(managerList[i]->Name));
+	   }
+   }
+
+	   
 };
 }
