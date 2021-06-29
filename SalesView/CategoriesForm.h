@@ -46,14 +46,14 @@ namespace SalesView {
 	private: System::Windows::Forms::Panel^ panel4;
 	private: System::Windows::Forms::DataGridView^ dgvCategories;
 
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Nombre1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Nombre2;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Apellido1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Apellido2;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Telefono;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ DocumentNumber;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Correo;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cumpleaños;
+
+
+
+
+
+
+
+
 	private: System::Windows::Forms::Panel^ panel3;
 	private: System::Windows::Forms::Button^ btnSearch;
 	private: System::Windows::Forms::Button^ btnDelete;
@@ -67,6 +67,8 @@ namespace SalesView {
 	private: System::Windows::Forms::TextBox^ txtId;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Id;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Nombre;
 
 
 	private:
@@ -99,15 +101,9 @@ namespace SalesView {
 			this->btnAdd = (gcnew System::Windows::Forms::Button());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
 			this->dgvCategories = (gcnew System::Windows::Forms::DataGridView());
-			this->Nombre1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Nombre2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Apellido1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Apellido2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Telefono = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->DocumentNumber = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Correo = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Cumpleaños = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
+			this->Id = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Nombre = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->panel1->SuspendLayout();
@@ -150,12 +146,10 @@ namespace SalesView {
 			// 
 			// panel2
 			// 
-			this->panel2->Controls->Add(this->button1);
 			this->panel2->Controls->Add(this->txtId);
 			this->panel2->Controls->Add(this->label2);
 			this->panel2->Controls->Add(this->txtName);
 			this->panel2->Controls->Add(this->label1);
-			this->panel2->Controls->Add(this->btnClear);
 			this->panel2->Location = System::Drawing::Point(3, 3);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(708, 261);
@@ -163,9 +157,9 @@ namespace SalesView {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(529, 216);
+			this->button1->Location = System::Drawing::Point(493, 13);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->Size = System::Drawing::Size(82, 23);
 			this->button1->TabIndex = 5;
 			this->button1->Text = L"Mostar todo";
 			this->button1->UseVisualStyleBackColor = true;
@@ -205,9 +199,9 @@ namespace SalesView {
 			// 
 			// btnClear
 			// 
-			this->btnClear->Location = System::Drawing::Point(621, 216);
+			this->btnClear->Location = System::Drawing::Point(614, 13);
 			this->btnClear->Name = L"btnClear";
-			this->btnClear->Size = System::Drawing::Size(75, 23);
+			this->btnClear->Size = System::Drawing::Size(82, 23);
 			this->btnClear->TabIndex = 0;
 			this->btnClear->Text = L"Limpiar";
 			this->btnClear->UseVisualStyleBackColor = true;
@@ -215,9 +209,11 @@ namespace SalesView {
 			// 
 			// panel3
 			// 
+			this->panel3->Controls->Add(this->button1);
 			this->panel3->Controls->Add(this->btnSearch);
 			this->panel3->Controls->Add(this->btnDelete);
 			this->panel3->Controls->Add(this->btnUpdate);
+			this->panel3->Controls->Add(this->btnClear);
 			this->panel3->Controls->Add(this->btnAdd);
 			this->panel3->Location = System::Drawing::Point(3, 270);
 			this->panel3->Name = L"panel3";
@@ -226,9 +222,9 @@ namespace SalesView {
 			// 
 			// btnSearch
 			// 
-			this->btnSearch->Location = System::Drawing::Point(529, 13);
+			this->btnSearch->Location = System::Drawing::Point(376, 13);
 			this->btnSearch->Name = L"btnSearch";
-			this->btnSearch->Size = System::Drawing::Size(126, 23);
+			this->btnSearch->Size = System::Drawing::Size(82, 23);
 			this->btnSearch->TabIndex = 16;
 			this->btnSearch->Text = L"Buscar";
 			this->btnSearch->UseVisualStyleBackColor = true;
@@ -236,9 +232,9 @@ namespace SalesView {
 			// 
 			// btnDelete
 			// 
-			this->btnDelete->Location = System::Drawing::Point(368, 13);
+			this->btnDelete->Location = System::Drawing::Point(252, 13);
 			this->btnDelete->Name = L"btnDelete";
-			this->btnDelete->Size = System::Drawing::Size(126, 23);
+			this->btnDelete->Size = System::Drawing::Size(82, 23);
 			this->btnDelete->TabIndex = 5;
 			this->btnDelete->Text = L"&Eliminar";
 			this->btnDelete->UseVisualStyleBackColor = true;
@@ -246,9 +242,9 @@ namespace SalesView {
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(206, 12);
+			this->btnUpdate->Location = System::Drawing::Point(134, 13);
 			this->btnUpdate->Name = L"btnUpdate";
-			this->btnUpdate->Size = System::Drawing::Size(126, 24);
+			this->btnUpdate->Size = System::Drawing::Size(82, 23);
 			this->btnUpdate->TabIndex = 4;
 			this->btnUpdate->Text = L"&Modificar";
 			this->btnUpdate->UseVisualStyleBackColor = true;
@@ -256,9 +252,9 @@ namespace SalesView {
 			// 
 			// btnAdd
 			// 
-			this->btnAdd->Location = System::Drawing::Point(33, 13);
+			this->btnAdd->Location = System::Drawing::Point(15, 13);
 			this->btnAdd->Name = L"btnAdd";
-			this->btnAdd->Size = System::Drawing::Size(126, 23);
+			this->btnAdd->Size = System::Drawing::Size(82, 23);
 			this->btnAdd->TabIndex = 3;
 			this->btnAdd->Text = L"&Agregar";
 			this->btnAdd->UseVisualStyleBackColor = true;
@@ -275,72 +271,13 @@ namespace SalesView {
 			// dgvCategories
 			// 
 			this->dgvCategories->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvCategories->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
-				this->Nombre1,
-					this->Nombre2, this->Apellido1, this->Apellido2, this->Telefono, this->DocumentNumber, this->Correo, this->Cumpleaños
-			});
+			this->dgvCategories->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) { this->Id, this->Nombre });
 			this->dgvCategories->Location = System::Drawing::Point(15, 13);
 			this->dgvCategories->Name = L"dgvCategories";
 			this->dgvCategories->RowHeadersWidth = 51;
-			this->dgvCategories->Size = System::Drawing::Size(678, 222);
+			this->dgvCategories->Size = System::Drawing::Size(681, 222);
 			this->dgvCategories->TabIndex = 1;
 			this->dgvCategories->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &CategoriesForm::dgvCategories_CellClick);
-			// 
-			// Nombre1
-			// 
-			this->Nombre1->HeaderText = L"Nombre1";
-			this->Nombre1->MinimumWidth = 6;
-			this->Nombre1->Name = L"Nombre1";
-			this->Nombre1->Width = 125;
-			// 
-			// Nombre2
-			// 
-			this->Nombre2->HeaderText = L"Nombre2";
-			this->Nombre2->MinimumWidth = 6;
-			this->Nombre2->Name = L"Nombre2";
-			this->Nombre2->Width = 125;
-			// 
-			// Apellido1
-			// 
-			this->Apellido1->HeaderText = L"Apellido1";
-			this->Apellido1->MinimumWidth = 6;
-			this->Apellido1->Name = L"Apellido1";
-			this->Apellido1->Width = 125;
-			// 
-			// Apellido2
-			// 
-			this->Apellido2->HeaderText = L"Apellido2";
-			this->Apellido2->MinimumWidth = 6;
-			this->Apellido2->Name = L"Apellido2";
-			this->Apellido2->Width = 125;
-			// 
-			// Telefono
-			// 
-			this->Telefono->HeaderText = L"Teléfono";
-			this->Telefono->MinimumWidth = 6;
-			this->Telefono->Name = L"Telefono";
-			this->Telefono->Width = 125;
-			// 
-			// DocumentNumber
-			// 
-			this->DocumentNumber->HeaderText = L"DNI o Pasaporte";
-			this->DocumentNumber->MinimumWidth = 6;
-			this->DocumentNumber->Name = L"DocumentNumber";
-			this->DocumentNumber->Width = 125;
-			// 
-			// Correo
-			// 
-			this->Correo->HeaderText = L"Correo";
-			this->Correo->MinimumWidth = 6;
-			this->Correo->Name = L"Correo";
-			this->Correo->Width = 125;
-			// 
-			// Cumpleaños
-			// 
-			this->Cumpleaños->HeaderText = L"Cumpleaños";
-			this->Cumpleaños->MinimumWidth = 6;
-			this->Cumpleaños->Name = L"Cumpleaños";
-			this->Cumpleaños->Width = 125;
 			// 
 			// tabPage2
 			// 
@@ -351,6 +288,20 @@ namespace SalesView {
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"tabPage2";
 			this->tabPage2->UseVisualStyleBackColor = true;
+			// 
+			// Id
+			// 
+			this->Id->HeaderText = L"Id";
+			this->Id->MinimumWidth = 6;
+			this->Id->Name = L"Id";
+			this->Id->Width = 125;
+			// 
+			// Nombre
+			// 
+			this->Nombre->HeaderText = L"Nombre";
+			this->Nombre->MinimumWidth = 6;
+			this->Nombre->Name = L"Nombre";
+			this->Nombre->Width = 500;
 			// 
 			// CategoriesForm
 			// 
@@ -523,9 +474,8 @@ private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^
 		for (int i = 0; i < categoriesList->Count; i++) {
 			if (c->Id == categoriesList[i]->Id)
 				dgvCategories->Rows->Add(gcnew array<String^>{
-				categoriesList[i]->Name,
 					"" + categoriesList[i]->Id,
-					
+						 categoriesList[i]->Name,
 			});
 		}
 	}

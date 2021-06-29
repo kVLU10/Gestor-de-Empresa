@@ -29,3 +29,9 @@ Proyecto::Personal::Personal(int id, String^ username, String^ password, String^
 	this->AsistenciaList = asistenciaList;
 	this->Activo = activo;
 }
+
+Proyecto::Personal::Personal(String^ userName, String^ passWord)
+{
+	this->Username = userName;
+	this->Password = passWord;
+}

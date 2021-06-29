@@ -1,10 +1,11 @@
 #pragma once
 #include <iostream>
+#include <stdlib.h>
 #include <ctime>
-
-using namespace Proyecto;
-using namespace SalesController;
-using namespace System::Collections::Generic;
+#include <fstream>
+#include <time.h>
+#include "ComboBoxIdItem.h"
+#include "ComboBoxItem.h"
 
 namespace SalesView {
 
@@ -14,6 +15,9 @@ namespace SalesView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace Proyecto;
+	using namespace SalesController;
+	using namespace System::Collections::Generic;
 
 	/// <summary>
 	/// Resumen de AssistForm
@@ -47,6 +51,8 @@ namespace SalesView {
 	private: System::Windows::Forms::PictureBox^ pbHuella;
 	private: System::Windows::Forms::Button^ btnFalta;
 	private: System::Windows::Forms::TextBox^ txtHora;
+	private: System::Windows::Forms::ComboBox^ cmbPersonal;
+
 
 
 	protected:
@@ -70,12 +76,13 @@ namespace SalesView {
 			this->pbHuella = (gcnew System::Windows::Forms::PictureBox());
 			this->btnFalta = (gcnew System::Windows::Forms::Button());
 			this->txtHora = (gcnew System::Windows::Forms::TextBox());
+			this->cmbPersonal = (gcnew System::Windows::Forms::ComboBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbHuella))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// btnHuella
 			// 
-			this->btnHuella->Location = System::Drawing::Point(70, 85);
+			this->btnHuella->Location = System::Drawing::Point(87, 105);
 			this->btnHuella->Name = L"btnHuella";
 			this->btnHuella->Size = System::Drawing::Size(68, 68);
 			this->btnHuella->TabIndex = 2;
@@ -86,7 +93,7 @@ namespace SalesView {
 			// pbHuella
 			// 
 			this->pbHuella->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->pbHuella->Location = System::Drawing::Point(159, 74);
+			this->pbHuella->Location = System::Drawing::Point(176, 94);
 			this->pbHuella->Name = L"pbHuella";
 			this->pbHuella->Size = System::Drawing::Size(86, 92);
 			this->pbHuella->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -95,7 +102,7 @@ namespace SalesView {
 			// 
 			// btnFalta
 			// 
-			this->btnFalta->Location = System::Drawing::Point(108, 215);
+			this->btnFalta->Location = System::Drawing::Point(108, 203);
 			this->btnFalta->Name = L"btnFalta";
 			this->btnFalta->Size = System::Drawing::Size(119, 42);
 			this->btnFalta->TabIndex = 4;
@@ -105,16 +112,25 @@ namespace SalesView {
 			// 
 			// txtHora
 			// 
-			this->txtHora->Location = System::Drawing::Point(12, 12);
+			this->txtHora->Location = System::Drawing::Point(117, 53);
 			this->txtHora->Name = L"txtHora";
 			this->txtHora->Size = System::Drawing::Size(110, 20);
 			this->txtHora->TabIndex = 5;
+			// 
+			// cmbPersonal
+			// 
+			this->cmbPersonal->FormattingEnabled = true;
+			this->cmbPersonal->Location = System::Drawing::Point(21, 12);
+			this->cmbPersonal->Name = L"cmbPersonal";
+			this->cmbPersonal->Size = System::Drawing::Size(299, 21);
+			this->cmbPersonal->TabIndex = 6;
 			// 
 			// AssistForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(341, 275);
+			this->Controls->Add(this->cmbPersonal);
 			this->Controls->Add(this->txtHora);
 			this->Controls->Add(this->btnFalta);
 			this->Controls->Add(this->pbHuella);
@@ -128,11 +144,31 @@ namespace SalesView {
 
 		}
 #pragma endregion
+
+	void AddCmbPersonal() {
+		cmbPersonal->Items->Clear();
+		List <Personal^>^ personalList = SalesManager::QueryPersonal();
+		for (int i = 0; i < personalList->Count; i++) {
+			cmbPersonal->Items->Add(gcnew ComboBoxIdItem(personalList[i]->FirstName + " " + personalList[i]->FirstLastName, personalList[i]->Id));
+		}
+	}
+
 	private: System::Void btnHuella_Click(System::Object^ sender, System::EventArgs^ e) {
-		OpenFileDialog^ opnfd = gcnew OpenFileDialog();
-		opnfd->Filter = "Image Files (*.jpg;*.jpeg;)|*.jpg;*.jpeg;";
-		if (opnfd->ShowDialog() == System::Windows::Forms::DialogResult::OK)
-		{
+
+		//std::fstream myfile;
+		//myfile.open("")
+	
+		//OpenFileDialog^ opnfd = gcnew OpenFileDialog();
+		//opnfd->Filter = "Image Files (*.jpg;*.jpeg;)|*.jpg;*.jpeg;";
+		//"E:\\Users\\daquino\\Desktop\\Daniel\\PUCP\\Ciclo2021-I\LPOO(INF237-06M1)\Gestor-de-Empresa\SalesView\Resources\DA71440985.jpg";
+		
+		//if (opnfd->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+		//{
+			int personalId = ((ComboBoxIdItem^)cmbPersonal->SelectedItem)->Value;
+			Personal^ personal = SalesManager::QueryPersonalByDocumentNumber(personalId);
+			srand(time(NULL));
+			int num;
+			num = rand() % 2;
 			bool encontrado = false;
 			array<Byte>^ Huellita;
 			String^ anio;
@@ -142,8 +178,10 @@ namespace SalesView {
 			String^ minuto;
 			String^ segundo;
 			int anio_i, mes_i, dia_i, hora_i, minuto_i, segundo_i, horacio;
+			
 			time_t ttime = time(0);
 			tm* local_time = localtime(&ttime);
+			
 			anio_i = 1900 + local_time->tm_year;
 			mes_i = 1 + local_time->tm_mon;
 			dia_i = local_time->tm_mday;
@@ -157,7 +195,17 @@ namespace SalesView {
 			minuto = (minuto_i).ToString();
 			segundo = (segundo_i).ToString();
 			horacio = Int32::Parse(txtHora->Text);
-			pbHuella->Image = gcnew Bitmap(opnfd->FileName);
+			if (num == 1)
+			{
+				pbHuella->Image = gcnew Bitmap(".\\Resources\\" + personal->FirstName[0] + personal->FirstLastName[0] + "" + personal->Id + ".jpg");//Bitmap(opnfd->FileName);
+			}
+			else
+			{
+				MessageBox::Show("Coloque su huella correctamente.");
+				return;
+			}
+			//pbHuella->Image = gcnew Bitmap("E:\\Users\\daquino\\Desktop\\Daniel\\PUCP\\Ciclo2021-I\\LPOO(INF237-06M1)\\Gestor-de-Empresa\\SalesView\\Resources\\"+ personal->FirstName[0] + personal->FirstLastName[0] + ""+personal->Id + ".jpg");//Bitmap(opnfd->FileName);
+			//MessageBox::Show(opnfd->FileName);
 			if (pbHuella->Image != nullptr) {
 				System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
 				pbHuella->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
@@ -170,7 +218,7 @@ namespace SalesView {
 					Asistencia^ sp = gcnew Asistencia();
 					if (/*(hora_i>=8 && hora_i <= 10) ||*/ (horacio >= 8 && horacio <= 10))
 					{
-						sp->Fecha = dia + "/" + mes + "/" + anio;
+						sp->Fecha = DateTime::Today.Now; //dia + "/" + mes + "/" + anio;
 						sp->Hora = hora + ":" + minuto + ":" + segundo;
 						sp->Check = "Asistió";
 						personalList[i]->Activo = "Active";
@@ -185,7 +233,7 @@ namespace SalesView {
 					}
 					else if (/*(hora_i>10 && hora_i<=13) ||*/ (horacio > 10 && horacio <= 13))
 					{
-						sp->Fecha = dia + "/" + mes + "/" + anio;
+						sp->Fecha = DateTime::Today.Now; //dia + "/" + mes + "/" + anio;
 						sp->Hora = hora + ":" + minuto + ":" + segundo;
 						sp->Check = "Tardanza";
 						personalList[i]->Activo = "Active";
@@ -200,7 +248,7 @@ namespace SalesView {
 					}
 					else if (/*(hora_i>=20 && hora_i<=23) ||*/ (horacio >= 20 && horacio <= 23))
 					{
-						sp->Fecha = dia + "/" + mes + "/" + anio;
+						sp->Fecha = DateTime::Today.Now; //dia + "/" + mes + "/" + anio;
 						sp->Hora = hora + ":" + minuto + ":" + segundo;
 						sp->Check = "Asistió";
 						personalList[i]->Activo = "No Active";
@@ -218,7 +266,7 @@ namespace SalesView {
 			{
 				MessageBox::Show("Huella no encontrada.");
 			}
-		}
+		//}
 	}
 private: System::Void btnFalta_Click(System::Object^ sender, System::EventArgs^ e) {
 	String^ anio;
@@ -243,7 +291,7 @@ private: System::Void btnFalta_Click(System::Object^ sender, System::EventArgs^ 
 			Asistencia^ sp = gcnew Asistencia();
 			if (personalList[i]->Activo == "No Active")
 			{
-				sp->Fecha = dia + "/" + mes + "/" + anio;
+				sp->Fecha = DateTime::Today.Now; //dia + "/" + mes + "/" + anio; 
 				sp->Check = "No Asistió";
 				personalList[i]->AsistenciaList->Add(sp);
 				SalesManager::UpdatePersonal(personalList[i]);
@@ -253,17 +301,8 @@ private: System::Void btnFalta_Click(System::Object^ sender, System::EventArgs^ 
 	}
 	MessageBox::Show("No asistieron: " + contador + " trabajadores");
 }
-	private: System::Void AssistForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		List<Personal^>^ personalList = SalesManager::QueryPersonal();
-		for (int i = 0; i < personalList->Count; i++) {
-			Asistencia^ sp = gcnew Asistencia();
-			if (personalList[i]->Activo != "Active" || personalList[i]->Activo == nullptr)
-			{
-				personalList[i]->Activo = "No Active";
-				personalList[i]->AsistenciaList->Add(sp);
-				SalesManager::UpdatePersonal(personalList[i]);
-			}
-		}
-	}
+private: System::Void AssistForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	AddCmbPersonal();
+}
 };
 }

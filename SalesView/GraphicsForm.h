@@ -65,6 +65,11 @@ namespace SalesView {
 	private: System::ComponentModel::BackgroundWorker^ backgroundWorker1;
 	private: System::ComponentModel::BackgroundWorker^ backgroundWorker2;
 	private: System::Windows::Forms::TextBox^ txtDNI;
+	private: System::Windows::Forms::TabControl^ tabControl1;
+	private: System::Windows::Forms::TabPage^ Asistencia;
+	private: System::Windows::Forms::TabPage^ Ventas;
+
+
 
 	private:
 		/// <summary>
@@ -101,7 +106,13 @@ namespace SalesView {
 			this->backgroundWorker1 = (gcnew System::ComponentModel::BackgroundWorker());
 			this->backgroundWorker2 = (gcnew System::ComponentModel::BackgroundWorker());
 			this->txtDNI = (gcnew System::Windows::Forms::TextBox());
+			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
+			this->Asistencia = (gcnew System::Windows::Forms::TabPage());
+			this->Ventas = (gcnew System::Windows::Forms::TabPage());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->piechartPersonal))->BeginInit();
+			this->tabControl1->SuspendLayout();
+			this->Asistencia->SuspendLayout();
+			this->Ventas->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// piechartPersonal
@@ -110,14 +121,15 @@ namespace SalesView {
 			this->piechartPersonal->ChartAreas->Add(chartArea1);
 			legend1->Name = L"Legend1";
 			this->piechartPersonal->Legends->Add(legend1);
-			this->piechartPersonal->Location = System::Drawing::Point(525, 215);
+			this->piechartPersonal->Location = System::Drawing::Point(441, 45);
+			this->piechartPersonal->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->piechartPersonal->Name = L"piechartPersonal";
 			series1->ChartArea = L"ChartArea1";
 			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
 			series1->Legend = L"Legend1";
 			series1->Name = L"Asistencia";
 			this->piechartPersonal->Series->Add(series1);
-			this->piechartPersonal->Size = System::Drawing::Size(534, 376);
+			this->piechartPersonal->Size = System::Drawing::Size(400, 306);
 			this->piechartPersonal->TabIndex = 0;
 			this->piechartPersonal->Text = L"chart1";
 			this->piechartPersonal->TextAntiAliasingQuality = System::Windows::Forms::DataVisualization::Charting::TextAntiAliasingQuality::SystemDefault;
@@ -126,64 +138,72 @@ namespace SalesView {
 			// comboBox2
 			// 
 			this->comboBox2->FormattingEnabled = true;
-			this->comboBox2->Location = System::Drawing::Point(163, 142);
+			this->comboBox2->Location = System::Drawing::Point(97, 123);
+			this->comboBox2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->comboBox2->Name = L"comboBox2";
-			this->comboBox2->Size = System::Drawing::Size(176, 24);
+			this->comboBox2->Size = System::Drawing::Size(133, 21);
 			this->comboBox2->TabIndex = 2;
 			// 
 			// comboBox3
 			// 
 			this->comboBox3->FormattingEnabled = true;
-			this->comboBox3->Location = System::Drawing::Point(163, 87);
+			this->comboBox3->Location = System::Drawing::Point(97, 79);
+			this->comboBox3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->comboBox3->Name = L"comboBox3";
-			this->comboBox3->Size = System::Drawing::Size(176, 24);
+			this->comboBox3->Size = System::Drawing::Size(133, 21);
 			this->comboBox3->TabIndex = 3;
 			// 
 			// dateTimePicker1
 			// 
-			this->dateTimePicker1->Location = System::Drawing::Point(517, 89);
+			this->dateTimePicker1->Location = System::Drawing::Point(16, 187);
+			this->dateTimePicker1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
-			this->dateTimePicker1->Size = System::Drawing::Size(252, 22);
+			this->dateTimePicker1->Size = System::Drawing::Size(190, 20);
 			this->dateTimePicker1->TabIndex = 4;
 			// 
 			// dateTimePicker2
 			// 
-			this->dateTimePicker2->Location = System::Drawing::Point(807, 91);
+			this->dateTimePicker2->Location = System::Drawing::Point(233, 189);
+			this->dateTimePicker2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->dateTimePicker2->Name = L"dateTimePicker2";
-			this->dateTimePicker2->Size = System::Drawing::Size(252, 22);
+			this->dateTimePicker2->Size = System::Drawing::Size(190, 20);
 			this->dateTimePicker2->TabIndex = 5;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(615, 56);
+			this->label1->Location = System::Drawing::Point(89, 161);
+			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(49, 17);
+			this->label1->Size = System::Drawing::Size(38, 13);
 			this->label1->TabIndex = 6;
 			this->label1->Text = L"Desde";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(905, 57);
+			this->label2->Location = System::Drawing::Point(307, 161);
+			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(45, 17);
+			this->label2->Size = System::Drawing::Size(35, 13);
 			this->label2->TabIndex = 7;
 			this->label2->Text = L"Hasta";
 			// 
 			// label3
 			// 
-			this->label3->Location = System::Drawing::Point(125, 34);
+			this->label3->Location = System::Drawing::Point(69, 36);
+			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(275, 18);
+			this->label3->Size = System::Drawing::Size(206, 15);
 			this->label3->TabIndex = 9;
 			this->label3->Text = L"INFORME DE VENTAS POR PRODUCTO";
 			// 
 			// btnSearchP
 			// 
-			this->btnSearchP->Location = System::Drawing::Point(360, 86);
+			this->btnSearchP->Location = System::Drawing::Point(245, 78);
+			this->btnSearchP->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnSearchP->Name = L"btnSearchP";
-			this->btnSearchP->Size = System::Drawing::Size(75, 23);
+			this->btnSearchP->Size = System::Drawing::Size(56, 19);
 			this->btnSearchP->TabIndex = 10;
 			this->btnSearchP->Text = L"Buscar";
 			this->btnSearchP->UseVisualStyleBackColor = true;
@@ -191,62 +211,69 @@ namespace SalesView {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(73, 142);
+			this->label4->Location = System::Drawing::Point(30, 123);
+			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(65, 17);
+			this->label4->Size = System::Drawing::Size(50, 13);
 			this->label4->TabIndex = 11;
 			this->label4->Text = L"Producto";
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(73, 92);
+			this->label5->Location = System::Drawing::Point(30, 83);
+			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(69, 17);
+			this->label5->Size = System::Drawing::Size(54, 13);
 			this->label5->TabIndex = 12;
 			this->label5->Text = L"Categoría";
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(163, 249);
+			this->label6->Location = System::Drawing::Point(92, 25);
+			this->label6->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(176, 17);
+			this->label6->Size = System::Drawing::Size(140, 13);
 			this->label6->TabIndex = 13;
 			this->label6->Text = L"INFORME DE ASISTENCIA";
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(73, 304);
+			this->label7->Location = System::Drawing::Point(25, 70);
+			this->label7->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(31, 17);
+			this->label7->Size = System::Drawing::Size(26, 13);
 			this->label7->TabIndex = 14;
 			this->label7->Text = L"DNI";
 			// 
 			// btnFromStart
 			// 
-			this->btnFromStart->Location = System::Drawing::Point(571, 152);
+			this->btnFromStart->Location = System::Drawing::Point(56, 239);
+			this->btnFromStart->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnFromStart->Name = L"btnFromStart";
-			this->btnFromStart->Size = System::Drawing::Size(137, 23);
+			this->btnFromStart->Size = System::Drawing::Size(103, 19);
 			this->btnFromStart->TabIndex = 15;
 			this->btnFromStart->Text = L"Desde siempre";
 			this->btnFromStart->UseVisualStyleBackColor = true;
 			// 
 			// BtnRefresh
 			// 
-			this->BtnRefresh->Location = System::Drawing::Point(864, 152);
+			this->BtnRefresh->Location = System::Drawing::Point(276, 239);
+			this->BtnRefresh->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->BtnRefresh->Name = L"BtnRefresh";
-			this->BtnRefresh->Size = System::Drawing::Size(137, 23);
+			this->BtnRefresh->Size = System::Drawing::Size(103, 19);
 			this->BtnRefresh->TabIndex = 16;
 			this->BtnRefresh->Text = L"Reiniciar";
 			this->BtnRefresh->UseVisualStyleBackColor = true;
 			// 
 			// btnSearchDNI
 			// 
-			this->btnSearchDNI->Location = System::Drawing::Point(360, 299);
+			this->btnSearchDNI->Location = System::Drawing::Point(240, 66);
+			this->btnSearchDNI->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnSearchDNI->Name = L"btnSearchDNI";
-			this->btnSearchDNI->Size = System::Drawing::Size(75, 26);
+			this->btnSearchDNI->Size = System::Drawing::Size(56, 21);
 			this->btnSearchDNI->TabIndex = 8;
 			this->btnSearchDNI->Text = L"Buscar";
 			this->btnSearchDNI->UseVisualStyleBackColor = true;
@@ -254,39 +281,76 @@ namespace SalesView {
 			// 
 			// txtDNI
 			// 
-			this->txtDNI->Location = System::Drawing::Point(163, 299);
+			this->txtDNI->Location = System::Drawing::Point(92, 66);
+			this->txtDNI->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtDNI->Name = L"txtDNI";
-			this->txtDNI->Size = System::Drawing::Size(173, 22);
+			this->txtDNI->Size = System::Drawing::Size(131, 20);
 			this->txtDNI->TabIndex = 17;
 			this->txtDNI->Enter += gcnew System::EventHandler(this, &GraphicsForm::txtDNI_Enter);
 			// 
+			// tabControl1
+			// 
+			this->tabControl1->Controls->Add(this->Asistencia);
+			this->tabControl1->Controls->Add(this->Ventas);
+			this->tabControl1->Location = System::Drawing::Point(12, 12);
+			this->tabControl1->Name = L"tabControl1";
+			this->tabControl1->SelectedIndex = 0;
+			this->tabControl1->Size = System::Drawing::Size(866, 420);
+			this->tabControl1->TabIndex = 18;
+			// 
+			// Asistencia
+			// 
+			this->Asistencia->Controls->Add(this->BtnRefresh);
+			this->Asistencia->Controls->Add(this->txtDNI);
+			this->Asistencia->Controls->Add(this->btnFromStart);
+			this->Asistencia->Controls->Add(this->label2);
+			this->Asistencia->Controls->Add(this->label6);
+			this->Asistencia->Controls->Add(this->label1);
+			this->Asistencia->Controls->Add(this->btnSearchDNI);
+			this->Asistencia->Controls->Add(this->dateTimePicker2);
+			this->Asistencia->Controls->Add(this->label7);
+			this->Asistencia->Controls->Add(this->dateTimePicker1);
+			this->Asistencia->Controls->Add(this->piechartPersonal);
+			this->Asistencia->Location = System::Drawing::Point(4, 22);
+			this->Asistencia->Name = L"Asistencia";
+			this->Asistencia->Padding = System::Windows::Forms::Padding(3);
+			this->Asistencia->Size = System::Drawing::Size(858, 394);
+			this->Asistencia->TabIndex = 0;
+			this->Asistencia->Text = L"Asistencia";
+			this->Asistencia->UseVisualStyleBackColor = true;
+			// 
+			// Ventas
+			// 
+			this->Ventas->Controls->Add(this->comboBox3);
+			this->Ventas->Controls->Add(this->comboBox2);
+			this->Ventas->Controls->Add(this->label5);
+			this->Ventas->Controls->Add(this->label3);
+			this->Ventas->Controls->Add(this->label4);
+			this->Ventas->Controls->Add(this->btnSearchP);
+			this->Ventas->Location = System::Drawing::Point(4, 22);
+			this->Ventas->Name = L"Ventas";
+			this->Ventas->Padding = System::Windows::Forms::Padding(3);
+			this->Ventas->Size = System::Drawing::Size(858, 394);
+			this->Ventas->TabIndex = 1;
+			this->Ventas->Text = L"Ventas";
+			this->Ventas->UseVisualStyleBackColor = true;
+			// 
 			// GraphicsForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1115, 631);
-			this->Controls->Add(this->txtDNI);
-			this->Controls->Add(this->BtnRefresh);
-			this->Controls->Add(this->btnFromStart);
-			this->Controls->Add(this->label7);
-			this->Controls->Add(this->label6);
-			this->Controls->Add(this->label5);
-			this->Controls->Add(this->label4);
-			this->Controls->Add(this->btnSearchP);
-			this->Controls->Add(this->label3);
-			this->Controls->Add(this->btnSearchDNI);
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->label1);
-			this->Controls->Add(this->dateTimePicker2);
-			this->Controls->Add(this->dateTimePicker1);
-			this->Controls->Add(this->comboBox3);
-			this->Controls->Add(this->comboBox2);
-			this->Controls->Add(this->piechartPersonal);
+			this->ClientSize = System::Drawing::Size(884, 447);
+			this->Controls->Add(this->tabControl1);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"GraphicsForm";
-			this->Text = L"GraphicsForm";
+			this->Text = L"Reportes con Gráficas";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->piechartPersonal))->EndInit();
+			this->tabControl1->ResumeLayout(false);
+			this->Asistencia->ResumeLayout(false);
+			this->Asistencia->PerformLayout();
+			this->Ventas->ResumeLayout(false);
+			this->Ventas->PerformLayout();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion

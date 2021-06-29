@@ -304,7 +304,7 @@ namespace SalesView {
 			// 
 			// btnAllView
 			// 
-			this->btnAllView->Location = System::Drawing::Point(433, 106);
+			this->btnAllView->Location = System::Drawing::Point(480, 127);
 			this->btnAllView->Name = L"btnAllView";
 			this->btnAllView->Size = System::Drawing::Size(75, 23);
 			this->btnAllView->TabIndex = 16;
@@ -314,7 +314,7 @@ namespace SalesView {
 			// 
 			// btnClear
 			// 
-			this->btnClear->Location = System::Drawing::Point(424, 75);
+			this->btnClear->Location = System::Drawing::Point(480, 90);
 			this->btnClear->Name = L"btnClear";
 			this->btnClear->Size = System::Drawing::Size(75, 23);
 			this->btnClear->TabIndex = 17;

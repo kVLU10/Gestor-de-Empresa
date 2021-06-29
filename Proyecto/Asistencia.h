@@ -8,12 +8,12 @@ namespace Proyecto {
     public ref class Asistencia
     {
     public:
-        property String^ Fecha;
+        property DateTime Fecha;
         property String^ Hora;
         property String^ Check;
         property String^ IO;
         Asistencia() {};
-        Asistencia(String^ Fecha, String^ Hora, String^ Check, String^ IO);
+        Asistencia(DateTime Fecha, String^ Hora, String^ Check, String^ IO);
     };
 }
 

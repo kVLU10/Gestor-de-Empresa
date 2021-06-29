@@ -2,54 +2,34 @@
 <ProductDB xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ListDB>
     <Products>
-      <Description>Electrodoméstico para cocina</Description>
-      <Marca>sad112121</Marca>
-      <Precio>40</Precio>
+      <Description>Zapato marca Nike, talla 39 para hombres.</Description>
+      <Marca>Calzado</Marca>
+      <Precio>90</Precio>
+      <Status>Habilitado</Status>
+      <BonusPoints>20</BonusPoints>
+      <Quantity>0</Quantity>
+      <Name>Nike-39</Name>
+      <Id>1001</Id>
+    </Products>
+    <Products>
+      <Description>Zapato marca Adidas, talla 38 para mujeres.</Description>
+      <Marca>Calzado</Marca>
+      <Precio>69.9</Precio>
       <Status>Habilitado</Status>
       <BonusPoints>15</BonusPoints>
       <Quantity>0</Quantity>
-      <Name>Licuadora</Name>
-      <Id>20171797</Id>
+      <Name>Adidas-38</Name>
+      <Id>1002</Id>
     </Products>
     <Products>
-      <Description>Producto para calentar comida</Description>
-      <Marca>as21</Marca>
-      <Precio>100.6</Precio>
+      <Description>Tablet PeraPad, con características dudosamente iguales a la manzana.</Description>
+      <Marca>Electrónicos</Marca>
+      <Precio>650</Precio>
       <Status>Habilitado</Status>
-      <BonusPoints>30</BonusPoints>
+      <BonusPoints>200</BonusPoints>
       <Quantity>0</Quantity>
-      <Name>Microondas</Name>
-      <Id>123456</Id>
-    </Products>
-    <Products>
-      <Description>Electrodoméstico para calentar y hornear comida</Description>
-      <Marca>sad112121</Marca>
-      <Precio>110.5</Precio>
-      <Status>Habilitado</Status>
-      <BonusPoints>10</BonusPoints>
-      <Quantity>0</Quantity>
-      <Name>Horno Eléctrico</Name>
-      <Id>123457</Id>
-    </Products>
-    <Products>
-      <Description>Electrodoméstico para calentar y hornear comida</Description>
-      <Marca>sasdasdasd</Marca>
-      <Precio>110.5</Precio>
-      <Status>Habilitado</Status>
-      <BonusPoints>10</BonusPoints>
-      <Quantity>0</Quantity>
-      <Name>lomaso</Name>
-      <Id>123452</Id>
-    </Products>
-    <Products>
-      <Description>2eqada</Description>
-      <Marca>sasdasdasd</Marca>
-      <Precio>12</Precio>
-      <Status>Habilitado</Status>
-      <BonusPoints>2</BonusPoints>
-      <Quantity>0</Quantity>
-      <Name>ad</Name>
-      <Id>213</Id>
+      <Name>PeraPad</Name>
+      <Id>2001</Id>
     </Products>
   </ListDB>
 </ProductDB>

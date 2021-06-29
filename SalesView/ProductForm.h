@@ -48,7 +48,7 @@ namespace SalesView {
 	protected:
 
 	private: System::Windows::Forms::TextBox^ txtBonusPoints;
-	private: System::Windows::Forms::TextBox^ txtBrand;
+
 	private: System::Windows::Forms::TextBox^ txtId;
 
 
@@ -129,7 +129,6 @@ namespace SalesView {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->txtPrice = (gcnew System::Windows::Forms::TextBox());
 			this->txtBonusPoints = (gcnew System::Windows::Forms::TextBox());
-			this->txtBrand = (gcnew System::Windows::Forms::TextBox());
 			this->txtId = (gcnew System::Windows::Forms::TextBox());
 			this->txtDescription = (gcnew System::Windows::Forms::TextBox());
 			this->txtName = (gcnew System::Windows::Forms::TextBox());
@@ -172,6 +171,8 @@ namespace SalesView {
 			// panel2
 			// 
 			this->panel2->Controls->Add(this->btnSearch);
+			this->panel2->Controls->Add(this->btnAllView);
+			this->panel2->Controls->Add(this->btnClear);
 			this->panel2->Controls->Add(this->btnDelete);
 			this->panel2->Controls->Add(this->btnUpdate);
 			this->panel2->Controls->Add(this->btnAdds);
@@ -182,9 +183,9 @@ namespace SalesView {
 			// 
 			// btnSearch
 			// 
-			this->btnSearch->Location = System::Drawing::Point(567, 13);
+			this->btnSearch->Location = System::Drawing::Point(371, 13);
 			this->btnSearch->Name = L"btnSearch";
-			this->btnSearch->Size = System::Drawing::Size(126, 23);
+			this->btnSearch->Size = System::Drawing::Size(82, 23);
 			this->btnSearch->TabIndex = 15;
 			this->btnSearch->Text = L"Buscar";
 			this->btnSearch->UseVisualStyleBackColor = true;
@@ -192,9 +193,9 @@ namespace SalesView {
 			// 
 			// btnDelete
 			// 
-			this->btnDelete->Location = System::Drawing::Point(383, 13);
+			this->btnDelete->Location = System::Drawing::Point(251, 13);
 			this->btnDelete->Name = L"btnDelete";
-			this->btnDelete->Size = System::Drawing::Size(126, 23);
+			this->btnDelete->Size = System::Drawing::Size(82, 23);
 			this->btnDelete->TabIndex = 14;
 			this->btnDelete->Text = L"&Eliminar";
 			this->btnDelete->UseVisualStyleBackColor = true;
@@ -202,9 +203,9 @@ namespace SalesView {
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(200, 13);
+			this->btnUpdate->Location = System::Drawing::Point(135, 13);
 			this->btnUpdate->Name = L"btnUpdate";
-			this->btnUpdate->Size = System::Drawing::Size(126, 23);
+			this->btnUpdate->Size = System::Drawing::Size(82, 23);
 			this->btnUpdate->TabIndex = 13;
 			this->btnUpdate->Text = L"&Modificar";
 			this->btnUpdate->UseVisualStyleBackColor = true;
@@ -214,7 +215,7 @@ namespace SalesView {
 			// 
 			this->btnAdds->Location = System::Drawing::Point(15, 13);
 			this->btnAdds->Name = L"btnAdds";
-			this->btnAdds->Size = System::Drawing::Size(126, 23);
+			this->btnAdds->Size = System::Drawing::Size(82, 23);
 			this->btnAdds->TabIndex = 12;
 			this->btnAdds->Text = L"&Agregar";
 			this->btnAdds->UseVisualStyleBackColor = true;
@@ -223,12 +224,9 @@ namespace SalesView {
 			// panel1
 			// 
 			this->panel1->Controls->Add(this->cmbCategories);
-			this->panel1->Controls->Add(this->btnClear);
-			this->panel1->Controls->Add(this->btnAllView);
 			this->panel1->Controls->Add(this->label1);
 			this->panel1->Controls->Add(this->txtPrice);
 			this->panel1->Controls->Add(this->txtBonusPoints);
-			this->panel1->Controls->Add(this->txtBrand);
 			this->panel1->Controls->Add(this->txtId);
 			this->panel1->Controls->Add(this->txtDescription);
 			this->panel1->Controls->Add(this->txtName);
@@ -254,9 +252,9 @@ namespace SalesView {
 			// 
 			// btnClear
 			// 
-			this->btnClear->Location = System::Drawing::Point(630, 228);
+			this->btnClear->Location = System::Drawing::Point(611, 13);
 			this->btnClear->Name = L"btnClear";
-			this->btnClear->Size = System::Drawing::Size(75, 23);
+			this->btnClear->Size = System::Drawing::Size(82, 23);
 			this->btnClear->TabIndex = 14;
 			this->btnClear->Text = L"Limpiar";
 			this->btnClear->UseVisualStyleBackColor = true;
@@ -264,9 +262,9 @@ namespace SalesView {
 			// 
 			// btnAllView
 			// 
-			this->btnAllView->Location = System::Drawing::Point(547, 189);
+			this->btnAllView->Location = System::Drawing::Point(490, 13);
 			this->btnAllView->Name = L"btnAllView";
-			this->btnAllView->Size = System::Drawing::Size(75, 23);
+			this->btnAllView->Size = System::Drawing::Size(82, 23);
 			this->btnAllView->TabIndex = 13;
 			this->btnAllView->Text = L"Mostrar todo";
 			this->btnAllView->UseVisualStyleBackColor = true;
@@ -294,13 +292,6 @@ namespace SalesView {
 			this->txtBonusPoints->Name = L"txtBonusPoints";
 			this->txtBonusPoints->Size = System::Drawing::Size(100, 20);
 			this->txtBonusPoints->TabIndex = 10;
-			// 
-			// txtBrand
-			// 
-			this->txtBrand->Location = System::Drawing::Point(439, 139);
-			this->txtBrand->Name = L"txtBrand";
-			this->txtBrand->Size = System::Drawing::Size(33, 20);
-			this->txtBrand->TabIndex = 9;
 			// 
 			// txtId
 			// 
@@ -485,6 +476,7 @@ namespace SalesView {
 				p->Marca = cmbCategories->Text;
 				p->Status = "Habilitado";
 				categoriesList[i]->ProductsList->Add(p);
+				SalesManager::AddProduct(p);
 				SalesManager::UpdateCategories(categoriesList[i]);
 			}
 		}
@@ -594,7 +586,7 @@ namespace SalesView {
 		System::Void ClearControls() {
 			txtId->Clear();
 			txtName->Clear();
-			txtBrand->Clear();
+			//txtBrand->Clear();
 			txtBonusPoints->Clear();
 			txtDescription->Clear();
 			txtPrice->Clear();

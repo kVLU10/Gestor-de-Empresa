@@ -4,6 +4,7 @@
     <Client>
       <Birthday>01/01/01</Birthday>
       <Status>0</Status>
+      <Address>Pueblo Paleta</Address>
       <PersonalEmail>mail@me.com</PersonalEmail>
       <PhoneNumber>987654321</PhoneNumber>
       <SecondLastName>Fuji</SecondLastName>

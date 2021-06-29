@@ -2,29 +2,45 @@
 <CategoriesDB xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ListDB>
     <Categories>
-      <ProductsList />
-      <Name>sasdasdasd</Name>
+      <ProductsList>
+        <Products>
+          <Description>Zapato marca Nike, talla 39 para hombres.</Description>
+          <Marca>Calzado</Marca>
+          <Precio>90</Precio>
+          <Status>Habilitado</Status>
+          <BonusPoints>2</BonusPoints>
+          <Quantity>0</Quantity>
+          <Name>Nike-39</Name>
+          <Id>1001</Id>
+        </Products>
+        <Products>
+          <Description>Zapato marca Adidas, talla 38 para mujeres.</Description>
+          <Marca>Calzado</Marca>
+          <Precio>69.9</Precio>
+          <Status>Habilitado</Status>
+          <BonusPoints>215</BonusPoints>
+          <Quantity>0</Quantity>
+          <Name>Adidas-38</Name>
+          <Id>1002</Id>
+        </Products>
+      </ProductsList>
+      <Name>Calzado</Name>
       <Id>1</Id>
-    </Categories>
-    <Categories>
-      <ProductsList />
-      <Name>sad112121</Name>
-      <Id>22</Id>
     </Categories>
     <Categories>
       <ProductsList>
         <Products>
-          <Description>Electrodoméstico para calentar y hornear comida</Description>
-          <Marca>as21</Marca>
-          <Precio>110.5</Precio>
+          <Description>Tablet PeraPad, con características dudosamente iguales a la manzana.</Description>
+          <Marca>Electrónicos</Marca>
+          <Precio>650</Precio>
           <Status>Habilitado</Status>
-          <BonusPoints>104</BonusPoints>
+          <BonusPoints>200</BonusPoints>
           <Quantity>0</Quantity>
-          <Name>asdga</Name>
-          <Id>23</Id>
+          <Name>PeraPad</Name>
+          <Id>2001</Id>
         </Products>
       </ProductsList>
-      <Name>as21</Name>
+      <Name>Electrónicos</Name>
       <Id>2</Id>
     </Categories>
   </ListDB>

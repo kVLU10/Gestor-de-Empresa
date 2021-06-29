@@ -299,7 +299,9 @@ namespace SalesView {
 			// 
 			// panel3
 			// 
+			this->panel3->Controls->Add(this->btnAllView);
 			this->panel3->Controls->Add(this->btnSearch);
+			this->panel3->Controls->Add(this->btnClear);
 			this->panel3->Controls->Add(this->btnDelete);
 			this->panel3->Controls->Add(this->btnUpdate);
 			this->panel3->Controls->Add(this->btnAdd);
@@ -310,9 +312,9 @@ namespace SalesView {
 			// 
 			// btnSearch
 			// 
-			this->btnSearch->Location = System::Drawing::Point(529, 13);
+			this->btnSearch->Location = System::Drawing::Point(380, 13);
 			this->btnSearch->Name = L"btnSearch";
-			this->btnSearch->Size = System::Drawing::Size(126, 23);
+			this->btnSearch->Size = System::Drawing::Size(82, 23);
 			this->btnSearch->TabIndex = 16;
 			this->btnSearch->Text = L"Buscar";
 			this->btnSearch->UseVisualStyleBackColor = true;
@@ -320,9 +322,9 @@ namespace SalesView {
 			// 
 			// btnDelete
 			// 
-			this->btnDelete->Location = System::Drawing::Point(368, 13);
+			this->btnDelete->Location = System::Drawing::Point(265, 13);
 			this->btnDelete->Name = L"btnDelete";
-			this->btnDelete->Size = System::Drawing::Size(126, 23);
+			this->btnDelete->Size = System::Drawing::Size(82, 23);
 			this->btnDelete->TabIndex = 5;
 			this->btnDelete->Text = L"&Eliminar";
 			this->btnDelete->UseVisualStyleBackColor = true;
@@ -330,9 +332,9 @@ namespace SalesView {
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(206, 12);
+			this->btnUpdate->Location = System::Drawing::Point(140, 13);
 			this->btnUpdate->Name = L"btnUpdate";
-			this->btnUpdate->Size = System::Drawing::Size(126, 24);
+			this->btnUpdate->Size = System::Drawing::Size(82, 23);
 			this->btnUpdate->TabIndex = 4;
 			this->btnUpdate->Text = L"&Modificar";
 			this->btnUpdate->UseVisualStyleBackColor = true;
@@ -340,9 +342,9 @@ namespace SalesView {
 			// 
 			// btnAdd
 			// 
-			this->btnAdd->Location = System::Drawing::Point(33, 13);
+			this->btnAdd->Location = System::Drawing::Point(15, 13);
 			this->btnAdd->Name = L"btnAdd";
-			this->btnAdd->Size = System::Drawing::Size(126, 23);
+			this->btnAdd->Size = System::Drawing::Size(82, 23);
 			this->btnAdd->TabIndex = 3;
 			this->btnAdd->Text = L"&Agregar";
 			this->btnAdd->UseVisualStyleBackColor = true;
@@ -350,8 +352,6 @@ namespace SalesView {
 			// 
 			// panel2
 			// 
-			this->panel2->Controls->Add(this->btnAllView);
-			this->panel2->Controls->Add(this->btnClear);
 			this->panel2->Controls->Add(this->txtAddress);
 			this->panel2->Controls->Add(this->label2);
 			this->panel2->Controls->Add(this->cmbDistrit);
@@ -379,9 +379,9 @@ namespace SalesView {
 			// 
 			// btnAllView
 			// 
-			this->btnAllView->Location = System::Drawing::Point(489, 209);
+			this->btnAllView->Location = System::Drawing::Point(497, 13);
 			this->btnAllView->Name = L"btnAllView";
-			this->btnAllView->Size = System::Drawing::Size(75, 23);
+			this->btnAllView->Size = System::Drawing::Size(82, 23);
 			this->btnAllView->TabIndex = 76;
 			this->btnAllView->Text = L"Mostrar todo";
 			this->btnAllView->UseVisualStyleBackColor = true;
@@ -389,9 +389,9 @@ namespace SalesView {
 			// 
 			// btnClear
 			// 
-			this->btnClear->Location = System::Drawing::Point(610, 209);
+			this->btnClear->Location = System::Drawing::Point(611, 13);
 			this->btnClear->Name = L"btnClear";
-			this->btnClear->Size = System::Drawing::Size(75, 23);
+			this->btnClear->Size = System::Drawing::Size(82, 23);
 			this->btnClear->TabIndex = 75;
 			this->btnClear->Text = L"Limpiar";
 			this->btnClear->UseVisualStyleBackColor = true;
@@ -604,6 +604,7 @@ namespace SalesView {
 		c->PhoneNumber = txtTelefono->Text;
 		c->PersonalEmail = txtCorreo->Text;
 		c->Birthday = txtBirthday->Text;
+		c->Address = txtAddress->Text;
 
 		//Client^ c = gcnew Client(Id, FirstName, SecondName, FirstLastName, SecondLastName,
 		//	 "AVENIDA Peru", 123, Birthday, PersonalEmail, PhoneNumber);
@@ -632,6 +633,7 @@ namespace SalesView {
 				c->PhoneNumber = txtTelefono->Text;
 				c->PersonalEmail = txtCorreo->Text;
 				c->Birthday = txtBirthday->Text;
+				c->Address = txtAddress->Text;
 
 				SalesManager::UpdateClient(c);
 				refreshDGVClient();
@@ -680,7 +682,8 @@ namespace SalesView {
 						clientList[i]->PhoneNumber,
 						"" + clientList[i]->Id,
 						clientList[i]->PersonalEmail,
-						clientList[i]->Birthday
+						clientList[i]->Birthday,
+						clientList[i]->Address
 				});
 			}
 		}
@@ -694,6 +697,7 @@ namespace SalesView {
 			txtTelefono->Clear();
 			txtCorreo->Clear();
 			txtBirthday->Clear();
+			txtAddress->Clear();
 		}
 	private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^ e) {
 		Client^ c = gcnew Client();
@@ -712,20 +716,22 @@ namespace SalesView {
 			c->PhoneNumber = txtTelefono->Text;
 			c->PersonalEmail = txtCorreo->Text;
 			c->Birthday = txtBirthday->Text;
+			c->Address = txtAddress->Text;
 			
 			dgvClient->Rows->Clear();
 			List<Client^>^ clientList = SalesManager::QueryClient();
 			for (int i = 0; i < clientList->Count; i++) {
 				if (c->Id == clientList[i]->Id)
 					dgvClient->Rows->Add(gcnew array<String^>{
-						clientList[i]->FirstName,
+					clientList[i]->FirstName,
 						clientList[i]->SecondName,
 						clientList[i]->FirstLastName,
 						clientList[i]->SecondLastName,
 						clientList[i]->PhoneNumber,
 						"" + clientList[i]->Id,
 						clientList[i]->PersonalEmail,
-						clientList[i]->Birthday
+						clientList[i]->Birthday,
+						clientList[i]->Address
 				});
 			}
 		}
@@ -755,6 +761,7 @@ namespace SalesView {
 				txtTelefono->Text = client->PhoneNumber;
 				txtCorreo->Text = client->PersonalEmail;
 				txtBirthday->Text = client->Birthday;
+				txtAddress->Text = client->Address;
 			}
 		}
 	}
