@@ -7,7 +7,10 @@ System::Void SalesView::ProductSearch2Form::dgvProducts_CellClick(System::Object
 	int cateId = 1;
 
 	int productsId = 1;
-	Categories^ c = SalesManager::QueryCategoriesById(cateId);
+
+	int cateId2 = ((ComboBoxIdItem^)cmbCategoria->Items[cmbCategoria->SelectedIndex])->Value;
+	//int productsId = ((ComboBoxIdItem^)cmbProducts->Items[cmbCategoria->SelectedIndex])->Value;
+	Categories^ c = SalesManager::QueryCategoriesById(cateId2);
 	//int productId = ((ComboBoxIdItem^)cmbProducts->Items[cmbProducts->SelectedIndex])->Value;
 	int proid = 99999;
 

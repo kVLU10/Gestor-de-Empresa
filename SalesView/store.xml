@@ -2,24 +2,37 @@
 <StoreDB xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ListDB>
     <Store>
+      <ProductsList />
       <Status>Habilitado</Status>
       <Adress>Sala</Adress>
       <Name>Almacen2</Name>
       <Id>123456</Id>
     </Store>
     <Store>
+      <ProductsList />
       <Status>Habilitado</Status>
       <Adress>Sala</Adress>
       <Name>Almacen3</Name>
       <Id>654321</Id>
     </Store>
     <Store>
+      <ProductsList>
+        <Products>
+          <Marca>Electrónicos</Marca>
+          <Precio>650</Precio>
+          <BonusPoints>0</BonusPoints>
+          <Quantity>4</Quantity>
+          <Name>PeraPad</Name>
+          <Id>2001</Id>
+        </Products>
+      </ProductsList>
       <Status>Habilitado</Status>
       <Adress>Pueblo Paleta</Adress>
       <Name>Almacen4</Name>
       <Id>10293847</Id>
     </Store>
     <Store>
+      <ProductsList />
       <Status>Inhabilitado</Status>
       <Adress>Pueblo azul</Adress>
       <Name>Almacen5sassas677</Name>
