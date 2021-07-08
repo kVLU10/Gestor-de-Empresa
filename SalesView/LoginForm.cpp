@@ -4,12 +4,12 @@
 System::Void SalesView::LoginForm::btnAccept_Click(System::Object^ sender, System::EventArgs^ e) {
 	/*Personal^ personal = SalesController::SalesManager::ValidateUser(txtUsername->Text,
 																		txtPassword->Text);*/
-	Personal^ personal = SalesController::SalesManager::ValidateUser(txtUsername->Text, txtPassword->Text);
-	if (personal != nullptr) {
-		MessageBox::Show("Bienvenido " + personal->FirstName + " " +
-						 personal->FirstLastName);
+	Person^ person = SalesController::SalesManager::ValidateUser(txtUsername->Text, txtPassword->Text);
+	if (person != nullptr) {
+		MessageBox::Show("Bienvenido " + person->FirstName + " " +
+						 person->FirstLastName);
 		this->Hide();
-		SalesMainForm::personal = personal;
+		SalesMainForm::person = person;
 	}
 	else
 	{

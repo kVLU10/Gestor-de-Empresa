@@ -6,6 +6,7 @@
 #include <time.h>
 #include "ComboBoxIdItem.h"
 #include "ComboBoxItem.h"
+#include "ComboBoxItem1.h"
 
 namespace SalesView {
 
@@ -149,7 +150,7 @@ namespace SalesView {
 		cmbPersonal->Items->Clear();
 		List <Personal^>^ personalList = SalesManager::QueryPersonal();
 		for (int i = 0; i < personalList->Count; i++) {
-			cmbPersonal->Items->Add(gcnew ComboBoxIdItem(personalList[i]->FirstName + " " + personalList[i]->FirstLastName, personalList[i]->Id));
+			cmbPersonal->Items->Add(gcnew ComboBoxItem1(personalList[i]->FirstName + " " + personalList[i]->FirstLastName, personalList[i]->DocumentNumber));
 		}
 	}
 
@@ -164,8 +165,8 @@ namespace SalesView {
 		
 		//if (opnfd->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 		//{
-			int personalId = ((ComboBoxIdItem^)cmbPersonal->SelectedItem)->Value;
-			Personal^ personal = SalesManager::QueryPersonalByDocumentNumber(personalId);
+			String^ personalDocument = ((ComboBoxItem1^)cmbPersonal->SelectedItem)->Value;
+			Personal^ personal = SalesManager::QueryPersonalByDocumentNumber(personalDocument);
 			srand(time(NULL));
 			int num;
 			num = rand() % 2;
@@ -197,7 +198,7 @@ namespace SalesView {
 			horacio = Int32::Parse(txtHora->Text);
 			if (num == 1)
 			{
-				pbHuella->Image = gcnew Bitmap(".\\Resources\\" + personal->FirstName[0] + personal->FirstLastName[0] + "" + personal->Id + ".jpg");//Bitmap(opnfd->FileName);
+				pbHuella->Image = gcnew Bitmap(".\\Resources\\" + personal->FirstName[0] + personal->FirstLastName[0] + personal->DocumentNumber + ".jpg");//Bitmap(opnfd->FileName);
 			}
 			else
 			{

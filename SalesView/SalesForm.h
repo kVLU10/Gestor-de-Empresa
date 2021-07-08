@@ -293,7 +293,7 @@ namespace SalesView {
 		cmbClient->Items->Clear();
 			List <Client^>^ clientList = SalesManager::QueryClient();
 			for (int i = 0; i < clientList->Count; i++) {
-				cmbClient->Items->Add(gcnew ComboBoxItem(clientList[i]->FirstName + " " + clientList[i]->FirstLastName));
+				cmbClient->Items->Add(gcnew ComboBoxItem1(clientList[i]->FirstName + " " + clientList[i]->FirstLastName, clientList[i]->DocumentNumber));
 			}
 	}
 
@@ -309,7 +309,7 @@ namespace SalesView {
 		cmbPersonal->Items->Clear();
 		List <Personal^>^ personalList = SalesManager::QueryPersonal();
 		for (int i = 0; i < personalList->Count; i++) {
-			cmbPersonal->Items->Add(gcnew ComboBoxItem(personalList[i]->FirstName + " " + personalList[i]->FirstLastName));
+			cmbPersonal->Items->Add(gcnew ComboBoxItem1(personalList[i]->FirstName + " " + personalList[i]->FirstLastName, personalList[i]->DocumentNumber));
 		}
 	}
 

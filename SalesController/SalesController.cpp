@@ -93,7 +93,7 @@ void SalesController::SalesManager::UpdatePersonal(Personal^ ps)
 	DBController::UpdatePersonal(ps);
 }
 
-void SalesController::SalesManager::DeletePersonal(int DocumentNumber)
+void SalesController::SalesManager::DeletePersonal(String^ DocumentNumber)
 {
 	DBController::DeletePersonal(DocumentNumber);
 }
@@ -103,7 +103,7 @@ List<Personal^>^ SalesController::SalesManager::QueryPersonal()
 	return DBController::QueryPersonal();
 }
 
-Personal^ SalesController::SalesManager::QueryPersonalByDocumentNumber(int personalDocumentNumber)
+Personal^ SalesController::SalesManager::QueryPersonalByDocumentNumber(String^ personalDocumentNumber)
 {
 	return DBController::QueryPersonalByDocumentNumber(personalDocumentNumber);
 }
@@ -145,7 +145,7 @@ void SalesController::SalesManager::UpdateClient(Client^ c)
 	DBController::UpdateClient(c);
 }
 
-void SalesController::SalesManager::DeleteClient(int DocumentNumber)
+void SalesController::SalesManager::DeleteClient(String^ DocumentNumber)
 {
 	DBController::DeleteClient(DocumentNumber);
 }
@@ -155,7 +155,7 @@ List<Client^>^ SalesController::SalesManager::QueryClient()
 	return DBController::QueryClient();
 }
 
-Client^ SalesController::SalesManager::QueryClientByDocumentNumber(int clientDocumentNumber)
+Client^ SalesController::SalesManager::QueryClientByDocumentNumber(String^ clientDocumentNumber)
 {
 	return DBController::QueryClientByDocumentNumber(clientDocumentNumber);
 }
@@ -166,7 +166,7 @@ void SalesController::SalesManager::RegisterSale(Sale^ sale)
 }
 
 
-Personal^ SalesController::SalesManager::ValidateUser(String^ username, String^ password)
+Person^ SalesController::SalesManager::ValidateUser(String^ username, String^ password)
 {
 	/*
 	Personal^ personal = nullptr;

@@ -19,7 +19,7 @@ namespace Proyecto {
         property List<Asistencia^>^ AsistenciaList;
         property String^ Activo;
         Personal() {}
-        Personal(int id, String^ username, String^ password, String^ firstName, String^ secondName, String^ firstLastName, String^ secondLastName, char status, double salary, double incress, 
+        Personal(int id, String^ documentNumber, String^ username, String^ password, String^ firstName, String^ secondName, String^ firstLastName, String^ secondLastName, char status, double salary, double incress, 
                  String^ personalEmail, String^ phoneNumber, String^ birthday, array<Byte>^ huella, List<Asistencia^>^ asistenciaList, String^ Activo);
         Personal(String^ username, String^ password);
     };

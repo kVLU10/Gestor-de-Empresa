@@ -37,13 +37,13 @@ System::Void SalesView::SalesForm::btnRegisterSale_Click(System::Object^ sender,
 	}
 	else {
 		Sale^ sale = gcnew Sale();
-		int customerId = ((ComboBoxItem^)cmbClient->SelectedItem)->Value;
+		String^ customerId = ((ComboBoxItem1^)cmbClient->SelectedItem)->Value;
 		sale->client = SalesManager::QueryClientByDocumentNumber(customerId);
 		DateTime dt = dtpSaleDate->Value;
 		sale->Date = dt.Hour + ":" + dt.Minute; //ToString();
 		sale->Total = Double::Parse(txtTotal->Text);
 		sale->State = 'A';
-		int personalId = ((ComboBoxItem^)cmbPersonal->SelectedItem)->Value;
+		String^ personalId = ((ComboBoxItem1^)cmbPersonal->SelectedItem)->Value;
 		sale->personal = SalesManager::QueryPersonalByDocumentNumber(personalId);
 		sale->store = SalesManager::QueryStoreByDocumentNumber(((ComboBoxItem^)cmbStore->SelectedItem)->Value);
 		sale->Details = gcnew List<SaleDetail^>();

@@ -1,4 +1,5 @@
 #pragma once
+#include "ConnectionParam.h"
 
 using namespace System;
 using namespace Proyecto;
@@ -67,6 +68,7 @@ namespace SalesController {
 	{
 		//Definimos miembros estáticos
 		private:
+			static ConnectionParam^ connParam;
 			static AsistenciaDB^ asistenciaDB = gcnew AsistenciaDB();
 			static CategoriesDB^ categoriesDB = gcnew CategoriesDB();
 			static ProductDB^ productDB = gcnew ProductDB();
@@ -75,15 +77,17 @@ namespace SalesController {
 			static ClientDB^ clientDB = gcnew ClientDB();
 			static DistritDB^ distritDB = gcnew DistritDB();
 			static SaleDB^ saleDB = gcnew SaleDB();
+			static SqlConnection^ GetConnection();
 
 		public:
+			static void Init();
 			//Permanencia de datos Asistencia
 			static void SaveAsistencia();
 			static void LoadAsistencia();
 			//Permanencia de datos personal
 			static void SavePersonal();
 			static void LoadPersonal();
-			static Personal^ ValidateUser(String^ username, String^ password);
+			static Person^ ValidateUser(String^ username, String^ password);
 			//Permanencia de datos categorias
 			static void SaveCategories();
 			static void LoadCategories();
@@ -117,9 +121,9 @@ namespace SalesController {
 			//Personal
 			static void AddPersonal(Personal^);
 			static void UpdatePersonal(Personal^);
-			static void DeletePersonal(int DocumentNumber);
+			static void DeletePersonal(String^ DocumentNumber);
 			static List<Personal^>^ QueryPersonal();
-			static Personal^ QueryPersonalByDocumentNumber(int personalDocumentNumber);
+			static Personal^ QueryPersonalByDocumentNumber(String^ personalDocumentNumber);
 
 			//Stores
 			static void AddStore(Store^);
@@ -131,9 +135,9 @@ namespace SalesController {
 			//Clientes
 			static void AddClient(Client^);
 			static void UpdateClient(Client^);
-			static void DeleteClient(int DocumentNumber);
+			static void DeleteClient(String^ DocumentNumber);
 			static List<Client^>^ QueryClient();
-			static Client^ QueryClientByDocumentNumber(int clientDocumentNumber);
+			static Client^ QueryClientByDocumentNumber(String^ clientDocumentNumber);
 
 			//Departamentos
 			static void AddDistrit(Distrit^);

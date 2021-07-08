@@ -31,9 +31,9 @@ namespace SalesController {
 		//Métodos CRUD para Personal
 		static void AddPersonal(Personal^);
 		static void UpdatePersonal(Personal^);
-		static void DeletePersonal(int DoumentNumber);
+		static void DeletePersonal(String^ DoumentNumber);
 		static List<Personal^>^ QueryPersonal();
-		static Personal^ QueryPersonalByDocumentNumber(int personalDocumentNumber);
+		static Personal^ QueryPersonalByDocumentNumber(String^ personalDocumentNumber);
 
 			//Méstodos CRUD para Store
 			static void AddStore(Store^);
@@ -45,16 +45,16 @@ namespace SalesController {
 			//Métodos CRUD para Clientes
 			static void AddClient(Client^);
 			static void UpdateClient(Client^);
-			static void DeleteClient(int DocumentNumber);
+			static void DeleteClient(String^ DocumentNumber);
 			static List<Client^>^ QueryClient();
-			static Client^ QueryClientByDocumentNumber(int clientDocumentNumber);
+			static Client^ QueryClientByDocumentNumber(String^ clientDocumentNumber);
 
 			//Distritos
 			static void AddDistrit(Distrit^);
 			static List<Distrit^>^ QueryDistrit();
 
 			//Métodos para la autenticación
-			static Personal^ ValidateUser(String^ username, String^ password);
+			static Person^ ValidateUser(String^ username, String^ password);
 
 			/*Sale*/
 			static void RegisterSale(Sale^);
