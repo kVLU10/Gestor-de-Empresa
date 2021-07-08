@@ -379,11 +379,46 @@ void SalesController::DBController::AddProduct(Products^ product)
 
 void SalesController::DBController::UpdateProduct(Products^ product)
 {
-    for (int i = 0; i < productDB->ListDB->Count; i++)
+   /* for (int i = 0; i < productDB->ListDB->Count; i++)
         if (productDB->ListDB[i]->Id == product->Id) {
             productDB->ListDB[i] = product;
         }
-    SaveProducts();
+    SaveProducts();*/
+    /* 1er paso: Se obtiene la conexión */
+    SqlConnection^ conn = GetConnection();
+
+    /* 2do paso: Se prepara la sentencia */
+    SqlCommand^ comm;
+    String^ strCmd;
+        strCmd = "dbo.usp_UpdateProduct";
+        comm = gcnew SqlCommand(strCmd, conn);
+        comm->CommandType = System::Data::CommandType::StoredProcedure;
+        
+        comm->Parameters->Add("@name", System::Data::SqlDbType::VarChar, 250);
+        comm->Parameters->Add("@quantity", System::Data::SqlDbType::Int);
+        comm->Parameters->Add("@bonus_points", System::Data::SqlDbType::Int);
+        comm->Parameters->Add("@status", System::Data::SqlDbType::VarChar, 150);
+        comm->Parameters->Add("@price", System::Data::SqlDbType::Decimal, 10);
+        comm->Parameters["@price"]->Precision = 10;
+        comm->Parameters["@price"]->Scale = 2;
+        comm->Parameters->Add("@brand", System::Data::SqlDbType::VarChar, 50);
+        comm->Parameters->Add("@description", System::Data::SqlDbType::VarChar, 500);
+
+        comm->Prepare();
+
+        Products^ p = dynamic_cast<Products^>(p);
+        comm->Parameters["@id"]->Value = p->Id;
+        comm->Parameters["@name"]->Value = p->Quantity;
+        comm->Parameters["@title"]->Value = p->BonusPoints;
+        comm->Parameters["@price"]->Value = p->Precio;
+        comm->Parameters["@status"]->Value = "A";
+
+        comm->ExecuteNonQuery();
+    
+
+    //IMPORTANTE Paso 4: Cerramos la conexión con la BD
+    if (conn != nullptr) conn->Close();
+
 }
 
 void SalesController::DBController::DeleteProduct(int productId)
@@ -397,17 +432,92 @@ void SalesController::DBController::DeleteProduct(int productId)
 
 List<Products^>^ SalesController::DBController::QueryProducts()
 {
-    LoadProducts();
+    /*LoadProducts();
+    return productDB->ListDB;*/
+    /*
     return productDB->ListDB;
+    */
+
+    /* 1er paso: Se obtiene la conexión */
+    SqlConnection^ conn = GetConnection();
+
+    /* 2do paso: Se prepara la sentencia */
+    SqlCommand^ comm = gcnew SqlCommand("usp_QueryAllProducts", conn);
+    comm->CommandType = System::Data::CommandType::StoredProcedure;
+
+    SqlDataReader^ reader = comm->ExecuteReader();
+
+    List<Products^>^ list = gcnew List<Products^>();
+    while (reader->Read()) {
+            Products^ s = gcnew Products();
+            s->Id = Int32::Parse(reader["id"]->ToString());
+            s->Name = reader["name"]->ToString();
+            s->Description = reader["description"]->ToString();
+            s->Precio = Double::Parse(reader["price"]->ToString());
+            s->BonusPoints = Int32::Parse(reader["bonus_points"]->ToString());
+            s->Quantity = Int32::Parse(reader["quantity"]->ToString());
+            s->Marca = reader["brand"]->ToString();
+            s->Status = reader["status"]->ToString();
+            list->Add(s);
+        
+    }
+
+    //IMPORTANTE Paso 4: Cerramos la conexión con la BD
+    if (reader != nullptr) reader->Close();
+    if (conn != nullptr) conn->Close();
+
+    return list;
 }
 
 Products^ SalesController::DBController::QueryProductById(int productId)
 {
-    LoadProducts();
+    /*LoadProducts();
     for (int i = 0; i < productDB->ListDB->Count; i++)
         if (productDB->ListDB[i]->Id == productId)
             return productDB->ListDB[i];
-    return nullptr;
+    return nullptr;*/
+
+    /* 1er paso: Se obtiene la conexión */
+    SqlConnection^ conn = GetConnection();
+
+    /* 2do paso: Se prepara la sentencia */
+    SqlCommand^ comm;
+
+    comm = gcnew SqlCommand("usp_QueryProductById", conn);
+    comm->CommandType = System::Data::CommandType::StoredProcedure;
+    comm->Parameters->Add("@id", System::Data::SqlDbType::Int);
+    comm->Prepare();
+    comm->Parameters["@id"]->Value = productId;
+
+    /* 3er paso: Se ejecuta la sentencia */
+    SqlDataReader^ reader = comm->ExecuteReader();
+
+    /* 4to paso: Se evalúa el resultado */
+    Products^ p = nullptr;
+    if (reader->Read()) {
+        p = gcnew Products();
+        if (!DBNull::Value->Equals(reader["id"]))
+            p->Id = Int32::Parse(reader["id"]->ToString());
+        if (!DBNull::Value->Equals(reader["name"]))
+            p->Name = reader["name"]->ToString();
+        if (!DBNull::Value->Equals(reader["description"]))
+            p->Description = reader["description"]->ToString();
+        if (!DBNull::Value->Equals(reader["price"]))
+            p->Precio = Double::Parse(reader["price"]->ToString());
+        if (!DBNull::Value->Equals(reader["quantity"]))
+            p->Quantity = Int32::Parse(reader["quantity"]->ToString());
+        if (!DBNull::Value->Equals(reader["brand"]))
+            p->Marca = reader["brand"]->ToString();
+        if (!DBNull::Value->Equals(reader["bonus_points"]))
+            p->BonusPoints = Int32::Parse(reader["bonus_points"]->ToString());
+        if (!DBNull::Value->Equals(reader["status"]))
+            p->Status = reader["status"]->ToString();
+    }
+
+    /* 5to Paso: Cerramos la conexión con la BD */
+    if (conn != nullptr)	conn->Close();
+    return p;
+
 }
 
 void SalesController::DBController::AddPersonal(Personal^ personal)
