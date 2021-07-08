@@ -128,7 +128,7 @@ namespace SalesView {
 			this->tboxName->Location = System::Drawing::Point(72, 92);
 			this->tboxName->Margin = System::Windows::Forms::Padding(2);
 			this->tboxName->Name = L"tboxName";
-			this->tboxName->Size = System::Drawing::Size(291, 20);
+			this->tboxName->Size = System::Drawing::Size(341, 20);
 			this->tboxName->TabIndex = 0;
 			this->tboxName->TextChanged += gcnew System::EventHandler(this, &StoreForm::tboxName_TextChanged);
 			// 
@@ -137,7 +137,7 @@ namespace SalesView {
 			this->tboxDistrit->Location = System::Drawing::Point(72, 132);
 			this->tboxDistrit->Margin = System::Windows::Forms::Padding(2);
 			this->tboxDistrit->Name = L"tboxDistrit";
-			this->tboxDistrit->Size = System::Drawing::Size(291, 20);
+			this->tboxDistrit->Size = System::Drawing::Size(341, 20);
 			this->tboxDistrit->TabIndex = 1;
 			// 
 			// lbNamStore
@@ -269,8 +269,9 @@ namespace SalesView {
 			this->comboBoxStatus->Location = System::Drawing::Point(272, 51);
 			this->comboBoxStatus->Margin = System::Windows::Forms::Padding(2);
 			this->comboBoxStatus->Name = L"comboBoxStatus";
-			this->comboBoxStatus->Size = System::Drawing::Size(92, 21);
+			this->comboBoxStatus->Size = System::Drawing::Size(141, 21);
 			this->comboBoxStatus->TabIndex = 12;
+			this->comboBoxStatus->Text = L"Seleccione un estado";
 			// 
 			// lbStatus
 			// 
@@ -413,6 +414,8 @@ private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^
 
 }
 private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^ e) {
+
+
 	Store^ c = gcnew Store();
 	try {
 		if (tboxid->Text->Trim() == "") {
@@ -430,12 +433,15 @@ private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^
 		List<Store^>^ storeList = SalesManager::QueryStore();
 		for (int i = 0; i < storeList->Count; i++) {
 			if (c->Id == storeList[i]->Id)
+			{
 				dataGridView1->Rows->Add(gcnew array<String^>{
-				"" + storeList[i]->Id,
-					storeList[i]->Name,
-					storeList[i]->Adress,
-					storeList[i]->Status,
-			});
+					"" + storeList[i]->Id,
+						storeList[i]->Name,
+						storeList[i]->Adress,
+						storeList[i]->Status,
+				});
+				comboBoxStatus->Text = "Seleccione un estado";
+			}
 		}
 	}
 	catch (Exception^ ex) {
@@ -481,6 +487,7 @@ private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Wi
 			tboxid->Text = "" + store->Id;
 			tboxName->Text = store->Name;
 			tboxDistrit->Text = store->Adress;
+			comboBoxStatus->Text = store->Status;
 			
 		}
 	}
@@ -492,13 +499,17 @@ private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Wi
 			   tboxid->Clear();
 			   tboxName->Clear();
 			   tboxDistrit->Clear();
+			   comboBoxStatus->Text = "Seleccione un estado";
 		   }
 private: System::Void btnClear_Click(System::Object^ sender, System::EventArgs^ e) 
 {
 	ClearControls();
+	comboBoxStatus->Text = "Seleccione un estado";
 }
 private: System::Void btnAllView_Click(System::Object^ sender, System::EventArgs^ e) {
 	RefreshDGVStores();
+	ClearControls();
+	comboBoxStatus->Text = "Seleccione un estado";
 }
 };
 }

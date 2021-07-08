@@ -17,6 +17,7 @@
     <ClCompile Include="AssistForm.cpp" />
     <ClCompile Include="ComboBoxIdItem.cpp" />
     <ClCompile Include="GraphicsForm.cpp" />
+    <ClCompile Include="ProductSearch2Form.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClientForm.h" />
@@ -34,5 +35,7 @@
     <ClInclude Include="ComboBoxItem1.h" />
     <ClInclude Include="AssistForm.h" />
     <ClInclude Include="ComboBoxIdItem.h" />
+    <ClInclude Include="GraphicsForm.h" />
+    <ClInclude Include="ProductSearch2Form.h" />
   </ItemGroup>
 </Project>
