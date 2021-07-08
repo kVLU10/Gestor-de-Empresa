@@ -394,15 +394,7 @@ void SalesController::DBController::UpdateProduct(Products^ product)
         comm = gcnew SqlCommand(strCmd, conn);
         comm->CommandType = System::Data::CommandType::StoredProcedure;
         
-        comm->Parameters->Add("@name", System::Data::SqlDbType::VarChar, 250);
-        comm->Parameters->Add("@quantity", System::Data::SqlDbType::Int);
-        comm->Parameters->Add("@bonus_points", System::Data::SqlDbType::Int);
-        comm->Parameters->Add("@status", System::Data::SqlDbType::VarChar, 150);
-        comm->Parameters->Add("@price", System::Data::SqlDbType::Decimal, 10);
-        comm->Parameters["@price"]->Precision = 10;
-        comm->Parameters["@price"]->Scale = 2;
-        comm->Parameters->Add("@brand", System::Data::SqlDbType::VarChar, 50);
-        comm->Parameters->Add("@description", System::Data::SqlDbType::VarChar, 500);
+        comm->Parameters->Add("@id", System::Data::SqlDbType::VarChar, 250);
 
         comm->Prepare();
 
@@ -423,11 +415,33 @@ void SalesController::DBController::UpdateProduct(Products^ product)
 
 void SalesController::DBController::DeleteProduct(int productId)
 {
-    for (int i = 0; i < productDB->ListDB->Count; i++) {
+    /*    for (int i = 0; i < productDB->ListDB->Count; i++) {
         if (productDB->ListDB[i]->Id == productId)
             productDB->ListDB->RemoveAt(i);
     }
-    SaveProducts();
+    SaveProducts();*/
+
+    //Paso 1
+    SqlConnection^ conn = GetConnection();
+    //Paso 2
+    SqlCommand^ comm;
+    String^ strCmd;
+    strCmd = "dbo.usp_DeleteProduct";
+    comm = gcnew SqlCommand(strCmd, conn);
+
+    comm->CommandType = System::Data::CommandType::StoredProcedure;
+    comm->Parameters->Add("@id", System::Data::SqlDbType::VarChar, 250);
+
+    comm->Prepare();
+
+    comm->Parameters["@id"]->Value = productId;
+
+    //Paso 3
+    comm->ExecuteNonQuery();
+
+    //IMPORTANTE Paso 4: Cerramos la conexión con la BD
+    if (conn != nullptr) conn->Close();
+
 }
 
 List<Products^>^ SalesController::DBController::QueryProducts()
@@ -437,6 +451,7 @@ List<Products^>^ SalesController::DBController::QueryProducts()
     /*
     return productDB->ListDB;
     */
+
 
     /* 1er paso: Se obtiene la conexión */
     SqlConnection^ conn = GetConnection();
