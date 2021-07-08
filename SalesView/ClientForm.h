@@ -596,7 +596,7 @@ namespace SalesView {
 		String^ Birthday = txtBirthday->Text;
 		*/
 
-		c->DocumentNumber = txtDocumentNumber->Text;
+		c->Id = Int32::Parse(txtDocumentNumber->Text);
 		c->FirstName = txtNombre1->Text;
 		c->SecondName = txtNombre2->Text;
 		c->FirstLastName = txtApellido1->Text;
@@ -625,7 +625,7 @@ namespace SalesView {
 		{
 			Client^ c = gcnew Client();
 			try {
-				c->DocumentNumber = txtDocumentNumber->Text;
+				c->Id = Int32::Parse(txtDocumentNumber->Text);
 				c->FirstName = txtNombre1->Text;
 				c->SecondName = txtNombre2->Text;
 				c->FirstLastName = txtApellido1->Text;
@@ -646,13 +646,13 @@ namespace SalesView {
 	}
 
 	private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ Id = "-1";
+		int Id = -1;
 		try {
 			if (txtDocumentNumber->Text->Trim() == "") {
 				MessageBox::Show("No se puede eliminar porque no hay ningún cliente seleccionado.");
 				return;
 			}
-			Id = txtDocumentNumber->Text;
+			Id = Int32::Parse(txtDocumentNumber->Text);
 		}
 		catch (...) {
 			MessageBox::Show("No se puede eliminar al cliente porque el Id no es válido.");
@@ -680,7 +680,7 @@ namespace SalesView {
 						clientList[i]->FirstLastName,
 						clientList[i]->SecondLastName,
 						clientList[i]->PhoneNumber,
-						clientList[i]->DocumentNumber,
+						"" + clientList[i]->Id,
 						clientList[i]->PersonalEmail,
 						clientList[i]->Birthday,
 						clientList[i]->Address
@@ -707,7 +707,8 @@ namespace SalesView {
 				ClearControls();
 				return;
 			}
-			c->DocumentNumber = txtDocumentNumber->Text;
+			c->Id = Int32::Parse(txtDocumentNumber->Text);
+			c->Id = Int32::Parse(txtDocumentNumber->Text);
 			c->FirstName = txtNombre1->Text;
 			c->SecondName = txtNombre2->Text;
 			c->FirstLastName = txtApellido1->Text;
@@ -720,14 +721,14 @@ namespace SalesView {
 			dgvClient->Rows->Clear();
 			List<Client^>^ clientList = SalesManager::QueryClient();
 			for (int i = 0; i < clientList->Count; i++) {
-				if (c->DocumentNumber == clientList[i]->DocumentNumber)
+				if (c->Id == clientList[i]->Id)
 					dgvClient->Rows->Add(gcnew array<String^>{
 					clientList[i]->FirstName,
 						clientList[i]->SecondName,
 						clientList[i]->FirstLastName,
 						clientList[i]->SecondLastName,
 						clientList[i]->PhoneNumber,
-						clientList[i]->DocumentNumber,
+						"" + clientList[i]->Id,
 						clientList[i]->PersonalEmail,
 						clientList[i]->Birthday,
 						clientList[i]->Address
@@ -748,11 +749,11 @@ namespace SalesView {
 			DataGridViewRow^ selectedRow = dgvClient->Rows[selectedrowindex];
 			String^ a = selectedRow->Cells[5]->Value->ToString();
 
-			String^ clientID = a;
+			int clientID = Int32::Parse(a);
 			Client^ client = SalesManager::QueryClientByDocumentNumber(clientID);
 			//MessageBox::Show(customer->ToString());
 			if (client != nullptr) {
-				txtDocumentNumber->Text = client->DocumentNumber;
+				txtDocumentNumber->Text = "" + client->Id;
 				txtNombre1->Text = client->FirstName;
 				txtNombre2->Text = client->SecondName;
 				txtApellido1->Text = client->FirstLastName;

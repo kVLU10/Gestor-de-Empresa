@@ -5,14 +5,12 @@
     <ClCompile Include="DBController.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="SalesController.cpp" />
-    <ClCompile Include="ConnectionParam.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DBController.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SalesController.h" />
-    <ClInclude Include="ConnectionParam.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />

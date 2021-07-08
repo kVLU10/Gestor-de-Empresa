@@ -701,7 +701,7 @@ private: System::Windows::Forms::PictureBox^ pbHuella;
 				return;
 			}
 
-			ps->DocumentNumber = txtDocumentNumber->Text;
+			ps->Id = Int32::Parse(txtDocumentNumber->Text);
 			ps->FirstName = txtNombre1->Text;
 			ps->SecondName = txtNombre2->Text;
 			ps->FirstLastName = txtApellido1->Text;
@@ -737,7 +737,7 @@ private: System::Windows::Forms::PictureBox^ pbHuella;
 		{
 			Personal^ ps = gcnew Personal();
 			try {
-				ps->DocumentNumber = txtDocumentNumber->Text;
+				ps->Id = Int32::Parse(txtDocumentNumber->Text);
 				ps->FirstName = txtNombre1->Text;
 				ps->SecondName = txtNombre2->Text;
 				ps->FirstLastName = txtApellido1->Text;
@@ -765,13 +765,13 @@ private: System::Windows::Forms::PictureBox^ pbHuella;
 	}
 
 	private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ Id = "-1";
+		int Id = -1;
 		try {
 			if (txtDocumentNumber->Text->Trim() == "") {
 				MessageBox::Show("No se puede eliminar porque no hay ningún empleado seleccionado.");
 				return;
 			}
-			Id = txtDocumentNumber->Text;
+			Id = Int32::Parse(txtDocumentNumber->Text);
 		}
 		catch (...) {
 			MessageBox::Show("No se puede eliminar al empleado porque el Id no es válido.");
@@ -818,7 +818,7 @@ private: System::Windows::Forms::PictureBox^ pbHuella;
 						personalList[i]->FirstLastName,
 						personalList[i]->SecondLastName,
 						personalList[i]->PhoneNumber,
-						personalList[i]->DocumentNumber,
+						"" + personalList[i]->Id,
 						personalList[i]->PersonalEmail,
 						personalList[i]->Username,
 						personalList[i]->Password,
@@ -850,11 +850,11 @@ private: System::Void dgvPersonal_CellClick(System::Object^ sender, System::Wind
 		DataGridViewRow^ selectedRow = dgvPersonal->Rows[selectedrowindex];
 		String^ a = selectedRow->Cells[5]->Value->ToString();
 
-		String^ personalID = a;
+		int personalID = Int32::Parse(a);
 		Personal^ personal = SalesManager::QueryPersonalByDocumentNumber(personalID);
 		//MessageBox::Show(customer->ToString());
 		if (personal != nullptr) {
-			txtDocumentNumber->Text = personal->DocumentNumber;
+			txtDocumentNumber->Text = "" + personal->Id;
 			txtNombre1->Text = personal->FirstName;
 			txtNombre2->Text = personal->SecondName;
 			txtApellido1->Text = personal->FirstLastName;
@@ -885,7 +885,7 @@ private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^
 			ClearControls();
 			return;
 		}
-		ps->DocumentNumber = txtDocumentNumber->Text;
+		ps->Id = Int32::Parse(txtDocumentNumber->Text);
 		ps->FirstName = txtNombre1->Text;
 		ps->SecondName = txtNombre2->Text;
 		ps->FirstLastName = txtApellido1->Text;
@@ -906,7 +906,7 @@ private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^
 						personalList[i]->FirstLastName,
 						personalList[i]->SecondLastName,
 						personalList[i]->PhoneNumber,
-						personalList[i]->DocumentNumber,
+						"" + personalList[i]->Id,
 						personalList[i]->PersonalEmail,
 						personalList[i]->Username,
 						personalList[i]->Password,

@@ -2,31 +2,28 @@
 <ClientDB xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ListDBC>
     <Client>
-      <Birthday>01/01/2000</Birthday>
+      <Birthday>01/01/01</Birthday>
       <Status>0</Status>
-      <Address>Av. Los Caimanes 123</Address>
-      <PersonalEmail>jaurelio@gmail.com</PersonalEmail>
-      <DocumentNumber>87654321</DocumentNumber>
-      <PhoneNumber>123456789</PhoneNumber>
-      <SecondLastName>Heinsengberg</SecondLastName>
-      <FirstLastName>Aurelio</FirstLastName>
-      <SecondName>Marco</SecondName>
-      <FirstName>Jorge</FirstName>
-      <Id>0</Id>
+      <Address>Pueblo Paleta</Address>
+      <PersonalEmail>mail@me.com</PersonalEmail>
+      <PhoneNumber>987654321</PhoneNumber>
+      <SecondLastName>Fuji</SecondLastName>
+      <FirstLastName>Castillo</FirstLastName>
+      <SecondName>Enrique</SecondName>
+      <FirstName>Rodrigo</FirstName>
+      <Id>123456789</Id>
       <BonusPoints>0</BonusPoints>
     </Client>
     <Client>
-      <Birthday>02/04/1999</Birthday>
+      <Birthday>01/01/01</Birthday>
       <Status>0</Status>
-      <Address>Calle Santa Luisa 152</Address>
-      <PersonalEmail>mflores@gmail.com</PersonalEmail>
-      <DocumentNumber>18273645</DocumentNumber>
-      <PhoneNumber>192837465</PhoneNumber>
-      <SecondLastName>De la Piedra</SecondLastName>
-      <FirstLastName>Flores</FirstLastName>
-      <SecondName>Soledad</SecondName>
-      <FirstName>Maria</FirstName>
-      <Id>0</Id>
+      <PersonalEmail>mail@me.com</PersonalEmail>
+      <PhoneNumber>987654321</PhoneNumber>
+      <SecondLastName>Fujimo</SecondLastName>
+      <FirstLastName>Caste</FirstLastName>
+      <SecondName>luis</SecondName>
+      <FirstName>Diegossfg</FirstName>
+      <Id>223456789</Id>
       <BonusPoints>0</BonusPoints>
     </Client>
   </ListDBC>

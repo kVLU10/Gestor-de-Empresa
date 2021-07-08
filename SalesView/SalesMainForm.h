@@ -26,7 +26,7 @@ namespace SalesView {
 	public ref class SalesMainForm : public System::Windows::Forms::Form
 	{
 	public:
-		static Person^ person;
+		static Personal^ personal;
 		SalesMainForm(void)
 		{
 			InitializeComponent();
@@ -243,8 +243,7 @@ namespace SalesView {
 		productForm->Show();
 	}
 	private: System::Void SalesMainForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		SalesController::DBController::Init();
-		if (person == nullptr) {
+		if (personal == nullptr) {
 			LoginForm^ loginForm = gcnew LoginForm();
 			loginForm->ControlBox = false;
 			loginForm->Text = "";

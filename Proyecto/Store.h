@@ -18,5 +18,6 @@ namespace Proyecto {
         property List<Products^>^ ProductsList;
         Store() {}
         Store(String^ name,int id,String^adress,String^status, List<Products^>^ ProductsList);
+
     };
 }

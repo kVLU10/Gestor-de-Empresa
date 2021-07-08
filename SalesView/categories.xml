@@ -39,26 +39,6 @@
           <Name>PeraPad</Name>
           <Id>2001</Id>
         </Products>
-        <Products>
-          <Description>Celular, pero: "Con eso te armabas una PC."</Description>
-          <Marca>Electrónicos</Marca>
-          <Precio>4500</Precio>
-          <Status>Habilitado</Status>
-          <BonusPoints>250</BonusPoints>
-          <Quantity>0</Quantity>
-          <Name>IPhone XV Pro Max</Name>
-          <Id>2002</Id>
-        </Products>
-        <Products>
-          <Description>Celular de la marca Xiaomi.</Description>
-          <Marca>Electrónicos</Marca>
-          <Precio>3000</Precio>
-          <Status>Habilitado</Status>
-          <BonusPoints>150</BonusPoints>
-          <Quantity>0</Quantity>
-          <Name>Redmi Note 9 Pro</Name>
-          <Id>2003</Id>
-        </Products>
       </ProductsList>
       <Name>Electrónicos</Name>
       <Id>2</Id>

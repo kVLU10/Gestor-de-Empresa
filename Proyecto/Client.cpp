@@ -9,11 +9,10 @@
  * Client implementation
  */
 
-Proyecto::Client::Client(int id, String^ documentNumber, String^ firstName, String^ secondName, String^ firstLastName, String^ secondLastName, 
+Proyecto::Client::Client(int id, String^ firstName, String^ secondName, String^ firstLastName, String^ secondLastName, 
 						 String^ address, int bonusPoints, String^ birthday, String^ personalEmail, String^ phoneNumber)
 {
 	this->Id = id;
-	this->DocumentNumber = documentNumber;
 	this->FirstName = firstName;
 	this->SecondName = secondName;
 	this->FirstLastName = firstLastName;

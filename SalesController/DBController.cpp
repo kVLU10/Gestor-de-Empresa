@@ -80,49 +80,14 @@ void SalesController::DBController::LoadPersonal()
     }
 }
 
-SqlConnection^ SalesController::DBController::GetConnection()
-{
-    SqlConnection^ conn = gcnew SqlConnection();
-    String^ connStr = "Server=" + connParam->Server + ";Database=" + connParam->Database +
-        ";User ID=" + connParam->User + ";Password=" + connParam->Password;
-    conn->ConnectionString = connStr;
-    conn->Open();
-    return conn;
-}
-
-Person^ SalesController::DBController::ValidateUser(String^ username, String^ password) {
-    Person^ person = nullptr;
-    /*
+Personal^ SalesController::DBController::ValidateUser(String^ username, String^ password) {
+    Personal^ personal = nullptr;
     for (int i = 0; i < personalDB->ListDBP->Count; i++) {
         if (personalDB->ListDBP[i]->Username->Equals(username) &&
             personalDB->ListDBP[i]->Password->Equals(password))
             return personalDB->ListDBP[i];
     }
     return personal;
-    */
-    //Paso 1
-    SqlConnection^ conn = GetConnection();
-    //Paso 2
-    SqlCommand^ comm = gcnew SqlCommand();
-    comm->Connection = conn;
-    comm->CommandText = "SELECT * FROM sales_user WHERE username='" + username +
-        "' AND password='" + password + "'";
-    //Paso 3
-    SqlDataReader^ dr = comm->ExecuteReader();
-    //Paso 4
-    if (dr->Read())
-    {
-        person = gcnew Person();
-        person->Id = (int)dr["id"];
-        person->Username = (String^)dr["username"];
-        person->FirstName = safe_cast<String^>(dr["first_name"]);
-        person->FirstLastName = safe_cast<String^>(dr["first_last_name"]);
-    }
-    //Paso 5
-    if (dr != nullptr) dr->Close();
-    if (conn != nullptr) conn->Close();
-
-    return person;
 }
 
 void SalesController::DBController::SaveCategories()
@@ -331,50 +296,8 @@ Categories^ SalesController::DBController::QueryCategoriesById(int productId)
 
 void SalesController::DBController::AddProduct(Products^ product)
 {
-    /*
     productDB->ListDB->Add(product);
     SaveProducts();
-    */
-    //Paso 1
-    SqlConnection^ conn = GetConnection();
-    //Paso 2
-    SqlCommand^ comm;
-    String^ strCmd;
-    strCmd = "dbo.usp_AddProduct";
-    comm = gcnew SqlCommand(strCmd, conn);
-    comm->CommandType = System::Data::CommandType::StoredProcedure;
-    
-    comm->Parameters->Add("@name", System::Data::SqlDbType::VarChar, 250);
-    comm->Parameters->Add("@quantity", System::Data::SqlDbType::Int);
-    comm->Parameters->Add("@bonus_points", System::Data::SqlDbType::Int);
-    comm->Parameters->Add("@status", System::Data::SqlDbType::VarChar, 150);
-    comm->Parameters->Add("@price", System::Data::SqlDbType::Decimal, 10);
-    comm->Parameters["@price"]->Precision = 10;
-    comm->Parameters["@price"]->Scale = 2;
-    comm->Parameters->Add("@brand", System::Data::SqlDbType::VarChar, 50);
-    comm->Parameters->Add("@description", System::Data::SqlDbType::VarChar, 500);
-
-    SqlParameter^ outputIdParam = gcnew SqlParameter("@id", System::Data::SqlDbType::Int);
-    outputIdParam->Direction = System::Data::ParameterDirection::Output;
-    comm->Parameters->Add(outputIdParam);
-    comm->Prepare();
-
-    comm->Parameters["@name"]->Value = product->Name;
-    comm->Parameters["@quantity"]->Value = product->Quantity;
-    comm->Parameters["@bonus_points"]->Value = product->BonusPoints;
-    comm->Parameters["@price"]->Value = product->Precio;
-    comm->Parameters["@brand"]->Value = product->Marca;
-    comm->Parameters["@status"]->Value = product->Status;
-    comm->Parameters["@description"]->Value = product->Description;
-
-    //Paso 3
-    comm->ExecuteNonQuery();
-
-    //Paso 4
-    int output_id = Convert::ToInt32(comm->Parameters["@id"]->Value);
-
-    //Paso 5
-    conn->Close();
 }
 
 void SalesController::DBController::UpdateProduct(Products^ product)
@@ -419,16 +342,16 @@ void SalesController::DBController::AddPersonal(Personal^ personal)
 void SalesController::DBController::UpdatePersonal(Personal^ personal)
 {
     for (int i = 0; i < personalDB->ListDBP->Count; i++)
-        if (personalDB->ListDBP[i]->DocumentNumber == personal->DocumentNumber) {
+        if (personalDB->ListDBP[i]->Id == personal->Id) {
             personalDB->ListDBP[i] = personal;
         }  
     SavePersonal();
 }
 
-void SalesController::DBController::DeletePersonal(String^ DocumentNumber)
+void SalesController::DBController::DeletePersonal(int DocumentNumber)
 {
     for (int i = 0; i < personalDB->ListDBP->Count; i++) {
-        if (personalDB->ListDBP[i]->DocumentNumber == DocumentNumber)
+        if (personalDB->ListDBP[i]->Id == DocumentNumber)
             personalDB->ListDBP->RemoveAt(i);
     }
     SavePersonal();
@@ -440,11 +363,11 @@ List<Personal^>^ SalesController::DBController::QueryPersonal()
     return personalDB->ListDBP;
 }
 
-Personal^ SalesController::DBController::QueryPersonalByDocumentNumber(String^ personalDocumentNumber)
+Personal^ SalesController::DBController::QueryPersonalByDocumentNumber(int personalDocumentNumber)
 {
     LoadPersonal();
     for (int i = 0; i < personalDB->ListDBP->Count; i++)
-        if (personalDB->ListDBP[i]->DocumentNumber == personalDocumentNumber)
+        if (personalDB->ListDBP[i]->Id == personalDocumentNumber)
             return personalDB->ListDBP[i];
     return nullptr;
 }
@@ -474,7 +397,7 @@ void SalesController::DBController::AddClient(Client^ client)
 void SalesController::DBController::UpdateClient(Client^ client)
 {
     for (int i = 0; i < clientDB->ListDBC->Count; i++)
-        if (clientDB->ListDBC[i]->DocumentNumber == client->DocumentNumber) {
+        if (clientDB->ListDBC[i]->Id == client->Id) {
             clientDB->ListDBC[i] = client;
         }
     SaveClient();
@@ -490,10 +413,10 @@ void SalesController::DBController::DeleteStore(int storeID)
     SaveStore();
 }
 
-void SalesController::DBController::DeleteClient(String^ DocumentNumber)
+void SalesController::DBController::DeleteClient(int DocumentNumber)
 {
     for (int i = 0; i < clientDB->ListDBC->Count; i++) {
-        if (clientDB->ListDBC[i]->DocumentNumber == DocumentNumber)
+        if (clientDB->ListDBC[i]->Id == DocumentNumber)
             clientDB->ListDBC->RemoveAt(i);
     }
     SaveClient();
@@ -524,11 +447,11 @@ List<Client^>^ SalesController::DBController::QueryClient()
     return clientDB->ListDBC;
 }
 
-Client^ SalesController::DBController::QueryClientByDocumentNumber(String^ clientDocumentNumber)
+Client^ SalesController::DBController::QueryClientByDocumentNumber(int clientDocumentNumber)
 {
     LoadClient();
     for (int i = 0; i < clientDB->ListDBC->Count; i++)
-        if (clientDB->ListDBC[i]->DocumentNumber == clientDocumentNumber)
+        if (clientDB->ListDBC[i]->Id == clientDocumentNumber)
             return clientDB->ListDBC[i];
     return nullptr;
 }
@@ -553,22 +476,4 @@ void SalesController::DBController::RegisterSale(Sale^ sale)
 
 SalesController::DistritDB::DistritDB()
 {
-}
-
-void SalesController::DBController::Init()
-{
-    System::Xml::Serialization::XmlSerializer^ reader =
-        gcnew System::Xml::Serialization::XmlSerializer(ConnectionParam::typeid);
-    System::IO::StreamReader^ file = nullptr;
-    try {
-        file = gcnew System::IO::StreamReader("init.xml");
-        connParam = (ConnectionParam^)reader->Deserialize(file);
-    }
-    catch (...) {
-
-        return;
-    }
-    finally {
-        if (file != nullptr) file->Close();
-    }
 }
