@@ -128,7 +128,7 @@ namespace SalesView {
 			this->tboxName->Location = System::Drawing::Point(72, 92);
 			this->tboxName->Margin = System::Windows::Forms::Padding(2);
 			this->tboxName->Name = L"tboxName";
-			this->tboxName->Size = System::Drawing::Size(291, 20);
+			this->tboxName->Size = System::Drawing::Size(341, 20);
 			this->tboxName->TabIndex = 0;
 			this->tboxName->TextChanged += gcnew System::EventHandler(this, &StoreForm::tboxName_TextChanged);
 			// 
@@ -137,7 +137,7 @@ namespace SalesView {
 			this->tboxDistrit->Location = System::Drawing::Point(72, 132);
 			this->tboxDistrit->Margin = System::Windows::Forms::Padding(2);
 			this->tboxDistrit->Name = L"tboxDistrit";
-			this->tboxDistrit->Size = System::Drawing::Size(291, 20);
+			this->tboxDistrit->Size = System::Drawing::Size(341, 20);
 			this->tboxDistrit->TabIndex = 1;
 			// 
 			// lbNamStore
@@ -269,7 +269,7 @@ namespace SalesView {
 			this->comboBoxStatus->Location = System::Drawing::Point(272, 51);
 			this->comboBoxStatus->Margin = System::Windows::Forms::Padding(2);
 			this->comboBoxStatus->Name = L"comboBoxStatus";
-			this->comboBoxStatus->Size = System::Drawing::Size(92, 21);
+			this->comboBoxStatus->Size = System::Drawing::Size(141, 21);
 			this->comboBoxStatus->TabIndex = 12;
 			this->comboBoxStatus->Text = L"Seleccione un estado";
 			// 

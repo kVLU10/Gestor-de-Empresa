@@ -41,7 +41,7 @@ namespace SalesView {
 	private: System::Windows::Forms::TabControl^ tabControl1;
 	protected:
 	private: System::Windows::Forms::TabPage^ tabPage1;
-	private: System::Windows::Forms::TabPage^ tabPage2;
+
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Panel^ panel4;
 	private: System::Windows::Forms::DataGridView^ dgvCategories;
@@ -88,20 +88,19 @@ namespace SalesView {
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
-			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->txtId = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->txtName = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->btnClear = (gcnew System::Windows::Forms::Button());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->btnSearch = (gcnew System::Windows::Forms::Button());
 			this->btnDelete = (gcnew System::Windows::Forms::Button());
 			this->btnUpdate = (gcnew System::Windows::Forms::Button());
+			this->btnClear = (gcnew System::Windows::Forms::Button());
 			this->btnAdd = (gcnew System::Windows::Forms::Button());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
 			this->dgvCategories = (gcnew System::Windows::Forms::DataGridView());
-			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
 			this->Id = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Nombre = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->tabControl1->SuspendLayout();
@@ -116,7 +115,6 @@ namespace SalesView {
 			// tabControl1
 			// 
 			this->tabControl1->Controls->Add(this->tabPage1);
-			this->tabControl1->Controls->Add(this->tabPage2);
 			this->tabControl1->Location = System::Drawing::Point(13, 4);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
@@ -141,7 +139,7 @@ namespace SalesView {
 			this->panel1->Controls->Add(this->panel4);
 			this->panel1->Location = System::Drawing::Point(3, 3);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(715, 593);
+			this->panel1->Size = System::Drawing::Size(715, 446);
 			this->panel1->TabIndex = 0;
 			// 
 			// panel2
@@ -152,18 +150,8 @@ namespace SalesView {
 			this->panel2->Controls->Add(this->label1);
 			this->panel2->Location = System::Drawing::Point(3, 3);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(708, 261);
+			this->panel2->Size = System::Drawing::Size(708, 122);
 			this->panel2->TabIndex = 5;
-			// 
-			// button1
-			// 
-			this->button1->Location = System::Drawing::Point(493, 13);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(82, 23);
-			this->button1->TabIndex = 5;
-			this->button1->Text = L"Mostar todo";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &CategoriesForm::button1_Click);
 			// 
 			// txtId
 			// 
@@ -197,16 +185,6 @@ namespace SalesView {
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Nombre";
 			// 
-			// btnClear
-			// 
-			this->btnClear->Location = System::Drawing::Point(614, 13);
-			this->btnClear->Name = L"btnClear";
-			this->btnClear->Size = System::Drawing::Size(82, 23);
-			this->btnClear->TabIndex = 0;
-			this->btnClear->Text = L"Limpiar";
-			this->btnClear->UseVisualStyleBackColor = true;
-			this->btnClear->Click += gcnew System::EventHandler(this, &CategoriesForm::btnClear_Click);
-			// 
 			// panel3
 			// 
 			this->panel3->Controls->Add(this->button1);
@@ -215,10 +193,20 @@ namespace SalesView {
 			this->panel3->Controls->Add(this->btnUpdate);
 			this->panel3->Controls->Add(this->btnClear);
 			this->panel3->Controls->Add(this->btnAdd);
-			this->panel3->Location = System::Drawing::Point(3, 270);
+			this->panel3->Location = System::Drawing::Point(3, 131);
 			this->panel3->Name = L"panel3";
 			this->panel3->Size = System::Drawing::Size(708, 52);
 			this->panel3->TabIndex = 4;
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(493, 13);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(82, 23);
+			this->button1->TabIndex = 5;
+			this->button1->Text = L"Mostar todo";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &CategoriesForm::button1_Click);
 			// 
 			// btnSearch
 			// 
@@ -250,6 +238,16 @@ namespace SalesView {
 			this->btnUpdate->UseVisualStyleBackColor = true;
 			this->btnUpdate->Click += gcnew System::EventHandler(this, &CategoriesForm::btnUpdate_Click_1);
 			// 
+			// btnClear
+			// 
+			this->btnClear->Location = System::Drawing::Point(614, 13);
+			this->btnClear->Name = L"btnClear";
+			this->btnClear->Size = System::Drawing::Size(82, 23);
+			this->btnClear->TabIndex = 0;
+			this->btnClear->Text = L"Limpiar";
+			this->btnClear->UseVisualStyleBackColor = true;
+			this->btnClear->Click += gcnew System::EventHandler(this, &CategoriesForm::btnClear_Click);
+			// 
 			// btnAdd
 			// 
 			this->btnAdd->Location = System::Drawing::Point(15, 13);
@@ -263,7 +261,7 @@ namespace SalesView {
 			// panel4
 			// 
 			this->panel4->Controls->Add(this->dgvCategories);
-			this->panel4->Location = System::Drawing::Point(3, 328);
+			this->panel4->Location = System::Drawing::Point(3, 189);
 			this->panel4->Name = L"panel4";
 			this->panel4->Size = System::Drawing::Size(708, 250);
 			this->panel4->TabIndex = 3;
@@ -278,16 +276,6 @@ namespace SalesView {
 			this->dgvCategories->Size = System::Drawing::Size(681, 222);
 			this->dgvCategories->TabIndex = 1;
 			this->dgvCategories->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &CategoriesForm::dgvCategories_CellClick);
-			// 
-			// tabPage2
-			// 
-			this->tabPage2->Location = System::Drawing::Point(4, 22);
-			this->tabPage2->Name = L"tabPage2";
-			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(721, 602);
-			this->tabPage2->TabIndex = 1;
-			this->tabPage2->Text = L"tabPage2";
-			this->tabPage2->UseVisualStyleBackColor = true;
 			// 
 			// Id
 			// 
@@ -307,10 +295,10 @@ namespace SalesView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(747, 609);
+			this->ClientSize = System::Drawing::Size(747, 484);
 			this->Controls->Add(this->tabControl1);
 			this->Name = L"CategoriesForm";
-			this->Text = L"CategoriesForm";
+			this->Text = L"Categoria";
 			this->tabControl1->ResumeLayout(false);
 			this->tabPage1->ResumeLayout(false);
 			this->panel1->ResumeLayout(false);
