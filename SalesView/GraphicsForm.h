@@ -360,7 +360,7 @@ private: System::Void btnSearchDNI_Click(System::Object^ sender, System::EventAr
 	piechartPersonal->Series["Asistencia"]->Points->Clear();
 	List<Personal^>^ personalList = SalesManager::QueryPersonal();
 	
-	double dni = Int32::Parse(txtDNI->Text);
+	String^ dni = txtDNI->Text;
 	
 
 
@@ -372,7 +372,7 @@ private: System::Void btnSearchDNI_Click(System::Object^ sender, System::EventAr
 
 		for (int i = 0; i < personalList->Count; i++) {
 
-			if ( personalList[i]->Id == dni) {
+			if ( personalList[i]->DocumentNumber == dni) {
 
 				for (int j = 0; j<personalList[i]->AsistenciaList->Count; j++) {
 
