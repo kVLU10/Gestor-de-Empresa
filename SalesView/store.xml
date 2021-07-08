@@ -33,7 +33,7 @@
     </Store>
     <Store>
       <ProductsList />
-      <Status>Inhabilitado</Status>
+      <Status>Desabilitado</Status>
       <Adress>Pueblo azul</Adress>
       <Name>Almacen5sassas677</Name>
       <Id>10293842</Id>

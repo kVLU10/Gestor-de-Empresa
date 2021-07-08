@@ -23,6 +23,10 @@ namespace SalesView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ name;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ price;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ stock;
+
+
+
+
 		   List<Products^>^ productList = gcnew List<Products^>();
 
 	public:
@@ -86,7 +90,7 @@ namespace SalesView {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(7, 62);
+			this->label4->Location = System::Drawing::Point(35, 77);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(50, 13);
 			this->label4->TabIndex = 21;
@@ -95,7 +99,7 @@ namespace SalesView {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(7, 24);
+			this->label3->Location = System::Drawing::Point(35, 39);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(52, 13);
 			this->label3->TabIndex = 20;
@@ -104,16 +108,17 @@ namespace SalesView {
 			// cmbProducts
 			// 
 			this->cmbProducts->FormattingEnabled = true;
-			this->cmbProducts->Location = System::Drawing::Point(74, 53);
+			this->cmbProducts->Location = System::Drawing::Point(102, 68);
 			this->cmbProducts->Name = L"cmbProducts";
 			this->cmbProducts->Size = System::Drawing::Size(121, 21);
 			this->cmbProducts->TabIndex = 19;
+			this->cmbProducts->Text = L"Seleccione una producto";
 			this->cmbProducts->SelectedIndexChanged += gcnew System::EventHandler(this, &ProductSearch2Form::cmbProducts_SelectedIndexChanged);
 			// 
 			// cmbCategoria
 			// 
 			this->cmbCategoria->FormattingEnabled = true;
-			this->cmbCategoria->Location = System::Drawing::Point(64, 12);
+			this->cmbCategoria->Location = System::Drawing::Point(102, 31);
 			this->cmbCategoria->Name = L"cmbCategoria";
 			this->cmbCategoria->Size = System::Drawing::Size(121, 21);
 			this->cmbCategoria->TabIndex = 18;
@@ -126,9 +131,9 @@ namespace SalesView {
 				this->id, this->name,
 					this->price, this->stock
 			});
-			this->dgvProducts->Location = System::Drawing::Point(12, 195);
+			this->dgvProducts->Location = System::Drawing::Point(12, 114);
 			this->dgvProducts->Name = L"dgvProducts";
-			this->dgvProducts->Size = System::Drawing::Size(457, 167);
+			this->dgvProducts->Size = System::Drawing::Size(499, 191);
 			this->dgvProducts->TabIndex = 22;
 			this->dgvProducts->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &ProductSearch2Form::dgvProducts_CellClick);
 			this->dgvProducts->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &ProductSearch2Form::dgvProducts_CellContentClick);
@@ -142,21 +147,21 @@ namespace SalesView {
 			// 
 			// name
 			// 
-			this->name->HeaderText = L"Descripción";
+			this->name->HeaderText = L"Name";
 			this->name->Name = L"name";
 			this->name->ReadOnly = true;
 			this->name->Width = 210;
 			// 
 			// price
 			// 
-			this->price->HeaderText = L"Precio";
+			this->price->HeaderText = L"Marca";
 			this->price->Name = L"price";
 			this->price->ReadOnly = true;
 			this->price->Width = 70;
 			// 
 			// stock
 			// 
-			this->stock->HeaderText = L"Stock";
+			this->stock->HeaderText = L"Precio";
 			this->stock->Name = L"stock";
 			this->stock->ReadOnly = true;
 			this->stock->Width = 70;
@@ -165,7 +170,7 @@ namespace SalesView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(523, 384);
+			this->ClientSize = System::Drawing::Size(523, 317);
 			this->Controls->Add(this->dgvProducts);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
@@ -184,6 +189,7 @@ namespace SalesView {
 	
 private: System::Void cmbCategoria_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	cmbProducts->Items->Clear();
+	dgvProducts->Rows->Clear();
 	cmbProducts->Text = ("Seleccione una producto");
 	int cateId = ((ComboBoxIdItem^)cmbCategoria->Items[cmbCategoria->SelectedIndex])->Value;
 	Categories^ c = SalesManager::QueryCategoriesById(cateId);
@@ -219,7 +225,7 @@ private: System::Void cmbCategoria_SelectedIndexChanged(System::Object^ sender, 
 						"" + pl->Id,
 							pl->Name,
 							pl->Marca,
-							"" + pl->BonusPoints,
+							"" + pl->Precio,
 							//	pl->Description,
 								//	pl->Description,
 						//		"" + pl->Precio,

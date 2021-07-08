@@ -93,17 +93,17 @@ namespace SalesView {
 		void InitializeComponent(void)
 		{
 			this->dgvStore = (gcnew System::Windows::Forms::DataGridView());
+			this->id = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->name = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Category = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Price = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Stock = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->btnDelete = (gcnew System::Windows::Forms::Button());
 			this->btnAdd = (gcnew System::Windows::Forms::Button());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->cmbStore = (gcnew System::Windows::Forms::ComboBox());
 			this->btnCancel = (gcnew System::Windows::Forms::Button());
 			this->btnSave = (gcnew System::Windows::Forms::Button());
-			this->id = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->name = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Category = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Price = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Stock = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvStore))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -114,76 +114,13 @@ namespace SalesView {
 				this->id, this->name,
 					this->Category, this->Price, this->Stock
 			});
-			this->dgvStore->Location = System::Drawing::Point(36, 266);
+			this->dgvStore->Location = System::Drawing::Point(12, 115);
 			this->dgvStore->Margin = System::Windows::Forms::Padding(2);
 			this->dgvStore->Name = L"dgvStore";
 			this->dgvStore->RowHeadersWidth = 51;
 			this->dgvStore->RowTemplate->Height = 24;
-			this->dgvStore->Size = System::Drawing::Size(536, 210);
+			this->dgvStore->Size = System::Drawing::Size(592, 246);
 			this->dgvStore->TabIndex = 23;
-			// 
-			// btnDelete
-			// 
-			this->btnDelete->Location = System::Drawing::Point(307, 221);
-			this->btnDelete->Margin = System::Windows::Forms::Padding(2);
-			this->btnDelete->Name = L"btnDelete";
-			this->btnDelete->Size = System::Drawing::Size(149, 27);
-			this->btnDelete->TabIndex = 20;
-			this->btnDelete->Text = L"&Eliminar Productos";
-			this->btnDelete->UseVisualStyleBackColor = true;
-			this->btnDelete->Click += gcnew System::EventHandler(this, &ProductsStoreForm::btnDelete_Click);
-			// 
-			// btnAdd
-			// 
-			this->btnAdd->Location = System::Drawing::Point(129, 221);
-			this->btnAdd->Margin = System::Windows::Forms::Padding(2);
-			this->btnAdd->Name = L"btnAdd";
-			this->btnAdd->Size = System::Drawing::Size(149, 27);
-			this->btnAdd->TabIndex = 18;
-			this->btnAdd->Text = L"&Agregar Productos";
-			this->btnAdd->UseVisualStyleBackColor = true;
-			this->btnAdd->Click += gcnew System::EventHandler(this, &ProductsStoreForm::btnAdd_Click);
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(102, 34);
-			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(48, 13);
-			this->label3->TabIndex = 30;
-			this->label3->Text = L"Almacén";
-			// 
-			// cmbStore
-			// 
-			this->cmbStore->FormattingEnabled = true;
-			this->cmbStore->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Habilitado", L"Desabilitado", L"Repleto" });
-			this->cmbStore->Location = System::Drawing::Point(167, 32);
-			this->cmbStore->Margin = System::Windows::Forms::Padding(2);
-			this->cmbStore->Name = L"cmbStore";
-			this->cmbStore->Size = System::Drawing::Size(307, 21);
-			this->cmbStore->TabIndex = 31;
-			this->cmbStore->SelectedIndexChanged += gcnew System::EventHandler(this, &ProductsStoreForm::cmbStore_SelectedIndexChanged);
-			// 
-			// btnCancel
-			// 
-			this->btnCancel->Location = System::Drawing::Point(281, 484);
-			this->btnCancel->Name = L"btnCancel";
-			this->btnCancel->Size = System::Drawing::Size(122, 27);
-			this->btnCancel->TabIndex = 39;
-			this->btnCancel->Text = L"Cancelar";
-			this->btnCancel->UseVisualStyleBackColor = true;
-			this->btnCancel->Click += gcnew System::EventHandler(this, &ProductsStoreForm::btnCancel_Click);
-			// 
-			// btnSave
-			// 
-			this->btnSave->Location = System::Drawing::Point(129, 483);
-			this->btnSave->Name = L"btnSave";
-			this->btnSave->Size = System::Drawing::Size(122, 28);
-			this->btnSave->TabIndex = 38;
-			this->btnSave->Text = L"Guardar";
-			this->btnSave->UseVisualStyleBackColor = true;
-			this->btnSave->Click += gcnew System::EventHandler(this, &ProductsStoreForm::btnSave_Click);
 			// 
 			// id
 			// 
@@ -220,11 +157,74 @@ namespace SalesView {
 			this->Stock->Name = L"Stock";
 			this->Stock->Width = 125;
 			// 
+			// btnDelete
+			// 
+			this->btnDelete->Location = System::Drawing::Point(325, 70);
+			this->btnDelete->Margin = System::Windows::Forms::Padding(2);
+			this->btnDelete->Name = L"btnDelete";
+			this->btnDelete->Size = System::Drawing::Size(149, 27);
+			this->btnDelete->TabIndex = 20;
+			this->btnDelete->Text = L"&Eliminar Productos";
+			this->btnDelete->UseVisualStyleBackColor = true;
+			this->btnDelete->Click += gcnew System::EventHandler(this, &ProductsStoreForm::btnDelete_Click);
+			// 
+			// btnAdd
+			// 
+			this->btnAdd->Location = System::Drawing::Point(105, 70);
+			this->btnAdd->Margin = System::Windows::Forms::Padding(2);
+			this->btnAdd->Name = L"btnAdd";
+			this->btnAdd->Size = System::Drawing::Size(149, 27);
+			this->btnAdd->TabIndex = 18;
+			this->btnAdd->Text = L"&Agregar Productos";
+			this->btnAdd->UseVisualStyleBackColor = true;
+			this->btnAdd->Click += gcnew System::EventHandler(this, &ProductsStoreForm::btnAdd_Click);
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point(102, 34);
+			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(48, 13);
+			this->label3->TabIndex = 30;
+			this->label3->Text = L"Almacén";
+			// 
+			// cmbStore
+			// 
+			this->cmbStore->FormattingEnabled = true;
+			this->cmbStore->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Habilitado", L"Desabilitado", L"Repleto" });
+			this->cmbStore->Location = System::Drawing::Point(167, 32);
+			this->cmbStore->Margin = System::Windows::Forms::Padding(2);
+			this->cmbStore->Name = L"cmbStore";
+			this->cmbStore->Size = System::Drawing::Size(307, 21);
+			this->cmbStore->TabIndex = 31;
+			this->cmbStore->SelectedIndexChanged += gcnew System::EventHandler(this, &ProductsStoreForm::cmbStore_SelectedIndexChanged);
+			// 
+			// btnCancel
+			// 
+			this->btnCancel->Location = System::Drawing::Point(352, 373);
+			this->btnCancel->Name = L"btnCancel";
+			this->btnCancel->Size = System::Drawing::Size(122, 27);
+			this->btnCancel->TabIndex = 39;
+			this->btnCancel->Text = L"Cancelar";
+			this->btnCancel->UseVisualStyleBackColor = true;
+			this->btnCancel->Click += gcnew System::EventHandler(this, &ProductsStoreForm::btnCancel_Click);
+			// 
+			// btnSave
+			// 
+			this->btnSave->Location = System::Drawing::Point(105, 373);
+			this->btnSave->Name = L"btnSave";
+			this->btnSave->Size = System::Drawing::Size(122, 28);
+			this->btnSave->TabIndex = 38;
+			this->btnSave->Text = L"Guardar";
+			this->btnSave->UseVisualStyleBackColor = true;
+			this->btnSave->Click += gcnew System::EventHandler(this, &ProductsStoreForm::btnSave_Click);
+			// 
 			// ProductsStoreForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(615, 523);
+			this->ClientSize = System::Drawing::Size(615, 413);
 			this->Controls->Add(this->btnCancel);
 			this->Controls->Add(this->btnSave);
 			this->Controls->Add(this->cmbStore);
@@ -245,7 +245,7 @@ namespace SalesView {
 		 public: void LoadCmbStore()
 		 {
 			 cmbStore->Items->Clear();
-			 cmbStore->Text = ("Seleccione un almacen");
+			 cmbStore->Text = ("Seleccione un almacén");
 			 // cmbCategories->Items->Add("Seleccione una categoria");
 			 List<Store^>^ managerList = SalesManager::QueryStore();
 			 for (int i = 0; i < managerList->Count; i++)
@@ -287,8 +287,33 @@ private: System::Void btnAllView_Click(System::Object^ sender, System::EventArgs
 		   }
 	   }
 private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
-	ProductSearch2Form^ psForm = gcnew ProductSearch2Form(this);
-	psForm->ShowDialog();
+	String^ almacen = "";
+	String^ estado = "";
+	almacen = cmbStore->Text;
+	
+	if (almacen =="Seleccione un almacén" )
+	{
+		MessageBox::Show("Debe seleccionar un almacén");
+	}
+	else 
+	{
+		
+		int storeId = ((ComboBoxIdItem^)cmbStore->Items[cmbStore->SelectedIndex])->Value;
+		
+		
+		//int storeID = Int32::Parse(a);
+		Store^ store = SalesManager::QueryStoreByDocumentNumber(storeId);
+		estado = store->Status;
+		if (estado=="Desabilitado")
+		{
+			MessageBox::Show("El almacén seleccionado esta desabilitado");
+		}
+		else 
+		{
+			ProductSearch2Form^ psForm = gcnew ProductSearch2Form(this);
+			psForm->ShowDialog();
+		}
+	}
 }
 	   public:
 		   void ClearDGVStoreProduct() {
@@ -320,6 +345,7 @@ private: System::Void btnSave_Click(System::Object^ sender, System::EventArgs^ e
 	}
 }
 private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
 }
 private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
 	int selectedRows = dgvStore->SelectedRows->Count;
