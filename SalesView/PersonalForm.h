@@ -252,10 +252,11 @@ private: System::Windows::Forms::PictureBox^ pbHuella;
 			// tabControl1
 			// 
 			this->tabControl1->Controls->Add(this->tabPersonal);
-			this->tabControl1->Location = System::Drawing::Point(12, 12);
+			this->tabControl1->Location = System::Drawing::Point(16, 15);
+			this->tabControl1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(729, 628);
+			this->tabControl1->Size = System::Drawing::Size(972, 773);
 			this->tabControl1->TabIndex = 0;
 			// 
 			// tabPersonal
@@ -263,10 +264,11 @@ private: System::Windows::Forms::PictureBox^ pbHuella;
 			this->tabPersonal->Controls->Add(this->panel3);
 			this->tabPersonal->Controls->Add(this->panel1);
 			this->tabPersonal->Controls->Add(this->panel4);
-			this->tabPersonal->Location = System::Drawing::Point(4, 22);
+			this->tabPersonal->Location = System::Drawing::Point(4, 25);
+			this->tabPersonal->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->tabPersonal->Name = L"tabPersonal";
-			this->tabPersonal->Padding = System::Windows::Forms::Padding(2);
-			this->tabPersonal->Size = System::Drawing::Size(721, 602);
+			this->tabPersonal->Padding = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->tabPersonal->Size = System::Drawing::Size(964, 744);
 			this->tabPersonal->TabIndex = 0;
 			this->tabPersonal->Text = L"Personal";
 			this->tabPersonal->UseVisualStyleBackColor = true;
@@ -274,9 +276,10 @@ private: System::Windows::Forms::PictureBox^ pbHuella;
 			// panel3
 			// 
 			this->panel3->Controls->Add(this->dgvPersonal);
-			this->panel3->Location = System::Drawing::Point(5, 345);
+			this->panel3->Location = System::Drawing::Point(7, 425);
+			this->panel3->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(708, 250);
+			this->panel3->Size = System::Drawing::Size(944, 308);
 			this->panel3->TabIndex = 0;
 			// 
 			// dgvPersonal
@@ -287,12 +290,14 @@ private: System::Windows::Forms::PictureBox^ pbHuella;
 					this->Nombre2, this->Apellido1, this->Apellido2, this->Telefono, this->DocumentNumber, this->Correo, this->Usuario, this->Contraseña,
 					this->Cumpleaños
 			});
-			this->dgvPersonal->Location = System::Drawing::Point(15, 16);
+			this->dgvPersonal->Location = System::Drawing::Point(20, 20);
+			this->dgvPersonal->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->dgvPersonal->Name = L"dgvPersonal";
 			this->dgvPersonal->RowHeadersWidth = 51;
-			this->dgvPersonal->Size = System::Drawing::Size(679, 217);
+			this->dgvPersonal->Size = System::Drawing::Size(905, 267);
 			this->dgvPersonal->TabIndex = 0;
 			this->dgvPersonal->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &PersonalForm::dgvPersonal_CellClick);
+			this->dgvPersonal->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &PersonalForm::dgvPersonal_CellContentClick);
 			// 
 			// Nombre1
 			// 
@@ -346,7 +351,9 @@ private: System::Windows::Forms::PictureBox^ pbHuella;
 			// Usuario
 			// 
 			this->Usuario->HeaderText = L"Usuario";
+			this->Usuario->MinimumWidth = 6;
 			this->Usuario->Name = L"Usuario";
+			this->Usuario->Width = 125;
 			// 
 			// Contraseña
 			// 
@@ -388,26 +395,29 @@ private: System::Windows::Forms::PictureBox^ pbHuella;
 			this->panel1->Controls->Add(this->txtEstado);
 			this->panel1->Controls->Add(this->txtNombre2);
 			this->panel1->Controls->Add(this->txtNombre1);
-			this->panel1->Location = System::Drawing::Point(5, 5);
+			this->panel1->Location = System::Drawing::Point(7, 6);
+			this->panel1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(708, 276);
+			this->panel1->Size = System::Drawing::Size(944, 340);
 			this->panel1->TabIndex = 0;
 			// 
 			// pbHuella
 			// 
 			this->pbHuella->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->pbHuella->Location = System::Drawing::Point(602, 198);
+			this->pbHuella->Location = System::Drawing::Point(803, 244);
+			this->pbHuella->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pbHuella->Name = L"pbHuella";
-			this->pbHuella->Size = System::Drawing::Size(73, 66);
+			this->pbHuella->Size = System::Drawing::Size(96, 80);
 			this->pbHuella->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pbHuella->TabIndex = 58;
 			this->pbHuella->TabStop = false;
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(505, 221);
+			this->button1->Location = System::Drawing::Point(673, 272);
+			this->button1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(86, 23);
+			this->button1->Size = System::Drawing::Size(115, 28);
 			this->button1->TabIndex = 57;
 			this->button1->Text = L"&Agregar Huella";
 			this->button1->UseVisualStyleBackColor = true;
@@ -416,181 +426,197 @@ private: System::Windows::Forms::PictureBox^ pbHuella;
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(502, 163);
-			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label1->Location = System::Drawing::Point(669, 201);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(43, 13);
+			this->label1->Size = System::Drawing::Size(57, 17);
 			this->label1->TabIndex = 56;
 			this->label1->Text = L"Usuario";
 			// 
 			// txtUsuario
 			// 
-			this->txtUsuario->Location = System::Drawing::Point(551, 160);
-			this->txtUsuario->Margin = System::Windows::Forms::Padding(2);
+			this->txtUsuario->Location = System::Drawing::Point(735, 197);
+			this->txtUsuario->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->txtUsuario->Name = L"txtUsuario";
-			this->txtUsuario->Size = System::Drawing::Size(94, 20);
+			this->txtUsuario->Size = System::Drawing::Size(124, 22);
 			this->txtUsuario->TabIndex = 55;
 			// 
 			// txtBirthday
 			// 
-			this->txtBirthday->Location = System::Drawing::Point(140, 223);
-			this->txtBirthday->Margin = System::Windows::Forms::Padding(2);
+			this->txtBirthday->Location = System::Drawing::Point(187, 274);
+			this->txtBirthday->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->txtBirthday->Name = L"txtBirthday";
-			this->txtBirthday->Size = System::Drawing::Size(124, 20);
+			this->txtBirthday->Size = System::Drawing::Size(164, 22);
 			this->txtBirthday->TabIndex = 54;
 			// 
 			// label23
 			// 
 			this->label23->AutoSize = true;
-			this->label23->Location = System::Drawing::Point(303, 163);
+			this->label23->Location = System::Drawing::Point(404, 201);
+			this->label23->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label23->Name = L"label23";
-			this->label23->Size = System::Drawing::Size(38, 13);
+			this->label23->Size = System::Drawing::Size(51, 17);
 			this->label23->TabIndex = 53;
 			this->label23->Text = L"Correo";
 			// 
 			// label22
 			// 
 			this->label22->AutoSize = true;
-			this->label22->Location = System::Drawing::Point(26, 226);
-			this->label22->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label22->Location = System::Drawing::Point(35, 278);
 			this->label22->Name = L"label22";
-			this->label22->Size = System::Drawing::Size(108, 13);
+			this->label22->Size = System::Drawing::Size(141, 17);
 			this->label22->TabIndex = 52;
 			this->label22->Text = L"Fecha de Nacimiento";
 			// 
 			// label19
 			// 
 			this->label19->AutoSize = true;
-			this->label19->Location = System::Drawing::Point(280, 226);
+			this->label19->Location = System::Drawing::Point(373, 278);
+			this->label19->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label19->Name = L"label19";
-			this->label19->Size = System::Drawing::Size(61, 13);
+			this->label19->Size = System::Drawing::Size(81, 17);
 			this->label19->TabIndex = 48;
 			this->label19->Text = L"Contraseña";
 			// 
 			// label18
 			// 
 			this->label18->AutoSize = true;
-			this->label18->Location = System::Drawing::Point(48, 163);
+			this->label18->Location = System::Drawing::Point(64, 201);
+			this->label18->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label18->Name = L"label18";
-			this->label18->Size = System::Drawing::Size(86, 13);
+			this->label18->Size = System::Drawing::Size(112, 17);
 			this->label18->TabIndex = 47;
 			this->label18->Text = L"DNI o Pasaporte";
 			// 
 			// label17
 			// 
 			this->label17->AutoSize = true;
-			this->label17->Location = System::Drawing::Point(496, 99);
+			this->label17->Location = System::Drawing::Point(661, 122);
+			this->label17->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label17->Name = L"label17";
-			this->label17->Size = System::Drawing::Size(49, 13);
+			this->label17->Size = System::Drawing::Size(64, 17);
 			this->label17->TabIndex = 46;
 			this->label17->Text = L"Teléfono";
 			// 
 			// label16
 			// 
 			this->label16->AutoSize = true;
-			this->label16->Location = System::Drawing::Point(288, 99);
+			this->label16->Location = System::Drawing::Point(384, 122);
+			this->label16->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label16->Name = L"label16";
-			this->label16->Size = System::Drawing::Size(53, 13);
+			this->label16->Size = System::Drawing::Size(70, 17);
 			this->label16->TabIndex = 45;
 			this->label16->Text = L"Apellido 2";
 			// 
 			// label15
 			// 
 			this->label15->AutoSize = true;
-			this->label15->Location = System::Drawing::Point(81, 99);
+			this->label15->Location = System::Drawing::Point(108, 122);
+			this->label15->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label15->Name = L"label15";
-			this->label15->Size = System::Drawing::Size(53, 13);
+			this->label15->Size = System::Drawing::Size(70, 17);
 			this->label15->TabIndex = 44;
 			this->label15->Text = L"Apellido 1";
 			// 
 			// label14
 			// 
 			this->label14->AutoSize = true;
-			this->label14->Location = System::Drawing::Point(505, 34);
+			this->label14->Location = System::Drawing::Point(673, 42);
+			this->label14->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label14->Name = L"label14";
-			this->label14->Size = System::Drawing::Size(40, 13);
+			this->label14->Size = System::Drawing::Size(52, 17);
 			this->label14->TabIndex = 43;
 			this->label14->Text = L"Estado";
 			// 
 			// label13
 			// 
 			this->label13->AutoSize = true;
-			this->label13->Location = System::Drawing::Point(288, 34);
+			this->label13->Location = System::Drawing::Point(384, 42);
+			this->label13->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(53, 13);
+			this->label13->Size = System::Drawing::Size(70, 17);
 			this->label13->TabIndex = 42;
 			this->label13->Text = L"Nombre 2";
 			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(81, 34);
+			this->label8->Location = System::Drawing::Point(108, 42);
+			this->label8->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(53, 13);
+			this->label8->Size = System::Drawing::Size(70, 17);
 			this->label8->TabIndex = 41;
 			this->label8->Text = L"Nombre 1";
 			// 
 			// txtContraseña
 			// 
-			this->txtContraseña->Location = System::Drawing::Point(347, 223);
+			this->txtContraseña->Location = System::Drawing::Point(463, 274);
+			this->txtContraseña->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->txtContraseña->Name = L"txtContraseña";
-			this->txtContraseña->Size = System::Drawing::Size(94, 20);
+			this->txtContraseña->Size = System::Drawing::Size(124, 22);
 			this->txtContraseña->TabIndex = 38;
 			// 
 			// txtCorreo
 			// 
-			this->txtCorreo->Location = System::Drawing::Point(347, 160);
+			this->txtCorreo->Location = System::Drawing::Point(463, 197);
+			this->txtCorreo->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->txtCorreo->Name = L"txtCorreo";
-			this->txtCorreo->Size = System::Drawing::Size(124, 20);
+			this->txtCorreo->Size = System::Drawing::Size(164, 22);
 			this->txtCorreo->TabIndex = 37;
 			// 
 			// txtDocumentNumber
 			// 
-			this->txtDocumentNumber->Location = System::Drawing::Point(140, 160);
+			this->txtDocumentNumber->Location = System::Drawing::Point(187, 197);
+			this->txtDocumentNumber->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->txtDocumentNumber->Name = L"txtDocumentNumber";
-			this->txtDocumentNumber->Size = System::Drawing::Size(124, 20);
+			this->txtDocumentNumber->Size = System::Drawing::Size(164, 22);
 			this->txtDocumentNumber->TabIndex = 36;
 			// 
 			// txtTelefono
 			// 
-			this->txtTelefono->Location = System::Drawing::Point(551, 96);
+			this->txtTelefono->Location = System::Drawing::Point(735, 118);
+			this->txtTelefono->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->txtTelefono->Name = L"txtTelefono";
-			this->txtTelefono->Size = System::Drawing::Size(124, 20);
+			this->txtTelefono->Size = System::Drawing::Size(164, 22);
 			this->txtTelefono->TabIndex = 35;
 			// 
 			// txtApellido2
 			// 
-			this->txtApellido2->Location = System::Drawing::Point(347, 96);
+			this->txtApellido2->Location = System::Drawing::Point(463, 118);
+			this->txtApellido2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->txtApellido2->Name = L"txtApellido2";
-			this->txtApellido2->Size = System::Drawing::Size(124, 20);
+			this->txtApellido2->Size = System::Drawing::Size(164, 22);
 			this->txtApellido2->TabIndex = 34;
 			// 
 			// txtApellido1
 			// 
-			this->txtApellido1->Location = System::Drawing::Point(140, 96);
+			this->txtApellido1->Location = System::Drawing::Point(187, 118);
+			this->txtApellido1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->txtApellido1->Name = L"txtApellido1";
-			this->txtApellido1->Size = System::Drawing::Size(124, 20);
+			this->txtApellido1->Size = System::Drawing::Size(164, 22);
 			this->txtApellido1->TabIndex = 33;
 			// 
 			// txtEstado
 			// 
-			this->txtEstado->Location = System::Drawing::Point(551, 31);
+			this->txtEstado->Location = System::Drawing::Point(735, 38);
+			this->txtEstado->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->txtEstado->Name = L"txtEstado";
-			this->txtEstado->Size = System::Drawing::Size(124, 20);
+			this->txtEstado->Size = System::Drawing::Size(164, 22);
 			this->txtEstado->TabIndex = 32;
 			// 
 			// txtNombre2
 			// 
-			this->txtNombre2->Location = System::Drawing::Point(347, 31);
+			this->txtNombre2->Location = System::Drawing::Point(463, 38);
+			this->txtNombre2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->txtNombre2->Name = L"txtNombre2";
-			this->txtNombre2->Size = System::Drawing::Size(124, 20);
+			this->txtNombre2->Size = System::Drawing::Size(164, 22);
 			this->txtNombre2->TabIndex = 31;
 			// 
 			// txtNombre1
 			// 
-			this->txtNombre1->Location = System::Drawing::Point(140, 31);
+			this->txtNombre1->Location = System::Drawing::Point(187, 38);
+			this->txtNombre1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->txtNombre1->Name = L"txtNombre1";
-			this->txtNombre1->Size = System::Drawing::Size(124, 20);
+			this->txtNombre1->Size = System::Drawing::Size(164, 22);
 			this->txtNombre1->TabIndex = 30;
 			// 
 			// panel4
@@ -601,16 +627,18 @@ private: System::Windows::Forms::PictureBox^ pbHuella;
 			this->panel4->Controls->Add(this->btnDelete);
 			this->panel4->Controls->Add(this->btnUpdate);
 			this->panel4->Controls->Add(this->btnAdd);
-			this->panel4->Location = System::Drawing::Point(5, 287);
+			this->panel4->Location = System::Drawing::Point(7, 353);
+			this->panel4->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->panel4->Name = L"panel4";
-			this->panel4->Size = System::Drawing::Size(708, 52);
+			this->panel4->Size = System::Drawing::Size(944, 64);
 			this->panel4->TabIndex = 1;
 			// 
 			// btnClear
 			// 
-			this->btnClear->Location = System::Drawing::Point(612, 14);
+			this->btnClear->Location = System::Drawing::Point(816, 17);
+			this->btnClear->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnClear->Name = L"btnClear";
-			this->btnClear->Size = System::Drawing::Size(82, 23);
+			this->btnClear->Size = System::Drawing::Size(109, 28);
 			this->btnClear->TabIndex = 57;
 			this->btnClear->Text = L"Limpiar";
 			this->btnClear->UseVisualStyleBackColor = true;
@@ -618,9 +646,10 @@ private: System::Windows::Forms::PictureBox^ pbHuella;
 			// 
 			// btnAllView
 			// 
-			this->btnAllView->Location = System::Drawing::Point(490, 14);
+			this->btnAllView->Location = System::Drawing::Point(653, 17);
+			this->btnAllView->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnAllView->Name = L"btnAllView";
-			this->btnAllView->Size = System::Drawing::Size(82, 23);
+			this->btnAllView->Size = System::Drawing::Size(109, 28);
 			this->btnAllView->TabIndex = 58;
 			this->btnAllView->Text = L"Mostrar todo";
 			this->btnAllView->UseVisualStyleBackColor = true;
@@ -628,9 +657,10 @@ private: System::Windows::Forms::PictureBox^ pbHuella;
 			// 
 			// btnSearch
 			// 
-			this->btnSearch->Location = System::Drawing::Point(369, 14);
+			this->btnSearch->Location = System::Drawing::Point(492, 17);
+			this->btnSearch->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnSearch->Name = L"btnSearch";
-			this->btnSearch->Size = System::Drawing::Size(82, 23);
+			this->btnSearch->Size = System::Drawing::Size(109, 28);
 			this->btnSearch->TabIndex = 3;
 			this->btnSearch->Text = L"&Buscar";
 			this->btnSearch->UseVisualStyleBackColor = true;
@@ -638,9 +668,10 @@ private: System::Windows::Forms::PictureBox^ pbHuella;
 			// 
 			// btnDelete
 			// 
-			this->btnDelete->Location = System::Drawing::Point(249, 14);
+			this->btnDelete->Location = System::Drawing::Point(332, 17);
+			this->btnDelete->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnDelete->Name = L"btnDelete";
-			this->btnDelete->Size = System::Drawing::Size(82, 23);
+			this->btnDelete->Size = System::Drawing::Size(109, 28);
 			this->btnDelete->TabIndex = 2;
 			this->btnDelete->Text = L"&Eliminar";
 			this->btnDelete->UseVisualStyleBackColor = true;
@@ -648,9 +679,10 @@ private: System::Windows::Forms::PictureBox^ pbHuella;
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(131, 14);
+			this->btnUpdate->Location = System::Drawing::Point(175, 17);
+			this->btnUpdate->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnUpdate->Name = L"btnUpdate";
-			this->btnUpdate->Size = System::Drawing::Size(82, 23);
+			this->btnUpdate->Size = System::Drawing::Size(109, 28);
 			this->btnUpdate->TabIndex = 1;
 			this->btnUpdate->Text = L"&Modificar";
 			this->btnUpdate->UseVisualStyleBackColor = true;
@@ -658,9 +690,10 @@ private: System::Windows::Forms::PictureBox^ pbHuella;
 			// 
 			// btnAdd
 			// 
-			this->btnAdd->Location = System::Drawing::Point(15, 14);
+			this->btnAdd->Location = System::Drawing::Point(20, 17);
+			this->btnAdd->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnAdd->Name = L"btnAdd";
-			this->btnAdd->Size = System::Drawing::Size(82, 23);
+			this->btnAdd->Size = System::Drawing::Size(109, 28);
 			this->btnAdd->TabIndex = 0;
 			this->btnAdd->Text = L"&Agregar";
 			this->btnAdd->UseVisualStyleBackColor = true;
@@ -668,10 +701,11 @@ private: System::Windows::Forms::PictureBox^ pbHuella;
 			// 
 			// PersonalForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(747, 644);
+			this->ClientSize = System::Drawing::Size(996, 793);
 			this->Controls->Add(this->tabControl1);
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"PersonalForm";
 			this->Text = L"Personal";
 			this->Load += gcnew System::EventHandler(this, &PersonalForm::PersonalForm_Load);
@@ -852,7 +886,7 @@ private: System::Void dgvPersonal_CellClick(System::Object^ sender, System::Wind
 
 		String^ personalID = a;
 		Personal^ personal = SalesManager::QueryPersonalByDocumentNumber(personalID);
-		//MessageBox::Show(customer->ToString());
+		MessageBox::Show(personal->FirstName);
 		if (personal != nullptr) {
 			txtDocumentNumber->Text = personal->DocumentNumber;
 			txtNombre1->Text = personal->FirstName;
@@ -898,7 +932,7 @@ private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^
 		dgvPersonal->Rows->Clear();
 		List<Personal^>^ personalList = SalesManager::QueryPersonal();
 		for (int i = 0; i < personalList->Count; i++) {
-			if (ps->Id == personalList[i]->Id)
+			if (ps->DocumentNumber == personalList[i]->DocumentNumber)
 			{
 				dgvPersonal->Rows->Add(gcnew array<String^>{
 					personalList[i]->FirstName,
@@ -942,6 +976,8 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	{
 		pbHuella->Image = gcnew Bitmap(opnfd->FileName);
 	}
+}
+private: System::Void dgvPersonal_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 }
 };
 }

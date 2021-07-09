@@ -560,18 +560,150 @@ void SalesController::DBController::DeletePersonal(String^ DocumentNumber)
 }
 
 List<Personal^>^ SalesController::DBController::QueryPersonal()
-{
+{/*
     LoadPersonal();
     return personalDB->ListDBP;
+    */
+
+    /* 1er paso: Se obtiene la conexión */
+    SqlConnection^ conn = GetConnection();
+
+    /* 2do paso: Se prepara la sentencia */
+    SqlCommand^ comm = gcnew SqlCommand("usp_QueryAllPersonal", conn);
+    comm->CommandType = System::Data::CommandType::StoredProcedure;
+
+    SqlDataReader^ reader = comm->ExecuteReader();
+
+    List<Personal^>^ list = gcnew List<Personal^>();
+    while (reader->Read()) {
+        Personal^ s = gcnew Personal();
+        s->Id = Int32::Parse(reader["id"]->ToString());
+        s-> DocumentNumber = reader["document_number"]->ToString();
+        s->Username = reader["username"]->ToString();
+        s->Password = reader["password"]->ToString();
+        s->FirstName = reader["first_name"]->ToString();
+        s->SecondName = reader["second_name"]->ToString();
+        s->FirstLastName = reader["first_last_name"]->ToString();
+        s->SecondLastName = reader["second_last_name"]->ToString();
+        s->Status =  reader["status"]->ToString()[0];
+        s->Salary= Double::Parse(reader["salary"]->ToString());
+        s->Incress = Double::Parse(reader["incress"]->ToString());
+        s->PersonalEmail = reader["personal_email"]->ToString();
+        s->PhoneNumber = reader["phone_number"]->ToString();
+        DateTime^ sdate = safe_cast<DateTime^>(reader["birthday"]);
+        s->Birthday = sdate->ToString("dd/MM/yyyy", CultureInfo::InvariantCulture);
+        //s->Huella = (array<Byte>^)reader["photo"];
+        s->Activo = reader["activo"]->ToString();
+
+        List<Asistencia^>^ LIST_asis = gcnew List<Asistencia^>();
+        // LLAMADO A ASISITEICA 
+
+        SqlConnection^ conn2 = GetConnection();
+
+        /* 2do paso: Se prepara la sentencia */
+        SqlCommand^ comm = gcnew SqlCommand("usp_QueryAsistenciaByDocumentNumber", conn2);
+        comm->CommandType = System::Data::CommandType::StoredProcedure;
+        comm->Parameters->Add("@document_number", System::Data::SqlDbType::Int);
+        comm->Prepare();
+        comm->Parameters["@document_number"]->Value = s->Id;
+        comm->CommandType = System::Data::CommandType::StoredProcedure;
+
+        SqlDataReader^ reader2 = comm->ExecuteReader();
+
+
+        while (reader2->Read()) {
+            Asistencia^ asis = gcnew Asistencia();
+
+            DateTime^ sdate = safe_cast<DateTime^>(reader2["fecha"]);
+            asis->Fecha = sdate->Date;
+
+            LIST_asis->Add(asis);
+        
+
+            if (reader2 != nullptr) reader->Close();
+            if (conn2 != nullptr) conn->Close();
+
+        }
+
+        
+        s->AsistenciaList = LIST_asis;
+        list->Add(s);
+
+    }
+
+    //IMPORTANTE Paso 4: Cerramos la conexión con la BD
+    if (reader != nullptr) reader->Close();
+    if (conn != nullptr) conn->Close();
+
+    return list;
 }
 
 Personal^ SalesController::DBController::QueryPersonalByDocumentNumber(String^ personalDocumentNumber)
-{
+{/*
     LoadPersonal();
     for (int i = 0; i < personalDB->ListDBP->Count; i++)
         if (personalDB->ListDBP[i]->DocumentNumber == personalDocumentNumber)
             return personalDB->ListDBP[i];
-    return nullptr;
+    return nullptr;*/
+
+
+    /* 1er paso: Se obtiene la conexión */
+    SqlConnection^ conn = GetConnection();
+
+    /* 2do paso: Se prepara la sentencia */
+    SqlCommand^ comm;
+
+    comm = gcnew SqlCommand("usp_QueryPersonalByDocumentNumber", conn);
+    comm->CommandType = System::Data::CommandType::StoredProcedure;
+    comm->Parameters->Add("@document_number", System::Data::SqlDbType::Int);
+    comm->Prepare();
+    comm->Parameters["@document_number"]->Value = Int32::Parse(personalDocumentNumber);
+
+    /* 3er paso: Se ejecuta la sentencia */
+    SqlDataReader^ reader = comm->ExecuteReader();
+
+    /* 4to paso: Se evalúa el resultado */
+    Personal^ p = nullptr;
+    if (reader->Read()) {
+        p = gcnew Personal();
+        if (!DBNull::Value->Equals(reader["id"]))
+            p->Id = Int32::Parse(reader["id"]->ToString());
+        if (!DBNull::Value->Equals(reader["document_number"]))
+            p->DocumentNumber = reader["document_number"]->ToString();
+        if (!DBNull::Value->Equals(reader["username"]))
+            p->Username = reader["username"]->ToString();
+        if (!DBNull::Value->Equals(reader["password"]))
+            p->Password = (reader["password"]->ToString());
+        if (!DBNull::Value->Equals(reader["first_name"]))
+            p->FirstName = (reader["first_name"]->ToString());
+        if (!DBNull::Value->Equals(reader["second_name"]))
+            p->SecondName = reader["second_name"]->ToString();
+        if (!DBNull::Value->Equals(reader["first_last_name"]))
+            p->FirstLastName = (reader["first_last_name"]->ToString());
+        if (!DBNull::Value->Equals(reader["second_last_name"]))
+            p->SecondLastName = reader["second_last_name"]->ToString();
+        if (!DBNull::Value->Equals(reader["status"]))
+            p->Status = reader["status"]->ToString()[0];
+        if (!DBNull::Value->Equals(reader["salary"]))
+            p->Salary = Double::Parse(reader["salary"]->ToString());
+        if (!DBNull::Value->Equals(reader["incress"]))
+            p->Incress = Double::Parse(reader["incress"]->ToString());
+        if (!DBNull::Value->Equals(reader["personal_email"]))
+            p->PersonalEmail = reader["personal_email"]->ToString();
+        if (!DBNull::Value->Equals(reader["phone_number"]))
+            p->PhoneNumber = reader["phone_number"]->ToString();
+        if (!DBNull::Value->Equals(reader["status"])){
+            DateTime^ sdate = safe_cast<DateTime^>(reader["birthday"]);
+            p->Birthday = sdate->ToString("dd/MM/yyyy", CultureInfo::InvariantCulture);}
+        if (!DBNull::Value->Equals(reader["activo"]))
+            p->Activo = reader["activo"]->ToString();    
+    }
+
+    /* 5to Paso: Cerramos la conexión con la BD */
+    if (conn != nullptr)	conn->Close();
+    return p;
+
+
 }
 
 
@@ -592,9 +724,15 @@ void SalesController::DBController::UpdateStore(Store^ store)
 
 void SalesController::DBController::AddClient(Client^ client)
 {
-    clientDB->ListDBC->Add(client);
-    SaveClient();
-}
+    /*clientDB->ListDBC->Add(client);
+    SaveClient();*/
+
+    /*
+    productDB->ListDB->Add(product);
+    SaveProducts();
+    */
+
+    }
 
 void SalesController::DBController::UpdateClient(Client^ client)
 {
